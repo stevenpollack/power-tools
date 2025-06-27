@@ -1,0 +1,140 @@
+{
+  "$ref": "#/definitions/tools",
+  "definitions": {
+    "tools": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "subcategory": {
+          "type": "string"
+        },
+        "homeDepotSku": {
+          "type": "string"
+        },
+        "homeDepotUrl": {
+          "type": "string"
+        },
+        "image": {
+          "type": "object",
+          "properties": {
+            "filename": {
+              "type": "string"
+            },
+            "originalUrl": {
+              "type": "string"
+            },
+            "license": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "filename",
+            "originalUrl",
+            "license"
+          ],
+          "additionalProperties": false
+        },
+        "specifications": {
+          "type": "object",
+          "properties": {
+            "power": {
+              "type": "string"
+            },
+            "weight": {
+              "type": "string"
+            },
+            "dimensions": {
+              "type": "string"
+            },
+            "keyFeatures": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "batteryLife": {
+              "type": "string"
+            },
+            "cordless": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "power",
+            "weight",
+            "dimensions",
+            "keyFeatures",
+            "cordless"
+          ],
+          "additionalProperties": false
+        },
+        "pricing": {
+          "type": "object",
+          "properties": {
+            "currentPrice": {
+              "type": "number"
+            },
+            "msrp": {
+              "type": "number"
+            },
+            "onSale": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "currentPrice",
+            "onSale"
+          ],
+          "additionalProperties": false
+        },
+        "popularity": {
+          "type": "object",
+          "properties": {
+            "reviewCount": {
+              "type": "number"
+            },
+            "averageRating": {
+              "type": "number"
+            },
+            "homeDepotRank": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "reviewCount",
+            "averageRating"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "slug",
+        "brand",
+        "category",
+        "homeDepotSku",
+        "homeDepotUrl",
+        "image",
+        "specifications",
+        "pricing",
+        "popularity"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

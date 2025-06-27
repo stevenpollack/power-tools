@@ -1,0 +1,45 @@
+---
+// Import statements for content collections will be added after dependencies are installed
+export interface Props {
+  featured?: string[]; // Array of review IDs to feature
+  filter?: {
+    author?: string;
+    tool?: string;
+    mood?: string;
+    category?: string;
+  };
+}
+
+const { featured = [], filter = {} } = Astro.props;
+---
+
+<div class="card-wall-container">
+  <div class="floating-cards-grid">
+    <!-- FloatingCard components will be rendered here -->
+    <p class="placeholder">Card wall implementation placeholder - ready for Phase 3</p>
+  </div>
+</div>
+
+<style>
+  .card-wall-container {
+    min-height: 100vh;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .floating-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .placeholder {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: white;
+    font-size: 1.25rem;
+    padding: 2rem;
+  }
+</style> 
