@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useStore } from "@nanostores/react";
 import { cardInteractions } from "@/stores/cardStore";
+import { useCardInteractions } from "@/hooks/useCardInteractions";
 import { cn } from "@/lib/utils";
 import type { Review, CardSize } from "@/lib/types";
 
@@ -21,18 +22,41 @@ export const FloatingCard: React.FC<FloatingCardProps> = ({
   const isHovered = $cardInteractions.hoveredCard === review.id;
   const isExpanded = $cardInteractions.expandedCard === review.id;
 
+  const { 
+    isMobile, 
+    handleCardInteraction, 
+    handleCardHover,
+    handleLongPress 
+  } = useCardInteractions({
+    onCardSelect: onCardClick
+  });
+
   const handleMouseEnter = () => {
-    cardInteractions.setKey("hoveredCard", review.id);
+    handleCardHover(review.id);
   };
 
   const handleMouseLeave = () => {
-    cardInteractions.setKey("hoveredCard", null);
+    handleCardHover(null);
   };
 
-  const handleClick = () => {
-    onCardClick?.(review.id);
-    cardInteractions.setKey("expandedCard", review.id);
-    cardInteractions.setKey("isCardDetailsOpen", true);
+  const handleClick = (e: React.MouseEvent) => {
+    handleCardInteraction(review.id, e);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    // Handle long press for mobile context menu
+    const longPressTimer = setTimeout(() => {
+      handleLongPress(review.id);
+    }, 800);
+
+    const cleanup = () => {
+      clearTimeout(longPressTimer);
+      e.currentTarget.removeEventListener('touchend', cleanup);
+      e.currentTarget.removeEventListener('touchmove', cleanup);
+    };
+
+    e.currentTarget.addEventListener('touchend', cleanup);
+    e.currentTarget.addEventListener('touchmove', cleanup);
   };
 
   return (
