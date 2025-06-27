@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+When generating commit messages, always adhere to the format specified in [conventional-commits.mdc](mdc:.cursor/rules/conventional-commits.mdc).
