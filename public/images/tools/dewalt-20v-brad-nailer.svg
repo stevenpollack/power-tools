@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background: white;">
+    <!-- Main body -->
+    <rect x="100" y="120" width="80" height="180" rx="10" fill="#FFD320" stroke="#2C2C2C" stroke-width="3"/>
+    <!-- Handle -->
+    <rect x="80" y="160" width="30" height="100" rx="15" fill="#2C2C2C"/>
+    <rect x="85" y="170" width="20" height="80" rx="10" fill="#FFD320"/>
+    <!-- Trigger -->
+    <path d="M 110 220 Q 120 225 115 235 Q 110 240 105 235 Q 100 230 105 225 Z" fill="#FFD320" stroke="#2C2C2C" stroke-width="2"/>
+    <!-- Nail magazine -->
+    <rect x="180" y="180" width="40" height="120" rx="8" fill="#666666" stroke="#2C2C2C" stroke-width="2"/>
+    <!-- Nose -->
+    <rect x="120" y="300" width="20" height="60" rx="5" fill="#2C2C2C"/>
+    <rect x="125" y="350" width="10" height="20" rx="2" fill="#888888"/>
+    <!-- Brand -->
+    <text x="140" y="170" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C2C2C">DEWALT</text>
+    <!-- Air hose -->
+    <circle cx="60" cy="200" r="8" fill="#2C2C2C"/>
+  </svg>

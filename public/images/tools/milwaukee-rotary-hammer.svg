@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background: white;">
+    <!-- Main body -->
+    <rect x="50" y="150" width="220" height="80" rx="10" fill="#E31E24" stroke="#2C2C2C" stroke-width="3"/>
+    <!-- Chuck -->
+    <rect x="270" y="170" width="40" height="40" rx="20" fill="#666666" stroke="#2C2C2C" stroke-width="2"/>
+    <circle cx="290" cy="190" r="10" fill="#444444"/>
+    <!-- SDS bit -->
+    <rect x="310" y="188" width="50" height="4" fill="#888888"/>
+    <polygon points="360,188 370,190 360,192" fill="#666666"/>
+    <!-- Handle -->
+    <rect x="50" y="230" width="30" height="120" rx="15" fill="#2C2C2C"/>
+    <rect x="55" y="240" width="20" height="100" rx="10" fill="#E31E24"/>
+    <!-- Trigger -->
+    <path d="M 80 280 Q 90 285 85 295 Q 80 300 75 295 Q 70 290 75 285 Z" fill="#E31E24" stroke="#2C2C2C" stroke-width="2"/>
+    <!-- Mode selector -->
+    <circle cx="150" cy="170" r="12" fill="#2C2C2C"/>
+    <rect x="145" y="160" width="10" height="5" fill="#FFD700"/>
+    <!-- Brand -->
+    <text x="150" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2C2C2C">MILWAUKEE</text>
+    <!-- Vibration control -->
+    <rect x="120" y="200" width="20" height="8" rx="4" fill="#FFD700"/>
+  </svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background: white;">
+    <!-- Main body -->
+    <rect x="160" y="150" width="80" height="180" rx="15" fill="#0066CC" stroke="#2C2C2C" stroke-width="3"/>
+    <!-- Nose -->
+    <rect x="180" y="120" width="40" height="30" rx="20" fill="#2C2C2C"/>
+    <!-- Collet -->
+    <circle cx="200" cy="135" r="8" fill="#666666"/>
+    <circle cx="200" cy="135" r="3" fill="#222222"/>
+    <!-- Bit -->
+    <rect x="198" y="100" width="4" height="35" fill="#888888"/>
+    <circle cx="200" cy="100" r="3" fill="#666666"/>
+    <!-- Speed control -->
+    <circle cx="200" cy="200" r="15" fill="#2C2C2C"/>
+    <circle cx="200" cy="200" r="10" fill="#0066CC"/>
+    <circle cx="200" cy="200" r="3" fill="#2C2C2C"/>
+    <!-- Brand -->
+    <text x="200" y="260" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#2C2C2C">DREMEL</text>
+    <!-- Power cord -->
+    <rect x="140" y="290" width="40" height="8" rx="4" fill="#2C2C2C"/>
+  </svg>

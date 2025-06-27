@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background: white;">
+    <!-- Main body -->
+    <rect x="100" y="160" width="200" height="80" rx="10" fill="#FFD320" stroke="#2C2C2C" stroke-width="3"/>
+    <!-- Handle -->
+    <rect x="120" y="120" width="30" height="60" rx="15" fill="#2C2C2C"/>
+    <rect x="125" y="130" width="20" height="40" rx="10" fill="#FFD320"/>
+    <!-- Base plate -->
+    <rect x="120" y="260" width="160" height="20" rx="10" fill="#666666" stroke="#2C2C2C" stroke-width="2"/>
+    <!-- Sanding pad -->
+    <rect x="130" y="270" width="140" height="15" rx="7" fill="#F4A460"/>
+    <!-- Dust port -->
+    <circle cx="280" cy="200" r="15" fill="#2C2C2C"/>
+    <circle cx="280" cy="200" r="8" fill="#444444"/>
+    <!-- Brand -->
+    <text x="200" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2C2C2C">DEWALT</text>
+    <!-- Orbital indicator -->
+    <circle cx="160" cy="180" r="5" fill="#FF4444" opacity="0.8"/>
+  </svg>

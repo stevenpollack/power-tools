@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background: white;">
+  <!-- Main body -->
+  <path d="M 50 200 L 300 200 L 320 220 L 320 280 L 300 300 L 50 300 Q 30 300 30 280 L 30 220 Q 30 200 50 200 Z" fill="#6ABE45" stroke="#2C2C2C" stroke-width="3"/>
+  <!-- Motor housing -->
+  <circle cx="120" cy="180" r="40" fill="#2C2C2C"/>
+  <circle cx="120" cy="180" r="30" fill="#6ABE45"/>
+  <!-- Handle -->
+  <rect x="40" y="150" width="25" height="100" rx="12" fill="#2C2C2C"/>
+  <rect x="45" y="160" width="15" height="80" rx="7" fill="#6ABE45"/>
+  <!-- Trigger -->
+  <path d="M 65 210 Q 75 215 70 225 Q 65 230 60 225 Q 55 220 60 215 Z" fill="#6ABE45" stroke="#2C2C2C" stroke-width="2"/>
+  <!-- Blade guard -->
+  <path d="M 180 250 Q 250 220 280 280 Q 250 340 180 310 Z" fill="#666666" stroke="#2C2C2C" stroke-width="2"/>
+  <!-- Saw blade -->
+  <circle cx="240" cy="280" r="60" fill="#C0C0C0" stroke="#888888" stroke-width="2"/>
+  <circle cx="240" cy="280" r="5" fill="#2C2C2C"/>
+  <!-- Base plate -->
+  <rect x="200" y="320" width="120" height="15" rx="7" fill="#666666" stroke="#2C2C2C" stroke-width="2"/>
+  <!-- Brand -->
+  <text x="150" y="235" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#2C2C2C">RYOBI</text>
+</svg>

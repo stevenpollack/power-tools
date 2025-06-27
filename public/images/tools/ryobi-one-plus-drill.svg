@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" style="background: white;">
+  <!-- Drill body -->
+  <rect x="50" y="150" width="200" height="80" rx="10" fill="#6ABE45" stroke="#2C2C2C" stroke-width="3"/>
+  
+  <!-- Drill chuck -->
+  <circle cx="280" cy="190" r="25" fill="#666666" stroke="#2C2C2C" stroke-width="2"/>
+  <circle cx="280" cy="190" r="15" fill="#444444"/>
+  <circle cx="280" cy="190" r="8" fill="#222222"/>
+  
+  <!-- Drill bit -->
+  <rect x="305" y="188" width="40" height="4" fill="#888888"/>
+  <polygon points="345,188 355,190 345,192" fill="#666666"/>
+  
+  <!-- Handle -->
+  <rect x="50" y="230" width="30" height="120" rx="15" fill="#2C2C2C"/>
+  <rect x="55" y="240" width="20" height="100" rx="10" fill="#6ABE45"/>
+  
+  <!-- Trigger -->
+  <path d="M 80 280 Q 90 285 85 295 Q 80 300 75 295 Q 70 290 75 285 Z" fill="#6ABE45" stroke="#2C2C2C" stroke-width="2"/>
+  
+  <!-- Battery -->
+  <rect x="80" y="320" width="60" height="40" rx="5" fill="#2C2C2C"/>
+  <rect x="85" y="325" width="50" height="30" rx="3" fill="#6ABE45"/>
+  <text x="110" y="345" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">18V</text>
+  
+  <!-- Ryobi logo area -->
+  <rect x="60" y="160" width="50" height="20" rx="3" fill="#2C2C2C"/>
+  <text x="85" y="175" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#6ABE45">RYOBI</text>
+  
+  <!-- ONE+ badge -->
+  <circle cx="190" cy="170" r="18" fill="#FFD700" stroke="#2C2C2C" stroke-width="2"/>
+  <text x="190" y="173" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#2C2C2C">ONE+</text>
+  <text x="190" y="183" font-family="Arial, sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="#2C2C2C">18V</text>
+  
+  <!-- LED light -->
+  <circle cx="260" cy="170" r="4" fill="#FFFF99" stroke="#6ABE45" stroke-width="1"/>
+  
+  <!-- Belt clip -->
+  <rect x="240" y="200" width="3" height="25" rx="1" fill="#2C2C2C"/>
+  <rect x="235" y="225" width="13" height="8" rx="4" fill="#2C2C2C"/>
+</svg> 
