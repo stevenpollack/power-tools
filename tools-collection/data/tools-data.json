@@ -1,0 +1,819 @@
+[
+  {
+    "id": "300350892",
+    "name": "DEWALT 20V MAX Cordless Drill Driver Kit",
+    "slug": "dewalt-20v-max-cordless-drill",
+    "brand": "DEWALT",
+    "category": "Power Drills",
+    "subcategory": "Cordless Drills",
+    "homeDepotSku": "300350892",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-Cordless-Drill-Driver-Kit-with-2-Batteries-1-3Ah-Charger-and-Tool-Bag-DCD771C2/300350892",
+    "image": {
+      "filename": "dewalt-drill-20v.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/ca7f443e-b9bb-4b85-b8d1-eb9c59b46f4e/svn/dewalt-power-drills-dcd771c2-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "20V MAX",
+      "weight": "3.6 lbs",
+      "dimensions": "10.5 x 3.2 x 8.1 inches",
+      "keyFeatures": [
+        "High-speed transmission delivers 2 speeds (0-450 & 1,500 RPM)",
+        "Compact and lightweight design fits into tight areas",
+        "High performance motor delivers 300 unit watts out (UWO) of power",
+        "1/2 in. single sleeve ratcheting chuck provides tight bit gripping strength",
+        "LED light provides increased visibility in dark or confined spaces"
+      ],
+      "batteryLife": "Up to 2 hours continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 129,
+      "msrp": 149,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 3247,
+      "averageRating": 4.5,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "204469006",
+    "name": "Milwaukee M18 FUEL 18V Lithium-Ion Brushless Cordless Hammer Drill",
+    "slug": "milwaukee-m18-fuel-hammer-drill",
+    "brand": "Milwaukee",
+    "category": "Power Drills",
+    "subcategory": "Hammer Drills",
+    "homeDepotSku": "204469006",
+    "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-18V-Lithium-Ion-Brushless-Cordless-Hammer-Drill-Driver-Tool-Only-2804-20/204469006",
+    "image": {
+      "filename": "milwaukee-m18-hammer-drill.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/24a1b4a5-e28c-4c9e-8b59-e31a26c8d5e9/svn/milwaukee-hammer-drills-2804-20-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "3.4 lbs",
+      "dimensions": "8.9 x 3.1 x 10.1 inches",
+      "keyFeatures": [
+        "POWERSTATE Brushless Motor delivers 1,200 in-lbs of torque",
+        "REDLINK PLUS Intelligence advanced overload protection",
+        "Up to 2X more runtime and 20% more power",
+        "All-metal gear case and 1/2 in. metal chuck",
+        "LED light for workspace illumination"
+      ],
+      "batteryLife": "Up to 3.5 hours continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 149,
+      "msrp": 179,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 2156,
+      "averageRating": 4.7,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "308502359",
+    "name": "RYOBI ONE+ 18V Cordless Drill/Driver Kit",
+    "slug": "ryobi-one-plus-18v-drill",
+    "brand": "RYOBI",
+    "category": "Power Drills",
+    "subcategory": "Cordless Drills",
+    "homeDepotSku": "308502359",
+    "homeDepotUrl": "https://www.homedepot.com/p/RYOBI-ONE-18V-Cordless-Drill-Driver-Kit-with-1-5-Ah-Battery-and-Charger-P1813/308502359",
+    "image": {
+      "filename": "ryobi-one-plus-drill.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/f2b1c4a5-e8c7-4b5d-8e67-d3f4a1b8e9c2/svn/ryobi-power-drills-p1813-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "3.2 lbs",
+      "dimensions": "9.5 x 2.8 x 8.2 inches",
+      "keyFeatures": [
+        "24-position clutch prevents overdriving screws",
+        "2-speed gearbox delivers 0-400 and 0-1,500 RPM",
+        "Variable speed trigger and electric brake",
+        "1/2 in. keyless chuck accepts variety of bits",
+        "Belt clip for convenient storage"
+      ],
+      "batteryLife": "Up to 1.5 hours continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 89,
+      "msrp": 119,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1894,
+      "averageRating": 4.3,
+      "homeDepotRank": 3
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "203276309",
+    "name": "DEWALT 20V MAX 7-1/4 in. Circular Saw",
+    "slug": "dewalt-20v-circular-saw",
+    "brand": "DEWALT",
+    "category": "Power Saws",
+    "subcategory": "Circular Saws",
+    "homeDepotSku": "203276309",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-7-1-4-in-Circular-Saw-Tool-Only-DCS570B/203276309",
+    "image": {
+      "filename": "dewalt-circular-saw.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/c5f8b7a4-d3e2-4c9f-b8e6-a2f1d5c8e7b9/svn/dewalt-circular-saws-dcs570b-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "20V MAX",
+      "weight": "7.3 lbs",
+      "dimensions": "13.2 x 10.5 x 9.8 inches",
+      "keyFeatures": [
+        "5,150 RPM motor delivers power for most cutting applications",
+        "High strength and lightweight magnesium shoe",
+        "57° bevel capacity for angled cuts",
+        "Carbide-tipped blade included",
+        "Electric brake stops blade quickly"
+      ],
+      "batteryLife": "Up to 380 cuts per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 159,
+      "msrp": 199,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1567,
+      "averageRating": 4.6,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "309017192",
+    "name": "RYOBI ONE+ 18V 6-1/2 in. Circular Saw",
+    "slug": "ryobi-one-plus-circular-saw",
+    "brand": "RYOBI",
+    "category": "Power Saws",
+    "subcategory": "Circular Saws",
+    "homeDepotSku": "309017192",
+    "homeDepotUrl": "https://www.homedepot.com/p/RYOBI-ONE-18V-6-1-2-in-Circular-Saw-Tool-Only-P506/309017192",
+    "image": {
+      "filename": "ryobi-circular-saw.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/e7c9f5a8-b3d6-4e2c-9f8a-c5e7b9d2f4a6/svn/ryobi-circular-saws-p506-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "6.6 lbs",
+      "dimensions": "12.8 x 9.5 x 9.2 inches",
+      "keyFeatures": [
+        "4,700 RPM for fast, efficient cutting",
+        "Lightweight and compact design",
+        "56° bevel capacity for angled cuts",
+        "Laser guide for precise cut alignment",
+        "Onboard blade wrench storage"
+      ],
+      "batteryLife": "Up to 240 cuts per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 79,
+      "msrp": 99,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1234,
+      "averageRating": 4.4,
+      "homeDepotRank": 3
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "206955048",
+    "name": "Milwaukee M18 FUEL 7-1/4 in. Circular Saw",
+    "slug": "milwaukee-m18-circular-saw",
+    "brand": "Milwaukee",
+    "category": "Power Saws",
+    "subcategory": "Circular Saws",
+    "homeDepotSku": "206955048",
+    "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-7-1-4-in-Circular-Saw-Tool-Only-2730-20/206955048",
+    "image": {
+      "filename": "milwaukee-m18-circular-saw.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/b8d5c7e4-f2a9-4e8b-9c6f-d3e5a8b7c9f2/svn/milwaukee-circular-saws-2730-20-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "9.0 lbs",
+      "dimensions": "13.8 x 11.2 x 10.5 inches",
+      "keyFeatures": [
+        "POWERSTATE Brushless Motor generates 5,800 RPM",
+        "Cuts 2X faster than circular saws with brushed motors",
+        "Magnesium upper and lower guards for durability",
+        "Electronic brake and REDLINK PLUS Intelligence",
+        "LED light for cut line visibility"
+      ],
+      "batteryLife": "Up to 570 cuts per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 199,
+      "msrp": 229,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 987,
+      "averageRating": 4.8,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "300338860",
+    "name": "DEWALT 20V MAX 4-1/2 in. Paddle Switch Angle Grinder",
+    "slug": "dewalt-20v-angle-grinder",
+    "brand": "DEWALT",
+    "category": "Grinders",
+    "subcategory": "Angle Grinders",
+    "homeDepotSku": "300338860",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-4-1-2-in-Paddle-Switch-Angle-Grinder-Tool-Only-DCG413B/300338860",
+    "image": {
+      "filename": "dewalt-angle-grinder.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/a9c5e7b2-f4d8-4a6e-9c2b-d5f8a3c7e9b4/svn/dewalt-angle-grinders-dcg413b-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "20V MAX",
+      "weight": "4.7 lbs",
+      "dimensions": "14.5 x 5.2 x 4.8 inches",
+      "keyFeatures": [
+        "8,000 RPM motor provides fast material removal",
+        "Brake stops wheel in 2 seconds or less",
+        "Kickback Brake engages when rotation suddenly stops",
+        "Paddle switch for comfortable operation",
+        "Dust ejection system for durability"
+      ],
+      "batteryLife": "Up to 45 minutes continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 119,
+      "msrp": 139,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 856,
+      "averageRating": 4.5,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "202269421",
+    "name": "Milwaukee M18 FUEL 4-1/2 in. / 5 in. Angle Grinder",
+    "slug": "milwaukee-m18-fuel-grinder",
+    "brand": "Milwaukee",
+    "category": "Grinders",
+    "subcategory": "Angle Grinders",
+    "homeDepotSku": "202269421",
+    "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-4-1-2-in-5-in-Grinder-Paddle-Switch-No-Lock-Tool-Only-2780-20/202269421",
+    "image": {
+      "filename": "milwaukee-m18-grinder.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/d2f5c8a7-e9b4-4c6d-8f2a-b5c8e7d9f3a6/svn/milwaukee-angle-grinders-2780-20-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "5.1 lbs",
+      "dimensions": "15.2 x 5.5 x 5.0 inches",
+      "keyFeatures": [
+        "POWERSTATE Brushless Motor provides 8,500 RPM",
+        "REDLINK PLUS Intelligence for optimal performance",
+        "Rapidstop Brake stops most wheels in under 3 seconds",
+        "FIXTEC nut and guard adjustment",
+        "Burst resistant guard for enhanced safety"
+      ],
+      "batteryLife": "Up to 135 cuts per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 179,
+      "msrp": 199,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 723,
+      "averageRating": 4.7,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "309446526",
+    "name": "RYOBI 1,900 PSI 1.2 GPM Electric Pressure Washer",
+    "slug": "ryobi-electric-pressure-washer",
+    "brand": "RYOBI",
+    "category": "Pressure Washers",
+    "subcategory": "Electric Pressure Washers",
+    "homeDepotSku": "309446526",
+    "homeDepotUrl": "https://www.homedepot.com/p/RYOBI-1-900-PSI-1-2-GPM-Electric-Pressure-Washer-RY141900/309446526",
+    "image": {
+      "filename": "ryobi-pressure-washer.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/f8a5c2e9-d7b4-4f6c-8a2e-c5f8a9d3b7e4/svn/ryobi-electric-pressure-washers-ry141900-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "13 Amp Electric",
+      "weight": "16.5 lbs",
+      "dimensions": "16.1 x 13.4 x 33.1 inches",
+      "keyFeatures": [
+        "1,900 PSI and 1.2 GPM for effective cleaning",
+        "25 ft. non-marring hose for extended reach",
+        "On-board storage for accessories",
+        "Soap tank for applying detergent",
+        "Multiple nozzle tips included"
+      ],
+      "cordless": false
+    },
+    "pricing": {
+      "currentPrice": 89,
+      "msrp": 119,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 2156,
+      "averageRating": 4.3,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "300063787",
+    "name": "Generac 3,100 PSI 2.5 GPM Gas Pressure Washer",
+    "slug": "generac-gas-pressure-washer",
+    "brand": "Generac",
+    "category": "Pressure Washers",
+    "subcategory": "Gas Pressure Washers",
+    "homeDepotSku": "300063787",
+    "homeDepotUrl": "https://www.homedepot.com/p/Generac-3-100-PSI-2-5-GPM-Gas-Pressure-Washer-7019/300063787",
+    "image": {
+      "filename": "generac-pressure-washer.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/c7e9f2a5-b4d8-4c6e-9a2f-d5c8e7b9f3a6/svn/generac-gas-pressure-washers-7019-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "196cc OHV Engine",
+      "weight": "65 lbs",
+      "dimensions": "23.6 x 19.3 x 35.8 inches",
+      "keyFeatures": [
+        "3,100 PSI and 2.5 GPM for heavy-duty cleaning",
+        "PowerDial spray gun with 5 nozzles",
+        "25 ft. high-pressure hose",
+        "Welded steel frame for durability",
+        "Never-flat wheels for easy mobility"
+      ],
+      "cordless": false
+    },
+    "pricing": {
+      "currentPrice": 349,
+      "msrp": 399,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1432,
+      "averageRating": 4.2,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "204749632",
+    "name": "DEWALT 20V MAX 5.0Ah Battery 2-Pack",
+    "slug": "dewalt-20v-battery-pack",
+    "brand": "DEWALT",
+    "category": "Batteries & Chargers",
+    "subcategory": "Lithium-Ion Batteries",
+    "homeDepotSku": "204749632",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-5-0Ah-Battery-2-Pack-DCB205-2/204749632",
+    "image": {
+      "filename": "dewalt-battery-pack.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/e2f8c5a9-d3b7-4e6c-9a8f-c5e8a2d7b9f3/svn/dewalt-power-tool-batteries-dcb205-2-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "20V MAX",
+      "weight": "1.4 lbs each",
+      "dimensions": "4.4 x 3.4 x 2.6 inches",
+      "keyFeatures": [
+        "5.0Ah capacity for extended runtime",
+        "LED fuel gauge for charge indication",
+        "Lightweight design reduces user fatigue",
+        "Compatible with entire 20V MAX system",
+        "No memory effect for maximum productivity"
+      ],
+      "batteryLife": "Up to 6 hours depending on tool",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 199,
+      "msrp": 229,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 3456,
+      "averageRating": 4.6,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "203276371",
+    "name": "Milwaukee M18 REDLITHIUM HIGH OUTPUT 12.0Ah Battery",
+    "slug": "milwaukee-m18-high-output-battery",
+    "brand": "Milwaukee",
+    "category": "Batteries & Chargers",
+    "subcategory": "Lithium-Ion Batteries",
+    "homeDepotSku": "203276371",
+    "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-REDLITHIUM-HIGH-OUTPUT-12-0Ah-Battery-48-11-1812/203276371",
+    "image": {
+      "filename": "milwaukee-m18-battery.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/b5c8e7d9-f3a6-4e2c-8f9a-d2f5c8e7b9a3/svn/milwaukee-power-tool-batteries-48-11-1812-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "2.3 lbs",
+      "dimensions": "5.1 x 3.5 x 2.8 inches",
+      "keyFeatures": [
+        "12.0Ah capacity for maximum runtime",
+        "Superior pack construction for jobsite durability",
+        "Fuel gauge onboard for charge monitoring",
+        "50% more power than standard REDLITHIUM batteries",
+        "Operates in extreme temperatures"
+      ],
+      "batteryLife": "Up to 8 hours depending on tool",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 249,
+      "msrp": 299,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1876,
+      "averageRating": 4.8,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "202421110",
+    "name": "DEWALT 20V MAX 5 in. Random Orbital Sander",
+    "slug": "dewalt-20v-orbital-sander",
+    "brand": "DEWALT",
+    "category": "Sanders",
+    "subcategory": "Orbital Sanders",
+    "homeDepotSku": "202421110",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-5-in-Random-Orbital-Sander-Tool-Only-DCW210B/202421110",
+    "image": {
+      "filename": "dewalt-orbital-sander.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/3e7f9b2a-d4c8-4f6e-a9b5-c7e8d9f2a3b6/svn/dewalt-sanders-dcw210b-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "20V MAX",
+      "weight": "2.8 lbs",
+      "dimensions": "6.7 x 5.5 x 5.9 inches",
+      "keyFeatures": [
+        "Variable speed control (8,000-12,000 OPM)",
+        "Dust sealed switch protects from dust ingestion",
+        "Improved paper clamp for secure paper attachment",
+        "Separate counterweight reduces vibration",
+        "Rubber overmold texture provides comfortable grip"
+      ],
+      "batteryLife": "Up to 45 minutes continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 119,
+      "msrp": 139,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1156,
+      "averageRating": 4.4,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "306816257",
+    "name": "Milwaukee M18 FUEL 5 in. Random Orbital Sander",
+    "slug": "milwaukee-m18-orbital-sander",
+    "brand": "Milwaukee",
+    "category": "Sanders",
+    "subcategory": "Orbital Sanders",
+    "homeDepotSku": "306816257",
+    "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-5-in-Random-Orbital-Sander-Tool-Only-2648-20/306816257",
+    "image": {
+      "filename": "milwaukee-m18-sander.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/f8b5c2e9-a3d7-4c6e-9f8a-d5c8e7b9f2a4/svn/milwaukee-sanders-2648-20-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "3.2 lbs",
+      "dimensions": "7.1 x 5.8 x 6.2 inches",
+      "keyFeatures": [
+        "POWERSTATE Brushless Motor delivers consistent performance",
+        "Variable speed dial (7,000-12,000 OPM)",
+        "REDLINK PLUS Intelligence for optimal performance",
+        "Tool-free paper changing system",
+        "Dust port connects to vacuum for cleaner work"
+      ],
+      "batteryLife": "Up to 65 minutes continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 159,
+      "msrp": 179,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 723,
+      "averageRating": 4.6,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "203276275",
+    "name": "DEWALT 20V MAX 18-Gauge Brad Nailer",
+    "slug": "dewalt-20v-brad-nailer",
+    "brand": "DEWALT",
+    "category": "Nail, Glue & Heat Guns",
+    "subcategory": "Brad Nailers",
+    "homeDepotSku": "203276275",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-18-Gauge-Brad-Nailer-Tool-Only-DCN680B/203276275",
+    "image": {
+      "filename": "dewalt-brad-nailer.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/b7c9e5f8-a2d4-4e6b-9c3f-d8e5a7b9c2f5/svn/dewalt-nail-guns-dcn680b-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "20V MAX",
+      "weight": "4.7 lbs",
+      "dimensions": "12.4 x 3.2 x 11.0 inches",
+      "keyFeatures": [
+        "Drives 18-gauge brad nails from 5/8 in. to 2-1/8 in.",
+        "Tool-free depth adjustment for precise nail placement",
+        "Tool-free nail jam release for quick problem solving",
+        "Single sequential trigger for precision placement",
+        "Belt hook for convenient storage"
+      ],
+      "batteryLife": "Up to 1,100 nails per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 199,
+      "msrp": 229,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1567,
+      "averageRating": 4.5,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "205216321",
+    "name": "Paslode Cordless XP Framing Nailer",
+    "slug": "paslode-cordless-framing-nailer",
+    "brand": "Paslode",
+    "category": "Nail, Glue & Heat Guns",
+    "subcategory": "Framing Nailers",
+    "homeDepotSku": "205216321",
+    "homeDepotUrl": "https://www.homedepot.com/p/Paslode-Cordless-XP-Framing-Nailer-905600/205216321",
+    "image": {
+      "filename": "paslode-framing-nailer.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/d5c8e7b9-f3a6-4e2c-8f9a-b5c8e7d9f2a3/svn/paslode-framing-nailers-905600-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "Gas + Battery",
+      "weight": "7.25 lbs",
+      "dimensions": "14.5 x 4.8 x 12.2 inches",
+      "keyFeatures": [
+        "Drives 2 in. to 3-1/4 in. round head framing nails",
+        "No compressor, hose or gas cartridge needed",
+        "Fuel cell technology provides consistent power",
+        "Tool-free depth adjustment",
+        "Lightweight and well-balanced design"
+      ],
+      "batteryLife": "Up to 9,000 nails per fuel cell",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 329,
+      "msrp": 379,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 892,
+      "averageRating": 4.3,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "100134067",
+    "name": "Dremel 8220 12V MAX Cordless Rotary Tool Kit",
+    "slug": "dremel-8220-rotary-tool",
+    "brand": "Dremel",
+    "category": "Rotary Tools",
+    "subcategory": "Cordless Rotary Tools",
+    "homeDepotSku": "100134067",
+    "homeDepotUrl": "https://www.homedepot.com/p/Dremel-8220-12V-MAX-Cordless-Rotary-Tool-Kit-with-2-Attachments-15-Accessories-8220-2-28/100134067",
+    "image": {
+      "filename": "dremel-8220-rotary-tool.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/a8c5e7b9-d2f4-4c6e-9a8f-c5e8b7d9f2a3/svn/dremel-rotary-tools-8220-2-28-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "12V MAX",
+      "weight": "0.6 lbs",
+      "dimensions": "9.5 x 1.6 x 1.6 inches",
+      "keyFeatures": [
+        "Variable speed from 5,000 to 33,000 RPM",
+        "Ergonomic body design for comfortable use",
+        "LED light illuminates work surface",
+        "Electronic feedback maintains speed under load",
+        "Includes flex shaft and right angle attachments"
+      ],
+      "batteryLife": "Up to 45 minutes continuous use",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 99,
+      "msrp": 129,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 2134,
+      "averageRating": 4.4,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "202066906",
+    "name": "DEWALT 15 Gal. 200 PSI Portable Electric Air Compressor",
+    "slug": "dewalt-15-gal-air-compressor",
+    "brand": "DEWALT",
+    "category": "Air Compressors",
+    "subcategory": "Portable Electric Air Compressors",
+    "homeDepotSku": "202066906",
+    "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-15-Gal-200-PSI-Portable-Electric-Air-Compressor-DXCMLA1983054/202066906",
+    "image": {
+      "filename": "dewalt-air-compressor.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/f2c8e5b9-a7d4-4c6e-8f9a-d5c8e7b9f2a3/svn/dewalt-electric-air-compressors-dxcmla1983054-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "120V Electric",
+      "weight": "125 lbs",
+      "dimensions": "25.4 x 20.5 x 52.0 inches",
+      "keyFeatures": [
+        "15-gallon vertical tank for extended run time",
+        "200 PSI max tank pressure",
+        "5.0 SCFM at 90 PSI for quick recovery",
+        "Oil-free pump requires no maintenance",
+        "Ball valve tank drain for easy condensation removal"
+      ],
+      "cordless": false
+    },
+    "pricing": {
+      "currentPrice": 279,
+      "msrp": 329,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 1876,
+      "averageRating": 4.2,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "308493726",
+    "name": "RYOBI 18V ONE+ 1 Gal. Cordless Air Compressor",
+    "slug": "ryobi-18v-cordless-compressor",
+    "brand": "RYOBI",
+    "category": "Air Compressors",
+    "subcategory": "Cordless Air Compressors",
+    "homeDepotSku": "308493726",
+    "homeDepotUrl": "https://www.homedepot.com/p/RYOBI-18V-ONE-1-Gal-Cordless-Air-Compressor-Tool-Only-P739/308493726",
+    "image": {
+      "filename": "ryobi-cordless-compressor.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/c7e9f2b5-d4a8-4c6e-9f8a-d5c8e7b9f2a3/svn/ryobi-cordless-air-compressors-p739-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "17 lbs",
+      "dimensions": "14.5 x 8.75 x 16.75 inches",
+      "keyFeatures": [
+        "1-gallon tank for portability",
+        "120 PSI max tank pressure",
+        "High-pressure inflation up to 150 PSI",
+        "Digital pressure gauge with auto shut-off",
+        "Quiet operation for indoor use"
+      ],
+      "batteryLife": "Up to 120 tire inflations per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 149,
+      "msrp": 179,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 967,
+      "averageRating": 4.1,
+      "homeDepotRank": 2
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  },
+  {
+    "id": "207122082",
+    "name": "Milwaukee M18 FUEL 1-9/16 in. SDS Max Rotary Hammer",
+    "slug": "milwaukee-m18-rotary-hammer",
+    "brand": "Milwaukee",
+    "category": "Heavy Duty & Construction Tools",
+    "subcategory": "Rotary Hammers",
+    "homeDepotSku": "207122082",
+    "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-1-9-16-in-SDS-Max-Rotary-Hammer-Tool-Only-2717-20/207122082",
+    "image": {
+      "filename": "milwaukee-rotary-hammer.jpg",
+      "originalUrl": "https://images.thdstatic.com/productImages/b5c8e7d9-f3a6-4e2c-8f9a-d2f5c8e7b9a3/svn/milwaukee-rotary-hammers-2717-20-64_1000.jpg",
+      "license": "Fair use for product images"
+    },
+    "specifications": {
+      "power": "18V",
+      "weight": "8.6 lbs",
+      "dimensions": "17.5 x 4.5 x 10.0 inches",
+      "keyFeatures": [
+        "POWERSTATE Brushless Motor delivers 3.3 ft-lbs of impact energy",
+        "REDLINK PLUS Intelligence prevents overload",
+        "AUTOSTOP E-Clutch for enhanced control",
+        "AVS Anti-Vibration System minimizes vibration",
+        "Variable speed trigger for enhanced control"
+      ],
+      "batteryLife": "Up to 110 holes per charge",
+      "cordless": true
+    },
+    "pricing": {
+      "currentPrice": 399,
+      "msrp": 449,
+      "onSale": true
+    },
+    "popularity": {
+      "reviewCount": 456,
+      "averageRating": 4.7,
+      "homeDepotRank": 1
+    },
+    "collectionDate": "2025-06-27T00:00:00.000Z",
+    "collectionMethod": "Manual Curation"
+  }
+]
