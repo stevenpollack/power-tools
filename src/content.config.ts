@@ -1,7 +1,8 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const authors = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: "*.json", base: "./src/content/authors" }),
   schema: z.object({
     name: z.string(),
     slug: z.string(),
@@ -13,7 +14,7 @@ const authors = defineCollection({
     portrait: z.object({
       filename: z.string(),
       source: z.string(),
-      license: z.string()
+      license: z.string(),
     }),
     styleAnalysis: z.object({
       summary: z.string(),
@@ -21,13 +22,13 @@ const authors = defineCollection({
       vocabulary: z.string(),
       sentenceStructure: z.string(),
       themes: z.array(z.string()),
-      quirks: z.array(z.string())
-    })
-  })
+      quirks: z.array(z.string()),
+    }),
+  }),
 });
 
 const tools = defineCollection({
-  type: 'data', 
+  loader: glob({ pattern: "*.json", base: "./src/content/tools" }),
   schema: z.object({
     name: z.string(),
     slug: z.string(),
@@ -39,7 +40,7 @@ const tools = defineCollection({
     image: z.object({
       filename: z.string(),
       originalUrl: z.string(),
-      license: z.string()
+      license: z.string(),
     }),
     specifications: z.object({
       power: z.string(),
@@ -47,34 +48,34 @@ const tools = defineCollection({
       dimensions: z.string(),
       keyFeatures: z.array(z.string()),
       batteryLife: z.string().optional(),
-      cordless: z.boolean()
+      cordless: z.boolean(),
     }),
     pricing: z.object({
       currentPrice: z.number(),
       msrp: z.number().optional(),
-      onSale: z.boolean()
+      onSale: z.boolean(),
     }),
     popularity: z.object({
       reviewCount: z.number(),
       averageRating: z.number(),
-      homeDepotRank: z.number().optional()
-    })
-  })
+      homeDepotRank: z.number().optional(),
+    }),
+  }),
 });
 
 const reviews = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: "*.md", base: "./src/content/reviews" }),
   schema: z.object({
     authorId: z.string(),
     toolId: z.string(),
     featured: z.boolean().default(false),
-    mood: z.enum(['humorous', 'dramatic', 'technical', 'philosophical']),
-    tone: z.enum(['formal', 'casual', 'satirical', 'earnest']),
+    mood: z.enum(["humorous", "dramatic", "technical", "philosophical"]),
+    tone: z.enum(["formal", "casual", "satirical", "earnest"]),
     readingTime: z.number(),
     shareCount: z.number().default(0),
     dateCreated: z.string(),
-    lastUpdated: z.string()
-  })
+    lastUpdated: z.string(),
+  }),
 });
 
-export const collections = { authors, tools, reviews }; 
+export const collections = { authors, tools, reviews };

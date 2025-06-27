@@ -1,0 +1,146 @@
+[
+  {
+    "authorId": "ernest-hemingway",
+    "toolId": "dewalt-20v-max-cordless-drill",
+    "mood": "technical",
+    "tone": "earnest"
+  },
+  {
+    "authorId": "ernest-hemingway",
+    "toolId": "milwaukee-m18-circular-saw",
+    "mood": "technical",
+    "tone": "earnest"
+  },
+  {
+    "authorId": "ernest-hemingway",
+    "toolId": "dewalt-20v-angle-grinder",
+    "mood": "dramatic",
+    "tone": "earnest"
+  },
+  {
+    "authorId": "franz-kafka",
+    "toolId": "milwaukee-m18-fuel-hammer-drill",
+    "mood": "philosophical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "franz-kafka",
+    "toolId": "ryobi-one-plus-18v-drill",
+    "mood": "philosophical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "franz-kafka",
+    "toolId": "dewalt-20v-battery-pack",
+    "mood": "philosophical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "oscar-wilde",
+    "toolId": "paslode-cordless-framing-nailer",
+    "mood": "humorous",
+    "tone": "satirical"
+  },
+  {
+    "authorId": "oscar-wilde",
+    "toolId": "dremel-8220-rotary-tool",
+    "mood": "humorous",
+    "tone": "satirical"
+  },
+  {
+    "authorId": "oscar-wilde",
+    "toolId": "milwaukee-m18-high-output-battery",
+    "mood": "humorous",
+    "tone": "satirical"
+  },
+  {
+    "authorId": "virginia-woolf",
+    "toolId": "dewalt-20v-orbital-sander",
+    "mood": "philosophical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "virginia-woolf",
+    "toolId": "milwaukee-m18-orbital-sander",
+    "mood": "philosophical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "virginia-woolf",
+    "toolId": "ryobi-one-plus-circular-saw",
+    "mood": "philosophical",
+    "tone": "casual"
+  },
+  {
+    "authorId": "charles-dickens",
+    "toolId": "generac-gas-pressure-washer",
+    "mood": "dramatic",
+    "tone": "formal"
+  },
+  {
+    "authorId": "charles-dickens",
+    "toolId": "dewalt-15-gal-air-compressor",
+    "mood": "dramatic",
+    "tone": "formal"
+  },
+  {
+    "authorId": "charles-dickens",
+    "toolId": "milwaukee-m18-fuel-grinder",
+    "mood": "technical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "hp-lovecraft",
+    "toolId": "milwaukee-m18-rotary-hammer",
+    "mood": "dramatic",
+    "tone": "formal"
+  },
+  {
+    "authorId": "hp-lovecraft",
+    "toolId": "ryobi-18v-cordless-compressor",
+    "mood": "dramatic",
+    "tone": "formal"
+  },
+  {
+    "authorId": "hp-lovecraft",
+    "toolId": "dewalt-20v-brad-nailer",
+    "mood": "dramatic",
+    "tone": "formal"
+  },
+  {
+    "authorId": "mark-twain",
+    "toolId": "ryobi-electric-pressure-washer",
+    "mood": "humorous",
+    "tone": "casual"
+  },
+  {
+    "authorId": "mark-twain",
+    "toolId": "dewalt-20v-circular-saw",
+    "mood": "humorous",
+    "tone": "casual"
+  },
+  {
+    "authorId": "mark-twain",
+    "toolId": "milwaukee-m18-battery",
+    "mood": "humorous",
+    "tone": "casual"
+  },
+  {
+    "authorId": "ayn-rand",
+    "toolId": "milwaukee-m18-circular-saw",
+    "mood": "philosophical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "ayn-rand",
+    "toolId": "dewalt-20v-battery-pack",
+    "mood": "technical",
+    "tone": "formal"
+  },
+  {
+    "authorId": "ayn-rand",
+    "toolId": "ryobi-cordless-compressor",
+    "mood": "philosophical",
+    "tone": "earnest"
+  }
+]
