@@ -5,16 +5,22 @@
     "slug": "ernest-hemingway",
     "lifespan": "1899-1961",
     "nationality": "American",
-    "primaryWorks": [
+    "primary_works": [
       "The Sun Also Rises",
-      "A Farewell to Arms", 
+      "A Farewell to Arms",
       "For Whom the Bell Tolls",
       "The Old Man and the Sea",
       "A Moveable Feast"
     ],
-    "styleKeywords": ["minimalist", "understated", "iceberg theory", "dialogue-driven", "masculine"],
-    "literaryMovement": "Lost Generation",
-    "portrait": {
+    "style_keywords": [
+      "minimalist",
+      "understated",
+      "iceberg theory",
+      "dialogue-driven",
+      "masculine"
+    ],
+    "literary_movement": "Lost Generation",
+    "portrait_metadata": {
       "filename": "hemingway.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -26,16 +32,22 @@
     "slug": "franz-kafka",
     "lifespan": "1883-1924",
     "nationality": "Austro-Hungarian (Czech)",
-    "primaryWorks": [
+    "primary_works": [
       "The Metamorphosis",
       "The Trial",
       "The Castle",
       "In the Penal Colony",
       "A Hunger Artist"
     ],
-    "styleKeywords": ["surreal", "bureaucratic", "existential", "allegorical", "nightmarish"],
-    "literaryMovement": "Modernism/Existentialism",
-    "portrait": {
+    "style_keywords": [
+      "surreal",
+      "bureaucratic",
+      "existential",
+      "allegorical",
+      "nightmarish"
+    ],
+    "literary_movement": "Modernism/Existentialism",
+    "portrait_metadata": {
       "filename": "kafka.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -47,16 +59,22 @@
     "slug": "oscar-wilde",
     "lifespan": "1854-1900",
     "nationality": "Irish",
-    "primaryWorks": [
+    "primary_works": [
       "The Picture of Dorian Gray",
       "The Importance of Being Earnest",
       "An Ideal Husband",
       "The Ballad of Reading Gaol",
       "Lady Windermere's Fan"
     ],
-    "styleKeywords": ["witty", "ornate", "paradoxical", "satirical", "aestheticism"],
-    "literaryMovement": "Aestheticism/Decadent Movement",
-    "portrait": {
+    "style_keywords": [
+      "witty",
+      "ornate",
+      "paradoxical",
+      "satirical",
+      "aestheticism"
+    ],
+    "literary_movement": "Aestheticism/Decadent Movement",
+    "portrait_metadata": {
       "filename": "wilde.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -66,20 +84,26 @@
     "id": "woolf",
     "name": "Virginia Woolf",
     "slug": "virginia-woolf",
-    "lifespan": "1882-1941", 
+    "lifespan": "1882-1941",
     "nationality": "British",
-    "primaryWorks": [
+    "primary_works": [
       "Mrs. Dalloway",
       "To the Lighthouse",
       "Orlando",
       "The Waves",
       "A Room of One's Own"
     ],
-    "styleKeywords": ["stream-of-consciousness", "psychological", "impressionistic", "feminist", "modernist"],
-    "literaryMovement": "Modernism",
-    "portrait": {
+    "style_keywords": [
+      "stream-of-consciousness",
+      "psychological",
+      "impressionistic",
+      "feminist",
+      "modernist"
+    ],
+    "literary_movement": "Modernism",
+    "portrait_metadata": {
       "filename": "woolf.jpg",
-      "source": "Wikimedia Commons", 
+      "source": "Wikimedia Commons",
       "license": "Public Domain"
     }
   },
@@ -89,16 +113,22 @@
     "slug": "charles-dickens",
     "lifespan": "1812-1870",
     "nationality": "British",
-    "primaryWorks": [
+    "primary_works": [
       "A Tale of Two Cities",
       "Great Expectations",
       "Oliver Twist",
       "David Copperfield",
       "A Christmas Carol"
     ],
-    "styleKeywords": ["verbose", "social-commentary", "melodramatic", "satirical", "humanitarian"],
-    "literaryMovement": "Victorian Literature",
-    "portrait": {
+    "style_keywords": [
+      "verbose",
+      "social-commentary",
+      "melodramatic",
+      "satirical",
+      "humanitarian"
+    ],
+    "literary_movement": "Victorian Literature",
+    "portrait_metadata": {
       "filename": "dickens.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -107,19 +137,25 @@
   {
     "id": "lovecraft",
     "name": "H.P. Lovecraft",
-    "slug": "hp-lovecraft", 
+    "slug": "hp-lovecraft",
     "lifespan": "1890-1937",
     "nationality": "American",
-    "primaryWorks": [
+    "primary_works": [
       "The Call of Cthulhu",
       "At the Mountains of Madness",
       "The Shadow over Innsmouth",
       "The Dunwich Horror",
       "The Colour Out of Space"
     ],
-    "styleKeywords": ["cosmic-horror", "archaic", "atmospheric", "verbose", "antiquated"],
-    "literaryMovement": "Weird Fiction/Horror",
-    "portrait": {
+    "style_keywords": [
+      "cosmic-horror",
+      "archaic",
+      "atmospheric",
+      "verbose",
+      "antiquated"
+    ],
+    "literary_movement": "Weird Fiction/Horror",
+    "portrait_metadata": {
       "filename": "lovecraft.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -130,17 +166,23 @@
     "name": "Jane Austen",
     "slug": "jane-austen",
     "lifespan": "1775-1817",
-    "nationality": "British", 
-    "primaryWorks": [
+    "nationality": "British",
+    "primary_works": [
       "Pride and Prejudice",
       "Sense and Sensibility",
       "Emma",
       "Mansfield Park",
       "Persuasion"
     ],
-    "styleKeywords": ["social-satire", "propriety", "wit", "ironic", "domestic"],
-    "literaryMovement": "Romanticism",
-    "portrait": {
+    "style_keywords": [
+      "social-satire",
+      "propriety",
+      "wit",
+      "ironic",
+      "domestic"
+    ],
+    "literary_movement": "Romanticism",
+    "portrait_metadata": {
       "filename": "austen.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -152,16 +194,22 @@
     "slug": "mark-twain",
     "lifespan": "1835-1910",
     "nationality": "American",
-    "primaryWorks": [
+    "primary_works": [
       "The Adventures of Tom Sawyer",
       "Adventures of Huckleberry Finn",
       "The Prince and the Pauper",
       "A Connecticut Yankee in King Arthur's Court",
       "Pudd'nhead Wilson"
     ],
-    "styleKeywords": ["vernacular", "humor", "satirical", "colloquial", "folksy"],
-    "literaryMovement": "American Realism",
-    "portrait": {
+    "style_keywords": [
+      "vernacular",
+      "humor",
+      "satirical",
+      "colloquial",
+      "folksy"
+    ],
+    "literary_movement": "American Realism",
+    "portrait_metadata": {
       "filename": "twain.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -173,16 +221,22 @@
     "slug": "edgar-allan-poe",
     "lifespan": "1809-1849",
     "nationality": "American",
-    "primaryWorks": [
+    "primary_works": [
       "The Raven",
-      "The Tell-Tale Heart", 
+      "The Tell-Tale Heart",
       "The Fall of the House of Usher",
       "The Murders in the Rue Morgue",
       "Annabel Lee"
     ],
-    "styleKeywords": ["gothic", "psychological", "macabre", "atmospheric", "melodic"],
-    "literaryMovement": "Dark Romanticism/Gothic",
-    "portrait": {
+    "style_keywords": [
+      "gothic",
+      "psychological",
+      "macabre",
+      "atmospheric",
+      "melodic"
+    ],
+    "literary_movement": "Dark Romanticism/Gothic",
+    "portrait_metadata": {
       "filename": "poe.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -194,16 +248,22 @@
     "slug": "jack-kerouac",
     "lifespan": "1922-1969",
     "nationality": "American",
-    "primaryWorks": [
+    "primary_works": [
       "On the Road",
       "The Dharma Bums",
       "Big Sur",
       "Desolation Angels",
       "The Subterraneans"
     ],
-    "styleKeywords": ["spontaneous", "stream-of-consciousness", "jazz-influenced", "energetic", "Beat"],
-    "literaryMovement": "Beat Generation",
-    "portrait": {
+    "style_keywords": [
+      "spontaneous",
+      "stream-of-consciousness",
+      "jazz-influenced",
+      "energetic",
+      "Beat"
+    ],
+    "literary_movement": "Beat Generation",
+    "portrait_metadata": {
       "filename": "kerouac.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -215,16 +275,22 @@
     "slug": "george-orwell",
     "lifespan": "1903-1950",
     "nationality": "British",
-    "primaryWorks": [
+    "primary_works": [
       "1984",
       "Animal Farm",
       "Homage to Catalonia",
       "The Road to Wigan Pier",
       "Burmese Days"
     ],
-    "styleKeywords": ["political", "dystopian", "clear-prose", "satirical", "didactic"],
-    "literaryMovement": "Political Fiction/Dystopian",
-    "portrait": {
+    "style_keywords": [
+      "political",
+      "dystopian",
+      "clear-prose",
+      "satirical",
+      "didactic"
+    ],
+    "literary_movement": "Political Fiction/Dystopian",
+    "portrait_metadata": {
       "filename": "orwell.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -236,19 +302,25 @@
     "slug": "ayn-rand",
     "lifespan": "1905-1982",
     "nationality": "Russian-American",
-    "primaryWorks": [
+    "primary_works": [
       "Atlas Shrugged",
       "The Fountainhead",
       "Anthem",
       "We the Living",
       "The Virtue of Selfishness"
     ],
-    "styleKeywords": ["objectivist", "philosophical", "heroic", "individualistic", "didactic"],
-    "literaryMovement": "Objectivism/Philosophical Fiction",
-    "portrait": {
+    "style_keywords": [
+      "objectivist",
+      "philosophical",
+      "heroic",
+      "individualistic",
+      "didactic"
+    ],
+    "literary_movement": "Objectivism/Philosophical Fiction",
+    "portrait_metadata": {
       "filename": "rand.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
     }
   }
-] 
+]
