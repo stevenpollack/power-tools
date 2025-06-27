@@ -96,7 +96,7 @@ If the SVG files are deemed acceptable, they'll be used in `public/images/tools/
 
 ### Mission Statement
 
-Implement the enhanced floating wall card experience with smart arrangement, mobile responsiveness, and interactive features.
+Implement the enhanced floating wall card experience with smart arrangement, mobile responsiveness, and interactive features. You are working as a junior developer following senior-level architectural decisions and best practices.
 
 ### Required Deliverables
 
@@ -110,16 +110,55 @@ src/
 │   ├── CardDetails.tsx         # Expanded card view
 │   ├── FilterControls.tsx      # Filter/search UI
 │   └── ShareModal.tsx          # Social sharing modal
+├── stores/
+│   ├── cardStore.ts            # Nano Stores for card state
+│   ├── filterStore.ts          # Nano Stores for filter state
+│   └── uiStore.ts              # Nano Stores for UI state (modals, etc.)
 ├── hooks/
 │   ├── useCardArrangement.ts   # Smart positioning logic
-│   ├── useCardInteractions.ts  # Hover/focus/touch handling
-│   └── useFilterState.ts       # Filter state management
-├── utils/
-│   ├── cardSorting.ts          # Arrangement algorithms
-│   └── cardAnimations.ts       # Animation utilities
-└── styles/
-    └── floating-wall.css       # Card-specific styles
+│   └── useCardInteractions.ts  # Hover/focus/touch handling
+└── utils/
+    ├── cardSorting.ts          # Arrangement algorithms
+    └── cardAnimations.ts       # Animation utilities
 ```
+
+### CRITICAL: State Management Architecture
+
+**MANDATORY**: Use [Nano Stores](https://docs.astro.build/en/recipes/sharing-state-islands/) for all shared state between components. This is the Astro-recommended pattern for islands architecture.
+
+**Required Nano Stores Setup**:
+
+```typescript
+// src/stores/cardStore.ts
+import { map, atom } from "nanostores";
+
+export const cardArrangement = atom("masonry"); // 'masonry' | 'grid' | 'list'
+export const selectedCard = atom<string | null>(null);
+export const cardInteractions = map({
+  hoveredCard: null as string | null,
+  expandedCard: null as string | null,
+  isCardDetailsOpen: false,
+});
+
+// src/stores/filterStore.ts
+export const activeFilters = map({
+  author: null as string | null,
+  category: null as string | null,
+  mood: null as string | null,
+  brand: null as string | null,
+  searchTerm: "",
+});
+
+// src/stores/uiStore.ts
+export const uiState = map({
+  isShareModalOpen: false,
+  isMobileMenuOpen: false,
+  viewportWidth: 0,
+  scrollPosition: 0,
+});
+```
+
+**Usage Pattern**: Import stores in components and use `useStore()` hook from `@nanostores/react`.
 
 ### Core Features Required
 
@@ -168,11 +207,59 @@ src/
 - **Performance**: Smooth 60fps animations on devices
 - **Accessibility**: Screen reader support, keyboard navigation
 
+### MANDATORY: UI Component Standards
+
+**Use shadcn/ui components** for all interactive elements. The project already has shadcn/ui installed.
+
+**Required shadcn/ui Components to Use**:
+
+- `Button` - for all clickable actions (filters, close buttons, CTAs)
+- `Card` - as base structure for FloatingCard component
+- `Badge` - for author names, tool categories, mood indicators
+- `Dialog` - for CardDetails expanded view
+- `Input` - for search functionality in FilterControls
+- `Sheet` - for mobile filter menu (if implementing drawer-style)
+- `ScrollArea` - for content that might overflow
+
+**Installation Commands** (already available in project):
+
+```bash
+# These are already installed, but for reference:
+npx shadcn@latest add button card badge dialog input sheet scroll-area
+```
+
+### MANDATORY: Tailwind CSS Best Practices
+
+**DO NOT create separate CSS files**. Use Tailwind utilities exclusively with these patterns:
+
+**✅ CORRECT Tailwind Patterns**:
+
+```tsx
+// Use Tailwind utilities directly in className
+<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+
+// Use @apply in global CSS ONLY for component-level abstractions
+// In src/styles/globals.css:
+.floating-card-base {
+  @apply relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl;
+}
+
+// Use CSS-in-JS for complex animations via Tailwind arbitrary values
+<div className="animate-[float_3s_ease-in-out_infinite] hover:scale-[1.02]">
+```
+
+**❌ AVOID These Patterns**:
+
+- Creating separate `.css` files for components
+- Inline styles (`style={{}}`) except for dynamic values
+- CSS modules or styled-components
+
 ### Technical Requirements
 
 - **Framework**: React components in Astro project
-- **Styling**: Tailwind CSS with custom animations
-- **State Management**: React hooks + context for complex state
+- **Styling**: Tailwind CSS utilities ONLY (no separate CSS files)
+- **UI Components**: shadcn/ui for all interactive elements
+- **State Management**: Nano Stores (mandatory for shared state)
 - **Performance**: Intersection Observer, virtual scrolling
 - **TypeScript**: Full type safety for all components
 
@@ -184,8 +271,129 @@ src/
 - **Animations**: Subtle, purposeful, 60fps performance
 - **Spacing**: Comfortable reading distance, proper visual hierarchy
 
+### MANDATORY: Component Implementation Examples
+
+**FloatingCard Component Structure**:
+
+```tsx
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { useStore } from "@nanostores/react";
+import { cardInteractions } from "@/stores/cardStore";
+
+export const FloatingCard = ({ review, size = "medium" }) => {
+  const $cardInteractions = useStore(cardInteractions);
+
+  return (
+    <Card
+      className={cn(
+        "floating-card-base cursor-pointer",
+        size === "small" && "h-40 w-48",
+        size === "medium" && "h-52 w-64",
+        size === "large" && "h-64 w-80",
+        $cardInteractions.hoveredCard === review.id && "scale-105 shadow-2xl",
+      )}
+    >
+      <CardContent className="p-4 h-full relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 pointer-events-none" />
+        <Badge variant="secondary" className="mb-2">
+          {review.authorName}
+        </Badge>
+        {/* Review content here */}
+      </CardContent>
+    </Card>
+  );
+};
+```
+
+**FilterControls Component Structure**:
+
+```tsx
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { useStore } from "@nanostores/react";
+import { activeFilters } from "@/stores/filterStore";
+
+export const FilterControls = () => {
+  const $filters = useStore(activeFilters);
+
+  return (
+    <div className="flex flex-wrap gap-2 p-4 bg-background border-b sticky top-0 z-10">
+      <Input
+        placeholder="Search reviews..."
+        className="max-w-sm"
+        value={$filters.searchTerm}
+        onChange={(e) => activeFilters.setKey("searchTerm", e.target.value)}
+      />
+      {/* Filter buttons here */}
+    </div>
+  );
+};
+```
+
+### Installation Requirements
+
+**Dependencies already installed**:
+
+- ✅ Nano Stores: `nanostores @nanostores/react`
+- ✅ Tailwind v4 configured via Vite plugin
+
+**IMPORTANT: shadcn/ui Setup Required**:
+
+The project uses Tailwind v4 which is incompatible with standard shadcn/ui init. You need to manually set up the shadcn/ui components:
+
+1. **Create `components.json`** manually:
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.mjs",
+    "css": "src/styles/globals.css",
+    "baseColor": "slate",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  }
+}
+```
+
+2. **Create required directories**:
+
+```bash
+mkdir -p src/components/ui src/lib
+```
+
+3. **Add utility functions** in `src/lib/utils.ts`:
+
+```typescript
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+4. **Install dependencies**:
+
+```bash
+pnpm add clsx tailwind-merge lucide-react
+```
+
+5. **Add components manually** or use individual `shadcn add` commands after setup
+
 ### Quality Gates
 
+- ✅ Uses Nano Stores for ALL shared state
+- ✅ Uses shadcn/ui components for ALL interactive elements
+- ✅ Uses Tailwind utilities exclusively (no separate CSS files)
 - ✅ All 240 cards render without performance issues
 - ✅ Smooth interactions on desktop and mobile
 - ✅ Filters work correctly and performantly
