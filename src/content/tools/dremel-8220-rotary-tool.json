@@ -1,0 +1,38 @@
+{
+  "name": "Dremel 8220 12V MAX Cordless Rotary Tool Kit",
+  "slug": "dremel-8220-rotary-tool",
+  "brand": "Dremel",
+  "category": "Rotary Tools",
+  "subcategory": "Cordless Rotary Tools",
+  "homeDepotSku": "100134067",
+  "homeDepotUrl": "https://www.homedepot.com/p/Dremel-8220-12V-MAX-Cordless-Rotary-Tool-Kit-with-2-Attachments-15-Accessories-8220-2-28/100134067",
+  "image": {
+    "filename": "dremel-8220-rotary-tool.jpg",
+    "originalUrl": "https://images.thdstatic.com/productImages/a8c5e7b9-d2f4-4c6e-9a8f-c5e8b7d9f2a3/svn/dremel-rotary-tools-8220-2-28-64_1000.jpg",
+    "license": "Fair use for product images"
+  },
+  "specifications": {
+    "power": "12V MAX",
+    "weight": "0.6 lbs",
+    "dimensions": "9.5 x 1.6 x 1.6 inches",
+    "keyFeatures": [
+      "Variable speed from 5,000 to 33,000 RPM",
+      "Ergonomic body design for comfortable use",
+      "LED light illuminates work surface",
+      "Electronic feedback maintains speed under load",
+      "Includes flex shaft and right angle attachments"
+    ],
+    "batteryLife": "Up to 45 minutes continuous use",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 99,
+    "msrp": 129,
+    "onSale": true
+  },
+  "popularity": {
+    "reviewCount": 2134,
+    "averageRating": 4.4,
+    "homeDepotRank": 1
+  }
+}

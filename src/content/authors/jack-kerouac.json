@@ -1,0 +1,46 @@
+{
+  "id": "kerouac",
+  "name": "Jack Kerouac",
+  "slug": "jack-kerouac",
+  "lifespan": "1922-1969",
+  "nationality": "American",
+  "primaryWorks": [
+    "On the Road",
+    "The Dharma Bums",
+    "Big Sur",
+    "Desolation Angels",
+    "The Subterraneans"
+  ],
+  "styleKeywords": [
+    "spontaneous",
+    "stream-of-consciousness",
+    "jazz-influenced",
+    "energetic",
+    "Beat"
+  ],
+  "literaryMovement": "Beat Generation",
+  "portrait": {
+    "filename": "kerouac.jpg",
+    "source": "Wikimedia Commons",
+    "license": "Public Domain"
+  },
+  "styleAnalysis": {
+    "summary": "Jack Kerouac writes with spontaneous, energetic prose that captures the jazz-influenced rhythm of Beat generation consciousness and celebrates authentic experience and movement.",
+    "detailed": "Jack Kerouac would approach power tool reviews with the same spontaneous energy he brought to describing cross-country journeys, letting his consciousness flow freely around the experience of using the tool. His review would capture the jazz-like rhythm of the drill in operation, the syncopated beat of impact drilling, and the improvisational dance between human hands and mechanical precision. The review would flow in long, breathless sentences that mirror the tool's motion, moving from technical observations to philosophical reflections on creation and destruction, work and art, without pause or conventional structure. Kerouac would celebrate the authentic experience of making things with one's hands, connecting tool use to broader themes of authentic living and creative expression. His vocabulary would be energetic and musical, incorporating jazz terminology and Beat slang alongside technical descriptions. He would likely digress into memories triggered by the tool's sound or feel, creating stream-of-consciousness passages that connect power drilling to larger experiences of American life and creative freedom.",
+    "vocabulary": "Energetic, jazz-influenced language; Beat generation slang; spontaneous expressions; musical terminology; authentic experience focus",
+    "sentenceStructure": "Long, flowing sentences; stream-of-consciousness; minimal punctuation; jazz-like rhythms; spontaneous structure",
+    "themes": [
+      "authentic experience",
+      "creative freedom",
+      "American spirit",
+      "jazz and rhythm",
+      "spontaneous expression"
+    ],
+    "quirks": [
+      "Spontaneous prose style",
+      "Jazz-influenced rhythm",
+      "Stream-of-consciousness digressions",
+      "Celebrates authentic experience"
+    ]
+  }
+}

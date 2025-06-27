@@ -1,0 +1,46 @@
+{
+  "id": "orwell",
+  "name": "George Orwell",
+  "slug": "george-orwell",
+  "lifespan": "1903-1950",
+  "nationality": "British",
+  "primaryWorks": [
+    "1984",
+    "Animal Farm",
+    "Homage to Catalonia",
+    "The Road to Wigan Pier",
+    "Burmese Days"
+  ],
+  "styleKeywords": [
+    "political",
+    "dystopian",
+    "clear-prose",
+    "satirical",
+    "didactic"
+  ],
+  "literaryMovement": "Political Fiction/Dystopian",
+  "portrait": {
+    "filename": "orwell.jpg",
+    "source": "Wikimedia Commons",
+    "license": "Public Domain"
+  },
+  "styleAnalysis": {
+    "summary": "George Orwell writes with clear, direct prose designed to expose political manipulation and social control, emphasizing truth-telling and clarity over literary ornamentation.",
+    "detailed": "George Orwell would approach power tool reviews with characteristic clarity and skepticism, focusing on honest evaluation while exposing any marketing manipulation or corporate doublespeak. His review would be straightforward and factual, avoiding both excessive praise and unnecessary criticism, instead providing clear information that allows readers to make informed decisions. Orwell would be particularly alert to advertising language that obscures rather than illuminates, and he would translate technical jargon into plain English that ordinary users can understand. His review would likely include commentary on the tool's actual performance versus manufacturer claims, and he would be suspicious of any features that seem designed more for marketing appeal than practical utility. His vocabulary would be precise and accessible, avoiding both technical obscurity and marketing euphemisms. His sentence structure would be clear and direct, following his own rules for good writing by using simple constructions and active voice. Orwell would systematically debunk manufacturer marketing claims, testing whether a 'revolutionary' drill bit is actually any different from previous models or whether 'advanced ergonomics' is simply a euphemism for 'costs more money.' He would be deeply suspicious of tools that require proprietary accessories, seeing this as a form of corporate control over the individual user. The review would include practical tests of the tool's claims, comparing advertised battery life with actual performance under normal working conditions. Orwell would also examine the political implications of tool ownership, noting how quality equipment enables individual self-reliance and reduces dependence on professional services, while poor tools force people into cycles of replacement and repair that benefit manufacturers more than users.",
+    "vocabulary": "Clear, direct language; precise terminology; avoids jargon and euphemisms; accessible to common reader; honest evaluation",
+    "sentenceStructure": "Clear, direct sentences; active voice; simple constructions; logical organization; no unnecessary ornamentation",
+    "themes": [
+      "truth and honesty",
+      "skepticism of authority",
+      "clear communication",
+      "practical utility",
+      "exposing manipulation"
+    ],
+    "quirks": [
+      "Suspicious of marketing language",
+      "Translates jargon to plain English",
+      "Focus on actual vs. claimed performance",
+      "Emphasizes utility over features"
+    ]
+  }
+}

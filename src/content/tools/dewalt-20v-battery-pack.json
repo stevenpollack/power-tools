@@ -1,0 +1,38 @@
+{
+  "name": "DEWALT 20V MAX 5.0Ah Battery 2-Pack",
+  "slug": "dewalt-20v-battery-pack",
+  "brand": "DEWALT",
+  "category": "Batteries & Chargers",
+  "subcategory": "Lithium-Ion Batteries",
+  "homeDepotSku": "204749632",
+  "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-5-0Ah-Battery-2-Pack-DCB205-2/204749632",
+  "image": {
+    "filename": "dewalt-battery-pack.jpg",
+    "originalUrl": "https://images.thdstatic.com/productImages/e2f8c5a9-d3b7-4e6c-9a8f-c5e8a2d7b9f3/svn/dewalt-power-tool-batteries-dcb205-2-64_1000.jpg",
+    "license": "Fair use for product images"
+  },
+  "specifications": {
+    "power": "20V MAX",
+    "weight": "1.4 lbs each",
+    "dimensions": "4.4 x 3.4 x 2.6 inches",
+    "keyFeatures": [
+      "5.0Ah capacity for extended runtime",
+      "LED fuel gauge for charge indication",
+      "Lightweight design reduces user fatigue",
+      "Compatible with entire 20V MAX system",
+      "No memory effect for maximum productivity"
+    ],
+    "batteryLife": "Up to 6 hours depending on tool",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 199,
+    "msrp": 229,
+    "onSale": true
+  },
+  "popularity": {
+    "reviewCount": 3456,
+    "averageRating": 4.6,
+    "homeDepotRank": 1
+  }
+}

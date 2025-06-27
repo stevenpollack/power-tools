@@ -1,0 +1,37 @@
+{
+  "name": "RYOBI 1,900 PSI 1.2 GPM Electric Pressure Washer",
+  "slug": "ryobi-electric-pressure-washer",
+  "brand": "RYOBI",
+  "category": "Pressure Washers",
+  "subcategory": "Electric Pressure Washers",
+  "homeDepotSku": "309446526",
+  "homeDepotUrl": "https://www.homedepot.com/p/RYOBI-1-900-PSI-1-2-GPM-Electric-Pressure-Washer-RY141900/309446526",
+  "image": {
+    "filename": "ryobi-pressure-washer.jpg",
+    "originalUrl": "https://images.thdstatic.com/productImages/f8a5c2e9-d7b4-4f6c-8a2e-c5f8a9d3b7e4/svn/ryobi-electric-pressure-washers-ry141900-64_1000.jpg",
+    "license": "Fair use for product images"
+  },
+  "specifications": {
+    "power": "13 Amp Electric",
+    "weight": "16.5 lbs",
+    "dimensions": "16.1 x 13.4 x 33.1 inches",
+    "keyFeatures": [
+      "1,900 PSI and 1.2 GPM for effective cleaning",
+      "25 ft. non-marring hose for extended reach",
+      "On-board storage for accessories",
+      "Soap tank for applying detergent",
+      "Multiple nozzle tips included"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 89,
+    "msrp": 119,
+    "onSale": true
+  },
+  "popularity": {
+    "reviewCount": 2156,
+    "averageRating": 4.3,
+    "homeDepotRank": 1
+  }
+}

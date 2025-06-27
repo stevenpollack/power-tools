@@ -1,0 +1,38 @@
+{
+  "name": "Milwaukee M18 FUEL 7-1/4 in. Circular Saw",
+  "slug": "milwaukee-m18-circular-saw",
+  "brand": "Milwaukee",
+  "category": "Power Saws",
+  "subcategory": "Circular Saws",
+  "homeDepotSku": "206955048",
+  "homeDepotUrl": "https://www.homedepot.com/p/Milwaukee-M18-FUEL-7-1-4-in-Circular-Saw-Tool-Only-2730-20/206955048",
+  "image": {
+    "filename": "milwaukee-m18-circular-saw.jpg",
+    "originalUrl": "https://images.thdstatic.com/productImages/b8d5c7e4-f2a9-4e8b-9c6f-d3e5a8b7c9f2/svn/milwaukee-circular-saws-2730-20-64_1000.jpg",
+    "license": "Fair use for product images"
+  },
+  "specifications": {
+    "power": "18V",
+    "weight": "9.0 lbs",
+    "dimensions": "13.8 x 11.2 x 10.5 inches",
+    "keyFeatures": [
+      "POWERSTATE Brushless Motor generates 5,800 RPM",
+      "Cuts 2X faster than circular saws with brushed motors",
+      "Magnesium upper and lower guards for durability",
+      "Electronic brake and REDLINK PLUS Intelligence",
+      "LED light for cut line visibility"
+    ],
+    "batteryLife": "Up to 570 cuts per charge",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 199,
+    "msrp": 229,
+    "onSale": true
+  },
+  "popularity": {
+    "reviewCount": 987,
+    "averageRating": 4.8,
+    "homeDepotRank": 2
+  }
+}

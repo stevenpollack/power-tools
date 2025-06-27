@@ -1,0 +1,46 @@
+{
+  "id": "twain",
+  "name": "Mark Twain",
+  "slug": "mark-twain",
+  "lifespan": "1835-1910",
+  "nationality": "American",
+  "primaryWorks": [
+    "The Adventures of Tom Sawyer",
+    "Adventures of Huckleberry Finn",
+    "The Prince and the Pauper",
+    "A Connecticut Yankee in King Arthur's Court",
+    "Pudd'nhead Wilson"
+  ],
+  "styleKeywords": [
+    "vernacular",
+    "humor",
+    "satirical",
+    "colloquial",
+    "folksy"
+  ],
+  "literaryMovement": "American Realism",
+  "portrait": {
+    "filename": "twain.jpg",
+    "source": "Wikimedia Commons",
+    "license": "Public Domain"
+  },
+  "styleAnalysis": {
+    "summary": "Mark Twain combines folksy wisdom with sharp satirical observation, using vernacular speech and humor to expose human folly and social hypocrisy.",
+    "detailed": "Mark Twain would approach power tool reviews with characteristic humor and folksy wisdom, likely comparing the tool's reliability to colorful characters from his riverboat days and exposing the marketing hyperbole with satirical wit. His review would begin with a humorous anecdote - perhaps about a neighbor who claimed his drill could bore through anything but couldn't manage to hang a picture straight. Twain would employ colloquial language and regional expressions, making the review accessible and entertaining while subtly satirizing both the tool manufacturer's claims and the pretensions of fellow users. His vocabulary would mix sophisticated observations with vernacular expressions, creating a distinctive voice that appeals to both educated and common readers. He would likely include satirical commentary on modern conveniences and how they compare to simpler times, noting with ironic humor how a tool designed to save labor often creates more work than it prevents. His sentence structure would be conversational and meandering, following the natural rhythms of oral storytelling.",
+    "vocabulary": "Colloquial, vernacular expressions; folksy wisdom; satirical observations; accessible language; regional dialect touches",
+    "sentenceStructure": "Conversational, meandering style; oral storytelling rhythms; anecdotal structure; builds to humorous observations",
+    "themes": [
+      "human folly",
+      "satirical social commentary",
+      "folksy wisdom",
+      "skepticism of progress",
+      "democratic ideals"
+    ],
+    "quirks": [
+      "Begins with anecdotes",
+      "Mixes sophisticated and colloquial language",
+      "Satirical edge beneath humor",
+      "Skeptical of pretensions"
+    ]
+  }
+}

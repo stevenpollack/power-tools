@@ -1,0 +1,38 @@
+{
+  "name": "DEWALT 20V MAX 18-Gauge Brad Nailer",
+  "slug": "dewalt-20v-brad-nailer",
+  "brand": "DEWALT",
+  "category": "Nail, Glue & Heat Guns",
+  "subcategory": "Brad Nailers",
+  "homeDepotSku": "203276275",
+  "homeDepotUrl": "https://www.homedepot.com/p/DEWALT-20V-MAX-18-Gauge-Brad-Nailer-Tool-Only-DCN680B/203276275",
+  "image": {
+    "filename": "dewalt-brad-nailer.jpg",
+    "originalUrl": "https://images.thdstatic.com/productImages/b7c9e5f8-a2d4-4e6b-9c3f-d8e5a7b9c2f5/svn/dewalt-nail-guns-dcn680b-64_1000.jpg",
+    "license": "Fair use for product images"
+  },
+  "specifications": {
+    "power": "20V MAX",
+    "weight": "4.7 lbs",
+    "dimensions": "12.4 x 3.2 x 11.0 inches",
+    "keyFeatures": [
+      "Drives 18-gauge brad nails from 5/8 in. to 2-1/8 in.",
+      "Tool-free depth adjustment for precise nail placement",
+      "Tool-free nail jam release for quick problem solving",
+      "Single sequential trigger for precision placement",
+      "Belt hook for convenient storage"
+    ],
+    "batteryLife": "Up to 1,100 nails per charge",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 199,
+    "msrp": 229,
+    "onSale": true
+  },
+  "popularity": {
+    "reviewCount": 1567,
+    "averageRating": 4.5,
+    "homeDepotRank": 1
+  }
+}
