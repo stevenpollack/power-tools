@@ -1129,6 +1129,8 @@ Length: 200-300 words for detailed analysis.
 - Author IDs will be used to generate all 240 review combinations
 - Style analysis will feed directly into LLM prompt engineering for reviews
 
+**📝 AGENT 1 DECISION**: Keeping style analyses in separate `style-analyses.json` file rather than embedded in author objects for cleaner organization and easier maintenance. The style analysis data structure remains the same, just organized separately.
+
 ### SUCCESS CRITERIA
 By week 2, deliver a complete package that enables immediate content generation for all 12 authors across any power tool combination.
 
