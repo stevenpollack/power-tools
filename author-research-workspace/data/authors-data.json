@@ -5,22 +5,22 @@
     "slug": "ernest-hemingway",
     "lifespan": "1899-1961",
     "nationality": "American",
-    "primary_works": [
+    "primaryWorks": [
       "The Sun Also Rises",
       "A Farewell to Arms",
       "For Whom the Bell Tolls",
       "The Old Man and the Sea",
       "A Moveable Feast"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "minimalist",
       "understated",
       "iceberg theory",
       "dialogue-driven",
       "masculine"
     ],
-    "literary_movement": "Lost Generation",
-    "portrait_metadata": {
+    "literaryMovement": "Lost Generation",
+    "portrait": {
       "filename": "hemingway.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -32,22 +32,22 @@
     "slug": "franz-kafka",
     "lifespan": "1883-1924",
     "nationality": "Austro-Hungarian (Czech)",
-    "primary_works": [
+    "primaryWorks": [
       "The Metamorphosis",
       "The Trial",
       "The Castle",
       "In the Penal Colony",
       "A Hunger Artist"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "surreal",
       "bureaucratic",
       "existential",
       "allegorical",
       "nightmarish"
     ],
-    "literary_movement": "Modernism/Existentialism",
-    "portrait_metadata": {
+    "literaryMovement": "Modernism/Existentialism",
+    "portrait": {
       "filename": "kafka.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -59,22 +59,22 @@
     "slug": "oscar-wilde",
     "lifespan": "1854-1900",
     "nationality": "Irish",
-    "primary_works": [
+    "primaryWorks": [
       "The Picture of Dorian Gray",
       "The Importance of Being Earnest",
       "An Ideal Husband",
       "The Ballad of Reading Gaol",
       "Lady Windermere's Fan"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "witty",
       "ornate",
       "paradoxical",
       "satirical",
       "aestheticism"
     ],
-    "literary_movement": "Aestheticism/Decadent Movement",
-    "portrait_metadata": {
+    "literaryMovement": "Aestheticism/Decadent Movement",
+    "portrait": {
       "filename": "wilde.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -86,22 +86,22 @@
     "slug": "virginia-woolf",
     "lifespan": "1882-1941",
     "nationality": "British",
-    "primary_works": [
+    "primaryWorks": [
       "Mrs. Dalloway",
       "To the Lighthouse",
       "Orlando",
       "The Waves",
       "A Room of One's Own"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "stream-of-consciousness",
       "psychological",
       "impressionistic",
       "feminist",
       "modernist"
     ],
-    "literary_movement": "Modernism",
-    "portrait_metadata": {
+    "literaryMovement": "Modernism",
+    "portrait": {
       "filename": "woolf.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -113,22 +113,22 @@
     "slug": "charles-dickens",
     "lifespan": "1812-1870",
     "nationality": "British",
-    "primary_works": [
+    "primaryWorks": [
       "A Tale of Two Cities",
       "Great Expectations",
       "Oliver Twist",
       "David Copperfield",
       "A Christmas Carol"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "verbose",
       "social-commentary",
       "melodramatic",
       "satirical",
       "humanitarian"
     ],
-    "literary_movement": "Victorian Literature",
-    "portrait_metadata": {
+    "literaryMovement": "Victorian Literature",
+    "portrait": {
       "filename": "dickens.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -140,22 +140,22 @@
     "slug": "hp-lovecraft",
     "lifespan": "1890-1937",
     "nationality": "American",
-    "primary_works": [
+    "primaryWorks": [
       "The Call of Cthulhu",
       "At the Mountains of Madness",
       "The Shadow over Innsmouth",
       "The Dunwich Horror",
       "The Colour Out of Space"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "cosmic-horror",
       "archaic",
       "atmospheric",
       "verbose",
       "antiquated"
     ],
-    "literary_movement": "Weird Fiction/Horror",
-    "portrait_metadata": {
+    "literaryMovement": "Weird Fiction/Horror",
+    "portrait": {
       "filename": "lovecraft.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -167,22 +167,22 @@
     "slug": "jane-austen",
     "lifespan": "1775-1817",
     "nationality": "British",
-    "primary_works": [
+    "primaryWorks": [
       "Pride and Prejudice",
       "Sense and Sensibility",
       "Emma",
       "Mansfield Park",
       "Persuasion"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "social-satire",
       "propriety",
       "wit",
       "ironic",
       "domestic"
     ],
-    "literary_movement": "Romanticism",
-    "portrait_metadata": {
+    "literaryMovement": "Romanticism",
+    "portrait": {
       "filename": "austen.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -194,22 +194,22 @@
     "slug": "mark-twain",
     "lifespan": "1835-1910",
     "nationality": "American",
-    "primary_works": [
+    "primaryWorks": [
       "The Adventures of Tom Sawyer",
       "Adventures of Huckleberry Finn",
       "The Prince and the Pauper",
       "A Connecticut Yankee in King Arthur's Court",
       "Pudd'nhead Wilson"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "vernacular",
       "humor",
       "satirical",
       "colloquial",
       "folksy"
     ],
-    "literary_movement": "American Realism",
-    "portrait_metadata": {
+    "literaryMovement": "American Realism",
+    "portrait": {
       "filename": "twain.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -221,22 +221,22 @@
     "slug": "edgar-allan-poe",
     "lifespan": "1809-1849",
     "nationality": "American",
-    "primary_works": [
+    "primaryWorks": [
       "The Raven",
       "The Tell-Tale Heart",
       "The Fall of the House of Usher",
       "The Murders in the Rue Morgue",
       "Annabel Lee"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "gothic",
       "psychological",
       "macabre",
       "atmospheric",
       "melodic"
     ],
-    "literary_movement": "Dark Romanticism/Gothic",
-    "portrait_metadata": {
+    "literaryMovement": "Dark Romanticism/Gothic",
+    "portrait": {
       "filename": "poe.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -248,22 +248,22 @@
     "slug": "jack-kerouac",
     "lifespan": "1922-1969",
     "nationality": "American",
-    "primary_works": [
+    "primaryWorks": [
       "On the Road",
       "The Dharma Bums",
       "Big Sur",
       "Desolation Angels",
       "The Subterraneans"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "spontaneous",
       "stream-of-consciousness",
       "jazz-influenced",
       "energetic",
       "Beat"
     ],
-    "literary_movement": "Beat Generation",
-    "portrait_metadata": {
+    "literaryMovement": "Beat Generation",
+    "portrait": {
       "filename": "kerouac.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -275,22 +275,22 @@
     "slug": "george-orwell",
     "lifespan": "1903-1950",
     "nationality": "British",
-    "primary_works": [
+    "primaryWorks": [
       "1984",
       "Animal Farm",
       "Homage to Catalonia",
       "The Road to Wigan Pier",
       "Burmese Days"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "political",
       "dystopian",
       "clear-prose",
       "satirical",
       "didactic"
     ],
-    "literary_movement": "Political Fiction/Dystopian",
-    "portrait_metadata": {
+    "literaryMovement": "Political Fiction/Dystopian",
+    "portrait": {
       "filename": "orwell.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"
@@ -302,22 +302,22 @@
     "slug": "ayn-rand",
     "lifespan": "1905-1982",
     "nationality": "Russian-American",
-    "primary_works": [
+    "primaryWorks": [
       "Atlas Shrugged",
       "The Fountainhead",
       "Anthem",
       "We the Living",
       "The Virtue of Selfishness"
     ],
-    "style_keywords": [
+    "styleKeywords": [
       "objectivist",
       "philosophical",
       "heroic",
       "individualistic",
       "didactic"
     ],
-    "literary_movement": "Objectivism/Philosophical Fiction",
-    "portrait_metadata": {
+    "literaryMovement": "Objectivism/Philosophical Fiction",
+    "portrait": {
       "filename": "rand.jpg",
       "source": "Wikimedia Commons",
       "license": "Public Domain"

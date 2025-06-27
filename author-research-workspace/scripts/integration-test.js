@@ -118,7 +118,7 @@ runTest('Package 1 compliance check', () => {
     
     // Check each author has required fields
     authorsData.forEach(author => {
-        const required = ['id', 'name', 'slug', 'lifespan', 'nationality', 'primary_works', 'style_keywords', 'literary_movement', 'portrait_metadata'];
+        const required = ['id', 'name', 'slug', 'lifespan', 'nationality', 'primaryWorks', 'styleKeywords', 'literaryMovement', 'portrait'];
         required.forEach(field => {
             if (!author[field]) {
                 throw new Error(`Missing required field '${field}' for ${author.name}`);
@@ -133,8 +133,8 @@ runTest('Agent 3 integration compatibility', () => {
     authorsData.forEach(author => {
         if (typeof author.id !== 'string') throw new Error('Author ID must be string');
         if (typeof author.name !== 'string') throw new Error('Author name must be string');
-        if (!Array.isArray(author.primary_works)) throw new Error('Primary works must be array');
-        if (!Array.isArray(author.style_keywords)) throw new Error('Style keywords must be array');
+        if (!Array.isArray(author.primaryWorks)) throw new Error('Primary works must be array');
+        if (!Array.isArray(author.styleKeywords)) throw new Error('Style keywords must be array');
     });
     
     Object.keys(styleAnalyses).forEach(authorId => {
