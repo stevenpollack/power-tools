@@ -8,8 +8,8 @@ interface TouchPosition {
   timestamp: number;
 }
 
-interface UseCardInteractionsOptions {
-  onCardSelect?: (cardId: string) => void;
+export interface UseCardInteractionsOptions {
+  onCardSelect?: ((reviewId: string) => void) | undefined;
   onSwipeLeft?: () => void;
   onSwipeRight?: () => void;
   enableSwipeNavigation?: boolean;
@@ -232,6 +232,9 @@ export const useCardInteractions = (options: UseCardInteractionsOptions = {}) =>
       document.addEventListener('touchstart', handlePinchZoom, { passive: false });
       return () => document.removeEventListener('touchstart', handlePinchZoom);
     }
+    
+    // Return empty cleanup for non-mobile case
+    return () => {};
   }, [isMobile, handlePinchZoom]);
 
   return {

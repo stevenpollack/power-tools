@@ -51,8 +51,10 @@ export const useCardArrangement = ({
     // Smart distribution: place items in shortest column
     reviews.forEach((review) => {
       const shortestColumnIndex = columnHeights.indexOf(Math.min(...columnHeights));
-      arrays[shortestColumnIndex].push(review);
-      columnHeights[shortestColumnIndex] += getItemHeight(review, shortestColumnIndex);
+      if (arrays[shortestColumnIndex]) {
+        arrays[shortestColumnIndex].push(review);
+        columnHeights[shortestColumnIndex] += getItemHeight(review, shortestColumnIndex);
+      }
     });
 
     return arrays;
@@ -77,7 +79,9 @@ export const useCardArrangement = ({
       let currentTop = 0;
 
       for (let i = 0; i < column.length; i++) {
-        const height = getItemHeight(column[i], columnIndex);
+        const review = column[i];
+        if (!review) continue;
+        const height = getItemHeight(review, columnIndex);
         
         if (i >= startIndex && i <= endIndex) {
           virtualItems.push({
@@ -178,10 +182,16 @@ export const useCardArrangement = ({
   // Calculate total heights for virtual scrolling
   const totalHeights = useMemo(() => {
     if (virtualScroll?.enabled && virtualColumns) {
-      return virtualColumns.map(col => col.totalHeight || 0);
+      return virtualColumns.map(col => {
+        if (Array.isArray(col)) {
+          // Fallback for column arrays
+          return col.reduce((total, review) => total + getItemHeight(review, 0), 0);
+        }
+        return col.totalHeight || 0;
+      });
     }
     return [];
-  }, [virtualColumns, virtualScroll?.enabled]);
+  }, [virtualColumns, virtualScroll?.enabled, getItemHeight]);
 
   // Smart arrangement algorithm
   const arrangeReviews = useCallback((inputReviews: Review[]) => {

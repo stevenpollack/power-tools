@@ -142,7 +142,9 @@ export const FloatingCardWall: React.FC<FloatingCardWallProps> = ({ reviews }) =
     // Distribute cards across columns for masonry effect
     arrangedReviews.forEach((review, index) => {
       const columnIndex = index % columns;
-      columnArrays[columnIndex].push(review);
+      if (columnArrays[columnIndex]) {
+        columnArrays[columnIndex].push(review);
+      }
     });
 
     const getGridColsClass = (cols: number): string => {
