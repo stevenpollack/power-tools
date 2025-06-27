@@ -49,8 +49,33 @@
 - [ ] Generate final deliverable package
 - [ ] Documentation and quality assurance
 
-## Questions & Clarifications
-[To be filled after initial briefing]
+## Questions & Clarifications ✅ RESOLVED
+1. **Data Source**: Hybrid approach - API first, fallback to scraping
+2. **Brand Diversity**: Prioritize popularity over brand balance, analyze distribution post-collection
+3. **Tool Variants**: Most popular variant per tool-brand family (avoid brand duplicates per category)
+4. **Image Storage**: Both local copies + source URLs for attribution
+5. **Pricing**: Capture current price (including sale prices) with timestamp
+6. **Review Counts**: Single point-in-time measurement (June 27, 2025)
+
+## Implementation Strategy
+### Phase 1: Research & Setup
+- Investigate Home Depot API availability
+- Analyze site structure for scraping approach
+- Setup development environment with rate limiting
+
+### Phase 2: Data Collection Script
+- Implement hybrid data collection (API + scraping)
+- Category-by-category collection with popularity sorting
+- Brand-family deduplication logic
+- Image download with local storage
+
+### Phase 3: Data Processing & Validation
+- Validate against TypeScript schema
+- Statistical analysis of brand distribution
+- Quality assurance of collected data
+- Generate final deliverable package
 
 ## Implementation Notes
-[To be updated as work progresses]
+- Collection Date: June 27, 2025
+- Rate Limit: 1 request/second to respect Home Depot servers
+- Fallback Strategy: Manual collection if automated methods fail
