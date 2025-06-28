@@ -34,7 +34,7 @@ export const FloatingCard: React.FC<FloatingCardProps> = ({
 
   const firstSentence = findFirstSentence(review.content);
   const isTruncated = firstSentence.length < review.content.length;
-  const truncatedText = firstSentence;
+  const truncatedText = firstSentence + "...";
 
   return (
     <Card
@@ -73,11 +73,6 @@ export const FloatingCard: React.FC<FloatingCardProps> = ({
           >
             {truncatedText}
           </p>
-          {isTruncated && (
-            <span className="mt-1 block text-xs font-medium text-blue-600">
-              Click to read more →
-            </span>
-          )}
         </div>
 
         {/* Consolidated metadata footer */}
