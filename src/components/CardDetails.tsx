@@ -9,11 +9,10 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useStore } from "@nanostores/react";
-import { cardInteractions, selectedCard } from "@/stores/cardStore";
+import { selectedCard } from "@/stores/cardStore";
 import { uiState } from "@/stores/uiStore";
 import { cn } from "@/lib/utils";
-import { X, Share2, Heart, Clock, User, Wrench } from "lucide-react";
+import { Share2, Heart, Clock, User, Wrench } from "lucide-react";
 import type { Review } from "@/lib/types";
 
 interface CardDetailsProps {
@@ -21,14 +20,9 @@ interface CardDetailsProps {
 }
 
 export const CardDetails: React.FC<CardDetailsProps> = ({ review }) => {
-  const $cardInteractions = useStore(cardInteractions);
-  const $selectedCard = useStore(selectedCard);
-  
-  const isOpen = $cardInteractions.isCardDetailsOpen && !!review;
+  const isOpen = !!review;
 
   const handleClose = () => {
-    cardInteractions.setKey("isCardDetailsOpen", false);
-    cardInteractions.setKey("expandedCard", null);
     selectedCard.set(null);
   };
 
@@ -57,8 +51,8 @@ export const CardDetails: React.FC<CardDetailsProps> = ({ review }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden p-0">
-        <DialogHeader className="p-6 pb-4 border-b">
+      <DialogContent className="max-w-4xl max-h-[90vh] p-0 flex flex-col">
+        <DialogHeader className="p-6 pb-4 border-b flex-shrink-0">
           <div className="flex items-start justify-between">
             <div className="flex-1 pr-4">
               <DialogTitle className="text-2xl font-bold mb-2 leading-tight">
@@ -103,10 +97,10 @@ export const CardDetails: React.FC<CardDetailsProps> = ({ review }) => {
               variant="outline" 
               className={cn(
                 "flex items-center gap-1",
-                review.mood === "technical" && "border-blue-200 text-blue-700",
-                review.mood === "humorous" && "border-yellow-200 text-yellow-700",
-                review.mood === "dramatic" && "border-red-200 text-red-700",
-                review.mood === "philosophical" && "border-purple-200 text-purple-700"
+                review.mood === "technical" && "border-blue-600 text-blue-800 bg-blue-50",
+                review.mood === "humorous" && "border-amber-600 text-amber-800 bg-amber-50",
+                review.mood === "dramatic" && "border-red-600 text-red-800 bg-red-50",
+                review.mood === "philosophical" && "border-purple-600 text-purple-800 bg-purple-50"
               )}
             >
               {review.mood}
@@ -125,7 +119,7 @@ export const CardDetails: React.FC<CardDetailsProps> = ({ review }) => {
             )}
 
             {review.featured && (
-              <Badge className="bg-blue-100 text-blue-800 border-blue-200">
+              <Badge className="bg-blue-600 text-white border-blue-600">
                 Featured
               </Badge>
             )}

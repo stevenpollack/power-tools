@@ -1,8 +1,8 @@
 ---
 import Layout from '../layouts/ReviewLayout.astro';
 import { FloatingCardWall } from '../components/FloatingCardWall';
-import { CardDetails } from '../components/CardDetails';
-import { mockReviews, getRandomReviews } from '../data/mockReviews';
+import { CardDetailsModal } from '../components/CardDetailsModal';
+import { mockReviews } from '../data/mockReviews';
 
 // Generate a diverse set of reviews for demo
 const demoReviews = [
@@ -40,7 +40,7 @@ const finalDemoReviews = demoReviews.slice(0, 24);
         </h1>
         <p class="text-xl text-center text-gray-600 mb-6 max-w-3xl mx-auto">
           Experience the interactive floating card wall with 24 literary reviews of power tools. 
-          Hover for details, click to expand, and filter by mood, author, or category.
+          Click any card to expand and read the full review, or filter by mood, author, or category.
         </p>
         
         <!-- Demo Stats -->
@@ -71,22 +71,15 @@ const finalDemoReviews = demoReviews.slice(0, 24);
       client:load
     />
 
-    <!-- Instructions for mobile -->
-    <div class="mobile-instructions md:hidden fixed bottom-4 left-4 right-4 bg-blue-50 border border-blue-200 rounded-lg p-3 text-sm text-blue-800">
-      <div class="font-medium mb-1">Mobile Controls:</div>
-      <div>• Tap cards to expand • Pinch to zoom • Swipe to navigate • Use filters above</div>
-    </div>
+    <!-- Card Details Modal -->
+    <CardDetailsModal 
+      reviews={finalDemoReviews}
+      client:load
+    />
 
-    <!-- Desktop instructions -->
-    <div class="desktop-instructions hidden md:block fixed bottom-4 right-4 bg-gray-50 border border-gray-200 rounded-lg p-4 text-sm text-gray-600 max-w-xs">
-      <div class="font-medium mb-2">Desktop Controls:</div>
-      <ul class="space-y-1">
-        <li>• <strong>Hover</strong> - Reveal review text</li>
-        <li>• <strong>Click</strong> - Expand full review</li>
-        <li>• <strong>Filter</strong> - Use badges above</li>
-        <li>• <strong>Search</strong> - Type in search box</li>
-      </ul>
-    </div>
+
+
+
   </main>
 </Layout>
 
@@ -109,42 +102,5 @@ const finalDemoReviews = demoReviews.slice(0, 24);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-  .mobile-instructions {
-    animation: slideUp 0.3s ease-out;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
 
-  .desktop-instructions {
-    animation: slideLeft 0.3s ease-out;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  @keyframes slideUp {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideLeft {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  /* Ensure proper spacing on mobile */
-  @media (max-width: 768px) {
-    .demo-page {
-      padding-bottom: 100px; /* Space for mobile instructions */
-    }
-  }
 </style> 
