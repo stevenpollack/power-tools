@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/ReviewLayout.astro";
 import { FloatingCardWall } from "../components/FloatingCardWall";
-import { CardDetailsModal } from "../components/CardDetailsModal";
+import { CardDetailsProvider } from "../components/CardDetailsProvider";
 import { mockReviews } from "../data/mockReviews";
 
 // Generate a diverse set of reviews for demo
@@ -77,8 +77,8 @@ const finalDemoReviews = demoReviews.slice(0, 24);
     <!-- Floating Card Wall -->
     <FloatingCardWall reviews={finalDemoReviews} client:load />
 
-    <!-- Card Details Modal -->
-    <CardDetailsModal reviews={finalDemoReviews} client:load />
+    <!-- Card Details Provider -->
+    <CardDetailsProvider reviews={finalDemoReviews} client:load />
   </main>
 </Layout>
 
@@ -101,4 +101,3 @@ const finalDemoReviews = demoReviews.slice(0, 24);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
 </style>
-

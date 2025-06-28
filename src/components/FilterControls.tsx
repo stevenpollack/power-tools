@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { FilterBadgeGroup } from "@/components/ui/filter-badge-group";
 import { useStore } from "@nanostores/react";
 import { activeFilters } from "@/stores/filterStore";
 import { uiState } from "@/stores/uiStore";
 import { cn } from "@/lib/utils";
+import { MOOD_OPTIONS } from "@/lib/constants";
 import { Search, X, Filter, ChevronDown, ChevronUp } from "lucide-react";
 
 interface FilterControlsProps {
@@ -14,29 +16,7 @@ interface FilterControlsProps {
   availableBrands: string[];
 }
 
-// WCAG AA compliant color schemes
-const MOOD_OPTIONS = [
-  {
-    value: "technical",
-    label: "Technical",
-    color: "border-blue-600 text-blue-800 bg-blue-50",
-  },
-  {
-    value: "humorous",
-    label: "Humorous",
-    color: "border-amber-600 text-amber-800 bg-amber-50",
-  },
-  {
-    value: "dramatic",
-    label: "Dramatic",
-    color: "border-red-600 text-red-800 bg-red-50",
-  },
-  {
-    value: "philosophical",
-    label: "Philosophical",
-    color: "border-purple-600 text-purple-800 bg-purple-50",
-  },
-];
+
 
 export const FilterControls: React.FC<FilterControlsProps> = ({
   availableAuthors,
@@ -45,6 +25,22 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
 }) => {
   const $filters = useStore(activeFilters);
   const $uiState = useStore(uiState);
+
+  // Convert arrays to FilterOption format
+  const authorOptions = useMemo(
+    () => availableAuthors.map((author) => ({ value: author, label: author })),
+    [availableAuthors],
+  );
+
+  const categoryOptions = useMemo(
+    () => availableCategories.map((category) => ({ value: category, label: category })),
+    [availableCategories],
+  );
+
+  const brandOptions = useMemo(
+    () => availableBrands.map((brand) => ({ value: brand, label: brand })),
+    [availableBrands],
+  );
 
   const handleSearchChange = (value: string) => {
     activeFilters.setKey("searchTerm", value);
@@ -144,113 +140,36 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
           <div className="mx-auto max-w-7xl p-4">
             <div className="space-y-4">
               {/* Mood Filters */}
-              <div>
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="text-sm font-medium text-gray-700">
-                    Mood
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {MOOD_OPTIONS.map((mood) => (
-                    <Badge
-                      key={mood.value}
-                      variant={
-                        $filters.mood === mood.value ? "default" : "outline"
-                      }
-                      className={cn(
-                        "cursor-pointer transition-all hover:scale-105",
-                        $filters.mood === mood.value
-                          ? "border-gray-900 bg-gray-900 text-white"
-                          : mood.color,
-                      )}
-                      onClick={() =>
-                        handleFilterChange(
-                          "mood",
-                          $filters.mood === mood.value ? null : mood.value,
-                        )
-                      }
-                    >
-                      {mood.label}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+              <FilterBadgeGroup
+                title="Mood"
+                options={MOOD_OPTIONS}
+                activeValue={$filters.mood}
+                onValueChange={(value) => handleFilterChange("mood", value)}
+              />
 
               {/* Author Filters */}
-              <div>
-                <span className="mb-3 block text-sm font-medium text-gray-700">
-                  Authors
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {availableAuthors.map((author) => (
-                    <Badge
-                      key={author}
-                      variant={
-                        $filters.author === author ? "default" : "outline"
-                      }
-                      className="cursor-pointer transition-all hover:scale-105"
-                      onClick={() =>
-                        handleFilterChange(
-                          "author",
-                          $filters.author === author ? null : author,
-                        )
-                      }
-                    >
-                      {author}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+              <FilterBadgeGroup
+                title="Authors"
+                options={authorOptions}
+                activeValue={$filters.author}
+                onValueChange={(value) => handleFilterChange("author", value)}
+              />
 
               {/* Category Filters */}
-              <div>
-                <span className="mb-3 block text-sm font-medium text-gray-700">
-                  Categories
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {availableCategories.map((category) => (
-                    <Badge
-                      key={category}
-                      variant={
-                        $filters.category === category ? "default" : "outline"
-                      }
-                      className="cursor-pointer transition-all hover:scale-105"
-                      onClick={() =>
-                        handleFilterChange(
-                          "category",
-                          $filters.category === category ? null : category,
-                        )
-                      }
-                    >
-                      {category}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+              <FilterBadgeGroup
+                title="Categories"
+                options={categoryOptions}
+                activeValue={$filters.category}
+                onValueChange={(value) => handleFilterChange("category", value)}
+              />
 
               {/* Brand Filters */}
-              <div>
-                <span className="mb-3 block text-sm font-medium text-gray-700">
-                  Brands
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {availableBrands.map((brand) => (
-                    <Badge
-                      key={brand}
-                      variant={$filters.brand === brand ? "default" : "outline"}
-                      className="cursor-pointer transition-all hover:scale-105"
-                      onClick={() =>
-                        handleFilterChange(
-                          "brand",
-                          $filters.brand === brand ? null : brand,
-                        )
-                      }
-                    >
-                      {brand}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
+              <FilterBadgeGroup
+                title="Brands"
+                options={brandOptions}
+                activeValue={$filters.brand}
+                onValueChange={(value) => handleFilterChange("brand", value)}
+              />
             </div>
           </div>
         </div>

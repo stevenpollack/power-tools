@@ -1,24 +1,5 @@
 import { type FC, useState } from "react";
-
-// Helper function to map authorId to image filename
-const getAuthorImagePath = (authorId: string): string => {
-    const authorImageMap: Record<string, string> = {
-        "ernest-hemingway": "hemingway.jpg",
-        "oscar-wilde": "wilde.jpg",
-        "virginia-woolf": "woolf.jpg",
-        "franz-kafka": "kafka.jpg",
-        "mark-twain": "twain.jpg",
-        "hp-lovecraft": "lovecraft.jpg",
-        "jane-austen": "austen.jpg",
-        "charles-dickens": "dickens.jpg",
-        "george-orwell": "orwell.jpg",
-        "jack-kerouac": "kerouac.jpg",
-        "edgar-allan-poe": "poe.jpg",
-        "ayn-rand": "rand.jpg",
-    };
-
-    return authorImageMap[authorId] || `${authorId}.jpg`;
-};
+import { getAuthorImagePath, getAuthorInitials } from "@/lib/helpers";
 // Author Image with Fallback
 export const AuthorImage: FC<{ authorId: string; authorName: string; }> = ({
     authorId, authorName,
@@ -27,12 +8,7 @@ export const AuthorImage: FC<{ authorId: string; authorName: string; }> = ({
 
     if (imageError) {
         // Fallback: Author initials in a circle
-        const initials = authorName
-            .split(" ")
-            .map((name) => name.charAt(0))
-            .join("")
-            .toUpperCase()
-            .slice(0, 2);
+        const initials = getAuthorInitials(authorName);
 
         return (
             <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-300 text-sm font-semibold text-gray-700">

@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { selectedCard } from "@/stores/cardStore";
 import { cn } from "@/lib/utils";
+import { getAuthorLifespan, getMoodColors, formatReadingTime, formatDateForDisplay } from "@/lib/helpers";
 import { Share2, Heart, Clock, Wrench, ExternalLink } from "lucide-react";
 import type { Review } from "@/lib/types";
 import { AuthorImage } from "./AuthorImage";
@@ -19,25 +20,7 @@ interface CardDetailsSheetProps {
   review: Review | null;
 }
 
-// Helper function to get author lifespan
-const getAuthorLifespan = (authorId: string): string => {
-  const lifespanMap: Record<string, string> = {
-    "ernest-hemingway": "1899-1961",
-    "oscar-wilde": "1854-1900",
-    "virginia-woolf": "1882-1941",
-    "franz-kafka": "1883-1924",
-    "mark-twain": "1835-1910",
-    "hp-lovecraft": "1890-1937",
-    "jane-austen": "1775-1817",
-    "charles-dickens": "1812-1870",
-    "george-orwell": "1903-1950",
-    "jack-kerouac": "1922-1969",
-    "edgar-allan-poe": "1809-1849",
-    "ayn-rand": "1905-1982",
-  };
 
-  return lifespanMap[authorId] || "...";
-};
 
 
 
@@ -79,21 +62,8 @@ export const CardDetailsSheet: FC<CardDetailsSheetProps> = ({
 
   if (!review) return null;
 
-  // Format reading time
-  const readingTimeText =
-    review.readingTime === 1
-      ? "1 minute read"
-      : `${review.readingTime} minutes read`;
-
-  // Format date
-  const formattedDate = new Date(review.dateCreated).toLocaleDateString(
-    "en-US",
-    {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    },
-  );
+  const readingTimeText = formatReadingTime(review.readingTime);
+  const formattedDate = formatDateForDisplay(review.dateCreated);
 
   return (
     <Sheet open={isOpen} onOpenChange={handleClose}>
@@ -165,14 +135,7 @@ export const CardDetailsSheet: FC<CardDetailsSheetProps> = ({
                     variant="outline"
                     className={cn(
                       "flex items-center gap-1",
-                      review.mood === "technical" &&
-                      "border-blue-500 bg-blue-50 text-blue-700",
-                      review.mood === "humorous" &&
-                      "border-amber-500 bg-amber-50 text-amber-700",
-                      review.mood === "dramatic" &&
-                      "border-red-500 bg-red-50 text-red-700",
-                      review.mood === "philosophical" &&
-                      "border-purple-500 bg-purple-50 text-purple-700",
+                      getMoodColors(review.mood).variant,
                     )}
                   >
                     {review.mood}

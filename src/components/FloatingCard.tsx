@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { findFirstSentence, getMoodColors } from "@/lib/helpers";
 import type { Review } from "@/lib/types";
 
 interface FloatingCardProps {
@@ -15,21 +16,6 @@ export const FloatingCard: React.FC<FloatingCardProps> = ({
 }) => {
   const handleClick = () => {
     onCardClick?.(review.id);
-  };
-
-  // Truncate after first sentence for better intrigue
-  const findFirstSentence = (text: string) => {
-    // Look for sentence endings: period, exclamation, question mark
-    const sentenceEnders = /[.!?]/;
-    const match = text.match(sentenceEnders);
-
-    if (match && match.index !== undefined) {
-      // Include the punctuation mark and stop there
-      return text.substring(0, match.index + 1);
-    }
-
-    // Fallback: if no sentence ending found, truncate at 120 chars
-    return text.length > 120 ? text.substring(0, 120) + "..." : text;
   };
 
   const firstSentence = findFirstSentence(review.content);
@@ -88,14 +74,7 @@ export const FloatingCard: React.FC<FloatingCardProps> = ({
               variant="outline"
               className={cn(
                 "text-xs",
-                review.mood === "technical" &&
-                "border-blue-600 bg-blue-50 text-blue-800",
-                review.mood === "humorous" &&
-                "border-amber-600 bg-amber-50 text-amber-800",
-                review.mood === "dramatic" &&
-                "border-red-600 bg-red-50 text-red-800",
-                review.mood === "philosophical" &&
-                "border-purple-600 bg-purple-50 text-purple-800",
+                getMoodColors(review.mood).variant,
               )}
             >
               {review.mood}

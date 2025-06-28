@@ -34,14 +34,6 @@ export interface Tool {
   specifications: Record<string, any>;
 }
 
-export type CardSize = "small" | "medium" | "large";
-export type ViewMode = "masonry" | "grid" | "list";
-export type FilterType = "author" | "category" | "mood" | "brand";
 
-export interface FilterState {
-  author: string | null;
-  category: string | null;
-  mood: string | null;
-  brand: string | null;
-  searchTerm: string;
-}
+
+
