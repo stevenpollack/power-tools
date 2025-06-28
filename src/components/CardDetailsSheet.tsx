@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { type FC } from "react";
 import {
   Sheet,
   SheetContent,
@@ -12,30 +12,12 @@ import { selectedCard } from "@/stores/cardStore";
 import { cn } from "@/lib/utils";
 import { Share2, Heart, Clock, Wrench, ExternalLink } from "lucide-react";
 import type { Review } from "@/lib/types";
+import { AuthorImage } from "./AuthorImage";
+import { ToolImage } from "./ToolImage";
 
 interface CardDetailsSheetProps {
   review: Review | null;
 }
-
-// Helper function to map authorId to image filename
-const getAuthorImagePath = (authorId: string): string => {
-  const authorImageMap: Record<string, string> = {
-    "ernest-hemingway": "hemingway.jpg",
-    "oscar-wilde": "wilde.jpg",
-    "virginia-woolf": "woolf.jpg",
-    "franz-kafka": "kafka.jpg",
-    "mark-twain": "twain.jpg",
-    "hp-lovecraft": "lovecraft.jpg",
-    "jane-austen": "austen.jpg",
-    "charles-dickens": "dickens.jpg",
-    "george-orwell": "orwell.jpg",
-    "jack-kerouac": "kerouac.jpg",
-    "edgar-allan-poe": "poe.jpg",
-    "ayn-rand": "rand.jpg",
-  };
-
-  return authorImageMap[authorId] || `${authorId}.jpg`;
-};
 
 // Helper function to get author lifespan
 const getAuthorLifespan = (authorId: string): string => {
@@ -57,66 +39,9 @@ const getAuthorLifespan = (authorId: string): string => {
   return lifespanMap[authorId] || "...";
 };
 
-// Author Image with Fallback
-const AuthorImage: React.FC<{ authorId: string; authorName: string }> = ({
-  authorId,
-  authorName,
-}) => {
-  const [imageError, setImageError] = useState(false);
 
-  if (imageError) {
-    // Fallback: Author initials in a circle
-    const initials = authorName
-      .split(" ")
-      .map((name) => name.charAt(0))
-      .join("")
-      .toUpperCase()
-      .slice(0, 2);
 
-    return (
-      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gray-300 text-sm font-semibold text-gray-700">
-        {initials}
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={`/images/authors/${getAuthorImagePath(authorId)}`}
-      alt={authorName}
-      className="h-12 w-12 flex-shrink-0 rounded-full object-cover"
-      onError={() => setImageError(true)}
-    />
-  );
-};
-
-// Tool Image with Fallback
-const ToolImage: React.FC<{ toolId: string; toolName: string }> = ({
-  toolId,
-  toolName,
-}) => {
-  const [imageError, setImageError] = useState(false);
-
-  if (imageError) {
-    // Fallback: Tool icon with wrench
-    return (
-      <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-lg bg-gray-200">
-        <Wrench className="h-8 w-8 text-gray-500" />
-      </div>
-    );
-  }
-
-  return (
-    <img
-      src={`/images/tools/${toolId}.svg`}
-      alt={toolName}
-      className="h-20 w-20 object-contain"
-      onError={() => setImageError(true)}
-    />
-  );
-};
-
-export const CardDetailsSheet: React.FC<CardDetailsSheetProps> = ({
+export const CardDetailsSheet: FC<CardDetailsSheetProps> = ({
   review,
 }) => {
   const isOpen = !!review;
@@ -176,40 +101,35 @@ export const CardDetailsSheet: React.FC<CardDetailsSheetProps> = ({
         side="right"
         className="flex h-full w-full max-w-2xl flex-col p-0 lg:max-w-3xl"
       >
-        {/* We need  to add a SheetHeader and SheetTitle here to make sure the component correctly renders. The content needs to be static. IDK why. */}
         <SheetHeader>
-          <SheetTitle>Fake tool review</SheetTitle>
-        </SheetHeader>
-        {/* Fixed Header */}
-        <div className="flex flex-shrink-0 items-center justify-between border-b bg-white p-6">
-          <div className="min-w-0 flex-1 pr-4">
-            <h2 className="truncate text-2xl font-bold text-gray-900">
+          <div className="flex flex-shrink-0 items-center justify-between border-b bg-white p-6">
+            <SheetTitle className="truncate text-2xl font-bold text-gray-900">
               {review.toolName}
-            </h2>
-          </div>
+            </SheetTitle>
 
-          {/* Action Buttons */}
-          <div className="flex flex-shrink-0 items-center gap-3">
-            <Button
-              variant="outline"
-              size="default"
-              onClick={handleShare}
-              className="flex items-center gap-2 whitespace-nowrap"
-            >
-              <Share2 className="h-4 w-4" />
-              Share
-            </Button>
-            <Button
-              variant="outline"
-              size="default"
-              onClick={handleLike}
-              className="flex items-center gap-2 whitespace-nowrap"
-            >
-              <Heart className="h-4 w-4" />
-              {review.shareCount || 0}
-            </Button>
+            {/* Action Buttons */}
+            <div className="flex flex-shrink-0 items-center gap-3">
+              <Button
+                variant="outline"
+                size="default"
+                onClick={handleShare}
+                className="flex items-center gap-2 whitespace-nowrap"
+              >
+                <Share2 className="h-4 w-4" />
+                Share
+              </Button>
+              <Button
+                variant="outline"
+                size="default"
+                onClick={handleLike}
+                className="flex items-center gap-2 whitespace-nowrap"
+              >
+                <Heart className="h-4 w-4" />
+                {review.shareCount || 0}
+              </Button>
+            </div>
           </div>
-        </div>
+        </SheetHeader>
 
         {/* Scrollable Content */}
         <ScrollArea className="h-0 flex-1">
