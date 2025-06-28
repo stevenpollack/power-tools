@@ -11,13 +11,7 @@
     "Mansfield Park",
     "Persuasion"
   ],
-  "styleKeywords": [
-    "social-satire",
-    "propriety",
-    "wit",
-    "ironic",
-    "domestic"
-  ],
+  "styleKeywords": ["social-satire", "propriety", "wit", "ironic", "domestic"],
   "literaryMovement": "Romanticism",
   "portrait": {
     "filename": "austen.jpg",

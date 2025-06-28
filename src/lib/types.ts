@@ -44,4 +44,4 @@ export interface FilterState {
   mood: string | null;
   brand: string | null;
   searchTerm: string;
-} 
+}

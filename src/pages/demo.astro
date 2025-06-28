@@ -1,8 +1,8 @@
 ---
-import Layout from '../layouts/ReviewLayout.astro';
-import { FloatingCardWall } from '../components/FloatingCardWall';
-import { CardDetailsModal } from '../components/CardDetailsModal';
-import { mockReviews } from '../data/mockReviews';
+import Layout from "../layouts/ReviewLayout.astro";
+import { FloatingCardWall } from "../components/FloatingCardWall";
+import { CardDetailsModal } from "../components/CardDetailsModal";
+import { mockReviews } from "../data/mockReviews";
 
 // Generate a diverse set of reviews for demo
 const demoReviews = [
@@ -23,7 +23,7 @@ const demoReviews = [
     featured: false,
     excerpt: review.excerpt.substring(0, 120) + "...",
     readingTime: Math.floor(Math.random() * 4) + 2,
-  }))
+  })),
 ];
 
 // Ensure we have exactly 24 reviews for demo
@@ -34,31 +34,40 @@ const finalDemoReviews = demoReviews.slice(0, 24);
   <main class="demo-page">
     <!-- Demo Header -->
     <header class="demo-header">
-      <div class="max-w-7xl mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-center mb-4 text-gray-900">
+      <div class="mx-auto max-w-7xl px-4 py-8">
+        <h1 class="mb-4 text-center text-4xl font-bold text-gray-900">
           Floating Wall Demo
         </h1>
-        <p class="text-xl text-center text-gray-600 mb-6 max-w-3xl mx-auto">
-          Experience the interactive floating card wall with 24 literary reviews of power tools. 
-          Click any card to expand and read the full review, or filter by mood, author, or category.
+        <p class="mx-auto mb-6 max-w-3xl text-center text-xl text-gray-600">
+          Experience the interactive floating card wall with 24 literary reviews
+          of power tools. Click any card to expand and read the full review, or
+          filter by mood, author, or category.
         </p>
-        
+
         <!-- Demo Stats -->
         <div class="flex justify-center gap-8 text-sm text-gray-500">
           <div class="text-center">
-            <div class="text-2xl font-bold text-blue-600">{finalDemoReviews.length}</div>
+            <div class="text-2xl font-bold text-blue-600">
+              {finalDemoReviews.length}
+            </div>
             <div>Reviews</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl font-bold text-green-600">{[...new Set(finalDemoReviews.map(r => r.authorName))].length}</div>
+            <div class="text-2xl font-bold text-green-600">
+              {[...new Set(finalDemoReviews.map((r) => r.authorName))].length}
+            </div>
             <div>Authors</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl font-bold text-purple-600">{[...new Set(finalDemoReviews.map(r => r.brand))].length}</div>
+            <div class="text-2xl font-bold text-purple-600">
+              {[...new Set(finalDemoReviews.map((r) => r.brand))].length}
+            </div>
             <div>Brands</div>
           </div>
           <div class="text-center">
-            <div class="text-2xl font-bold text-orange-600">{finalDemoReviews.filter(r => r.featured).length}</div>
+            <div class="text-2xl font-bold text-orange-600">
+              {finalDemoReviews.filter((r) => r.featured).length}
+            </div>
             <div>Featured</div>
           </div>
         </div>
@@ -66,20 +75,10 @@ const finalDemoReviews = demoReviews.slice(0, 24);
     </header>
 
     <!-- Floating Card Wall -->
-    <FloatingCardWall 
-      reviews={finalDemoReviews} 
-      client:load
-    />
+    <FloatingCardWall reviews={finalDemoReviews} client:load />
 
     <!-- Card Details Modal -->
-    <CardDetailsModal 
-      reviews={finalDemoReviews}
-      client:load
-    />
-
-
-
-
+    <CardDetailsModal reviews={finalDemoReviews} client:load />
   </main>
 </Layout>
 
@@ -101,6 +100,5 @@ const finalDemoReviews = demoReviews.slice(0, 24);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
+</style>
 
-
-</style> 

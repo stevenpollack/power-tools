@@ -3,90 +3,60 @@
     "name": "Power Drills",
     "description": "Power Drills tools from Home Depot",
     "toolCount": 3,
-    "tools": [
-      "300350892",
-      "204469006",
-      "308502359"
-    ]
+    "tools": ["300350892", "204469006", "308502359"]
   },
   "power-saws": {
     "name": "Power Saws",
     "description": "Power Saws tools from Home Depot",
     "toolCount": 3,
-    "tools": [
-      "203276309",
-      "309017192",
-      "206955048"
-    ]
+    "tools": ["203276309", "309017192", "206955048"]
   },
   "grinders": {
     "name": "Grinders",
     "description": "Grinders tools from Home Depot",
     "toolCount": 2,
-    "tools": [
-      "300338860",
-      "202269421"
-    ]
+    "tools": ["300338860", "202269421"]
   },
   "pressure-washers": {
     "name": "Pressure Washers",
     "description": "Pressure Washers tools from Home Depot",
     "toolCount": 2,
-    "tools": [
-      "309446526",
-      "300063787"
-    ]
+    "tools": ["309446526", "300063787"]
   },
   "batteries-chargers": {
     "name": "Batteries & Chargers",
     "description": "Batteries & Chargers tools from Home Depot",
     "toolCount": 2,
-    "tools": [
-      "204749632",
-      "203276371"
-    ]
+    "tools": ["204749632", "203276371"]
   },
   "sanders": {
     "name": "Sanders",
     "description": "Sanders tools from Home Depot",
     "toolCount": 2,
-    "tools": [
-      "202421110",
-      "306816257"
-    ]
+    "tools": ["202421110", "306816257"]
   },
   "nail-guns": {
     "name": "Nail, Glue & Heat Guns",
     "description": "Nail, Glue & Heat Guns tools from Home Depot",
     "toolCount": 2,
-    "tools": [
-      "203276275",
-      "205216321"
-    ]
+    "tools": ["203276275", "205216321"]
   },
   "rotary-tools": {
     "name": "Rotary Tools",
     "description": "Rotary Tools tools from Home Depot",
     "toolCount": 1,
-    "tools": [
-      "100134067"
-    ]
+    "tools": ["100134067"]
   },
   "air-compressors": {
     "name": "Air Compressors",
     "description": "Air Compressors tools from Home Depot",
     "toolCount": 2,
-    "tools": [
-      "202066906",
-      "308493726"
-    ]
+    "tools": ["202066906", "308493726"]
   },
   "construction-tools": {
     "name": "Heavy Duty & Construction Tools",
     "description": "Heavy Duty & Construction Tools tools from Home Depot",
     "toolCount": 1,
-    "tools": [
-      "207122082"
-    ]
+    "tools": ["207122082"]
   }
 }

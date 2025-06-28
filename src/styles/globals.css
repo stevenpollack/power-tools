@@ -27,7 +27,7 @@
   * {
     border-color: var(--color-border);
   }
-  
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -39,63 +39,63 @@
   .border-border {
     border-color: var(--color-border);
   }
-  
+
   .border-input {
     border-color: var(--color-input);
   }
-  
+
   .border-ring {
     border-color: var(--color-ring);
   }
-  
+
   .border-destructive {
     border-color: var(--color-destructive);
   }
-  
+
   .bg-background {
     background-color: var(--color-background);
   }
-  
+
   .bg-card {
     background-color: var(--color-card);
   }
-  
+
   .bg-primary {
     background-color: var(--color-primary);
   }
-  
+
   .bg-secondary {
     background-color: var(--color-secondary);
   }
-  
+
   .bg-accent {
     background-color: var(--color-accent);
   }
-  
+
   .bg-destructive {
     background-color: var(--color-destructive);
   }
-  
+
   .text-foreground {
     color: var(--color-foreground);
   }
-  
+
   .text-primary-foreground {
     color: var(--color-primary-foreground);
   }
-  
+
   .text-secondary-foreground {
     color: var(--color-secondary-foreground);
   }
-  
+
   .text-accent-foreground {
     color: var(--color-accent-foreground);
   }
-  
+
   .text-destructive-foreground {
     color: var(--color-destructive-foreground);
   }
-  
+
   .text-muted-foreground {
     color: var(--color-muted-foreground);
   }
@@ -106,42 +106,43 @@
   .floating-card-base {
     @apply relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-xl;
   }
-  
+
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
       transform: translateY(-6px);
     }
   }
-  
+
   .line-clamp-4 {
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  
+
   /* Custom scrollbar styles */
   .scrollbar-thin {
     scrollbar-width: thin;
   }
-  
+
   .scrollbar-thin::-webkit-scrollbar {
     width: 4px;
   }
-  
+
   .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
     background-color: #d1d5db;
     border-radius: 2px;
   }
-  
+
   .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb:hover {
     background-color: #9ca3af;
   }
-  
+
   .scrollbar-track-transparent::-webkit-scrollbar-track {
     background-color: transparent;
   }
-} 
+}

@@ -6,4 +6,4 @@ export const activeFilters = map({
   mood: null as string | null,
   brand: null as string | null,
   searchTerm: "",
-}); 
+});

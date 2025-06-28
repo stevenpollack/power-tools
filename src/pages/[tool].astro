@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/ReviewLayout.astro';
+import Layout from "../layouts/ReviewLayout.astro";
 
 export async function getStaticPaths() {
   return [];
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
         <div class="tool-image">
           <div class="placeholder-image">Tool Image</div>
         </div>
-        
+
         <div class="tool-info">
           <h1>Tool Name</h1>
           <p class="tool-brand">Brand Name</p>
@@ -31,7 +31,10 @@ export async function getStaticPaths() {
       <section class="tool-reviews">
         <h2>Literary Reviews of This Tool</h2>
         <div class="reviews-grid">
-          <p class="placeholder">Author reviews of this tool will be displayed here after content generation</p>
+          <p class="placeholder">
+            Author reviews of this tool will be displayed here after content
+            generation
+          </p>
         </div>
       </section>
     </div>
@@ -177,4 +180,5 @@ export async function getStaticPaths() {
       flex-wrap: wrap;
     }
   }
-</style> 
+</style>
+

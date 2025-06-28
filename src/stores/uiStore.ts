@@ -8,4 +8,4 @@ export const uiState = map({
   scrollPosition: 0,
   isMobile: false,
   contextMenuCard: null as string | null,
-}); 
+});
