@@ -1,20 +1,22 @@
-import React from 'react';
+import React from "react";
 import { useStore } from "@nanostores/react";
 import { selectedCard } from "@/stores/cardStore";
-import { CardDetails } from './CardDetails';
+import { CardDetailsSheet } from "./CardDetailsSheet";
 import type { Review } from "@/lib/types";
 
 interface CardDetailsModalProps {
   reviews: Review[];
 }
 
-export const CardDetailsModal: React.FC<CardDetailsModalProps> = ({ reviews }) => {
+export const CardDetailsModal: React.FC<CardDetailsModalProps> = ({
+  reviews,
+}) => {
   const $selectedCard = useStore(selectedCard);
-  
+
   // Find the selected review
-  const selectedReview = $selectedCard 
-    ? reviews.find(review => review.id === $selectedCard) || null
+  const selectedReview = $selectedCard
+    ? reviews.find((review) => review.id === $selectedCard) || null
     : null;
 
-  return <CardDetails review={selectedReview} />;
-}; 
+  return <CardDetailsSheet review={selectedReview} />;
+};
