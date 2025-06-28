@@ -125,14 +125,9 @@ const canonicalURL = Astro.site
   }
 
   .main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 100;
     padding: 1rem 0;
   }
 
@@ -203,9 +198,5 @@ const canonicalURL = Astro.site
     }
   }
 
-  /* Add padding to body content to account for fixed nav */
-  body {
-    padding-top: 80px;
-  }
+  /* Navbar is now part of normal document flow */
 </style>
-
