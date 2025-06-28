@@ -7,13 +7,27 @@
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": {},
 		"ghcr.io/devcontainers-extra/features/curl-apt-get:1": {}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+	"forwardPorts": [3000, 4321, 4322],
+	
+	// Configure port attributes for better UX
+	"portsAttributes": {
+		"4321": {
+			"label": "Astro Dev Server",
+			"onAutoForward": "openBrowser"
+		},
+		"3000": {
+			"label": "Development Server"
+		},
+		"4322": {
+			"label": "Additional Port"
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},

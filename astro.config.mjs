@@ -8,6 +8,10 @@ export default defineConfig({
   integrations: [react()],
   output: 'static',
   adapter: vercel(),
+  server: {
+    host: '0.0.0.0',
+    port: 4321
+  },
   vite: {
     plugins: [tailwindcss()],
   }
