@@ -1,0 +1,34 @@
+{
+  "name": "Ryobi 18V ONE+ 4 Piece Kit R18X4C1422B",
+  "slug": "ryobi-18v-one-4-piece-kit",
+  "brand": "Ryobi",
+  "category": "Power Tool Kits",
+  "subcategory": "Cordless Tool Kits",
+  "bunningsSku": "0539762",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-4-piece-kit-r18x4c1422b_p0539762",
+  "thumbnailUrl": "https://media.bunnings.com.au/api/public/content/c90dcf545adb48369298f23d381e0456?v=bb502354&t=w100dpr1",
+  "specifications": {
+    "power": "18V",
+    "weight": "2.8 kg",
+    "dimensions": "Various sizes",
+    "keyFeatures": [
+      "4-piece kit includes drill, impact driver, torch and radio",
+      "18V ONE+ battery system compatibility",
+      "Compact and lightweight design",
+      "2 x 1.5Ah batteries and charger included",
+      "LED work lights on multiple tools"
+    ],
+    "batteryLife": "Up to 2 hours depending on tool",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 99,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 33,
+    "averageRating": 4.3,
+    "bunningsRank": 1
+  }
+} 
