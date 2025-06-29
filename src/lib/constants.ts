@@ -3,14 +3,14 @@
 export const MOOD_COLORS = {
   technical: {
     border: "border-blue-600",
-    bg: "bg-blue-50", 
+    bg: "bg-blue-50",
     text: "text-blue-800",
     variant: "border-blue-600 bg-blue-50 text-blue-800",
   },
   humorous: {
     border: "border-amber-600",
     bg: "bg-amber-50",
-    text: "text-amber-800", 
+    text: "text-amber-800",
     variant: "border-amber-600 bg-amber-50 text-amber-800",
   },
   dramatic: {
@@ -20,7 +20,7 @@ export const MOOD_COLORS = {
     variant: "border-red-600 bg-red-50 text-red-800",
   },
   philosophical: {
-    border: "border-purple-600", 
+    border: "border-purple-600",
     bg: "bg-purple-50",
     text: "text-purple-800",
     variant: "border-purple-600 bg-purple-50 text-purple-800",
@@ -35,7 +35,7 @@ export const MOOD_OPTIONS = [
   },
   {
     value: "humorous" as const,
-    label: "Humorous", 
+    label: "Humorous",
     color: MOOD_COLORS.humorous.variant,
   },
   {
@@ -57,7 +57,7 @@ export const AUTHOR_DATA = {
     image: "hemingway.jpg",
   },
   "oscar-wilde": {
-    name: "Oscar Wilde", 
+    name: "Oscar Wilde",
     lifespan: "1854-1900",
     image: "wilde.jpg",
   },
@@ -68,7 +68,7 @@ export const AUTHOR_DATA = {
   },
   "franz-kafka": {
     name: "Franz Kafka",
-    lifespan: "1883-1924", 
+    lifespan: "1883-1924",
     image: "kafka.jpg",
   },
   "mark-twain": {
@@ -83,7 +83,7 @@ export const AUTHOR_DATA = {
   },
   "jane-austen": {
     name: "Jane Austen",
-    lifespan: "1775-1817", 
+    lifespan: "1775-1817",
     image: "austen.jpg",
   },
   "charles-dickens": {
@@ -114,4 +114,4 @@ export const AUTHOR_DATA = {
 } as const;
 
 export type MoodType = keyof typeof MOOD_COLORS;
-export type AuthorId = keyof typeof AUTHOR_DATA; 
+export type AuthorId = keyof typeof AUTHOR_DATA;

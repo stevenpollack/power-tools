@@ -72,10 +72,7 @@ export const FloatingCard: React.FC<FloatingCardProps> = ({
             </span>
             <Badge
               variant="outline"
-              className={cn(
-                "text-xs",
-                getMoodColors(review.mood).variant,
-              )}
+              className={cn("text-xs", getMoodColors(review.mood).variant)}
             >
               {review.mood}
             </Badge>

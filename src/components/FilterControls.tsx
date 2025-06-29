@@ -16,8 +16,6 @@ interface FilterControlsProps {
   availableBrands: string[];
 }
 
-
-
 export const FilterControls: React.FC<FilterControlsProps> = ({
   availableAuthors,
   availableCategories,
@@ -33,7 +31,11 @@ export const FilterControls: React.FC<FilterControlsProps> = ({
   );
 
   const categoryOptions = useMemo(
-    () => availableCategories.map((category) => ({ value: category, label: category })),
+    () =>
+      availableCategories.map((category) => ({
+        value: category,
+        label: category,
+      })),
     [availableCategories],
   );
 
