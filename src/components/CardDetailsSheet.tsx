@@ -10,7 +10,12 @@ import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { selectedCard } from "@/stores/cardStore";
 import { cn } from "@/lib/utils";
-import { getAuthorLifespan, getMoodColors, formatReadingTime, formatDateForDisplay } from "@/lib/helpers";
+import {
+  getAuthorLifespan,
+  getMoodColors,
+  formatReadingTime,
+  formatDateForDisplay,
+} from "@/lib/helpers";
 import { Share2, Heart, Clock, Wrench, ExternalLink } from "lucide-react";
 import type { Review } from "@/lib/types";
 import { AuthorImage } from "./AuthorImage";
@@ -20,13 +25,7 @@ interface CardDetailsSheetProps {
   review: Review | null;
 }
 
-
-
-
-
-export const CardDetailsSheet: FC<CardDetailsSheetProps> = ({
-  review,
-}) => {
+export const CardDetailsSheet: FC<CardDetailsSheetProps> = ({ review }) => {
   const isOpen = !!review;
 
   const handleClose = () => {
@@ -152,7 +151,10 @@ export const CardDetailsSheet: FC<CardDetailsSheetProps> = ({
 
                   {/* Category Badge */}
                   {review.category && (
-                    <Badge variant="outline" className="flex items-center gap-1">
+                    <Badge
+                      variant="outline"
+                      className="flex items-center gap-1"
+                    >
                       <Wrench className="h-3 w-3" />
                       {review.category}
                     </Badge>

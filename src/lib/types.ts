@@ -33,7 +33,3 @@ export interface Tool {
   imageUrl: string;
   specifications: Record<string, any>;
 }
-
-
-
-

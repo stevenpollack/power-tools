@@ -5,7 +5,7 @@ import { CardDetailsSheet } from "./CardDetailsSheet";
 import type { Review } from "@/lib/types";
 
 interface CardDetailsProviderProps {
-    reviews: Review[];
+  reviews: Review[];
 }
 
 /**
@@ -13,14 +13,14 @@ interface CardDetailsProviderProps {
  * and rendering the appropriate sheet with the selected review data.
  */
 export const CardDetailsProvider: React.FC<CardDetailsProviderProps> = ({
-    reviews,
+  reviews,
 }) => {
-    const $selectedCard = useStore(selectedCard);
+  const $selectedCard = useStore(selectedCard);
 
-    // Find the selected review
-    const selectedReview = $selectedCard
-        ? reviews.find((review) => review.id === $selectedCard) || null
-        : null;
+  // Find the selected review
+  const selectedReview = $selectedCard
+    ? reviews.find((review) => review.id === $selectedCard) || null
+    : null;
 
-    return <CardDetailsSheet review={selectedReview} />;
-}; 
+  return <CardDetailsSheet review={selectedReview} />;
+};

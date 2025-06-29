@@ -1,5 +1,10 @@
 import type { Review } from "./types";
-import { MOOD_COLORS, AUTHOR_DATA, type AuthorId, type MoodType } from "./constants";
+import {
+  MOOD_COLORS,
+  AUTHOR_DATA,
+  type AuthorId,
+  type MoodType,
+} from "./constants";
 
 /**
  * Get mood-specific styling classes
@@ -12,11 +17,13 @@ export function getMoodColors(mood: MoodType) {
  * Get author information by ID
  */
 export function getAuthorData(authorId: string) {
-  return AUTHOR_DATA[authorId as AuthorId] || { 
-    name: "Unknown Author", 
-    lifespan: "...", 
-    image: `${authorId}.jpg` 
-  };
+  return (
+    AUTHOR_DATA[authorId as AuthorId] || {
+      name: "Unknown Author",
+      lifespan: "...",
+      image: `${authorId}.jpg`,
+    }
+  );
 }
 
 /**
@@ -61,7 +68,7 @@ export function formatReadingTime(minutes: number): string {
 export function formatDateForDisplay(dateString: string): string {
   return new Date(dateString).toLocaleDateString("en-US", {
     year: "numeric",
-    month: "long", 
+    month: "long",
     day: "numeric",
   });
 }
@@ -76,4 +83,4 @@ export function getAuthorInitials(authorName: string): string {
     .join("")
     .toUpperCase()
     .slice(0, 2);
-} 
+}
