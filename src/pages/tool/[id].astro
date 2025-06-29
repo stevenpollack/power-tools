@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { tool } = Astro.props;
 
 const reviews = (await getCollection("reviews")).filter(
-  (review) => review.data.tool.id === tool.id
+  (review) => review.data.tool.id === tool.id,
 );
 
 console.log(reviews);
