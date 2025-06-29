@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "mcp-pptr"]
+    },
+    "puppeteer_npx_headed": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "env": {
+        "PUPPETEER_LAUNCH_OPTIONS": "{\"headless\": false, \"defaultViewport\": {\"width\": 1280, \"height\": 720}, \"args\": []}",
+        "ALLOW_DANGEROUS": "true"
+      }
+    },
+    "puppeteer_npx_headless": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+      "env": {
+        "PUPPETEER_LAUNCH_OPTIONS": "{\"headless\": true, \"defaultViewport\": {\"width\": 1280, \"height\": 720}, \"args\": []}",
+        "ALLOW_DANGEROUS": "false"
+      }
+    },
+    "puppeteer_docker_headless": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e",
+        "DOCKER_CONTAINER=true",
+        "mcp/puppeteer"
+      ]
+    }
+  }
+}
