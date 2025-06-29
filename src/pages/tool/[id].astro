@@ -1,9 +1,26 @@
 ---
-import Layout from "../layouts/ReviewLayout.astro";
+import Layout from "../../layouts/ReviewLayout.astro";
+import { getCollection } from "astro:content";
+import ToolImage from "../../components/ToolImage.astro";
 
 export async function getStaticPaths() {
-  return [];
+  const tools = await getCollection("tools");
+
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
 }
+
+const { tool } = Astro.props;
+
+const reviews = (await getCollection("reviews")).filter(
+  (review) => review.data.tool.id === tool.id
+);
+
+console.log(reviews);
+
+const { name, brand, image, specifications, pricing } = tool.data;
 ---
 
 <Layout title="Tool Details - Power Tools Reviews">
@@ -11,12 +28,12 @@ export async function getStaticPaths() {
     <div class="container">
       <div class="tool-header">
         <div class="tool-image">
-          <div class="placeholder-image">Tool Image</div>
+          <img src={tool.data.thumbnailUrl ?? ""} alt={name} />
         </div>
 
         <div class="tool-info">
-          <h1>Tool Name</h1>
-          <p class="tool-brand">Brand Name</p>
+          <h1>{name}</h1>
+          <p class="tool-brand">{brand}</p>
           <div class="tool-specs">
             <h3>Specifications</h3>
             <p>Tool specifications will be loaded from Stream 2 data</p>
@@ -31,10 +48,24 @@ export async function getStaticPaths() {
       <section class="tool-reviews">
         <h2>Literary Reviews of This Tool</h2>
         <div class="reviews-grid">
-          <p class="placeholder">
-            Author reviews of this tool will be displayed here after content
-            generation
-          </p>
+          <ul>
+            {
+              reviews &&
+                reviews.map((review) => (
+                  <li>
+                    <a href={`/review/${review.id}`}>{review.id}</a>
+                  </li>
+                ))
+            }
+          </ul>
+          {
+            reviews.length === 0 && (
+              <p class="placeholder">
+                Author reviews of this tool will be displayed here after content
+                generation
+              </p>
+            )
+          }
         </div>
       </section>
     </div>

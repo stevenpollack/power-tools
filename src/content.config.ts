@@ -1,4 +1,4 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 const authors = defineCollection({
@@ -35,13 +35,16 @@ const tools = defineCollection({
     brand: z.string(),
     category: z.string(),
     subcategory: z.string().optional(),
-    homeDepotSku: z.string(),
-    homeDepotUrl: z.string(),
+    homeDepotSku: z.string().optional(),
+    homeDepotUrl: z.string().optional(),
+    bunningsSku: z.string().optional(),
+    bunningsUrl: z.string().optional(),
+    thumbnailUrl: z.string().optional(),
     image: z.object({
       filename: z.string(),
       originalUrl: z.string(),
       license: z.string(),
-    }),
+    }).optional(),
     specifications: z.object({
       power: z.string(),
       weight: z.string(),
@@ -53,12 +56,14 @@ const tools = defineCollection({
     pricing: z.object({
       currentPrice: z.number(),
       msrp: z.number().optional(),
+      currency: z.string().optional(),
       onSale: z.boolean(),
     }),
     popularity: z.object({
       reviewCount: z.number(),
       averageRating: z.number(),
       homeDepotRank: z.number().optional(),
+      bunningsRank: z.number().optional(),
     }),
   }),
 });
@@ -66,8 +71,8 @@ const tools = defineCollection({
 const reviews = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/reviews" }),
   schema: z.object({
-    authorId: z.string(),
-    toolId: z.string(),
+    author: reference("authors"),
+    tool: reference("tools"),
     featured: z.boolean().default(false),
     mood: z.enum(["humorous", "dramatic", "technical", "philosophical"]),
     tone: z.enum(["formal", "casual", "satirical", "earnest"]),
