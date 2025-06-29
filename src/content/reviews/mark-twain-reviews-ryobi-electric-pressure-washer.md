@@ -17,6 +17,7 @@ lastUpdated: "2025-06-27T11:46:40.317Z"
 This is a placeholder for the humorous casual review of the ryobi-electric-pressure-washer written in the style of mark-twain.
 
 The actual review will be generated using LLM with the following approach:
+
 - Author style analysis will inform the writing voice
 - Tool specifications will be naturally incorporated
 - Entertainment value prioritized over practical advice

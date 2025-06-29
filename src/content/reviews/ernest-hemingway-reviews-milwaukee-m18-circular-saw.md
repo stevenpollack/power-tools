@@ -17,6 +17,7 @@ lastUpdated: "2025-06-27T11:46:40.314Z"
 This is a placeholder for the technical earnest review of the milwaukee-m18-circular-saw written in the style of ernest-hemingway.
 
 The actual review will be generated using LLM with the following approach:
+
 - Author style analysis will inform the writing voice
 - Tool specifications will be naturally incorporated
 - Entertainment value prioritized over practical advice

@@ -17,6 +17,7 @@ lastUpdated: "2025-06-27T11:46:40.317Z"
 This is a placeholder for the philosophical earnest review of the ryobi-cordless-compressor written in the style of ayn-rand.
 
 The actual review will be generated using LLM with the following approach:
+
 - Author style analysis will inform the writing voice
 - Tool specifications will be naturally incorporated
 - Entertainment value prioritized over practical advice

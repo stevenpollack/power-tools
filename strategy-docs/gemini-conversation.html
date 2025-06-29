@@ -1,203 +1,399 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Plan: Power Tools</title>
-    
+
     <!-- Chosen Palette: Cool Slate -->
     <!-- Application Structure Plan: The application uses a two-part structure: a sticky sidebar for quick navigation and a main content area for detailed information. This design was chosen because it mirrors the logical, top-down flow of a real-world project plan, allowing users to either read sequentially or use the navigation to jump directly to a specific area of interest (like Technology or Content Strategy). This dual navigation approach provides both a guided narrative and user-driven exploration, making the dense information highly accessible. -->
     <!-- Visualization & Content Choices: Report Info -> Project phases (V1 vs V2). Goal -> Compare. Viz -> Tabbed interface. Justification -> Allows direct comparison of the MVP and future state without cluttering the page. | Report Info -> Tech stack decisions. Goal -> Organize/Inform. Viz -> Interactive cards. Justification -> Presents each technology as a distinct, digestible unit, with justifications revealed on interaction to reduce initial cognitive load. | Report Info -> Content generation process. Goal -> Explain a process. Viz -> HTML/CSS flowchart. Justification -> Visually represents the flow of data and actions, making the complex prompt-engineering strategy easier to follow than plain text. | Report Info -> Code for ingestion script. Goal -> Inform/Provide utility. Viz -> Code block with copy button. Justification -> Presents code clearly and provides a direct user action. NO SVG/Mermaid used. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* slate-50 */
-        }
-        .font-mono {
-            font-family: 'Roboto Mono', monospace;
-        }
-        .section-active {
-            color: #4f46e5; /* indigo-600 */
-            background-color: #eef2ff; /* indigo-50 */
-            font-weight: 600;
-        }
-        .group:focus .group-focus\:block {
-            display: block;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f8fafc; /* slate-50 */
+      }
+      .font-mono {
+        font-family: "Roboto Mono", monospace;
+      }
+      .section-active {
+        color: #4f46e5; /* indigo-600 */
+        background-color: #eef2ff; /* indigo-50 */
+        font-weight: 600;
+      }
+      .group:focus .group-focus\:block {
+        display: block;
+      }
     </style>
-</head>
-<body class="bg-slate-50 text-slate-700">
+  </head>
+  <body class="bg-slate-50 text-slate-700">
+    <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div class="lg:flex lg:space-x-8">
+        <!-- Sticky Sidebar Navigation -->
+        <aside class="mt-16 hidden w-64 shrink-0 lg:block">
+          <div class="sticky top-16">
+            <nav class="flex flex-col space-y-2">
+              <a
+                href="#overview"
+                data-navlink="overview"
+                class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                >Project Overview</a
+              >
+              <a
+                href="#phases"
+                data-navlink="phases"
+                class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                >Project Phases</a
+              >
+              <a
+                href="#stack"
+                data-navlink="stack"
+                class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                >Technology Stack</a
+              >
+              <a
+                href="#content"
+                data-navlink="content"
+                class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                >Content Strategy</a
+              >
+              <a
+                href="#deployment"
+                data-navlink="deployment"
+                class="rounded-md px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-100"
+                >Deployment & Ops</a
+              >
+            </nav>
+          </div>
+        </aside>
 
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="lg:flex lg:space-x-8">
-            <!-- Sticky Sidebar Navigation -->
-            <aside class="hidden lg:block w-64 shrink-0 mt-16">
-                <div class="sticky top-16">
-                    <nav class="flex flex-col space-y-2">
-                        <a href="#overview" data-navlink="overview" class="px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:bg-slate-100">Project Overview</a>
-                        <a href="#phases" data-navlink="phases" class="px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:bg-slate-100">Project Phases</a>
-                        <a href="#stack" data-navlink="stack" class="px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:bg-slate-100">Technology Stack</a>
-                        <a href="#content" data-navlink="content" class="px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:bg-slate-100">Content Strategy</a>
-                        <a href="#deployment" data-navlink="deployment" class="px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:bg-slate-100">Deployment & Ops</a>
-                    </nav>
+        <!-- Main Content -->
+        <main class="flex-1 py-8 lg:py-16">
+          <header class="mb-12">
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900">
+              Project Plan: Power Tools
+            </h1>
+            <p class="mt-2 text-lg text-slate-500">
+              An interactive summary of the project's strategy, architecture,
+              and execution plan.
+            </p>
+          </header>
+
+          <!-- Section: Project Overview -->
+          <section id="overview" class="mb-16 scroll-mt-16 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+              <h2 class="text-2xl font-bold text-slate-800">
+                1. Project Overview
+              </h2>
+            </div>
+            <p class="text-base leading-7">
+              This document outlines the plan for "Power Tools," a web
+              application designed to generate product reviews for power tools
+              in the literary style of famous deceased authors. The core
+              objective is to create a simple, engaging user experience,
+              starting with a statically generated site (V1) and evolving into a
+              dynamic, on-demand content platform (V2). Key project drivers
+              include a minimal codebase, long-term maintainability, and a clear
+              path for future feature extensions.
+            </p>
+            <div class="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+              >
+                <span class="text-2xl font-bold text-indigo-600">2</span>
+                <p class="text-sm font-medium text-slate-500">Phases</p>
+              </div>
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+              >
+                <span class="text-2xl font-bold text-indigo-600">4</span>
+                <p class="text-sm font-medium text-slate-500">
+                  Core Technologies
+                </p>
+              </div>
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+              >
+                <span class="text-2xl font-bold text-indigo-600"
+                  >Static First</span
+                >
+                <p class="text-sm font-medium text-slate-500">Architecture</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section: Project Phases -->
+          <section id="phases" class="mb-16 scroll-mt-16 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+              <h2 class="text-2xl font-bold text-slate-800">
+                2. Project Phases
+              </h2>
+            </div>
+            <p class="text-base leading-7">
+              The project is strategically divided into two phases to manage
+              complexity and prove the concept early. Phase 1 focuses on
+              delivering the core user experience with pre-generated content,
+              minimizing initial cost and complexity. Phase 2 introduces dynamic
+              capabilities, leveraging a Large Language Model (LLM) for
+              on-demand content creation.
+            </p>
+            <div id="phases-tabs">
+              <div class="border-b border-slate-200">
+                <nav class="-mb-px flex space-x-6" aria-label="Tabs">
+                  <button
+                    data-tab="v1"
+                    class="tab-button border-b-2 border-indigo-500 px-1 py-4 text-sm font-medium whitespace-nowrap text-indigo-600"
+                  >
+                    Phase 1: Static MVP
+                  </button>
+                  <button
+                    data-tab="v2"
+                    class="tab-button border-b-2 border-transparent px-1 py-4 text-sm font-medium whitespace-nowrap text-slate-500 hover:border-slate-300 hover:text-slate-700"
+                  >
+                    Phase 2: Dynamic Generation
+                  </button>
+                </nav>
+              </div>
+              <div class="py-6">
+                <div id="v1" class="tab-content space-y-4">
+                  <h3 class="text-lg font-semibold text-slate-900">
+                    Goal: Validate the core concept with maximum performance and
+                    minimal cost.
+                  </h3>
+                  <ul class="list-inside list-disc space-y-2 text-slate-600">
+                    <li>
+                      **Architecture:** Fully static site generated by Astro. No
+                      traditional backend server.
+                    </li>
+                    <li>
+                      **Content:** A small, curated set of reviews will be
+                      pre-generated and stored as Markdown files within the
+                      project repository.
+                    </li>
+                    <li>
+                      **UI:** A simple interface with dropdowns for author/tool
+                      selection and an area to display the chosen review.
+                    </li>
+                    <li>
+                      **Authentication:** None required. The site is entirely
+                      public and read-only.
+                    </li>
+                  </ul>
                 </div>
-            </aside>
+                <div id="v2" class="tab-content hidden space-y-4">
+                  <h3 class="text-lg font-semibold text-slate-900">
+                    Goal: Introduce on-demand content generation and expand
+                    content possibilities.
+                  </h3>
+                  <ul class="list-inside list-disc space-y-2 text-slate-600">
+                    <li>
+                      **Architecture:** Extend the Astro site with serverless
+                      API endpoints (e.g., on Vercel).
+                    </li>
+                    <li>
+                      **Content:** Reviews are generated in real-time by calling
+                      an LLM via the API endpoint. Results can be cached to
+                      reduce costs.
+                    </li>
+                    <li>
+                      **Prompt Engineering:** A sophisticated prompt template
+                      will be used, providing the LLM with context about the
+                      author's style and tool features.
+                    </li>
+                    <li>
+                      **Security:** The API endpoint will be protected by rate
+                      limiting or an API key to prevent abuse, still avoiding
+                      user-facing login.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
 
-            <!-- Main Content -->
-            <main class="flex-1 py-8 lg:py-16">
-                <header class="mb-12">
-                    <h1 class="text-4xl font-bold tracking-tight text-slate-900">Project Plan: Power Tools</h1>
-                    <p class="mt-2 text-lg text-slate-500">An interactive summary of the project's strategy, architecture, and execution plan.</p>
-                </header>
+          <!-- Section: Technology Stack -->
+          <section id="stack" class="mb-16 scroll-mt-16 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+              <h2 class="text-2xl font-bold text-slate-800">
+                3. Technology Stack
+              </h2>
+            </div>
+            <p class="text-base leading-7">
+              The technology stack was chosen to prioritize developer
+              efficiency, performance, and a clear extension path from Phase 1
+              to Phase 2. The combination of Astro, React, and Tailwind CSS
+              provides a modern, robust foundation for building the application.
+            </p>
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h4 class="font-bold text-slate-900">Astro</h4>
+                <p class="mt-2 text-sm">
+                  The core site generator. Chosen for its "zero-JS by default"
+                  islands architecture, which is perfect for a content-driven
+                  site. It builds fast, static HTML and only loads JavaScript
+                  for interactive components where needed.
+                </p>
+              </div>
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h4 class="font-bold text-slate-900">React</h4>
+                <p class="mt-2 text-sm">
+                  Used for the interactive "island" components. Chosen over
+                  alternatives because of its unparalleled ecosystem,
+                  specifically to gain first-party access to the `shadcn/ui`
+                  component library, ensuring stability and design consistency.
+                </p>
+              </div>
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h4 class="font-bold text-slate-900">Tailwind CSS</h4>
+                <p class="mt-2 text-sm">
+                  A utility-first CSS framework for styling. It allows for rapid
+                  development of a custom, responsive design directly within the
+                  HTML, minimizing the need for separate CSS files.
+                </p>
+              </div>
+              <div
+                class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h4 class="font-bold text-slate-900">shadcn/ui</h4>
+                <p class="mt-2 text-sm">
+                  The component library. Provides beautifully designed,
+                  accessible, and unstyled components that can be customized
+                  with Tailwind. Unlike other libraries, you copy the code into
+                  your project, giving you full ownership and control.
+                </p>
+              </div>
+            </div>
+          </section>
 
-                <!-- Section: Project Overview -->
-                <section id="overview" class="mb-16 space-y-6 scroll-mt-16">
-                    <div class="border-b border-slate-200 pb-4">
-                        <h2 class="text-2xl font-bold text-slate-800">1. Project Overview</h2>
-                    </div>
-                    <p class="text-base leading-7">This document outlines the plan for "Power Tools," a web application designed to generate product reviews for power tools in the literary style of famous deceased authors. The core objective is to create a simple, engaging user experience, starting with a statically generated site (V1) and evolving into a dynamic, on-demand content platform (V2). Key project drivers include a minimal codebase, long-term maintainability, and a clear path for future feature extensions.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-                            <span class="text-2xl font-bold text-indigo-600">2</span>
-                            <p class="text-sm font-medium text-slate-500">Phases</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-                            <span class="text-2xl font-bold text-indigo-600">4</span>
-                            <p class="text-sm font-medium text-slate-500">Core Technologies</p>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-                            <span class="text-2xl font-bold text-indigo-600">Static First</span>
-                            <p class="text-sm font-medium text-slate-500">Architecture</p>
-                        </div>
-                    </div>
-                </section>
+          <!-- Section: Content Strategy -->
+          <section id="content" class="mb-16 scroll-mt-16 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+              <h2 class="text-2xl font-bold text-slate-800">
+                4. Content Strategy
+              </h2>
+            </div>
+            <p class="text-base leading-7">
+              A robust content pipeline is crucial for the success of Phase 2.
+              This strategy involves using an LLM not just to generate the final
+              review, but also to generate the contextual data needed for
+              high-quality prompts. This creates a scalable, automated system
+              for adding new authors and tools.
+            </p>
 
-                <!-- Section: Project Phases -->
-                <section id="phases" class="mb-16 space-y-6 scroll-mt-16">
-                    <div class="border-b border-slate-200 pb-4">
-                        <h2 class="text-2xl font-bold text-slate-800">2. Project Phases</h2>
-                    </div>
-                     <p class="text-base leading-7">The project is strategically divided into two phases to manage complexity and prove the concept early. Phase 1 focuses on delivering the core user experience with pre-generated content, minimizing initial cost and complexity. Phase 2 introduces dynamic capabilities, leveraging a Large Language Model (LLM) for on-demand content creation.</p>
-                    <div id="phases-tabs">
-                        <div class="border-b border-slate-200">
-                            <nav class="-mb-px flex space-x-6" aria-label="Tabs">
-                                <button data-tab="v1" class="tab-button border-indigo-500 text-indigo-600 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Phase 1: Static MVP</button>
-                                <button data-tab="v2" class="tab-button border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm">Phase 2: Dynamic Generation</button>
-                            </nav>
-                        </div>
-                        <div class="py-6">
-                            <div id="v1" class="tab-content space-y-4">
-                                <h3 class="text-lg font-semibold text-slate-900">Goal: Validate the core concept with maximum performance and minimal cost.</h3>
-                                <ul class="list-disc list-inside space-y-2 text-slate-600">
-                                    <li>**Architecture:** Fully static site generated by Astro. No traditional backend server.</li>
-                                    <li>**Content:** A small, curated set of reviews will be pre-generated and stored as Markdown files within the project repository.</li>
-                                    <li>**UI:** A simple interface with dropdowns for author/tool selection and an area to display the chosen review.</li>
-                                    <li>**Authentication:** None required. The site is entirely public and read-only.</li>
-                                </ul>
-                            </div>
-                            <div id="v2" class="tab-content hidden space-y-4">
-                                 <h3 class="text-lg font-semibold text-slate-900">Goal: Introduce on-demand content generation and expand content possibilities.</h3>
-                                <ul class="list-disc list-inside space-y-2 text-slate-600">
-                                    <li>**Architecture:** Extend the Astro site with serverless API endpoints (e.g., on Vercel).</li>
-                                    <li>**Content:** Reviews are generated in real-time by calling an LLM via the API endpoint. Results can be cached to reduce costs.</li>
-                                    <li>**Prompt Engineering:** A sophisticated prompt template will be used, providing the LLM with context about the author's style and tool features.</li>
-                                    <li>**Security:** The API endpoint will be protected by rate limiting or an API key to prevent abuse, still avoiding user-facing login.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Section: Technology Stack -->
-                <section id="stack" class="mb-16 space-y-6 scroll-mt-16">
-                    <div class="border-b border-slate-200 pb-4">
-                        <h2 class="text-2xl font-bold text-slate-800">3. Technology Stack</h2>
-                    </div>
-                     <p class="text-base leading-7">The technology stack was chosen to prioritize developer efficiency, performance, and a clear extension path from Phase 1 to Phase 2. The combination of Astro, React, and Tailwind CSS provides a modern, robust foundation for building the application.</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900">Astro</h4>
-                            <p class="mt-2 text-sm">The core site generator. Chosen for its "zero-JS by default" islands architecture, which is perfect for a content-driven site. It builds fast, static HTML and only loads JavaScript for interactive components where needed.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900">React</h4>
-                            <p class="mt-2 text-sm">Used for the interactive "island" components. Chosen over alternatives because of its unparalleled ecosystem, specifically to gain first-party access to the `shadcn/ui` component library, ensuring stability and design consistency.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900">Tailwind CSS</h4>
-                            <p class="mt-2 text-sm">A utility-first CSS framework for styling. It allows for rapid development of a custom, responsive design directly within the HTML, minimizing the need for separate CSS files.</p>
-                        </div>
-                         <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
-                            <h4 class="font-bold text-slate-900">shadcn/ui</h4>
-                            <p class="mt-2 text-sm">The component library. Provides beautifully designed, accessible, and unstyled components that can be customized with Tailwind. Unlike other libraries, you copy the code into your project, giving you full ownership and control.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Section: Content Strategy -->
-                <section id="content" class="mb-16 space-y-6 scroll-mt-16">
-                    <div class="border-b border-slate-200 pb-4">
-                        <h2 class="text-2xl font-bold text-slate-800">4. Content Strategy</h2>
-                    </div>
-                     <p class="text-base leading-7">A robust content pipeline is crucial for the success of Phase 2. This strategy involves using an LLM not just to generate the final review, but also to generate the contextual data needed for high-quality prompts. This creates a scalable, automated system for adding new authors and tools.</p>
-                    
-                    <div>
-                        <h3 class="text-lg font-semibold text-slate-900 mb-4">On-Demand Generation Flow (V2)</h3>
-                        <div class="space-y-4">
-                            <!-- Step 1: Meta-Prompt -->
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-                                <p class="font-semibold text-slate-800">Step 1: Generate Author Analysis (Offline)</p>
-                                <p class="text-sm text-slate-500 mt-1">A "meta-prompt" is run once per author to generate a detailed style analysis.</p>
-                                <pre class="mt-3 bg-slate-100 text-slate-700 text-xs p-3 rounded-md overflow-x-auto font-mono"><code>Analyze the writing style of {{author_name}}. Your analysis should be a concise, single-string description focusing on tangible elements of their prose. Focus on sentence structure, pacing, tone, and vocabulary.</code></pre>
-                            </div>
-                            <!-- Arrow -->
-                            <div class="flex justify-center">
-                                <span class="text-indigo-500 text-2xl font-light">&darr;</span>
-                            </div>
-                            <!-- Step 2: Store Analysis -->
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-                                <p class="font-semibold text-slate-800">Step 2: Store Structured Data</p>
-                                <p class="text-sm text-slate-500 mt-1">The generated style analysis is stored in a JSON file for later use.</p>
-                                <pre class="mt-3 bg-slate-100 text-slate-700 text-xs p-3 rounded-md overflow-x-auto font-mono"><code>{
+            <div>
+              <h3 class="mb-4 text-lg font-semibold text-slate-900">
+                On-Demand Generation Flow (V2)
+              </h3>
+              <div class="space-y-4">
+                <!-- Step 1: Meta-Prompt -->
+                <div
+                  class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                >
+                  <p class="font-semibold text-slate-800">
+                    Step 1: Generate Author Analysis (Offline)
+                  </p>
+                  <p class="mt-1 text-sm text-slate-500">
+                    A "meta-prompt" is run once per author to generate a
+                    detailed style analysis.
+                  </p>
+                  <pre
+                    class="mt-3 overflow-x-auto rounded-md bg-slate-100 p-3 font-mono text-xs text-slate-700"
+                  ><code>Analyze the writing style of {{author_name}}. Your analysis should be a concise, single-string description focusing on tangible elements of their prose. Focus on sentence structure, pacing, tone, and vocabulary.</code></pre>
+                </div>
+                <!-- Arrow -->
+                <div class="flex justify-center">
+                  <span class="text-2xl font-light text-indigo-500"
+                    >&darr;</span
+                  >
+                </div>
+                <!-- Step 2: Store Analysis -->
+                <div
+                  class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                >
+                  <p class="font-semibold text-slate-800">
+                    Step 2: Store Structured Data
+                  </p>
+                  <p class="mt-1 text-sm text-slate-500">
+                    The generated style analysis is stored in a JSON file for
+                    later use.
+                  </p>
+                  <pre
+                    class="mt-3 overflow-x-auto rounded-md bg-slate-100 p-3 font-mono text-xs text-slate-700"
+                  ><code>{
   "Ernest Hemingway": {
     "style_description": "Utilizes a direct, unadorned, and minimalist prose style..."
   }
 }</code></pre>
-                            </div>
-                            <!-- Arrow -->
-                            <div class="flex justify-center">
-                                <span class="text-indigo-500 text-2xl font-light">&darr;</span>
-                            </div>
-                             <!-- Step 3: Final Prompt -->
-                            <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm">
-                                <p class="font-semibold text-slate-800">Step 3: Construct Real-time Generation Prompt</p>
-                                <p class="text-sm text-slate-500 mt-1">At runtime, the API combines user input with stored data to create the final prompt for the LLM.</p>
-                                <pre class="mt-3 bg-slate-100 text-slate-700 text-xs p-3 rounded-md overflow-x-auto font-mono"><code>You are a literary expert. Write a product review in the style of {{author_name}}.
+                </div>
+                <!-- Arrow -->
+                <div class="flex justify-center">
+                  <span class="text-2xl font-light text-indigo-500"
+                    >&darr;</span
+                  >
+                </div>
+                <!-- Step 3: Final Prompt -->
+                <div
+                  class="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+                >
+                  <p class="font-semibold text-slate-800">
+                    Step 3: Construct Real-time Generation Prompt
+                  </p>
+                  <p class="mt-1 text-sm text-slate-500">
+                    At runtime, the API combines user input with stored data to
+                    create the final prompt for the LLM.
+                  </p>
+                  <pre
+                    class="mt-3 overflow-x-auto rounded-md bg-slate-100 p-3 font-mono text-xs text-slate-700"
+                  ><code>You are a literary expert. Write a product review in the style of {{author_name}}.
 
 **Style Analysis:** {{author_style_description}}
 **Product:** {{tool_name}}
 **Features:** {{tool_features}}
 
 Write the review strictly adhering to the style.</code></pre>
-                            </div>
-                        </div>
-                    </div>
+                </div>
+              </div>
+            </div>
 
-                    <div>
-                        <h3 class="text-lg font-semibold text-slate-900 mb-4 mt-8">Corpus Ingestion via Project Gutenberg</h3>
-                        <p class="text-base leading-7 mb-4">To further enhance the generation prompt's context, a local corpus of each author's work will be created. This is done via an offline script that fetches, cleans, and saves text from Project Gutenberg, using the Gutendex API.</p>
-                        <div class="bg-slate-800 rounded-lg overflow-hidden">
-                            <div class="flex items-center justify-between p-3 bg-slate-700 text-xs text-slate-300">
-                                <span class="font-mono">ingest.js</span>
-                                <button class="copy-button font-sans bg-slate-600 hover:bg-slate-500 text-white px-2 py-1 rounded-md text-xs">Copy</button>
-                            </div>
-                            <pre class="code-block p-4 text-sm text-slate-100 overflow-x-auto font-mono"><code>
+            <div>
+              <h3 class="mt-8 mb-4 text-lg font-semibold text-slate-900">
+                Corpus Ingestion via Project Gutenberg
+              </h3>
+              <p class="mb-4 text-base leading-7">
+                To further enhance the generation prompt's context, a local
+                corpus of each author's work will be created. This is done via
+                an offline script that fetches, cleans, and saves text from
+                Project Gutenberg, using the Gutendex API.
+              </p>
+              <div class="overflow-hidden rounded-lg bg-slate-800">
+                <div
+                  class="flex items-center justify-between bg-slate-700 p-3 text-xs text-slate-300"
+                >
+                  <span class="font-mono">ingest.js</span>
+                  <button
+                    class="copy-button rounded-md bg-slate-600 px-2 py-1 font-sans text-xs text-white hover:bg-slate-500"
+                  >
+                    Copy
+                  </button>
+                </div>
+                <pre
+                  class="code-block overflow-x-auto p-4 font-mono text-sm text-slate-100"
+                ><code>
 import fetch from 'node-fetch';
 import fs from 'fs/promises';
 
@@ -227,107 +423,164 @@ async function findBookTextUrl(author, title) {
 
 ingestBook();
                             </code></pre>
-                        </div>
-                    </div>
+              </div>
+            </div>
+          </section>
 
-                </section>
-
-                <!-- Section: Deployment & Ops -->
-                <section id="deployment" class="mb-16 space-y-6 scroll-mt-16">
-                    <div class="border-b border-slate-200 pb-4">
-                        <h2 class="text-2xl font-bold text-slate-800">5. Deployment & Operations</h2>
-                    </div>
-                     <p class="text-base leading-7">The deployment strategy prioritizes simplicity, performance, and scalability, leveraging modern Jamstack hosting platforms.</p>
-                    <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
-                        <h4 class="font-bold text-slate-900">Recommended Platform: Vercel</h4>
-                        <p class="mt-2 text-sm text-slate-600">Vercel is the recommended hosting provider. It offers seamless integration with Git, automatically detects and builds Astro projects, and deploys the static site to a global CDN. Its serverless function support is first-class, providing the simplest path for adding the Phase 2 API endpoints.</p>
-                    </div>
-                     <div class="mt-6 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
-                        <div class="flex">
-                            <div class="py-1">
-                                <svg class="h-5 w-5 text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <h5 class="text-sm font-semibold text-blue-800">Production Dependency Note</h5>
-                                <div class="text-sm text-blue-700 mt-1">
-                                    <p>While the public `gutendex.com` API is sufficient for development, it is recommended to **self-host the Gutendex service in production**. This mitigates risks related to reliability, performance, and rate-limiting from depending on a third-party, non-commercial service for a core production workflow.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
-        </div>
+          <!-- Section: Deployment & Ops -->
+          <section id="deployment" class="mb-16 scroll-mt-16 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+              <h2 class="text-2xl font-bold text-slate-800">
+                5. Deployment & Operations
+              </h2>
+            </div>
+            <p class="text-base leading-7">
+              The deployment strategy prioritizes simplicity, performance, and
+              scalability, leveraging modern Jamstack hosting platforms.
+            </p>
+            <div
+              class="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <h4 class="font-bold text-slate-900">
+                Recommended Platform: Vercel
+              </h4>
+              <p class="mt-2 text-sm text-slate-600">
+                Vercel is the recommended hosting provider. It offers seamless
+                integration with Git, automatically detects and builds Astro
+                projects, and deploys the static site to a global CDN. Its
+                serverless function support is first-class, providing the
+                simplest path for adding the Phase 2 API endpoints.
+              </p>
+            </div>
+            <div
+              class="mt-6 rounded-r-lg border-l-4 border-blue-400 bg-blue-50 p-4"
+            >
+              <div class="flex">
+                <div class="py-1">
+                  <svg
+                    class="h-5 w-5 text-blue-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <h5 class="text-sm font-semibold text-blue-800">
+                    Production Dependency Note
+                  </h5>
+                  <div class="mt-1 text-sm text-blue-700">
+                    <p>
+                      While the public `gutendex.com` API is sufficient for
+                      development, it is recommended to **self-host the Gutendex
+                      service in production**. This mitigates risks related to
+                      reliability, performance, and rate-limiting from depending
+                      on a third-party, non-commercial service for a core
+                      production workflow.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Tabs ---
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Tabs ---
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
 
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Update button styles
-                    tabButtons.forEach(btn => {
-                        btn.classList.remove('border-indigo-500', 'text-indigo-600');
-                        btn.classList.add('border-transparent', 'text-slate-500', 'hover:text-slate-700', 'hover:border-slate-300');
-                    });
-                    button.classList.add('border-indigo-500', 'text-indigo-600');
-                    button.classList.remove('border-transparent', 'text-slate-500', 'hover:text-slate-700', 'hover:border-slate-300');
-
-                    // Show correct content
-                    const tabId = button.dataset.tab;
-                    tabContents.forEach(content => {
-                        if (content.id === tabId) {
-                            content.classList.remove('hidden');
-                        } else {
-                            content.classList.add('hidden');
-                        }
-                    });
-                });
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Update button styles
+            tabButtons.forEach((btn) => {
+              btn.classList.remove("border-indigo-500", "text-indigo-600");
+              btn.classList.add(
+                "border-transparent",
+                "text-slate-500",
+                "hover:text-slate-700",
+                "hover:border-slate-300",
+              );
             });
+            button.classList.add("border-indigo-500", "text-indigo-600");
+            button.classList.remove(
+              "border-transparent",
+              "text-slate-500",
+              "hover:text-slate-700",
+              "hover:border-slate-300",
+            );
 
-            // --- Copy Button ---
-            const copyButtons = document.querySelectorAll('.copy-button');
-            copyButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const pre = button.closest('div').nextElementSibling;
-                    const code = pre.querySelector('code').innerText;
-                    navigator.clipboard.writeText(code).then(() => {
-                        const originalText = button.innerText;
-                        button.innerText = 'Copied!';
-                        setTimeout(() => {
-                            button.innerText = originalText;
-                        }, 2000);
-                    }).catch(err => {
-                        console.error('Failed to copy text: ', err);
-                    });
-                });
+            // Show correct content
+            const tabId = button.dataset.tab;
+            tabContents.forEach((content) => {
+              if (content.id === tabId) {
+                content.classList.remove("hidden");
+              } else {
+                content.classList.add("hidden");
+              }
             });
-
-            // --- Scrollspy for Nav ---
-            const navLinks = document.querySelectorAll('[data-navlink]');
-            const sections = Array.from(navLinks).map(link => document.getElementById(link.hash.substring(1)));
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const navLink = document.querySelector(`[data-navlink="${entry.target.id}"]`);
-                        navLinks.forEach(link => link.classList.remove('section-active'));
-                        if (navLink) {
-                            navLink.classList.add('section-active');
-                        }
-                    }
-                });
-            }, { rootMargin: "-50% 0px -50% 0px", threshold: 0 });
-
-            sections.forEach(section => {
-                if (section) observer.observe(section);
-            });
+          });
         });
+
+        // --- Copy Button ---
+        const copyButtons = document.querySelectorAll(".copy-button");
+        copyButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const pre = button.closest("div").nextElementSibling;
+            const code = pre.querySelector("code").innerText;
+            navigator.clipboard
+              .writeText(code)
+              .then(() => {
+                const originalText = button.innerText;
+                button.innerText = "Copied!";
+                setTimeout(() => {
+                  button.innerText = originalText;
+                }, 2000);
+              })
+              .catch((err) => {
+                console.error("Failed to copy text: ", err);
+              });
+          });
+        });
+
+        // --- Scrollspy for Nav ---
+        const navLinks = document.querySelectorAll("[data-navlink]");
+        const sections = Array.from(navLinks).map((link) =>
+          document.getElementById(link.hash.substring(1)),
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const navLink = document.querySelector(
+                  `[data-navlink="${entry.target.id}"]`,
+                );
+                navLinks.forEach((link) =>
+                  link.classList.remove("section-active"),
+                );
+                if (navLink) {
+                  navLink.classList.add("section-active");
+                }
+              }
+            });
+          },
+          { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
+        );
+
+        sections.forEach((section) => {
+          if (section) observer.observe(section);
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
