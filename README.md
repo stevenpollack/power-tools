@@ -12,6 +12,7 @@ An entertainment website where famous authors review power tools - when literatu
 This Astro v5 project provides the technical foundation for the Power Tools Reviews website. The site will feature reviews written by 12 famous authors covering 20 popular Home Depot tools, generating 240 unique review combinations.
 
 ### Core Features
+
 - 🎨 Enhanced floating wall of cards UI
 - 📚 12 literary authors with distinctive writing styles
 - 🔧 20 power tools from Home Depot
@@ -52,7 +53,7 @@ power-tools-reviews/
 │   ├── pages/               # Route pages
 │   │   ├── index.astro      # Floating wall homepage
 │   │   ├── [author].astro   # Author detail pages
-│   │   ├── [tool].astro     # Tool detail pages  
+│   │   ├── [tool].astro     # Tool detail pages
 │   │   └── review/[slug].astro # Individual reviews
 │   ├── styles/              # Global styles
 │   └── utils/               # Helper functions
@@ -67,6 +68,7 @@ power-tools-reviews/
 ## Content Collections Schema
 
 ### Authors Collection
+
 ```typescript
 {
   name: string;
@@ -93,6 +95,7 @@ power-tools-reviews/
 ```
 
 ### Tools Collection
+
 ```typescript
 {
   name: string;
@@ -129,13 +132,14 @@ power-tools-reviews/
 ```
 
 ### Reviews Collection
+
 ```typescript
 {
   authorId: string;
   toolId: string;
   featured: boolean;
-  mood: 'humorous' | 'dramatic' | 'technical' | 'philosophical';
-  tone: 'formal' | 'casual' | 'satirical' | 'earnest';
+  mood: "humorous" | "dramatic" | "technical" | "philosophical";
+  tone: "formal" | "casual" | "satirical" | "earnest";
   readingTime: number;
   shareCount: number;
   dateCreated: string;
@@ -171,13 +175,17 @@ pnpm preview
 ## Integration Requirements
 
 ### Stream 1: Author Research Agent
+
 **Expected Deliverable**: `authors-research-package.zip`
+
 - Place author JSON files in `src/content/authors/`
 - Place author portraits in `public/images/authors/`
 - Ensure data matches the Authors Collection schema
 
 ### Stream 2: Tool Collection Agent
+
 **Expected Deliverable**: `tools-research-package.zip`
+
 - Place tool JSON files in `src/content/tools/`
 - Place tool images in `public/images/tools/`
 - Ensure data matches the Tools Collection schema
@@ -185,6 +193,7 @@ pnpm preview
 ## Current Implementation Status
 
 ### ✅ Completed
+
 - [x] Complete Astro v5 project structure
 - [x] All dependencies at latest versions (June 2025)
 - [x] Content collections configured for author/tool integration
@@ -194,12 +203,14 @@ pnpm preview
 - [x] Vercel deployment configuration ready
 
 ### 🔄 Ready for Integration
+
 - Dynamic pages configured but awaiting content
 - Component skeletons ready for Phase 3 implementation
 - Content collections schema validated
 - Image directories prepared for assets
 
 ### 📋 TODO After Integration
+
 1. **Phase 2**: Content generation using LLM with author styles and tool data
 2. **Phase 3**: Enhanced floating wall UI implementation
 3. **Phase 4**: Social sharing, filtering, and search functionality
@@ -217,11 +228,13 @@ pnpm preview
 After receiving data from Streams 1 & 2:
 
 1. **Validate Data Integrity**:
+
    ```bash
    pnpm type-check
    ```
 
 2. **Test Content Loading**:
+
    ```bash
    pnpm dev
    # Navigate to localhost:4321 to test content collections
@@ -246,4 +259,4 @@ For technical questions or integration issues, contact the project coordinator i
 
 ---
 
-**Status**: ✅ Technical Setup Complete - Ready for Content Integration 
+**Status**: ✅ Technical Setup Complete - Ready for Content Integration

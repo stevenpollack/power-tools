@@ -294,8 +294,8 @@ export const FloatingCard = ({ review, size = "medium" }) => {
         $cardInteractions.hoveredCard === review.id && "scale-105 shadow-2xl",
       )}
     >
-      <CardContent className="p-4 h-full relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/10 pointer-events-none" />
+      <CardContent className="relative h-full p-4">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent to-black/10" />
         <Badge variant="secondary" className="mb-2">
           {review.authorName}
         </Badge>
@@ -319,7 +319,7 @@ export const FilterControls = () => {
   const $filters = useStore(activeFilters);
 
   return (
-    <div className="flex flex-wrap gap-2 p-4 bg-background border-b sticky top-0 z-10">
+    <div className="bg-background sticky top-0 z-10 flex flex-wrap gap-2 border-b p-4">
       <Input
         placeholder="Search reviews..."
         className="max-w-sm"

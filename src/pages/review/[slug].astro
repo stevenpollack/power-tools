@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/ReviewLayout.astro';
+import Layout from "../../layouts/ReviewLayout.astro";
 
 export async function getStaticPaths() {
   return [];
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
                 <span>Tool Name</span>
               </div>
             </div>
-            
+
             <div class="review-details">
               <span class="reading-time">X min read</span>
               <span class="mood-tag">Mood</span>
@@ -35,8 +35,15 @@ export async function getStaticPaths() {
         <div class="review-content">
           <h1>Review Title</h1>
           <div class="review-text">
-            <p>The full review content will be loaded here after content generation in Phase 2.</p>
-            <p>This will be the actual review written in the author's distinctive style, discussing the power tool's features, usability, and their unique perspective on the tool.</p>
+            <p>
+              The full review content will be loaded here after content
+              generation in Phase 2.
+            </p>
+            <p>
+              This will be the actual review written in the author's distinctive
+              style, discussing the power tool's features, usability, and their
+              unique perspective on the tool.
+            </p>
           </div>
         </div>
 
@@ -94,7 +101,8 @@ export async function getStaticPaths() {
     margin-bottom: 1rem;
   }
 
-  .author-link, .tool-link {
+  .author-link,
+  .tool-link {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -136,7 +144,9 @@ export async function getStaticPaths() {
     flex-wrap: wrap;
   }
 
-  .reading-time, .mood-tag, .tone-tag {
+  .reading-time,
+  .mood-tag,
+  .tone-tag {
     background: rgba(255, 255, 255, 0.2);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
@@ -173,11 +183,13 @@ export async function getStaticPaths() {
     border-top: 1px solid #e5e7eb;
   }
 
-  .share-section, .related-section {
+  .share-section,
+  .related-section {
     margin-bottom: 2rem;
   }
 
-  .share-section h3, .related-section h3 {
+  .share-section h3,
+  .related-section h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--color-primary);
@@ -238,4 +250,5 @@ export async function getStaticPaths() {
       gap: 0.5rem;
     }
   }
-</style> 
+</style>
+

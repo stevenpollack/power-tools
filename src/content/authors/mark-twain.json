@@ -11,13 +11,7 @@
     "A Connecticut Yankee in King Arthur's Court",
     "Pudd'nhead Wilson"
   ],
-  "styleKeywords": [
-    "vernacular",
-    "humor",
-    "satirical",
-    "colloquial",
-    "folksy"
-  ],
+  "styleKeywords": ["vernacular", "humor", "satirical", "colloquial", "folksy"],
   "literaryMovement": "American Realism",
   "portrait": {
     "filename": "twain.jpg",

@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/ReviewLayout.astro';
+import Layout from "../layouts/ReviewLayout.astro";
 
 export async function getStaticPaths() {
   return [];
@@ -14,18 +14,25 @@ export async function getStaticPaths() {
           <!-- TODO: Add author portrait after Stream 1 integration -->
           <div class="placeholder-image">Author Portrait</div>
         </div>
-        
+
         <div class="author-info">
           <h1>Author Name</h1>
-          <p class="author-details">Author details will be loaded from Stream 1 data</p>
-          <p class="author-bio">Author biography and style analysis will appear here</p>
+          <p class="author-details">
+            Author details will be loaded from Stream 1 data
+          </p>
+          <p class="author-bio">
+            Author biography and style analysis will appear here
+          </p>
         </div>
       </div>
 
       <section class="author-reviews">
         <h2>Reviews by This Author</h2>
         <div class="reviews-grid">
-          <p class="placeholder">Author's tool reviews will be displayed here after content generation</p>
+          <p class="placeholder">
+            Author's tool reviews will be displayed here after content
+            generation
+          </p>
         </div>
       </section>
     </div>
@@ -127,4 +134,5 @@ export async function getStaticPaths() {
       font-size: 2rem;
     }
   }
-</style> 
+</style>
+
