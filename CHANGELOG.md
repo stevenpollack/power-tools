@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/stevenpollack/power-tools/compare/v1.0.0...v1.1.0) (2025-06-29)
+
+
+### Features
+
+* create demo page and MVP UI components ([#6](https://github.com/stevenpollack/power-tools/issues/6)) ([1fa7442](https://github.com/stevenpollack/power-tools/commit/1fa744226d2bf94dc8bd9429099a771ad35fa03e))
+
 ## 1.0.0 (2025-06-27)
 
 
