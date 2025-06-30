@@ -1,6 +1,6 @@
 ---
-authorId: ayn-rand
-toolId: dewalt-20v-battery-pack
+author: ayn-rand
+tool: ryobi-18v-5ah-battery-twin-pack
 featured: true
 mood: technical
 tone: formal

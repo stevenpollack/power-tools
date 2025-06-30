@@ -1,6 +1,6 @@
 ---
-authorId: mark-twain
-toolId: dewalt-20v-circular-saw
+author: mark-twain
+tool: dewalt-20v-circular-saw
 featured: true
 mood: humorous
 tone: casual

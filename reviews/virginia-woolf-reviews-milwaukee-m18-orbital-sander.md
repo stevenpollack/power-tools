@@ -1,6 +1,6 @@
 ---
-authorId: virginia-woolf
-toolId: milwaukee-m18-orbital-sander
+author: virginia-woolf
+tool: milwaukee-m18-orbital-sander
 featured: true
 mood: philosophical
 tone: formal

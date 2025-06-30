@@ -1,6 +1,6 @@
 ---
-authorId: franz-kafka
-toolId: dewalt-20v-battery-pack
+author: franz-kafka
+tool: dewalt-20v-battery-pack
 featured: true
 mood: philosophical
 tone: formal

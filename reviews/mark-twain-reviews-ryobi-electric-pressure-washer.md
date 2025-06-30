@@ -1,6 +1,6 @@
 ---
-authorId: mark-twain
-toolId: ryobi-electric-pressure-washer
+author: mark-twain
+tool: ryobi-electric-pressure-washer
 featured: true
 mood: humorous
 tone: casual

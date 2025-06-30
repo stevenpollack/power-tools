@@ -1,6 +1,6 @@
 ---
-authorId: ernest-hemingway
-toolId: dewalt-20v-max-cordless-drill
+author: ernest-hemingway
+tool: dewalt-20v-max-cordless-drill
 featured: true
 mood: technical
 tone: earnest

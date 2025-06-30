@@ -1,6 +1,6 @@
 ---
-authorId: charles-dickens
-toolId: generac-gas-pressure-washer
+author: charles-dickens
+tool: generac-gas-pressure-washer
 featured: true
 mood: dramatic
 tone: formal

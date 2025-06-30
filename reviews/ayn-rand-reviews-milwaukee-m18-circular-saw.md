@@ -1,6 +1,6 @@
 ---
-authorId: ayn-rand
-toolId: milwaukee-m18-circular-saw
+author: ayn-rand
+tool: milwaukee-m18-circular-saw
 featured: true
 mood: philosophical
 tone: formal

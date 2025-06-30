@@ -1,6 +1,6 @@
 ---
-authorId: virginia-woolf
-toolId: ryobi-one-plus-circular-saw
+author: virginia-woolf
+tool: ryobi-one-plus-circular-saw
 featured: true
 mood: philosophical
 tone: casual

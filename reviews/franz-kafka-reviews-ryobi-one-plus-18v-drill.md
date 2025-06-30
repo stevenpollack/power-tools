@@ -1,6 +1,6 @@
 ---
-authorId: franz-kafka
-toolId: ryobi-one-plus-18v-drill
+author: franz-kafka
+tool: ryobi-one-plus-18v-drill
 featured: true
 mood: philosophical
 tone: formal

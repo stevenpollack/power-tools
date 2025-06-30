@@ -1,6 +1,6 @@
 ---
-authorId: oscar-wilde
-toolId: paslode-cordless-framing-nailer
+author: oscar-wilde
+tool: paslode-cordless-framing-nailer
 featured: true
 mood: humorous
 tone: satirical

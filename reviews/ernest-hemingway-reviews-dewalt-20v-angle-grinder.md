@@ -1,6 +1,6 @@
 ---
-authorId: ernest-hemingway
-toolId: dewalt-20v-angle-grinder
+author: ernest-hemingway
+tool: dewalt-20v-angle-grinder
 featured: true
 mood: dramatic
 tone: earnest

@@ -1,6 +1,6 @@
 ---
-authorId: charles-dickens
-toolId: milwaukee-m18-fuel-grinder
+author: charles-dickens
+tool: milwaukee-m18-fuel-grinder
 featured: true
 mood: technical
 tone: formal

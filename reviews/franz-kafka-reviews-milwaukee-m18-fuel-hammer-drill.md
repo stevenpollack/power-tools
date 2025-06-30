@@ -1,6 +1,6 @@
 ---
-authorId: franz-kafka
-toolId: milwaukee-m18-fuel-hammer-drill
+author: franz-kafka
+tool: milwaukee-m18-fuel-hammer-drill
 featured: true
 mood: philosophical
 tone: formal

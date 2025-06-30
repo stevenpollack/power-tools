@@ -1,6 +1,6 @@
 ---
-authorId: mark-twain
-toolId: milwaukee-m18-battery
+author: mark-twain
+tool: milwaukee-m18-battery
 featured: true
 mood: humorous
 tone: casual

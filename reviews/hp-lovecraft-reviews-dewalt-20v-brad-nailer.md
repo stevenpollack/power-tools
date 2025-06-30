@@ -1,6 +1,6 @@
 ---
-authorId: hp-lovecraft
-toolId: dewalt-20v-brad-nailer
+author: hp-lovecraft
+tool: dewalt-20v-brad-nailer
 featured: true
 mood: dramatic
 tone: formal

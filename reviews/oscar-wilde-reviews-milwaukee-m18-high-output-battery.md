@@ -1,6 +1,6 @@
 ---
-authorId: oscar-wilde
-toolId: milwaukee-m18-high-output-battery
+author: oscar-wilde
+tool: milwaukee-m18-high-output-battery
 featured: true
 mood: humorous
 tone: satirical

@@ -1,6 +1,6 @@
 ---
-authorId: hp-lovecraft
-toolId: milwaukee-m18-rotary-hammer
+author: hp-lovecraft
+tool: milwaukee-m18-rotary-hammer
 featured: true
 mood: dramatic
 tone: formal

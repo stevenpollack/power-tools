@@ -1,6 +1,6 @@
 ---
-authorId: oscar-wilde
-toolId: dremel-8220-rotary-tool
+author: oscar-wilde
+tool: dremel-8220-rotary-tool
 featured: true
 mood: humorous
 tone: satirical

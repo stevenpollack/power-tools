@@ -1,6 +1,6 @@
 ---
-authorId: virginia-woolf
-toolId: dewalt-20v-orbital-sander
+author: virginia-woolf
+tool: dewalt-20v-orbital-sander
 featured: true
 mood: philosophical
 tone: formal

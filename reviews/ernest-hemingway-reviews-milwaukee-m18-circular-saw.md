@@ -1,6 +1,6 @@
 ---
-authorId: ernest-hemingway
-toolId: milwaukee-m18-circular-saw
+author: ernest-hemingway
+tool: milwaukee-m18-circular-saw
 featured: true
 mood: technical
 tone: earnest

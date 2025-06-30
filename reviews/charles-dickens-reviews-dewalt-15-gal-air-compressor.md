@@ -1,6 +1,6 @@
 ---
-authorId: charles-dickens
-toolId: dewalt-15-gal-air-compressor
+author: charles-dickens
+tool: dewalt-15-gal-air-compressor
 featured: true
 mood: dramatic
 tone: formal

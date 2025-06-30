@@ -1,6 +1,6 @@
 ---
-authorId: ayn-rand
-toolId: ryobi-cordless-compressor
+author: ayn-rand
+tool: ryobi-cordless-compressor
 featured: true
 mood: philosophical
 tone: earnest

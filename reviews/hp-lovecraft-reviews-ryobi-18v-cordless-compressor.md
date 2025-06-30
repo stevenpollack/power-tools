@@ -1,6 +1,6 @@
 ---
-authorId: hp-lovecraft
-toolId: ryobi-18v-cordless-compressor
+author: hp-lovecraft
+tool: ryobi-18v-cordless-compressor
 featured: true
 mood: dramatic
 tone: formal
