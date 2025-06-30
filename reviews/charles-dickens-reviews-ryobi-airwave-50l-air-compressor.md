@@ -1,20 +1,20 @@
 ---
-author: oscar-wilde
-tool: milwaukee-m18-high-output-battery
+author: charles-dickens
+tool: ryobi-airwave-50l-air-compressor
 featured: true
-mood: humorous
-tone: satirical
+mood: dramatic
+tone: formal
 readingTime: 2
 shareCount: 0
-dateCreated: "2025-06-27T11:46:40.315Z"
-lastUpdated: "2025-06-27T11:46:40.315Z"
+dateCreated: "2025-06-27T11:46:40.316Z"
+lastUpdated: "2025-06-27T11:46:40.316Z"
 ---
 
-# oscar-wilde Reviews milwaukee-m18-high-output-battery
+# charles-dickens Reviews ryobi-airwave-50l-air-compressor
 
 [Generated review content would go here]
 
-This is a placeholder for the humorous satirical review of the milwaukee-m18-high-output-battery written in the style of oscar-wilde.
+This is a placeholder for the dramatic formal review of the ryobi-airwave-50l-air-compressor written in the style of charles-dickens.
 
 The actual review will be generated using LLM with the following approach:
 

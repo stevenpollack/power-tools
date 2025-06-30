@@ -1,20 +1,20 @@
 ---
-author: virginia-woolf
-tool: milwaukee-m18-orbital-sander
+author: hp-lovecraft
+tool: ryobi-18v-one-brad-nailer
 featured: true
-mood: philosophical
+mood: dramatic
 tone: formal
 readingTime: 2
 shareCount: 0
-dateCreated: "2025-06-27T11:46:40.316Z"
-lastUpdated: "2025-06-27T11:46:40.316Z"
+dateCreated: "2025-06-27T11:46:40.317Z"
+lastUpdated: "2025-06-27T11:46:40.317Z"
 ---
 
-# virginia-woolf Reviews milwaukee-m18-orbital-sander
+# hp-lovecraft Reviews ryobi-18v-one-brad-nailer
 
 [Generated review content would go here]
 
-This is a placeholder for the philosophical formal review of the milwaukee-m18-orbital-sander written in the style of virginia-woolf.
+This is a placeholder for the dramatic formal review of the ryobi-18v-one-brad-nailer written in the style of hp-lovecraft.
 
 The actual review will be generated using LLM with the following approach:
 

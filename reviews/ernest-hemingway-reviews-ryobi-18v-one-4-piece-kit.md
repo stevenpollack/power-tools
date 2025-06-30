@@ -1,6 +1,6 @@
 ---
 author: ernest-hemingway
-tool: dewalt-20v-max-cordless-drill
+tool: ryobi-18v-one-4-piece-kit
 featured: true
 mood: technical
 tone: earnest

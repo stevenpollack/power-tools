@@ -1,20 +1,20 @@
 ---
-author: mark-twain
-tool: dewalt-20v-circular-saw
+author: ernest-hemingway
+tool: ryobi-18v-one-angle-grinder
 featured: true
-mood: humorous
-tone: casual
+mood: dramatic
+tone: earnest
 readingTime: 2
 shareCount: 0
-dateCreated: "2025-06-27T11:46:40.317Z"
-lastUpdated: "2025-06-27T11:46:40.317Z"
+dateCreated: "2025-06-27T11:46:40.314Z"
+lastUpdated: "2025-06-27T11:46:40.314Z"
 ---
 
-# mark-twain Reviews dewalt-20v-circular-saw
+# ernest-hemingway Reviews ryobi-18v-one-angle-grinder
 
 [Generated review content would go here]
 
-This is a placeholder for the humorous casual review of the dewalt-20v-circular-saw written in the style of mark-twain.
+This is a placeholder for the dramatic earnest review of the ryobi-18v-one-angle-grinder written in the style of ernest-hemingway.
 
 The actual review will be generated using LLM with the following approach:
 

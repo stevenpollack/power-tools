@@ -1,20 +1,20 @@
 ---
-author: mark-twain
-tool: milwaukee-m18-battery
+author: franz-kafka
+tool: ryobi-18v-5ah-battery-twin-pack
 featured: true
-mood: humorous
-tone: casual
+mood: philosophical
+tone: formal
 readingTime: 2
 shareCount: 0
-dateCreated: "2025-06-27T11:46:40.317Z"
-lastUpdated: "2025-06-27T11:46:40.317Z"
+dateCreated: "2025-06-27T11:46:40.315Z"
+lastUpdated: "2025-06-27T11:46:40.315Z"
 ---
 
-# mark-twain Reviews milwaukee-m18-battery
+# franz-kafka Reviews ryobi-18v-5ah-battery-twin-pack
 
 [Generated review content would go here]
 
-This is a placeholder for the humorous casual review of the milwaukee-m18-battery written in the style of mark-twain.
+This is a placeholder for the philosophical formal review of the ryobi-18v-5ah-battery-twin-pack written in the style of franz-kafka.
 
 The actual review will be generated using LLM with the following approach:
 

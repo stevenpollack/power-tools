@@ -1,20 +1,20 @@
 ---
-author: franz-kafka
-tool: dewalt-20v-battery-pack
+author: mark-twain
+tool: ryobi-18v-one-circular-saw
 featured: true
-mood: philosophical
-tone: formal
+mood: humorous
+tone: casual
 readingTime: 2
 shareCount: 0
-dateCreated: "2025-06-27T11:46:40.315Z"
-lastUpdated: "2025-06-27T11:46:40.315Z"
+dateCreated: "2025-06-27T11:46:40.317Z"
+lastUpdated: "2025-06-27T11:46:40.317Z"
 ---
 
-# franz-kafka Reviews dewalt-20v-battery-pack
+# mark-twain Reviews ryobi-18v-one-circular-saw
 
 [Generated review content would go here]
 
-This is a placeholder for the philosophical formal review of the dewalt-20v-battery-pack written in the style of franz-kafka.
+This is a placeholder for the humorous casual review of the ryobi-18v-one-circular-saw written in the style of mark-twain.
 
 The actual review will be generated using LLM with the following approach:
 

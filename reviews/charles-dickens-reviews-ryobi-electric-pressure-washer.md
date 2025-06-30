@@ -1,6 +1,6 @@
 ---
 author: charles-dickens
-tool: generac-gas-pressure-washer
+tool: ryobi-electric-pressure-washer
 featured: true
 mood: dramatic
 tone: formal
@@ -10,11 +10,11 @@ dateCreated: "2025-06-27T11:46:40.316Z"
 lastUpdated: "2025-06-27T11:46:40.316Z"
 ---
 
-# charles-dickens Reviews generac-gas-pressure-washer
+# charles-dickens Reviews ryobi-electric-pressure-washer
 
 [Generated review content would go here]
 
-This is a placeholder for the dramatic formal review of the generac-gas-pressure-washer written in the style of charles-dickens.
+This is a placeholder for the dramatic formal review of the ryobi-electric-pressure-washer written in the style of charles-dickens.
 
 The actual review will be generated using LLM with the following approach:
 
