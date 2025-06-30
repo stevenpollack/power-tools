@@ -1,5 +1,5 @@
 {
-  "id": "kafka",
+  "id": "franz-kafka",
   "name": "Franz Kafka",
   "slug": "franz-kafka",
   "lifespan": "1883-1924",
