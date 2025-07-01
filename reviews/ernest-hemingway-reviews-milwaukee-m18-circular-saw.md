@@ -10,8 +10,6 @@ dateCreated: "2025-06-27T11:46:40.314Z"
 lastUpdated: "2025-06-27T11:46:40.314Z"
 ---
 
-# Ernest Hemingway Reviews Milwaukee M18 FUEL 7-1/4 in. Circular Saw
-
 The saw. Milwaukee. M18. It was heavy. Nine pounds. Good. A saw should have weight. It was for cutting. Wood. Boards. Clean. Fast. This one cut. Five thousand eight hundred revolutions per minute. The motor, brushless. Efficient. It cut twice as fast. Good. Time was short. Work was long.
 
 The guards were magnesium. Strong. They protected. The blade. The hand. Important things. The electronic brake. It stopped the blade. Fast. Under three seconds. Safe. A man could work safe. The REDLINK PLUS Intelligence. It was there. It kept things from burning out. It was a good thing. Necessary.

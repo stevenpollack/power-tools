@@ -10,8 +10,6 @@ dateCreated: "2025-06-27T11:46:40.314Z"
 lastUpdated: "2025-06-27T11:46:40.314Z"
 ---
 
-# Ernest Hemingway Reviews Ryobi 18V ONE+ 125mm Angle Grinder - Tool Only
-
 The Ryobi 18V ONE+ Angle Grinder. It was a tool. Hard and capable. A man needed a tool that worked. This one worked. It was 2.2 kilograms, a good weight. Not too light to feel flimsy, not too heavy to tire the arm. The disc, 125 millimeters. It spun with purpose. You could hear the power, the 18 volts humming. It was cordless. Freedom in the hand. No cord to tangle, no cord to bind you to the wall. That was important. A man needed to move, to work where the work was.
 
 I took it to the metal. Old, rusted steel. It had seen many seasons. The grinder bit. Sparks flew, hot and bright, like a blacksmith's forge in the dusk. The disc ate into the rust, into the old welds. It was relentless. The variable speed control was there. You could slow it down, let it chew. Or you could open it up, let it roar. It was a choice. A man made choices.

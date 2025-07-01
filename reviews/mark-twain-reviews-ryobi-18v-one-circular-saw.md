@@ -10,8 +10,6 @@ dateCreated: "2025-06-27T11:46:40.317Z"
 lastUpdated: "2025-06-27T11:46:40.317Z"
 ---
 
-# Mark Twain Reviews Ryobi 18V ONE+ 165mm Circular Saw - Skin Only
-
 Well now, folks, gather 'round and let ol' Mark Twain tell you a thing or two about this here Ryobi 18V ONE+ Circular Saw. They call it "Skin Only," which I reckon means it's like a snake after it sheds its old hide – lean, ready for business, but needs a battery to truly slither. And ain't that just like modern contraptions? Always somethin' else you gotta buy to make the first somethin' work. Reminds me of the time ol' Jim tried to float a raft down the Mississippi with only half a paddle. You'll get somewhere, eventually, but it won't be pretty.
 
 Now, this saw, it boasts a "165mm cutting capacity." That's mighty specific, ain't it? Back in my day, we'd say it cuts a respectable hunk o' lumber, or it don't. No fancy metric systems needed to tell if you've got a proper piece of timber. But I'll admit, this contraption does cut. Clean as a whistle, they say, and I reckon they ain't lyin'. It's "lightweight and ergonomic," which is a roundabout way of sayin' it ain't gonna put your shoulder out before noon, and it fits in your paw like a well-worn fishing rod. A good thing, too, 'cause if a tool ain't comfortable, you'll find every excuse under the sun not to use it.
