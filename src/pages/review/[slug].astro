@@ -2,6 +2,7 @@
 import { render, getCollection } from "astro:content";
 import Layout from "../../layouts/ReviewLayout.astro";
 import { getEntry } from "astro:content";
+import { Picture } from "astro:assets";
 
 export async function getStaticPaths() {
   const reviews = await getCollection("reviews");
@@ -34,15 +35,22 @@ const {
         <header class="review-header">
           <div class="review-meta">
             <div class="author-tool-info">
-              <div class="author-link">
-                <div class="author-avatar">A</div>
+              <a href={`/author/${author.id}`} class="author-link">
+                <Picture
+                  src={author.data.portrait.filename}
+                  alt={author.data.name}
+                  width={40}
+                  height={40}
+                  layout="constrained"
+                  class="rounded-full"
+                />
                 <span>{author.data.name}</span>
-              </div>
+              </a>
               <span class="separator">reviews</span>
-              <div class="tool-link">
+              <a href={`/tool/${tool.id}`} class="tool-link">
                 <div class="tool-icon">🔧</div>
                 <span>{tool.data.name}</span>
-              </div>
+              </a>
             </div>
 
             <div class="review-details">
@@ -69,8 +77,14 @@ const {
           </div>
 
           <div class="related-section">
-            <h3>Continue Reading</h3>
+            <!-- TODO: Add some sort of carousel with review cards... -->
+            <h3>Continue Reading...</h3>
             <div class="related-reviews">
+              <p>
+                <a href={`/author/${author.id}`}>More from this author...</a>
+              </p>
+              <p>Or</p>
+              <p><a>More from this brand...</a></p>
               <p class="placeholder">Related reviews will be suggested here</p>
             </div>
           </div>

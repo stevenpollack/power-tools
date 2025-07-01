@@ -3,7 +3,6 @@ import Layout from "@/layouts/ReviewLayout.astro";
 import { getCollection } from "astro:content";
 
 const authors = await getCollection("authors");
-
 ---
 
 <Layout title="Authors">
@@ -12,7 +11,9 @@ const authors = await getCollection("authors");
     <ul>
       {
         authors.map((author) => (
-          <li><a href={`/author/${author.id}`}>{author.data.name}</a></li>
+          <li>
+            <a href={`/author/${author.id}`}>{author.data.name}</a>
+          </li>
         ))
       }
     </ul>

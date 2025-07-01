@@ -3,28 +3,29 @@ import { glob } from "astro/loaders";
 
 const authors = defineCollection({
   loader: glob({ pattern: "*.json", base: "authors" }),
-  schema: ({image}) => z.object({
-    name: z.string(),
-    slug: z.string(),
-    lifespan: z.string(),
-    nationality: z.string(),
-    primaryWorks: z.array(z.string()),
-    styleKeywords: z.array(z.string()),
-    literaryMovement: z.string(),
-    portrait: z.object({
-      filename: image(),
-      source: z.string(),
-      license: z.string(),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      slug: z.string(),
+      lifespan: z.string(),
+      nationality: z.string(),
+      primaryWorks: z.array(z.string()),
+      styleKeywords: z.array(z.string()),
+      literaryMovement: z.string(),
+      portrait: z.object({
+        filename: image(),
+        source: z.string(),
+        license: z.string(),
+      }),
+      styleAnalysis: z.object({
+        summary: z.string(),
+        detailed: z.string(),
+        vocabulary: z.string(),
+        sentenceStructure: z.string(),
+        themes: z.array(z.string()),
+        quirks: z.array(z.string()),
+      }),
     }),
-    styleAnalysis: z.object({
-      summary: z.string(),
-      detailed: z.string(),
-      vocabulary: z.string(),
-      sentenceStructure: z.string(),
-      themes: z.array(z.string()),
-      quirks: z.array(z.string()),
-    }),
-  }),
 });
 
 const tools = defineCollection({
