@@ -1,5 +1,6 @@
 ---
 import Layout from "@/layouts/ReviewLayout.astro";
+import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -26,8 +27,7 @@ const tools = await Promise.all(
     <div class="container">
       <div class="author-header">
         <div class="author-image">
-          <!-- TODO: Add author portrait after Stream 1 integration -->
-          <div class="placeholder-image">Author Portrait</div>
+          <Image src={author.data.portrait.filename} alt={author.data.name} class="mask-radial-at-center mask-radial-from-100%" />
         </div>
 
         <div class="author-info">

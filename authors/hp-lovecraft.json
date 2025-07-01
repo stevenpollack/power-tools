@@ -20,7 +20,7 @@
   ],
   "literaryMovement": "Weird Fiction/Horror",
   "portrait": {
-    "filename": "lovecraft.jpg",
+    "filename": "src/images/authors/lovecraft.jpg",
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },

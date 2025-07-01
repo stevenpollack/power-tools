@@ -14,7 +14,7 @@
   "styleKeywords": ["social-satire", "propriety", "wit", "ironic", "domestic"],
   "literaryMovement": "Romanticism",
   "portrait": {
-    "filename": "austen.jpg",
+    "filename": "src/images/authors/austen.jpg",
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },

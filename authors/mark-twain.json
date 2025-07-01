@@ -14,7 +14,7 @@
   "styleKeywords": ["vernacular", "humor", "satirical", "colloquial", "folksy"],
   "literaryMovement": "American Realism",
   "portrait": {
-    "filename": "twain.jpg",
+    "filename": "src/images/authors/twain.jpg",
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },

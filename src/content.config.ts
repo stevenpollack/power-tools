@@ -3,7 +3,7 @@ import { glob } from "astro/loaders";
 
 const authors = defineCollection({
   loader: glob({ pattern: "*.json", base: "authors" }),
-  schema: z.object({
+  schema: ({image}) => z.object({
     name: z.string(),
     slug: z.string(),
     lifespan: z.string(),
@@ -12,7 +12,7 @@ const authors = defineCollection({
     styleKeywords: z.array(z.string()),
     literaryMovement: z.string(),
     portrait: z.object({
-      filename: z.string(),
+      filename: image(),
       source: z.string(),
       license: z.string(),
     }),

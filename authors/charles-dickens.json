@@ -20,7 +20,7 @@
   ],
   "literaryMovement": "Victorian Literature",
   "portrait": {
-    "filename": "dickens.jpg",
+    "filename": "src/images/authors/dickens.jpg",
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },
