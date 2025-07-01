@@ -1,9 +1,24 @@
 ---
-import Layout from "../layouts/ReviewLayout.astro";
+import Layout from "@/layouts/ReviewLayout.astro";
+import { getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  return [];
+  const authors = await getCollection("authors");
+  return authors.map((author) => ({
+    params: { id: author.id },
+    props: { author },
+  }));
 }
+
+const { author } = Astro.props;
+
+const reviews = await getCollection("reviews", (review) =>
+  review.data.author.id === author.id
+);
+const tools = await Promise.all(
+  reviews.map((review) => getEntry(review.data.tool))
+);
 ---
 
 <Layout title="Author Profile - Power Tools Reviews">
@@ -16,23 +31,38 @@ export async function getStaticPaths() {
         </div>
 
         <div class="author-info">
-          <h1>Author Name</h1>
+          <h1>{author.data.name}</h1>
           <p class="author-details">
-            Author details will be loaded from Stream 1 data
+            {author.data.nationality} -- {author.data.lifespan}
           </p>
-          <p class="author-bio">
-            Author biography and style analysis will appear here
-          </p>
+          <h2 class="font-semibold pb-1">Primary Works</h2>
+          <span class="italic">
+            {author.data.primaryWorks.join(", ")}
+          </span>
+          <h2 class="font-semibold pb-1">Style Keywords</h2>
+          <span class="italic">
+            {author.data.styleKeywords.join(", ")}
+          </span>
+          <h2 class="font-semibold pb-1">Literary Movement</h2>
+          <span class="italic">
+            {author.data.literaryMovement}
+          </span>
         </div>
       </div>
 
       <section class="author-reviews">
         <h2>Reviews by This Author</h2>
         <div class="reviews-grid">
-          <p class="placeholder">
-            Author's tool reviews will be displayed here after content
-            generation
-          </p>
+          {reviews.map((review) => (
+            <ul>
+              <li>
+                <a href={`/review/${review.id}`}>
+                  <h3>{tools.find((tool) => tool.id === review.data.tool.id)?.data.name}</h3>
+                  <p>{review.data.mood}</p>
+                </a>
+              </li>
+            </ul>
+          ))}
         </div>
       </section>
     </div>

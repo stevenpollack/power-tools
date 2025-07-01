@@ -58,12 +58,6 @@ const canonicalURL = Astro.site
 
     <title>{title}</title>
   </head>
-
-  <body>
-    <div id="app">
-      <slot />
-    </div>
-
     <!-- Navigation placeholder - will be enhanced in Phase 3 -->
     <nav class="main-nav">
       <div class="nav-container">
@@ -76,6 +70,13 @@ const canonicalURL = Astro.site
         </div>
       </div>
     </nav>
+    
+  <body>
+    <div id="app">
+      <slot />
+    </div>
+
+
 
     <footer class="main-footer">
       <div class="footer-container">
