@@ -1,0 +1,33 @@
+{
+  "name": "Ryobi Airwave 50L 2.0HP Air Compressor RA-C2550-G",
+  "slug": "ryobi-airwave-50l-air-compressor",
+  "brand": "Ryobi",
+  "category": "Air Compressors",
+  "subcategory": "Direct Drive Air Compressors",
+  "bunningsSku": "6210594",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-airwave-50l-2-0hp-air-compressor-ra-c2550-g_p6210594",
+  "thumbnailUrl": "https://media.bunnings.com.au/api/public/content/a345f143f4024510a5353c82072198b0?v=b8ecb329&t=w100dpr1",
+  "specifications": {
+    "power": "240V Electric",
+    "weight": "45 kg",
+    "dimensions": "70 x 30 x 65 cm",
+    "keyFeatures": [
+      "50-litre tank for extended run time",
+      "8 bar maximum pressure",
+      "2.0 HP motor for reliable performance",
+      "Oil-free pump requires no maintenance",
+      "Quick connect fittings for easy setup"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 249,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 65,
+    "averageRating": 4.2,
+    "bunningsRank": 1
+  }
+}

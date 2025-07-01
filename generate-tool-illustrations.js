@@ -206,22 +206,22 @@ const toolTemplates = {
 // Tool mappings
 const toolMappings = [
   {
-    filename: "dewalt-15-gal-air-compressor.svg",
+    filename: "ryobi-airwave-50l-air-compressor.svg",
     brand: "dewalt",
     template: "compressor",
   },
   {
-    filename: "dewalt-20v-angle-grinder.svg",
+    filename: "ryobi-18v-one-angle-grinder.svg",
     brand: "dewalt",
     template: "angle-grinder",
   },
   {
-    filename: "dewalt-20v-battery-pack.svg",
+    filename: "ryobi-18v-5ah-battery-twin-pack.svg",
     brand: "dewalt",
     template: "battery-pack",
   },
   {
-    filename: "dewalt-20v-brad-nailer.svg",
+    filename: "ryobi-18v-one-brad-nailer.svg",
     brand: "dewalt",
     template: "nailer",
   },

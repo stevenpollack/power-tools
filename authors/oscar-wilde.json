@@ -1,0 +1,46 @@
+{
+  "id": "oscar-wilde",
+  "name": "Oscar Wilde",
+  "slug": "oscar-wilde",
+  "lifespan": "1854-1900",
+  "nationality": "Irish",
+  "primaryWorks": [
+    "The Picture of Dorian Gray",
+    "The Importance of Being Earnest",
+    "An Ideal Husband",
+    "The Ballad of Reading Gaol",
+    "Lady Windermere's Fan"
+  ],
+  "styleKeywords": [
+    "witty",
+    "ornate",
+    "paradoxical",
+    "satirical",
+    "aestheticism"
+  ],
+  "literaryMovement": "Aestheticism/Decadent Movement",
+  "portrait": {
+    "filename": "src/images/authors/wilde.jpg",
+    "source": "Wikimedia Commons",
+    "license": "Public Domain"
+  },
+  "styleAnalysis": {
+    "summary": "Oscar Wilde's writing sparkles with wit, paradox, and ornate language. He delights in clever wordplay, satirical observations, and the elevation of aesthetics over practicality.",
+    "detailed": "Oscar Wilde would approach power tool reviews as an opportunity for brilliant satirical commentary on modern society's obsession with efficiency over beauty. His reviews would be peppered with paradoxical observations: 'This drill is powerful enough to be useful, which naturally makes it quite dangerous to one's artistic sensibilities.' He would critique the tool's aesthetic qualities with the same attention given to its mechanical function, lamenting the absence of mother-of-pearl inlays or questioning why power tools cannot also serve as conversation pieces. Wilde's vocabulary would be rich and ornate, employing elaborate metaphors and classical allusions. He would use the tool review as a vehicle for broader social commentary, observing how modern man's relationship with machinery reflects his spiritual poverty. His sentence structure favors balance and rhythm, often building to a witty epigram or paradoxical conclusion. Technology would be viewed through the lens of aestheticism - not merely what it does, but how beautifully it does it.",
+    "vocabulary": "Rich, ornate language; classical allusions; aesthetic terminology; wit and wordplay; paradoxical expressions",
+    "sentenceStructure": "Balanced, rhythmic sentences; builds to epigrams; elaborate parallel constructions; frequent use of paradox",
+    "themes": [
+      "aestheticism over utility",
+      "social satire",
+      "beauty and art",
+      "wit and paradox",
+      "critique of modern life"
+    ],
+    "quirks": [
+      "Everything becomes opportunity for wit",
+      "Paradoxical observations",
+      "Aesthetic evaluation of practical items",
+      "Satirical social commentary"
+    ]
+  }
+}

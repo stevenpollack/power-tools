@@ -1,0 +1,34 @@
+{
+  "name": "Ryobi 18V ONE+ 5.0Ah Lithium High Performance Battery - Twin Pack",
+  "slug": "ryobi-18v-5ah-battery-twin-pack",
+  "brand": "Ryobi",
+  "category": "Batteries & Chargers",
+  "subcategory": "Lithium-Ion Batteries",
+  "bunningsSku": "0585317",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-5-0ah-lithium-high-performance-battery-twin-pack_p0585317",
+  "thumbnailUrl": "https://media.bunnings.com.au/api/public/content/9670976723024c90b848ae85cdfb88d3?v=f0e3ff2a&t=w100dpr1",
+  "specifications": {
+    "power": "18V",
+    "weight": "1.2 kg each",
+    "dimensions": "12 x 8 x 6 cm each",
+    "keyFeatures": [
+      "5.0Ah capacity for extended runtime",
+      "Lithium-ion technology for consistent power",
+      "Compatible with entire 18V ONE+ system",
+      "LED fuel gauge for charge indication",
+      "Fade-free power and no memory effect"
+    ],
+    "batteryLife": "Up to 4 hours depending on tool",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 239,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 99,
+    "averageRating": 4.5,
+    "bunningsRank": 1
+  }
+}

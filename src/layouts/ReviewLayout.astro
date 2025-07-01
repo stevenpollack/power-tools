@@ -58,24 +58,23 @@ const canonicalURL = Astro.site
 
     <title>{title}</title>
   </head>
+  <!-- Navigation placeholder - will be enhanced in Phase 3 -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo">Power Tools Reviews</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/authors">Authors</a>
+        <a href="/tools">Tools</a>
+        <a href="/about">About</a>
+      </div>
+    </div>
+  </nav>
 
   <body>
     <div id="app">
       <slot />
     </div>
-
-    <!-- Navigation placeholder - will be enhanced in Phase 3 -->
-    <nav class="main-nav">
-      <div class="nav-container">
-        <a href="/" class="nav-logo">Power Tools Reviews</a>
-        <div class="nav-links">
-          <a href="/">Home</a>
-          <a href="/authors">Authors</a>
-          <a href="/tools">Tools</a>
-          <a href="/about">About</a>
-        </div>
-      </div>
-    </nav>
 
     <footer class="main-footer">
       <div class="footer-container">
@@ -86,117 +85,118 @@ const canonicalURL = Astro.site
       </div>
     </footer>
   </body>
-</html>
 
-<style is:global>
-  :root {
-    --color-primary: #1e3c72;
-    --color-secondary: #2a5298;
-    --color-accent: #667eea;
-    --color-text: #1a1a1a;
-    --color-text-light: #6b7280;
-    --color-background: #ffffff;
-    --font-sans: "Inter", system-ui, sans-serif;
-    --font-serif: "Merriweather", serif;
-  }
+  <style is:global>
+    :root {
+      --color-primary: #1e3c72;
+      --color-secondary: #2a5298;
+      --color-accent: #667eea;
+      --color-text: #1a1a1a;
+      --color-text-light: #6b7280;
+      --color-background: #ffffff;
+      --font-sans: "Inter", system-ui, sans-serif;
+      --font-serif: "Merriweather", serif;
+    }
 
-  * {
-    box-sizing: border-box;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  html {
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.6;
-  }
+    html {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-  body {
-    margin: 0;
-    padding: 0;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--color-text);
+      background-color: var(--color-background);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-  #app {
-    flex: 1;
-  }
+    #app {
+      flex: 1;
+    }
 
-  .main-nav {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    padding: 1rem 0;
-  }
-
-  .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-logo {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--color-primary);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-  }
-
-  .nav-links a {
-    color: var(--color-text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover {
-    color: var(--color-primary);
-  }
-
-  .main-footer {
-    background: var(--color-primary);
-    color: white;
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 4rem;
-  }
-
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .footer-container p {
-    margin: 0.5rem 0;
-    opacity: 0.9;
-  }
-
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .nav-links {
-      gap: 1rem;
-      font-size: 0.9rem;
+    .main-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 1rem 0;
     }
 
     .nav-container {
-      padding: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    .main-footer {
+      background: var(--color-primary);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 4rem;
     }
 
     .footer-container {
-      padding: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-  }
 
-  /* Navbar is now part of normal document flow */
-</style>
+    .footer-container p {
+      margin: 0.5rem 0;
+      opacity: 0.9;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .nav-container {
+        padding: 0 1rem;
+      }
+
+      .footer-container {
+        padding: 0 1rem;
+      }
+    }
+
+    /* Navbar is now part of normal document flow */
+  </style>
+
+</html>

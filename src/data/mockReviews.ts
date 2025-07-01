@@ -105,7 +105,7 @@ export const mockReviews: Review[] = [
     id: "lovecraft-milwaukee-battery",
     authorId: "hp-lovecraft",
     authorName: "H.P. Lovecraft",
-    toolId: "milwaukee-m18-high-output-battery",
+    toolId: "ryobi-18v-5ah-battery-twin-pack",
     toolName: "Milwaukee M18 High Output Battery",
     featured: false,
     mood: "dramatic",

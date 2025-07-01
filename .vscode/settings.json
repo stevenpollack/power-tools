@@ -4,5 +4,22 @@
   "eslint.validate": ["astro", "typescript", "typescriptreact"],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
+  },
+  "piny.project_settings": {
+    "open-pages": ["pinyfakepage.html"],
+    "app-routes": {
+      "routes": ["/", "/authors", "/demo", "/tools"],
+      "current_route": "/tools"
+    },
+    "urls": {
+      "pinyfakepage.html": {
+        "open-page-views": [
+          {
+            "w": 788,
+            "h": 1080
+          }
+        ]
+      }
+    }
   }
 }

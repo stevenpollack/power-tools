@@ -19,7 +19,7 @@ const featuredCombinations = [
   },
   {
     authorId: "ernest-hemingway",
-    toolId: "dewalt-20v-angle-grinder",
+    toolId: "ryobi-18v-one-angle-grinder",
     mood: "dramatic",
     tone: "earnest",
   },
@@ -39,7 +39,7 @@ const featuredCombinations = [
   },
   {
     authorId: "franz-kafka",
-    toolId: "dewalt-20v-battery-pack",
+    toolId: "ryobi-18v-5ah-battery-twin-pack",
     mood: "philosophical",
     tone: "formal",
   },
@@ -59,7 +59,7 @@ const featuredCombinations = [
   },
   {
     authorId: "oscar-wilde",
-    toolId: "milwaukee-m18-high-output-battery",
+    toolId: "ryobi-18v-5ah-battery-twin-pack",
     mood: "humorous",
     tone: "satirical",
   },
@@ -87,13 +87,13 @@ const featuredCombinations = [
   // Dickens (3 reviews) - verbose melodramatic
   {
     authorId: "charles-dickens",
-    toolId: "generac-gas-pressure-washer",
+    toolId: "ryobi-electric-pressure-washer",
     mood: "dramatic",
     tone: "formal",
   },
   {
     authorId: "charles-dickens",
-    toolId: "dewalt-15-gal-air-compressor",
+    toolId: "ryobi-airwave-50l-air-compressor",
     mood: "dramatic",
     tone: "formal",
   },
@@ -119,7 +119,7 @@ const featuredCombinations = [
   },
   {
     authorId: "hp-lovecraft",
-    toolId: "dewalt-20v-brad-nailer",
+    toolId: "ryobi-18v-one-brad-nailer",
     mood: "dramatic",
     tone: "formal",
   },
@@ -153,7 +153,7 @@ const featuredCombinations = [
   },
   {
     authorId: "ayn-rand",
-    toolId: "dewalt-20v-battery-pack",
+    toolId: "ryobi-18v-5ah-battery-twin-pack",
     mood: "technical",
     tone: "formal",
   },

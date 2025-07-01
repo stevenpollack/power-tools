@@ -1,0 +1,21 @@
+---
+import Layout from "@/layouts/ReviewLayout.astro";
+import { getCollection } from "astro:content";
+
+const authors = await getCollection("authors");
+---
+
+<Layout title="Authors">
+  <main>
+    <h1>Authors</h1>
+    <ul>
+      {
+        authors.map((author) => (
+          <li>
+            <a href={`/author/${author.id}`}>{author.data.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>

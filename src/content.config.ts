@@ -1,47 +1,53 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 const authors = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/authors" }),
-  schema: z.object({
-    name: z.string(),
-    slug: z.string(),
-    lifespan: z.string(),
-    nationality: z.string(),
-    primaryWorks: z.array(z.string()),
-    styleKeywords: z.array(z.string()),
-    literaryMovement: z.string(),
-    portrait: z.object({
-      filename: z.string(),
-      source: z.string(),
-      license: z.string(),
+  loader: glob({ pattern: "*.json", base: "authors" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      slug: z.string(),
+      lifespan: z.string(),
+      nationality: z.string(),
+      primaryWorks: z.array(z.string()),
+      styleKeywords: z.array(z.string()),
+      literaryMovement: z.string(),
+      portrait: z.object({
+        filename: image(),
+        source: z.string(),
+        license: z.string(),
+      }),
+      styleAnalysis: z.object({
+        summary: z.string(),
+        detailed: z.string(),
+        vocabulary: z.string(),
+        sentenceStructure: z.string(),
+        themes: z.array(z.string()),
+        quirks: z.array(z.string()),
+      }),
     }),
-    styleAnalysis: z.object({
-      summary: z.string(),
-      detailed: z.string(),
-      vocabulary: z.string(),
-      sentenceStructure: z.string(),
-      themes: z.array(z.string()),
-      quirks: z.array(z.string()),
-    }),
-  }),
 });
 
 const tools = defineCollection({
-  loader: glob({ pattern: "*.json", base: "./src/content/tools" }),
+  loader: glob({ pattern: "*.json", base: "tools" }),
   schema: z.object({
     name: z.string(),
     slug: z.string(),
     brand: z.string(),
     category: z.string(),
     subcategory: z.string().optional(),
-    homeDepotSku: z.string(),
-    homeDepotUrl: z.string(),
-    image: z.object({
-      filename: z.string(),
-      originalUrl: z.string(),
-      license: z.string(),
-    }),
+    homeDepotSku: z.string().optional(),
+    homeDepotUrl: z.string().optional(),
+    bunningsSku: z.string().optional(),
+    bunningsUrl: z.string().optional(),
+    thumbnailUrl: z.string().optional(),
+    image: z
+      .object({
+        filename: z.string(),
+        originalUrl: z.string(),
+        license: z.string(),
+      })
+      .optional(),
     specifications: z.object({
       power: z.string(),
       weight: z.string(),
@@ -53,21 +59,23 @@ const tools = defineCollection({
     pricing: z.object({
       currentPrice: z.number(),
       msrp: z.number().optional(),
+      currency: z.string().optional(),
       onSale: z.boolean(),
     }),
     popularity: z.object({
       reviewCount: z.number(),
       averageRating: z.number(),
       homeDepotRank: z.number().optional(),
+      bunningsRank: z.number().optional(),
     }),
   }),
 });
 
 const reviews = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/reviews" }),
+  loader: glob({ pattern: "*.md", base: "reviews" }),
   schema: z.object({
-    authorId: z.string(),
-    toolId: z.string(),
+    author: reference("authors"),
+    tool: reference("tools"),
     featured: z.boolean().default(false),
     mood: z.enum(["humorous", "dramatic", "technical", "philosophical"]),
     tone: z.enum(["formal", "casual", "satirical", "earnest"]),

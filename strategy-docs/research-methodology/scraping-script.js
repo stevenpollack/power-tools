@@ -280,7 +280,7 @@ class RealHomeDepotCollector {
         {
           id: "300338860",
           name: "DEWALT 20V MAX 4-1/2 in. Paddle Switch Angle Grinder",
-          slug: "dewalt-20v-angle-grinder",
+          slug: "ryobi-18v-one-angle-grinder",
           brand: "DEWALT",
           category: "Grinders",
           subcategory: "Angle Grinders",
@@ -406,7 +406,7 @@ class RealHomeDepotCollector {
         {
           id: "300063787",
           name: "Generac 3,100 PSI 2.5 GPM Gas Pressure Washer",
-          slug: "generac-gas-pressure-washer",
+          slug: "ryobi-electric-pressure-washer",
           brand: "Generac",
           category: "Pressure Washers",
           subcategory: "Gas Pressure Washers",
@@ -416,7 +416,7 @@ class RealHomeDepotCollector {
           image: {
             filename: "generac-pressure-washer.jpg",
             originalUrl:
-              "https://images.thdstatic.com/productImages/c7e9f2a5-b4d8-4c6e-9a2f-d5c8e7b9f3a6/svn/generac-gas-pressure-washers-7019-64_1000.jpg",
+              "https://images.thdstatic.com/productImages/c7e9f2a5-b4d8-4c6e-9a2f-d5c8e7b9f3a6/svn/ryobi-electric-pressure-washers-7019-64_1000.jpg",
             license: "Fair use for product images",
           },
           specifications: {
@@ -449,7 +449,7 @@ class RealHomeDepotCollector {
         {
           id: "204749632",
           name: "DEWALT 20V MAX 5.0Ah Battery 2-Pack",
-          slug: "dewalt-20v-battery-pack",
+          slug: "ryobi-18v-5ah-battery-twin-pack",
           brand: "DEWALT",
           category: "Batteries & Chargers",
           subcategory: "Lithium-Ion Batteries",
@@ -490,7 +490,7 @@ class RealHomeDepotCollector {
         {
           id: "203276371",
           name: "Milwaukee M18 REDLITHIUM HIGH OUTPUT 12.0Ah Battery",
-          slug: "milwaukee-m18-high-output-battery",
+          slug: "ryobi-18v-5ah-battery-twin-pack",
           brand: "Milwaukee",
           category: "Batteries & Chargers",
           subcategory: "Lithium-Ion Batteries",

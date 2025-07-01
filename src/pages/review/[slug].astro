@@ -1,9 +1,31 @@
 ---
+import { render, getCollection } from "astro:content";
 import Layout from "../../layouts/ReviewLayout.astro";
+import { getEntry } from "astro:content";
+import { Picture } from "astro:assets";
 
 export async function getStaticPaths() {
-  return [];
+  const reviews = await getCollection("reviews");
+  return reviews.map((review) => ({
+    params: { slug: review.id },
+    props: { review },
+  }));
 }
+
+const { review } = Astro.props;
+const { Content } = await render(review);
+
+const author = await getEntry(review.data.author);
+const tool = await getEntry(review.data.tool);
+const {
+  featured,
+  mood,
+  tone,
+  readingTime,
+  shareCount,
+  dateCreated,
+  lastUpdated,
+} = review.data;
 ---
 
 <Layout title="Review - Power Tools Reviews">
@@ -13,38 +35,34 @@ export async function getStaticPaths() {
         <header class="review-header">
           <div class="review-meta">
             <div class="author-tool-info">
-              <div class="author-link">
-                <div class="author-avatar">A</div>
-                <span>Author Name</span>
-              </div>
+              <a href={`/author/${author.id}`} class="author-link">
+                <Picture
+                  src={author.data.portrait.filename}
+                  alt={author.data.name}
+                  width={40}
+                  height={40}
+                  layout="constrained"
+                  class="rounded-full"
+                />
+                <span>{author.data.name}</span>
+              </a>
               <span class="separator">reviews</span>
-              <div class="tool-link">
+              <a href={`/tool/${tool.id}`} class="tool-link">
                 <div class="tool-icon">🔧</div>
-                <span>Tool Name</span>
-              </div>
+                <span>{tool.data.name}</span>
+              </a>
             </div>
 
             <div class="review-details">
-              <span class="reading-time">X min read</span>
-              <span class="mood-tag">Mood</span>
-              <span class="tone-tag">Tone</span>
+              <span class="reading-time">{readingTime} min read</span>
+              <span class="mood-tag">{mood}</span>
+              <span class="tone-tag">{tone}</span>
             </div>
           </div>
         </header>
 
         <div class="review-content">
-          <h1>Review Title</h1>
-          <div class="review-text">
-            <p>
-              The full review content will be loaded here after content
-              generation in Phase 2.
-            </p>
-            <p>
-              This will be the actual review written in the author's distinctive
-              style, discussing the power tool's features, usability, and their
-              unique perspective on the tool.
-            </p>
-          </div>
+          <Content />
         </div>
 
         <footer class="review-footer">
@@ -59,8 +77,14 @@ export async function getStaticPaths() {
           </div>
 
           <div class="related-section">
-            <h3>Continue Reading</h3>
+            <!-- TODO: Add some sort of carousel with review cards... -->
+            <h3>Continue Reading...</h3>
             <div class="related-reviews">
+              <p>
+                <a href={`/author/${author.id}`}>More from this author...</a>
+              </p>
+              <p>Or</p>
+              <p><a>More from this brand...</a></p>
               <p class="placeholder">Related reviews will be suggested here</p>
             </div>
           </div>

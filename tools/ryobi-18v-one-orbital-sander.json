@@ -1,0 +1,34 @@
+{
+  "name": "Ryobi 18V ONE+ Random Orbital Sander RROS18 - Tool Only",
+  "slug": "ryobi-18v-one-orbital-sander",
+  "brand": "Ryobi",
+  "category": "Sanders",
+  "subcategory": "Orbital Sanders",
+  "bunningsSku": "0371770",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-random-orbital-sander-rros18-tool-only_p0371770",
+  "thumbnailUrl": "https://media.bunnings.com.au/api/public/content/ade485bb752e4f2580dcace57d178297?v=86ceb2f2&t=w100dpr1",
+  "specifications": {
+    "power": "18V",
+    "weight": "1.8 kg",
+    "dimensions": "25 x 15 x 20 cm",
+    "keyFeatures": [
+      "125mm orbital sanding pad for smooth finishes",
+      "Compatible with 18V ONE+ battery system",
+      "Variable speed control for different materials",
+      "Dust collection port for cleaner workspace",
+      "Lightweight design reduces user fatigue"
+    ],
+    "batteryLife": "Up to 60 minutes continuous use",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 89,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 270,
+    "averageRating": 4.3,
+    "bunningsRank": 1
+  }
+}

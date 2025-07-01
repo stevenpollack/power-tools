@@ -1,0 +1,34 @@
+{
+  "name": "Ryobi 18V ONE+ 125mm Angle Grinder - Tool Only",
+  "slug": "ryobi-18v-one-angle-grinder",
+  "brand": "Ryobi",
+  "category": "Grinders",
+  "subcategory": "Angle Grinders",
+  "bunningsSku": "0317153",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-125mm-angle-grinder-tool-only_p0317153",
+  "thumbnailUrl": "https://media.bunnings.com.au/api/public/content/663aab81449b4b698ca48163beaa00da?v=95f9a69d&t=w100dpr1",
+  "specifications": {
+    "power": "18V",
+    "weight": "2.2 kg",
+    "dimensions": "35 x 12 x 12 cm",
+    "keyFeatures": [
+      "125mm disc capacity for various grinding tasks",
+      "Compatible with 18V ONE+ battery system",
+      "Variable speed control for different materials",
+      "Safety guard for user protection",
+      "Ergonomic grip for comfortable operation"
+    ],
+    "batteryLife": "Up to 30 minutes continuous use",
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 99,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 118,
+    "averageRating": 4.3,
+    "bunningsRank": 1
+  }
+}

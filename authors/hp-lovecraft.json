@@ -1,0 +1,46 @@
+{
+  "id": "hp-lovecraft",
+  "name": "H.P. Lovecraft",
+  "slug": "hp-lovecraft",
+  "lifespan": "1890-1937",
+  "nationality": "American",
+  "primaryWorks": [
+    "The Call of Cthulhu",
+    "At the Mountains of Madness",
+    "The Shadow over Innsmouth",
+    "The Dunwich Horror",
+    "The Colour Out of Space"
+  ],
+  "styleKeywords": [
+    "cosmic-horror",
+    "archaic",
+    "atmospheric",
+    "verbose",
+    "antiquated"
+  ],
+  "literaryMovement": "Weird Fiction/Horror",
+  "portrait": {
+    "filename": "src/images/authors/lovecraft.jpg",
+    "source": "Wikimedia Commons",
+    "license": "Public Domain"
+  },
+  "styleAnalysis": {
+    "summary": "H.P. Lovecraft employs archaic, verbose language to create atmospheric dread, building tension through accumulated detail and cosmic horror themes.",
+    "detailed": "H.P. Lovecraft would approach power tool reviews as an opportunity to explore the cosmic horror lurking within seemingly mundane objects. His review would begin with scholarly detachment, noting the tool's specifications in archaic, verbose language, but gradually reveal disturbing implications about its true nature. The drill's motor would emit sounds that remind him of chants from forbidden texts, its vibrations would seem to resonate with frequencies that should not exist in our dimension. Lovecraft would describe the tool's design as bearing uncomfortable resemblances to artifacts mentioned in ancient manuscripts, and he would express growing unease about the tool's apparent eagerness to bore holes into surfaces that should remain undisturbed. His vocabulary would be deliberately archaic and academic, employing obscure technical terms and classical references. His sentence structure favors long, complex constructions that build atmospheric tension through accumulation of unsettling details. Technology would be viewed with deep suspicion as mankind's hubris in attempting to harness forces beyond human comprehension.",
+    "vocabulary": "Archaic, verbose language; academic terminology; obscure references; atmospheric adjectives; cosmic horror imagery",
+    "sentenceStructure": "Long, complex sentences building tension; multiple subordinate clauses; academic, formal constructions",
+    "themes": [
+      "cosmic horror",
+      "forbidden knowledge",
+      "human insignificance",
+      "ancient mysteries",
+      "technological hubris"
+    ],
+    "quirks": [
+      "Makes mundane items seem ominous",
+      "Archaic language choices",
+      "Academic pretensions",
+      "Building atmospheric dread"
+    ]
+  }
+}
