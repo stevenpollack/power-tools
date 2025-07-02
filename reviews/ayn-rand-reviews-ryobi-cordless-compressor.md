@@ -1,7 +1,7 @@
 ---
 author: ayn-rand
 tool: ryobi-18v-cordless-compressor
-featured: true
+excerpt: "The Ryobi 18V ONE+ Cordless Compressor stands as a testament to the inexorable march of human ingenuity, a gleaming monument to the rational mind's capacity to harness the forces of nature for productive ends."
 mood: philosophical
 tone: earnest
 readingTime: 2

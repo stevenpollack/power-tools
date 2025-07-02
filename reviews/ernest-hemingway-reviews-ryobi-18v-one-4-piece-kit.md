@@ -1,7 +1,7 @@
 ---
 author: ernest-hemingway
 tool: ryobi-18v-one-4-piece-kit
-featured: true
+excerpt: "The drill arrived in a black case."
 mood: technical
 tone: earnest
 readingTime: 2

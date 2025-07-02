@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/ReviewLayout.astro";
 import { Picture } from "astro:assets";
-import { Image } from "astro:assets";
+import ReviewCard from "@/components/ReviewCard.astro";
 import { getEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
@@ -19,8 +19,14 @@ const reviews = await getCollection(
   "reviews",
   (review) => review.data.author.id === author.id,
 );
-const tools = await Promise.all(
-  reviews.map((review) => getEntry(review.data.tool)),
+
+// Get full author and tool data for each review
+const reviewsWithData = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    tool: await getEntry(review.data.tool),
+    author: await getEntry(review.data.author),
+  })),
 );
 ---
 
@@ -61,22 +67,21 @@ const tools = await Promise.all(
 
       <section class="author-reviews">
         <h2>Reviews by This Author</h2>
-        <div class="reviews-grid">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {
-            reviews.map((review) => (
-              <ul>
-                <li>
-                  <a href={`/review/${review.id}`}>
-                    <h3>
-                      {
-                        tools.find((tool) => tool.id === review.data.tool.id)
-                          ?.data.name
-                      }
-                    </h3>
-                    <p>{review.data.mood}</p>
-                  </a>
-                </li>
-              </ul>
+            reviewsWithData.map(({ review, tool, author }) => (
+              <ReviewCard
+                reviewId={review.id}
+                dateCreated={review.data.dateCreated}
+                excerpt={review.data.excerpt}
+                toolBrand={tool.data.brand}
+                toolName={tool.data.name}
+                toolImage={tool.data.thumbnailUrl}
+                authorName={author.data.name}
+                mood={review.data.mood}
+                tone={review.data.tone}
+                readingTime={review.data.readingTime}
+              />
             ))
           }
         </div>
@@ -148,12 +153,6 @@ const tools = await Promise.all(
     font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--color-primary);
-  }
-
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
   }
 
   .placeholder {

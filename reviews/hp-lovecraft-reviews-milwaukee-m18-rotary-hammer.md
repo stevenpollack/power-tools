@@ -1,7 +1,7 @@
 ---
 author: hp-lovecraft
 tool: milwaukee-m18-rotary-hammer
-featured: true
+excerpt: "One approaches the Milwaukee M18 FUEL 1-9/16 in."
 mood: dramatic
 tone: formal
 readingTime: 2

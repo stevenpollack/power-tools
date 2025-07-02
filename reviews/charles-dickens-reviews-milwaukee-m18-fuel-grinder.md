@@ -1,7 +1,7 @@
 ---
 author: charles-dickens
 tool: milwaukee-m18-fuel-grinder
-featured: true
+excerpt: "Observe, if you will, this formidable instrument, the Milwaukee M18 FUEL Angle Grinder, a testament to the unyielding march of industrial prowess."
 mood: technical
 tone: formal
 readingTime: 2

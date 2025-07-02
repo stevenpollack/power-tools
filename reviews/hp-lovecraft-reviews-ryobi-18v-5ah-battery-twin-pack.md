@@ -1,7 +1,7 @@
 ---
 author: hp-lovecraft
 tool: ryobi-18v-5ah-battery-twin-pack
-featured: true
+excerpt: "In the cyclopean depths of my workshop, where tools both ancient and modern lie in unspeakable arrangement, there sits a battery of such eldritch power that mortal minds can scarce comprehend its true nature."
 mood: dramatic
 tone: formal
 readingTime: 2

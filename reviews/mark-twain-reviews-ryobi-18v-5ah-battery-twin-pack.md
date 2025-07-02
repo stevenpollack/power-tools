@@ -1,7 +1,7 @@
 ---
 author: mark-twain
 tool: ryobi-18v-5ah-battery-twin-pack
-featured: true
+excerpt: "Well, now, I've seen more useless contraptions than a hog has bristles, but these here Ryobi 18V ONE+ batteries, they seem to be of a different breed."
 mood: humorous
 tone: casual
 readingTime: 2

@@ -1,7 +1,7 @@
 ---
 author: ayn-rand
 tool: milwaukee-m18-circular-saw
-featured: true
+excerpt: "To wield the Milwaukee M18 Circular Saw is to experience the uncompromised triumph of engineering, a tangible manifestation of man's capacity to transform raw material into purposeful form."
 mood: philosophical
 tone: formal
 readingTime: 2

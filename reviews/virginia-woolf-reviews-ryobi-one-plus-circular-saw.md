@@ -1,7 +1,7 @@
 ---
 author: virginia-woolf
 tool: ryobi-one-plus-circular-saw
-featured: true
+excerpt: "The hum."
 mood: philosophical
 tone: casual
 readingTime: 2

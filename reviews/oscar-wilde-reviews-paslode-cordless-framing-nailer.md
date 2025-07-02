@@ -1,7 +1,7 @@
 ---
 author: oscar-wilde
 tool: paslode-cordless-framing-nailer
-featured: true
+excerpt: "One gazes upon the Paslode Cordless XP Framing Nailer, and a certain disquietude, a delicious sense of existential absurdity, begins to assert itself."
 mood: humorous
 tone: satirical
 readingTime: 2

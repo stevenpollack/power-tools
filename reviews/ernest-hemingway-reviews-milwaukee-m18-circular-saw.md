@@ -1,7 +1,7 @@
 ---
 author: ernest-hemingway
 tool: milwaukee-m18-circular-saw
-featured: true
+excerpt: "The saw."
 mood: technical
 tone: earnest
 readingTime: 2

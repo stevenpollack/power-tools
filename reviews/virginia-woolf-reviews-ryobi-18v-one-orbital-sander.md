@@ -1,7 +1,7 @@
 ---
 author: virginia-woolf
 tool: ryobi-18v-one-orbital-sander
-featured: true
+excerpt: "The tremor begins, a faint, almost imperceptible vibration, as one lifts the Ryobi 18V ONE+ Orbital Sander."
 mood: philosophical
 tone: formal
 readingTime: 2

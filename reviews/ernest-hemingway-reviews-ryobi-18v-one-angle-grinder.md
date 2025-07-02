@@ -1,7 +1,7 @@
 ---
 author: ernest-hemingway
 tool: ryobi-18v-one-angle-grinder
-featured: true
+excerpt: "The Ryobi 18V ONE+ Angle Grinder."
 mood: dramatic
 tone: earnest
 readingTime: 2

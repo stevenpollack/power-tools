@@ -76,7 +76,7 @@ const reviews = defineCollection({
   schema: z.object({
     author: reference("authors"),
     tool: reference("tools"),
-    featured: z.boolean().default(false),
+    excerpt: z.string(),
     mood: z.enum(["humorous", "dramatic", "technical", "philosophical"]),
     tone: z.enum(["formal", "casual", "satirical", "earnest"]),
     readingTime: z.number(),

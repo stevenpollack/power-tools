@@ -1,7 +1,7 @@
 ---
 author: hp-lovecraft
 tool: ryobi-18v-cordless-compressor
-featured: true
+excerpt: "One gazes upon the Ryobi 18V Cordless Compressor, and a creeping unease, a nameless dread, begins to coalesce within the innermost chambers of the intellect."
 mood: dramatic
 tone: formal
 readingTime: 2
