@@ -30,7 +30,7 @@ const authors = defineCollection({
 
 const tools = defineCollection({
   loader: glob({ pattern: "*.json", base: "tools" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     name: z.string(),
     slug: z.string(),
     brand: z.string(),
@@ -40,7 +40,7 @@ const tools = defineCollection({
     homeDepotUrl: z.string().optional(),
     bunningsSku: z.string().optional(),
     bunningsUrl: z.string().optional(),
-    thumbnailUrl: z.string().optional(),
+    thumbnailUrl: image().optional(),
     image: z
       .object({
         filename: z.string(),

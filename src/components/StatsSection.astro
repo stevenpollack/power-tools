@@ -1,39 +1,39 @@
 ---
 export interface Props {
-  authorCount: number;
+  authorCount?: number;
+  toolCount?: number;
   reviewCount: number;
-  movementCount: number;
+  movementCount?: number;
+  brandCount?: number;
 }
 
-const { authorCount, reviewCount, movementCount } = Astro.props;
+const { authorCount, toolCount, reviewCount, movementCount, brandCount } =
+  Astro.props;
+
+// Determine if this is for authors or tools page
+const isAuthorsPage = authorCount !== undefined;
+const firstStat = isAuthorsPage ? authorCount : toolCount;
+const firstLabel = isAuthorsPage ? "Literary Masters" : "Professional Tools";
+const thirdStat = isAuthorsPage ? movementCount : brandCount;
+const thirdLabel = isAuthorsPage ? "Literary Movements" : "Top Brands";
 ---
 
-<div class="mt-16 rounded-xl bg-slate-100 p-8">
-  <div class="text-center">
-    <h2 class="mb-4 text-2xl font-bold text-slate-900">
-      Literary Perspectives on Power Tools
-    </h2>
-    <p class="mx-auto mb-6 max-w-3xl text-slate-700">
-      Each author brings their unique voice and perspective to power tool
-      reviews, creating a fascinating blend of literary style and practical
-      analysis. From Hemingway's terse efficiency to Lovecraft's cosmic horror
-      approach to circular saws.
-    </p>
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-      <div class="text-center">
-        <div class="mb-2 text-3xl font-bold text-slate-900">{authorCount}</div>
-        <div class="text-sm text-slate-600">Literary Masters</div>
+<!-- TODO: refactor this using slots -->
+<section class="mt-16 rounded-2xl bg-white p-8 shadow-lg">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+    <div class="text-center">
+      <div class="text-4xl font-bold text-blue-600">{firstStat}+</div>
+      <div class="text-gray-600">{firstLabel}</div>
+    </div>
+    <div class="text-center">
+      <div class="text-4xl font-bold text-green-600">
+        {reviewCount.toLocaleString()}+
       </div>
-      <div class="text-center">
-        <div class="mb-2 text-3xl font-bold text-slate-900">{reviewCount}+</div>
-        <div class="text-sm text-slate-600">Tool Reviews</div>
-      </div>
-      <div class="text-center">
-        <div class="mb-2 text-3xl font-bold text-slate-900">
-          {movementCount}
-        </div>
-        <div class="text-sm text-slate-600">Literary Movements</div>
-      </div>
+      <div class="text-gray-600">Total Reviews</div>
+    </div>
+    <div class="text-center">
+      <div class="text-4xl font-bold text-orange-600">{thirdStat}</div>
+      <div class="text-gray-600">{thirdLabel}</div>
     </div>
   </div>
-</div>
+</section>

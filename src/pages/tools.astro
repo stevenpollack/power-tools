@@ -1,21 +1,58 @@
 ---
 import Layout from "@/layouts/ReviewLayout.astro";
+import ToolCard from "@/components/ToolCard.astro";
+import StatsSection from "@/components/StatsSection.astro";
 import { getCollection } from "astro:content";
 
 const tools = await getCollection("tools");
+
+// Calculate statistics
+const toolCount = tools.length;
+const reviewCount = tools.reduce(
+  (sum, tool) => sum + tool.data.popularity.reviewCount,
+  0,
+);
+const brandCount = new Set(tools.map((tool) => tool.data.brand)).size;
 ---
 
-<Layout title="Tools">
-  <main>
-    <h1>Tools</h1>
-    <ul>
-      {
-        tools.map((tool) => (
-          <li>
-            <a href={`/tool/${tool.id}`}>{tool.data.name}</a>
-          </li>
-        ))
-      }
-    </ul>
+<Layout title="Tools - Power Tools Reviews">
+  <!-- Hero Section -->
+  <header class="hero-gradient py-16 text-white">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <h1 class="mb-4 text-4xl font-bold md:text-5xl">
+        Professional Power Tools
+      </h1>
+      <p class="mb-2 text-xl opacity-90">
+        Discover the Tools That Drive Excellence
+      </p>
+      <p class="mx-auto max-w-2xl text-lg opacity-80">
+        From cordless drills to industrial saws, explore our comprehensive
+        collection of professional-grade power tools reviewed by literary
+        masters
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Tools Grid -->
+    <div
+      class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
+      {tools.map((tool) => <ToolCard tool={tool} />)}
+    </div>
+
+    <!-- Statistics Section -->
+    <StatsSection
+      toolCount={toolCount}
+      reviewCount={reviewCount}
+      brandCount={brandCount}
+    />
   </main>
 </Layout>
+
+<style>
+  .hero-gradient {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  }
+</style>

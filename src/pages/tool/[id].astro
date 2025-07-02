@@ -2,6 +2,7 @@
 import Layout from "../../layouts/ReviewLayout.astro";
 import { getCollection } from "astro:content";
 import ToolImage from "../../components/ToolImage.astro";
+import { Picture } from "astro:assets";
 
 export async function getStaticPaths() {
   const tools = await getCollection("tools");
@@ -26,7 +27,13 @@ const { name, brand, image, specifications, pricing } = tool.data;
     <div class="container">
       <div class="tool-header">
         <div class="tool-image">
-          <img src={tool.data.thumbnailUrl ?? ""} alt={name} />
+          <Picture
+            src={tool.data.thumbnailUrl}
+            alt={name}
+            class="h-full w-full object-cover"
+            widths={[300, 600]}
+            sizes="300px"
+          />
         </div>
 
         <div class="tool-info">
