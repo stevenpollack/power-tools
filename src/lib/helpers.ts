@@ -1,4 +1,3 @@
-import type { Review } from "./types";
 import {
   MOOD_COLORS,
   AUTHOR_DATA,

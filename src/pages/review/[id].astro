@@ -3,11 +3,12 @@ import { render, getCollection } from "astro:content";
 import Layout from "../../layouts/ReviewLayout.astro";
 import { getEntry } from "astro:content";
 import { Picture } from "astro:assets";
+import type { AuthorData, ToolData } from "@/lib/types";
 
 export async function getStaticPaths() {
   const reviews = await getCollection("reviews");
   return reviews.map((review) => ({
-    params: { slug: review.id },
+    params: { id: review.id },
     props: { review },
   }));
 }
@@ -15,17 +16,9 @@ export async function getStaticPaths() {
 const { review } = Astro.props;
 const { Content } = await render(review);
 
-const author = await getEntry(review.data.author);
-const tool = await getEntry(review.data.tool);
-const {
-  featured,
-  mood,
-  tone,
-  readingTime,
-  shareCount,
-  dateCreated,
-  lastUpdated,
-} = review.data;
+const author: AuthorData = (await getEntry(review.data.author)).data;
+const tool: ToolData = (await getEntry(review.data.tool)).data;
+const { mood, tone, readingTime } = review.data;
 ---
 
 <Layout title="Review - Power Tools Reviews">
@@ -35,21 +28,21 @@ const {
         <header class="review-header">
           <div class="review-meta">
             <div class="author-tool-info">
-              <a href={`/author/${author.id}`} class="author-link">
+              <a href={`/author/${author.slug}`} class="author-link">
                 <Picture
-                  src={author.data.portrait.filename}
-                  alt={author.data.name}
+                  src={author.portrait.filename}
+                  alt={author.name}
                   width={40}
                   height={40}
                   layout="constrained"
                   class="rounded-full"
                 />
-                <span>{author.data.name}</span>
+                <span>{author.name}</span>
               </a>
               <span class="separator">reviews</span>
-              <a href={`/tool/${tool.id}`} class="tool-link">
+              <a href={`/tool/${tool.slug}`} class="tool-link">
                 <div class="tool-icon">🔧</div>
-                <span>{tool.data.name}</span>
+                <span>{tool.name}</span>
               </a>
             </div>
 
@@ -81,7 +74,7 @@ const {
             <h3>Continue Reading...</h3>
             <div class="related-reviews">
               <p>
-                <a href={`/author/${author.id}`}>More from this author...</a>
+                <a href={`/author/${author.slug}`}>More from this author...</a>
               </p>
               <p>Or</p>
               <p><a>More from this brand...</a></p>

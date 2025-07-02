@@ -1,62 +1,68 @@
 ---
-import CardWall from "../components/CardWall.astro";
 import Layout from "../layouts/ReviewLayout.astro";
+import { MasonryWall } from "../components/MasonryWall";
+import { getCollection, getEntry } from "astro:content";
+
+// Get all reviews with related author and tool data
+const reviews = await getCollection("reviews");
+
+const reviewsWithData = await Promise.all(
+  reviews.map(async (review) => {
+    const [author, tool] = await Promise.all([
+      getEntry(review.data.author),
+      getEntry(review.data.tool),
+    ]);
+    return {
+      review,
+      author,
+      tool,
+    };
+  }),
+);
+
+// Sort by shareCount (popularity) and reading time for better arrangement
+const arrangedReviews = reviewsWithData.sort((a, b) => {
+  // Sort by share count (popularity) first
+  if (a.review.data.shareCount !== b.review.data.shareCount) {
+    return b.review.data.shareCount - a.review.data.shareCount;
+  }
+
+  // Then by reading time (shorter first for better engagement)
+  if (a.review.data.readingTime !== b.review.data.readingTime) {
+    return a.review.data.readingTime - b.review.data.readingTime;
+  }
+
+  // Finally by date (newer first)
+  return (
+    new Date(b.review.data.dateCreated).getTime() -
+    new Date(a.review.data.dateCreated).getTime()
+  );
+});
 ---
 
 <Layout title="Power Tools Reviews - When Literature Meets Hardware">
   <main>
+    <!-- Hero Section -->
     <header class="hero-section">
-      <h1>Power Tools Reviews</h1>
-      <p class="tagline">When Great Authors Meet Great Tools</p>
-      <p class="subtitle">
-        Discover what happens when literary masters review power tools
-      </p>
+      <div class="mx-auto max-w-7xl px-4 py-16 text-center">
+        <h1 class="mb-4 text-4xl font-bold md:text-5xl">Power Tools Reviews</h1>
+        <p class="mb-2 text-xl opacity-90">
+          When Great Authors Meet Great Tools
+        </p>
+        <p class="mx-auto max-w-2xl text-lg opacity-80">
+          Discover what happens when literary masters review power tools
+        </p>
+      </div>
     </header>
 
-    <CardWall />
+    <!-- MasonryWall with Filtering -->
+    <MasonryWall reviewsWithData={arrangedReviews} client:load />
   </main>
 </Layout>
 
 <style>
   .hero-section {
-    text-align: center;
-    padding: 3rem 2rem;
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: white;
-    margin-bottom: 2rem;
-  }
-
-  h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .tagline {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.9;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-    opacity: 0.8;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2rem;
-    }
-
-    .tagline {
-      font-size: 1.25rem;
-    }
-
-    .hero-section {
-      padding: 2rem 1rem;
-    }
   }
 </style>

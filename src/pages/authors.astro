@@ -3,8 +3,9 @@ import Layout from "@/layouts/ReviewLayout.astro";
 import AuthorCard from "@/components/AuthorCard.astro";
 import StatsSection from "@/components/StatsSection.astro";
 import { getCollection } from "astro:content";
+import type { Author } from "@/lib/types";
 
-const authors = await getCollection("authors");
+const authors: Author[] = await getCollection("authors");
 
 // Calculate statistics
 const authorCount = authors.length;
