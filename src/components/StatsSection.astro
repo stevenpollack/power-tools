@@ -1,0 +1,39 @@
+---
+export interface Props {
+  authorCount: number;
+  reviewCount: number;
+  movementCount: number;
+}
+
+const { authorCount, reviewCount, movementCount } = Astro.props;
+---
+
+<div class="mt-16 rounded-xl bg-slate-100 p-8">
+  <div class="text-center">
+    <h2 class="mb-4 text-2xl font-bold text-slate-900">
+      Literary Perspectives on Power Tools
+    </h2>
+    <p class="mx-auto mb-6 max-w-3xl text-slate-700">
+      Each author brings their unique voice and perspective to power tool
+      reviews, creating a fascinating blend of literary style and practical
+      analysis. From Hemingway's terse efficiency to Lovecraft's cosmic horror
+      approach to circular saws.
+    </p>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <div class="text-center">
+        <div class="mb-2 text-3xl font-bold text-slate-900">{authorCount}</div>
+        <div class="text-sm text-slate-600">Literary Masters</div>
+      </div>
+      <div class="text-center">
+        <div class="mb-2 text-3xl font-bold text-slate-900">{reviewCount}+</div>
+        <div class="text-sm text-slate-600">Tool Reviews</div>
+      </div>
+      <div class="text-center">
+        <div class="mb-2 text-3xl font-bold text-slate-900">
+          {movementCount}
+        </div>
+        <div class="text-sm text-slate-600">Literary Movements</div>
+      </div>
+    </div>
+  </div>
+</div>
