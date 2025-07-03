@@ -41,13 +41,6 @@ const tools = defineCollection({
     bunningsSku: z.string().optional(),
     bunningsUrl: z.string().optional(),
     thumbnailUrl: image(),
-    image: z
-      .object({
-        filename: z.string(),
-        originalUrl: z.string(),
-        license: z.string(),
-      })
-      .optional(),
     specifications: z.object({
       power: z.string(),
       weight: z.string(),
