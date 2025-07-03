@@ -1,7 +1,10 @@
 ---
 author: franz-kafka
 tool: milwaukee-m18-fuel-hammer-drill
-excerpt: "One approaches the Milwaukee M18 FUEL Hammer Drill not merely as a tool, but as an artifact, a tangible manifestation of an intricate, often opaque, system."
+excerpt: >-
+  One approaches the Milwaukee M18 FUEL Hammer Drill not merely as a tool, but
+  as an artifact, a tangible manifestation of an intricate, often opaque,
+  system.
 mood: philosophical
 tone: formal
 readingTime: 2

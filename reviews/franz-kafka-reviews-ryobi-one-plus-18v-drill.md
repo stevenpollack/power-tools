@@ -1,7 +1,10 @@
 ---
 author: franz-kafka
 tool: ryobi-one-plus-18v-drill
-excerpt: "One receives this RYOBI ONE+ 18V Cordless Drill/Driver Kit, a parcel of potential, and is immediately confronted by the profound implications of its very existence."
+excerpt: >-
+  One receives this RYOBI ONE+ 18V Cordless Drill/Driver Kit, a parcel of
+  potential, and is immediately confronted by the profound implications of its
+  very existence.
 mood: philosophical
 tone: formal
 readingTime: 2

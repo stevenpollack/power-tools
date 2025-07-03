@@ -1,8 +1,13 @@
 import { formatRelativeTime } from "@/lib/helpers";
 import type { ReviewData, AuthorData, ToolData, Review } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import {type FC} from "react";
-import { getBrandColor, getBrandInitials, getMoodColor, getToneColor } from "@/lib/constants";
+import { type FC } from "react";
+import {
+  getBrandColor,
+  getBrandInitials,
+  getMoodColor,
+  getToneColor,
+} from "@/lib/constants";
 
 type Props = {
   slug: Review["id"];
@@ -15,7 +20,8 @@ type Props = {
   mood: ReviewData["mood"];
   tone: ReviewData["tone"];
   readingTime: ReviewData["readingTime"];
-}
+  variant?: "default" | "fixedHeight";
+};
 
 export const ReviewCard: FC<Props> = ({
   slug,
@@ -28,35 +34,44 @@ export const ReviewCard: FC<Props> = ({
   mood,
   tone,
   readingTime,
+  variant = "default",
 }) => {
   const relativeTime = formatRelativeTime(dateCreated);
   const reviewUrl = `/review/${slug}`;
 
   return (
-    <a href={reviewUrl} className="review-card block group w-full text-left">
-      <div className="bg-white border rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 p-6 h-full flex flex-col">
+    <a
+      href={reviewUrl}
+      className={cn("review-card group block w-full text-left", {
+        "h-90": variant === "fixedHeight",
+      })}
+    >
+      <div className="flex h-full flex-col rounded-xl border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
         {/* Tool Image */}
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-16 h-16 rounded-lg overflow-hidden border flex-shrink-0">
+        <div className="mb-4 flex items-center gap-4">
+          <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border">
             {toolImage ? (
               <img
                 src={toolImage.src}
                 alt={`${toolBrand} ${toolName}`}
                 width={64}
                 height={64}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             ) : (
               <div
-                className={cn("w-full h-full flex items-center justify-center text-white font-bold text-sm", getBrandColor(toolBrand))}
+                className={cn(
+                  "flex h-full w-full items-center justify-center text-sm font-bold text-white",
+                  getBrandColor(toolBrand),
+                )}
               >
                 {getBrandInitials(toolBrand)}
               </div>
             )}
           </div>
 
-          <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-gray-900 truncate group-hover:text-blue-600 transition-colors">
+          <div className="min-w-0 flex-1">
+            <h3 className="truncate font-semibold text-gray-900 transition-colors group-hover:text-blue-600">
               {toolName}
             </h3>
             <p className="text-sm text-gray-600">{toolBrand}</p>
@@ -64,31 +79,41 @@ export const ReviewCard: FC<Props> = ({
         </div>
 
         {/* Badges */}
-        <div className="flex flex-wrap gap-2 mb-3">
+        <div className="mb-3 flex flex-wrap gap-2">
           <span
-            className={cn("inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border", getMoodColor(mood))}
+            className={cn(
+              "inline-flex items-center rounded-md border px-2 py-1 text-xs font-medium",
+              getMoodColor(mood),
+            )}
           >
             {mood}
           </span>
           <span
-            className={cn("inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border", getToneColor(tone))}
+            className={cn(
+              "inline-flex items-center rounded-md border px-2 py-1 text-xs font-medium",
+              getToneColor(tone),
+            )}
           >
             {tone}
           </span>
         </div>
 
         {/* Excerpt */}
-        <p className="text-gray-600 mb-4 flex-1 text-sm leading-relaxed">
+        <p
+          className={cn("mb-4 flex-1 text-sm leading-relaxed text-gray-600", {
+            "line-clamp-4": variant === "fixedHeight",
+          })}
+        >
           {excerpt}
         </p>
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-xs text-gray-500 border-t pt-3 mt-auto">
-            <span>by {authorName}</span>
-            <span>{readingTime} min read</span>
+        <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs text-gray-500">
+          <span>by {authorName}</span>
+          <span>{readingTime} min read</span>
           <span>{relativeTime}</span>
         </div>
       </div>
     </a>
   );
-}; 
+};

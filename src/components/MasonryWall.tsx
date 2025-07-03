@@ -18,7 +18,9 @@ interface MasonryWallProps {
   reviewsWithData: ReviewWithData[];
 }
 
-export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => {
+export const MasonryWall: React.FC<MasonryWallProps> = ({
+  reviewsWithData,
+}) => {
   // Initialize state from URL search params on component mount
   const [searchTerm, setSearchTerm] = useState(
     () => new URLSearchParams(window.location.search).get("search") || "",
@@ -64,17 +66,17 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
   // Extract unique values for filter options
   const availableAuthors = useMemo(
     () => [...new Set(reviewsWithData.map((r) => r.author.data.name))].sort(),
-    [reviewsWithData]
+    [reviewsWithData],
   );
 
   const availableMoods = useMemo(
     () => [...new Set(reviewsWithData.map((r) => r.review.data.mood))].sort(),
-    [reviewsWithData]
+    [reviewsWithData],
   );
 
   const availableBrands = useMemo(
     () => [...new Set(reviewsWithData.map((r) => r.tool.data.brand))].sort(),
-    [reviewsWithData]
+    [reviewsWithData],
   );
 
   // Filter reviews based on active filters
@@ -182,17 +184,17 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
   return (
     <>
       {/* Filter Controls */}
-      <div className="sticky top-0 z-10 bg-white/80 backdrop-blur-md border-b border-gray-200 py-4">
+      <div className="sticky top-0 z-10 border-b border-gray-200 bg-white/80 py-4 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             {/* Search */}
-            <div className="relative flex-1 max-w-md">
+            <div className="relative max-w-md flex-1">
               <input
                 type="text"
                 placeholder="Search reviews, authors, or tools..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
               />
               {searchTerm && (
                 <button
@@ -271,8 +273,12 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
                 <option value="author-desc">Sort by: Author (Z-A)</option>
                 <option value="brand-asc">Sort by: Brand (A-Z)</option>
                 <option value="brand-desc">Sort by: Brand (Z-A)</option>
-                <option value="time-asc">Sort by: Reading Time (Shortest)</option>
-                <option value="time-desc">Sort by: Reading Time (Longest)</option>
+                <option value="time-asc">
+                  Sort by: Reading Time (Shortest)
+                </option>
+                <option value="time-desc">
+                  Sort by: Reading Time (Longest)
+                </option>
               </select>
             </div>
           </div>
@@ -280,7 +286,8 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
           {/* Results Count */}
           <div className="mt-2">
             <p className="text-sm text-gray-600">
-              Showing {visibleReviews.length} of {filteredReviews.length} reviews
+              Showing {visibleReviews.length} of {filteredReviews.length}{" "}
+              reviews
               {filteredReviews.length !== reviewsWithData.length &&
                 " (filtered)"}
             </p>
@@ -302,9 +309,9 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
             </div>
           </div>
         ) : (
-          <div className="columns-1 lg:columns-3 xl:columns-4 gap-6">
+          <div className="columns-1 gap-6 lg:columns-3 xl:columns-4">
             {visibleReviews.map(({ review, author, tool }) => (
-              <div key={review.id} className="break-inside-avoid block mb-6">
+              <div key={review.id} className="mb-6 block break-inside-avoid">
                 <ReviewCard
                   slug={review.id}
                   dateCreated={review.data.dateCreated}
@@ -325,10 +332,10 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
 
       {/* Load More Button */}
       {visibleCount < filteredReviews.length && (
-        <div className="text-center pb-16">
+        <div className="pb-16 text-center">
           <button
             onClick={handleLoadMore}
-            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            className="rounded-lg bg-blue-600 px-8 py-3 font-medium text-white transition-colors hover:bg-blue-700"
           >
             Load More Reviews
           </button>
@@ -336,4 +343,4 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
       )}
     </>
   );
-}; 
+};
