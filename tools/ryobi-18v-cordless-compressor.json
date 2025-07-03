@@ -1,14 +1,14 @@
 {
-  "name": "RYOBI 18V ONE+ 1 Gal. Cordless Air Compressor",
+  "name": "Ryobi 18V One+ 3.8L Air Compressor - Skin Only",
   "slug": "ryobi-18v-cordless-compressor",
   "brand": "RYOBI",
   "category": "Air Compressors",
   "subcategory": "Cordless Air Compressors",
   "homeDepotSku": "308493726",
   "homeDepotUrl": "https://www.homedepot.com/p/RYOBI-18V-ONE-1-Gal-Cordless-Air-Compressor-Tool-Only-P739/308493726",
-  "bunningsSku": "0275653",
-  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-1l-cordless-air-compressor-skin-only_p0275653",
-
+  "bunningsSku": "0209835",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-3-8l-air-compressor-skin-only_p0209835",
+  "thumbnailUrl": "src/images/tools/ryobi-18v-cordless-compressor.png",
   "image": {
     "filename": "ryobi-cordless-compressor.svg",
     "originalUrl": "https://images.thdstatic.com/productImages/c7e9f2b5-d4a8-4c6e-9f8a-d5c8e7b9f2a3/svn/ryobi-cordless-air-compressors-p739-64_1000.svg",

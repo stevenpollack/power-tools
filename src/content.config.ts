@@ -40,7 +40,7 @@ const tools = defineCollection({
     homeDepotUrl: z.string().optional(),
     bunningsSku: z.string().optional(),
     bunningsUrl: z.string().optional(),
-    thumbnailUrl: image().optional(),
+    thumbnailUrl: image(),
     image: z
       .object({
         filename: z.string(),
