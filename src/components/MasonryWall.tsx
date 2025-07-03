@@ -2,6 +2,8 @@ import React, { useMemo, useState, useEffect } from "react";
 import { ReviewCard } from "@/components/ReviewCard";
 import type { ReviewWithData } from "@/lib/types";
 
+const REVIEWS_PER_PAGE = 12;
+
 interface MasonryWallProps {
   reviewsWithData: ReviewWithData[];
 }
@@ -20,6 +22,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
   const [selectedBrand, setSelectedBrand] = useState(
     () => new URLSearchParams(window.location.search).get("brand") || "",
   );
+  const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
 
   // Effect to update URL when filters change
   useEffect(() => {
@@ -35,6 +38,11 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
       : window.location.pathname;
 
     window.history.pushState({}, "", newUrl);
+  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand]);
+
+  // Reset visible count when filters change
+  useEffect(() => {
+    setVisibleCount(REVIEWS_PER_PAGE);
   }, [searchTerm, selectedAuthor, selectedMood, selectedBrand]);
 
   // Extract unique values for filter options
@@ -89,6 +97,15 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
     });
   }, [reviewsWithData, searchTerm, selectedAuthor, selectedMood, selectedBrand]);
 
+  const visibleReviews = useMemo(
+    () => filteredReviews.slice(0, visibleCount),
+    [filteredReviews, visibleCount],
+  );
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + REVIEWS_PER_PAGE);
+  };
+
   return (
     <>
       {/* Filter Controls */}
@@ -96,7 +113,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
         <div className="mx-auto max-w-7xl px-4">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             {/* Search */}
-            <div className="flex-1 max-w-md">
+            <div className="relative flex-1 max-w-md">
               <input
                 type="text"
                 placeholder="Search reviews, authors, or tools..."
@@ -104,6 +121,29 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full rounded-lg border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
+              {searchTerm && (
+                <button
+                  onClick={() => setSearchTerm("")}
+                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
+                  aria-label="Clear search"
+                >
+                  {/* this might be better served as an imported icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </button>
+              )}
             </div>
 
             {/* Filter Dropdowns */}
@@ -152,8 +192,9 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
           {/* Results Count */}
           <div className="mt-2">
             <p className="text-sm text-gray-600">
-              Showing {filteredReviews.length} of {reviewsWithData.length} reviews
-              {filteredReviews.length !== reviewsWithData.length && " (filtered)"}
+              Showing {visibleReviews.length} of {filteredReviews.length} reviews
+              {filteredReviews.length !== reviewsWithData.length &&
+                " (filtered)"}
             </p>
           </div>
         </div>
@@ -174,7 +215,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
           </div>
         ) : (
           <div className="columns-1 lg:columns-3 xl:columns-4 gap-6">
-            {filteredReviews.map(({ review, author, tool }) => (
+            {visibleReviews.map(({ review, author, tool }) => (
               <div key={review.id} className="break-inside-avoid block mb-6">
                 <ReviewCard
                   slug={review.id}
@@ -194,15 +235,17 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
         )}
       </div>
 
-      {/* Load More Placeholder */}
-      <div className="text-center pb-16">
-        <button 
-          className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
-          disabled
-        >
-          Load More Reviews
-        </button>
-      </div>
+      {/* Load More Button */}
+      {visibleCount < filteredReviews.length && (
+        <div className="text-center pb-16">
+          <button
+            onClick={handleLoadMore}
+            className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+          >
+            Load More Reviews
+          </button>
+        </div>
+      )}
     </>
   );
 }; 
