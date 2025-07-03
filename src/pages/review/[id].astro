@@ -3,7 +3,9 @@ import { render, getCollection } from "astro:content";
 import Layout from "../../layouts/ReviewLayout.astro";
 import { getEntry } from "astro:content";
 import { Picture } from "astro:assets";
-import type { AuthorData, ToolData } from "@/lib/types";
+import { ShareButtons } from "@/components/ShareButtons";
+import { RelatedReviews } from "@/components/RelatedReviews";
+import type { AuthorData, ToolData, Review, ReviewWithData } from "@/lib/types";
 
 export async function getStaticPaths() {
   const reviews = await getCollection("reviews");
@@ -13,12 +15,31 @@ export async function getStaticPaths() {
   }));
 }
 
-const { review } = Astro.props;
+const { review }: { review: Review } = Astro.props;
 const { Content } = await render(review);
 
 const author: AuthorData = (await getEntry(review.data.author)).data;
 const tool: ToolData = (await getEntry(review.data.tool)).data;
 const { mood, tone, readingTime } = review.data;
+
+// Fetch related reviews
+const allReviews = await getCollection("reviews");
+const relatedReviewsRaw = allReviews
+  .filter(
+    (r) =>
+      r.id !== review.id &&
+      (r.data.author.id === review.data.author.id ||
+        r.data.tool.id === review.data.tool.id),
+  )
+  .slice(0, 10);
+
+const relatedReviews: ReviewWithData[] = await Promise.all(
+  relatedReviewsRaw.map(async (r) => ({
+    review: r,
+    author: await getEntry(r.data.author),
+    tool: await getEntry(r.data.tool),
+  })),
+);
 ---
 
 <Layout title="Review - Power Tools Reviews">
@@ -41,7 +62,13 @@ const { mood, tone, readingTime } = review.data;
               </a>
               <span class="separator">reviews</span>
               <a href={`/tool/${tool.slug}`} class="tool-link">
-                <div class="tool-icon">🔧</div>
+                <Picture
+                  src={tool.thumbnailUrl}
+                  alt={tool.name}
+                  width={40}
+                  height={40}
+                  class="rounded-lg"
+                />
                 <span>{tool.name}</span>
               </a>
             </div>
@@ -61,25 +88,16 @@ const { mood, tone, readingTime } = review.data;
         <footer class="review-footer">
           <div class="share-section">
             <h3>Share This Review</h3>
-            <div class="share-buttons">
-              <button class="share-btn twitter">Twitter</button>
-              <button class="share-btn facebook">Facebook</button>
-              <button class="share-btn reddit">Reddit</button>
-              <button class="share-btn copy">Copy Link</button>
-            </div>
+            <ShareButtons
+              client:load
+              toolName={tool.name}
+              authorName={author.name}
+            />
           </div>
 
           <div class="related-section">
-            <!-- TODO: Add some sort of carousel with review cards... -->
             <h3>Continue Reading...</h3>
-            <div class="related-reviews">
-              <p>
-                <a href={`/author/${author.slug}`}>More from this author...</a>
-              </p>
-              <p>Or</p>
-              <p><a>More from this brand...</a></p>
-              <p class="placeholder">Related reviews will be suggested here</p>
-            </div>
+            <RelatedReviews client:load reviews={relatedReviews} />
           </div>
         </footer>
       </article>
@@ -212,32 +230,15 @@ const { mood, tone, readingTime } = review.data;
     color: var(--color-primary);
   }
 
-  .share-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .share-btn {
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-
-  .share-btn:hover {
-    background: var(--color-secondary);
-  }
-
   .placeholder {
     color: var(--color-text-light);
     font-style: italic;
     text-align: center;
     padding: 1rem;
+  }
+
+  .review-content :global(p) {
+    margin-bottom: 1.5rem;
   }
 
   @media (max-width: 768px) {

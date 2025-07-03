@@ -72,6 +72,7 @@ const reviewsWithData: ReviewWithData[] = await Promise.all(
             reviewsWithData.map(({ review, tool, author: reviewAuthor }) => (
               <ReviewCard
                 client:load
+                variant="fixedHeight"
                 slug={review.id}
                 dateCreated={review.data.dateCreated}
                 excerpt={review.data.excerpt}

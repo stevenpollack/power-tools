@@ -30,38 +30,39 @@ const authors = defineCollection({
 
 const tools = defineCollection({
   loader: glob({ pattern: "*.json", base: "tools" }),
-  schema: ({ image }) => z.object({
-    name: z.string(),
-    slug: z.string(),
-    brand: z.string(),
-    category: z.string(),
-    subcategory: z.string().optional(),
-    homeDepotSku: z.string().optional(),
-    homeDepotUrl: z.string().optional(),
-    bunningsSku: z.string().optional(),
-    bunningsUrl: z.string().optional(),
-    thumbnailUrl: image(),
-    specifications: z.object({
-      power: z.string(),
-      weight: z.string(),
-      dimensions: z.string(),
-      keyFeatures: z.array(z.string()),
-      batteryLife: z.string().optional(),
-      cordless: z.boolean(),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      slug: z.string(),
+      brand: z.string(),
+      category: z.string(),
+      subcategory: z.string().optional(),
+      homeDepotSku: z.string().optional(),
+      homeDepotUrl: z.string().optional(),
+      bunningsSku: z.string().optional(),
+      bunningsUrl: z.string().optional(),
+      thumbnailUrl: image(),
+      specifications: z.object({
+        power: z.string(),
+        weight: z.string(),
+        dimensions: z.string(),
+        keyFeatures: z.array(z.string()),
+        batteryLife: z.string().optional(),
+        cordless: z.boolean(),
+      }),
+      pricing: z.object({
+        currentPrice: z.number(),
+        msrp: z.number().optional(),
+        currency: z.string().optional(),
+        onSale: z.boolean(),
+      }),
+      popularity: z.object({
+        reviewCount: z.number(),
+        averageRating: z.number(),
+        homeDepotRank: z.number().optional(),
+        bunningsRank: z.number().optional(),
+      }),
     }),
-    pricing: z.object({
-      currentPrice: z.number(),
-      msrp: z.number().optional(),
-      currency: z.string().optional(),
-      onSale: z.boolean(),
-    }),
-    popularity: z.object({
-      reviewCount: z.number(),
-      averageRating: z.number(),
-      homeDepotRank: z.number().optional(),
-      bunningsRank: z.number().optional(),
-    }),
-  }),
 });
 
 const reviews = defineCollection({

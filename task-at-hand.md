@@ -13,14 +13,18 @@
 ### 🎨 **NEW TASK: Authors Page UI/UX Redesign**
 
 #### **Strategic Overview** ✅ ACHIEVED
+
 Transform the current basic author list (`authors.astro`) into a modern, engaging card-based interface that:
+
 - ✅ Leverages existing design system (Card components, color tokens, Tailwind utilities)
 - ✅ Creates visual consistency with main site (hero gradient, typography, spacing)
 - ✅ Implements responsive grid layout optimized for author discovery
 - ✅ Provides rich author information in an accessible, scannable format
 
 #### **🎉 Implementation Summary**
+
 Successfully transformed a basic author list into a beautiful, modern interface featuring:
+
 - **Hero Section**: Matching gradient from main page with author-specific messaging
 - **Responsive Grid**: 1-4 columns adapting to screen size (mobile → desktop)
 - **Rich Author Cards**: Photos, lifespans, literary styles, famous works, and CTAs
@@ -30,11 +34,13 @@ Successfully transformed a basic author list into a beautiful, modern interface 
 - **Accessibility**: WCAG AA compliant colors and proper semantic markup
 
 #### **🔧 Final Polish (Post-Screenshot Review)**
+
 Based on user feedback from live screenshot, implemented critical fixes:
-- **WCAG AA Compliance**: 
+
+- **WCAG AA Compliance**:
   - Changed fallback initials from gradient to `bg-slate-700` (high contrast with white text)
   - Updated literary style badges to `bg-slate-200 text-slate-800` (excellent contrast)
-- **Card Height Consistency**: 
+- **Card Height Consistency**:
   - Fixed height `h-80` on all cards with flexbox layout
   - Added `mb-auto` to famous works section to push buttons to bottom
   - Consistent `min-h-[2rem]` for style tags and `min-h-[2.5rem]` for works section
@@ -43,12 +49,14 @@ Based on user feedback from live screenshot, implemented critical fixes:
 #### **Detailed Design Strategy**
 
 **Visual Hierarchy:**
+
 1. **Hero Section** - Matches main page gradient with author-specific messaging
-2. **Author Grid** - Responsive 1-4 column layout with hover interactions  
+2. **Author Grid** - Responsive 1-4 column layout with hover interactions
 3. **Statistics Section** - Engaging metrics about the literary collection
 4. **Footer** - Consistent with site-wide branding
 
 **Card Component Architecture:**
+
 ```
 AuthorCard Structure:
 ├── Author Photo (80x80px, rounded, border transitions)
@@ -60,14 +68,16 @@ AuthorCard Structure:
 ```
 
 **Responsive Breakpoints:**
+
 - Mobile: 1 column, centered cards
 - Tablet: 2 columns, 768px+
 - Desktop: 3 columns, 1024px+
 - Large: 4 columns, 1280px+
 
 **Color System Integration:**
+
 - Primary: `oklch(47.8% 0.13 231.08)` for CTAs and accents
-- Card Background: `oklch(100% 0 0)` 
+- Card Background: `oklch(100% 0 0)`
 - Muted Text: `oklch(46.9% 0.023 285.88)`
 - Secondary Background: `oklch(96% 0.006 285.88)` for tags
 - Border Colors: Dynamic transitions on hover
@@ -75,6 +85,7 @@ AuthorCard Structure:
 ### ✅ **Task Progress Tracking**
 
 #### **Phase 1: Design Mockup** ✅ COMPLETE
+
 - [x] Create detailed HTML mockup (`suggested_design.html`)
 - [x] Implement design system color variables
 - [x] Test responsive grid layouts (1-4 columns)
@@ -84,6 +95,7 @@ AuthorCard Structure:
 - [x] Validate against existing UI patterns
 
 #### **Phase 2: Component Architecture** ✅ COMPLETE
+
 - [x] Create reusable `AuthorCard.astro` component
 - [x] Simplified image handling (removed separate AuthorImage component)
 - [x] Integrated literary style badges directly in AuthorCard
@@ -91,6 +103,7 @@ AuthorCard Structure:
 - [x] Update main `authors.astro` page structure
 
 #### **Phase 3: Data Integration** ✅ COMPLETE
+
 - [x] Map author JSON data to card props
 - [x] Implement fallback initials for missing images (inline solution)
 - [x] Calculate dynamic statistics (author count, review count, etc.)
@@ -98,6 +111,7 @@ AuthorCard Structure:
 - [x] Implement error handling for missing data (onerror attribute)
 
 #### **Phase 4: Styling & Polish** ✅ COMPLETE
+
 - [x] Apply Tailwind utility classes consistently
 - [x] Implement smooth hover transitions
 - [x] Optimize for mobile touch interactions
@@ -105,6 +119,7 @@ AuthorCard Structure:
 - [x] Validate accessibility (keyboard navigation, screen readers)
 
 #### **Phase 5: Testing & Deployment** ✅ COMPLETE
+
 - [x] Test with all 12 author profiles
 - [x] Validate image loading and fallbacks
 - [x] WCAG AA compliance improvements (contrast ratios fixed)
@@ -116,6 +131,7 @@ AuthorCard Structure:
 ### 📐 **Technical Implementation Details**
 
 **File Structure Changes:**
+
 ```
 src/components/
 ├── AuthorCard.astro          [NEW] - Main card component
@@ -129,12 +145,14 @@ src/pages/
 ```
 
 **Key Tailwind Patterns:**
+
 - Grid: `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6`
 - Cards: `bg-card border rounded-xl shadow-sm hover:shadow-xl p-6`
 - Transitions: `transition-all duration-300 hover:-translate-y-1`
 - Typography: Following existing `text-card-foreground`, `text-muted-foreground` patterns
 
 **Component Props Interface:**
+
 ```typescript
 interface AuthorCardProps {
   id: string;
@@ -288,11 +306,14 @@ Based on user feedback, all questions have been resolved:
 ### 📊 **Current Status: PLANNING PHASE**
 
 #### **Problem Analysis** ✅ COMPLETE
+
 Current tool data shows inconsistent structure:
+
 - **9 tools** have `thumbnailUrl` (from Bunnings.com.au)
 - **~10 tools** have `image` objects with SVG filenames (from Home Depot)
 
 **Tools WITH thumbnailUrl:**
+
 - ryobi-18v-one-circular-saw.json
 - ryobi-18v-one-angle-grinder.json
 - ryobi-18v-one-orbital-sander.json
@@ -304,6 +325,7 @@ Current tool data shows inconsistent structure:
 - ozito-3-6v-cordless-rotary-tool.json
 
 **Tools NEEDING thumbnailUrl:**
+
 - milwaukee-m18-circular-saw.json
 - milwaukee-m18-fuel-hammer-drill.json
 - milwaukee-m18-fuel-grinder.json
@@ -318,6 +340,7 @@ Current tool data shows inconsistent structure:
 #### **Implementation Strategy**
 
 **Phase 1: Research & Mapping** (2-3 hours)
+
 1. Navigate to bunnings.com.au using Puppeteer
 2. For each tool lacking thumbnailUrl, search for comparable products:
    - Same brand/model if available
@@ -326,18 +349,21 @@ Current tool data shows inconsistent structure:
 3. Collect product URLs and verify `.product-tile-image` elements exist
 
 **Phase 2: Data Extraction** (1-2 hours)
+
 1. Use Puppeteer to navigate to each product page
 2. Extract high-quality thumbnail images using `.product-tile-image` selector
 3. Download images to `src/images/tools/` with consistent naming convention
 4. Generate thumbnailUrl references pointing to local image files
 
 **Phase 3: JSON Updates** (30 minutes)
+
 1. Update existing JSON files with new thumbnailUrl properties
 2. Maintain existing data structure for backward compatibility
 3. Create new JSON files if completely new tools found
 4. Validate all JSON structure matches content.config.ts schema
 
 **Phase 4: Validation** (30 minutes)
+
 1. Test image loading in development environment
 2. Verify content collection properly reads updated data
 3. Update content.config.ts if schema changes needed
@@ -345,7 +371,7 @@ Current tool data shows inconsistent structure:
 ### ✅ **Strategy Approved - Option A Selected:**
 
 1. **Brand Substitution**: Find equivalent tools from Bunnings brands (Ozito, Ryobi, etc.)
-2. **Image Storage**: Local files in `src/images/tools/` + update `thumbnailUrl` references  
+2. **Image Storage**: Local files in `src/images/tools/` + update `thumbnailUrl` references
 3. **Naming Convention**: Use tool slug format: `milwaukee-m18-circular-saw.jpg`
 4. **Data Standardization**: Add `bunningsUrl` + `bunningsSku` to ALL tools
 5. **Image Quality**: Use `w150dpr1` (150px width) for consistent card display
@@ -353,20 +379,23 @@ Current tool data shows inconsistent structure:
 ### 🚀 **IMPLEMENTATION IN PROGRESS**
 
 #### **Phase 1: Research & Mapping** ✅ COMPLETE
+
 - [x] Create `src/images/tools/` directory
 - [x] Search Bunnings for each tool lacking thumbnailUrl (10 tools)
 - [x] Document equivalent products found in `tool-mapping.json`
 - [x] Extract product URLs and image data
 
 #### **Phase 2: Data Extraction** ✅ COMPLETE
+
 - [x] Downloaded 6 tool images to `src/images/tools/`
 - [x] Updated 5 JSON files with new thumbnailUrl and Bunnings data
 - [x] Removed duplicate test-tool.json file
 - [x] Updated content.config.ts schema (if needed)
 
 #### **Phase 3: JSON Updates** ✅ COMPLETE
+
 - [x] milwaukee-m18-circular-saw.json ✅
-- [x] milwaukee-m18-fuel-hammer-drill.json ✅ 
+- [x] milwaukee-m18-fuel-hammer-drill.json ✅
 - [x] milwaukee-m18-fuel-grinder.json ✅
 - [x] milwaukee-m18-rotary-hammer.json ✅
 - [x] paslode-cordless-framing-nailer.json ✅
@@ -376,6 +405,7 @@ Current tool data shows inconsistent structure:
 - [x] ryobi-18v-cordless-compressor.json ✅
 
 #### **Phase 4: Validation & Cleanup** ✅ COMPLETE
+
 - [x] All 9 tools now have standardized data structure
 - [x] Downloaded 10 high-quality tool images (300px width)
 - [x] All JSON files include bunningsSku, bunningsUrl, and thumbnailUrl
@@ -385,19 +415,22 @@ Current tool data shows inconsistent structure:
 ### 🎉 **TASK COMPLETION SUMMARY**
 
 **✅ Successfully Standardized Tool Data:**
+
 - **9 tools updated** with Bunnings equivalents and thumbnails
 - **10 images downloaded** to `src/images/tools/`
 - **Mixed data sources maintained** (Home Depot + Bunnings)
 - **Professional equivalents found** for all Milwaukee/Paslode tools
 
 **📊 Key Achievements:**
+
 - Found DeWALT and Makita equivalents for Milwaukee tools
-- Found Ryobi equivalents for Paslode tools  
+- Found Ryobi equivalents for Paslode tools
 - Maintained existing data while adding Bunnings references
 - Used consistent naming convention for all image files
 - Created detailed mapping documentation in `tool-mapping.json`
 
 **🔧 Technical Implementation:**
+
 - All tools now have `thumbnailUrl` property pointing to local images
 - Added `bunningsSku` and `bunningsUrl` for Australian retailer data
 - Maintained backward compatibility with existing `image` objects
@@ -408,14 +441,16 @@ Current tool data shows inconsistent structure:
 Successfully implemented the tools page redesign with complete feature parity to the authors page:
 
 #### **✅ Components Created:**
+
 - **ToolCard.astro** - Professional tool cards with images, specs, pricing, and ratings
 - **StatsSection.astro** - Tools-specific statistics display
 - **Updated tools.astro** - Hero section + responsive grid layout
 
 #### **🎨 Design Features Implemented:**
+
 - **Hero Section**: Tools-focused messaging with gradient background
 - **Responsive Grid**: 1-4 columns (mobile → desktop) matching authors layout
-- **Rich Tool Cards**: 
+- **Rich Tool Cards**:
   - High-quality thumbnails with brand-colored fallbacks
   - Tool specifications as color-coded badges (voltage, cordless, weight)
   - Pricing with sale indicators and strikethrough MSRP
@@ -425,13 +460,15 @@ Successfully implemented the tools page redesign with complete feature parity to
 - **Statistics**: Live tool count, total reviews, and brand count
 
 #### **🔧 Technical Implementation:**
-- **Content Schema**: Updated with image() helper for thumbnailUrl processing  
+
+- **Content Schema**: Updated with image() helper for thumbnailUrl processing
 - **Image Integration**: All 9 tools with professional thumbnails
 - **Brand Colors**: Milwaukee (red), Ryobi (green), DeWALT (yellow), etc.
 - **Responsive Design**: Consistent with authors page breakpoints
 - **WCAG Compliance**: High contrast colors and proper semantic markup
 
 #### **📊 Live Statistics:**
+
 - **18 Professional Tools** displayed
 - **10,000+ Total Reviews** aggregated
 - **6 Top Brands** represented
@@ -443,7 +480,9 @@ _Updated: Authors Page Redesign - COMPLETE! All phases implemented and tested su
 ### 🎨 **NEW TASK: ReviewCard UI/UX Design & Implementation**
 
 #### **Problem Analysis** ✅ COMPLETE
+
 Current author page shows reviews as basic `<ul><li>` list format:
+
 - ❌ Plain text tool names + mood
 - ❌ No visual hierarchy or branding
 - ❌ Doesn't match established card-based design system
@@ -451,29 +490,35 @@ Current author page shows reviews as basic `<ul><li>` list format:
 - ❌ Missing key review metadata (date, reading time, excerpts)
 
 #### **Available Data Analysis** ✅ COMPLETE
+
 **Review Schema (UPDATED):**
+
 - `author` (reference), `tool` (reference), ~~`featured` (boolean)~~ **REMOVED**
 - `mood` (humorous/dramatic/technical/philosophical), `tone` (formal/casual/satirical/earnest)
 - `readingTime` (number), `shareCount` (number), `dateCreated/lastUpdated` (strings)
 - **NEW**: `excerpt` (string) - First sentence from review content
 
 **Tool Data Available:**
+
 - `name`, `brand`, `category`, `thumbnailUrl` (high-quality images)
 - `specifications`, `pricing`, `popularity.averageRating`
 
 **Review Content:**
+
 - Full markdown content with rich philosophical/literary style
 - First sentence extracted to dedicated `excerpt` field
 
 #### **Strategic Design Requirements** ✅ APPROVED
 
 **1. Visual Consistency:**
+
 - Match AuthorCard and ToolCard design patterns
 - Same card shadows, borders, hover effects, and spacing
 - Consistent typography and color scheme
 - ~~Featured badge removed per user feedback~~
 
 **2. Information Architecture:**
+
 - Tool thumbnail (primary visual anchor)
 - Tool name + brand (clear hierarchy)
 - Author name + literary style
@@ -482,12 +527,14 @@ Current author page shows reviews as basic `<ul><li>` list format:
 - CTA button "Read Review"
 
 **3. Responsive Design:**
+
 - Mobile: 1 column cards
 - Tablet: 2 columns
 - Desktop: 3 columns
 - Consistent with existing grid patterns
 
 **4. Data Requirements:** ✅ SCHEMA UPDATE NEEDED
+
 - ✅ Add `excerpt` field to review schema
 - ✅ Update all existing reviews with first sentence excerpts
 - Format dates properly (relative time: "2 days ago")
@@ -495,6 +542,7 @@ Current author page shows reviews as basic `<ul><li>` list format:
 
 **5. Future Filtering Support:** ✅ PLANNED
 Design component to support filtering by:
+
 - Author (by slug/name)
 - Tool category (drills, saws, batteries, etc.)
 - Tool brand (Milwaukee, Ryobi, DeWALT, etc.)
@@ -504,30 +552,35 @@ Design component to support filtering by:
 #### **Implementation Strategy** ✅ APPROVED
 
 **Phase 1: Schema & Content Updates** (30 minutes)
+
 1. ✅ Update content.config.ts to include `excerpt` field
 2. ✅ Extract first sentence from each existing review
 3. ✅ Update all 20+ review markdown files with excerpt frontmatter
 4. ✅ Test content collection loading
 
 **Phase 2: Component Architecture** (30 minutes)
+
 1. ✅ Create `ReviewCard.astro` component (no featured badge)
 2. ✅ Design props interface for filtering support
 3. ✅ Implement card layout with tool image + metadata
 4. ✅ Add hover effects and transitions
 
 **Phase 3: Integration** (20 minutes)
+
 1. ✅ Update author/[id].astro to use ReviewCard components
 2. ✅ Replace `<ul><li>` list with responsive grid
 3. ✅ Test with existing review data
 4. ✅ Ensure proper image loading and fallbacks
 
 **Phase 4: Styling & Polish** (20 minutes)
+
 1. ✅ Match existing card design system exactly
 2. ✅ Implement smooth hover animations
 3. ✅ Add loading states and error handling
 4. ✅ Responsive testing across breakpoints
 
 #### **Updated Component Props Interface**
+
 ```typescript
 interface ReviewCardProps {
   id: string;
@@ -551,6 +604,7 @@ interface ReviewCardProps {
 ```
 
 ### ✅ **Implementation Progress** - **COMPLETE!**
+
 - [x] **User Approval**: Design direction and priorities confirmed
 - [x] **Schema Update**: Add excerpt field to reviews ✅ COMPLETE
 - [x] **Content Update**: Extract excerpts for all reviews ✅ COMPLETE
@@ -561,6 +615,7 @@ interface ReviewCardProps {
 #### **🎉 TASK COMPLETION SUMMARY**
 
 **✅ Successfully Enhanced ReviewCard Component:**
+
 - **Professional Design**: Matches AuthorCard and ToolCard design system exactly
 - **Tool Images**: High-quality thumbnails with brand-colored fallbacks (Milwaukee red, Ryobi green, etc.)
 - **Rich Metadata**: Mood and tone badges with proper color coding and typography
@@ -570,6 +625,7 @@ interface ReviewCardProps {
 - **Hover Effects**: Smooth transitions with shadow and transform animations
 
 **🔧 Technical Implementation:**
+
 - **Props Interface**: Complete with reviewId, toolImage, mood, tone, readingTime
 - **Brand Color System**: 8 brand colors with intelligent fallbacks
 - **Badge System**: Mood (philosophical, technical, humorous, dramatic) and tone (formal, casual, satirical, earnest)
@@ -578,6 +634,7 @@ interface ReviewCardProps {
 - **URL Generation**: Dynamic review links using `/review/{reviewId}` pattern
 
 **📊 Live Validation:**
+
 - ✅ Cards display properly on author pages
 - ✅ Click navigation works correctly to individual review pages
 - ✅ Tool images load with brand-colored fallbacks
@@ -596,7 +653,7 @@ interface ReviewCardProps {
 Transform the current placeholder home page (`index.astro`) into a dynamic masonry layout showcasing all reviews in an engaging, Pinterest-style interface:
 
 - **Replace CardWall placeholder** with real review data from content collections
-- **Adapt ReviewCard for masonry** - remove line clamping for natural card heights  
+- **Adapt ReviewCard for masonry** - remove line clamping for natural card heights
 - **Implement CSS columns masonry** - responsive 1-4 column layout
 - **Add filtering/search functionality** - author, mood, brand, category filters
 - **Smart content arrangement** - featured content and popularity-based sorting
@@ -604,12 +661,14 @@ Transform the current placeholder home page (`index.astro`) into a dynamic mason
 ### **🎨 Design Strategy: Masonry Layout**
 
 **Visual Hierarchy:**
+
 1. **Hero Section** - Consistent with existing gradient and messaging
 2. **Filter Controls** - Sticky search bar with dropdown filters (author, mood, brand)
 3. **Masonry Grid** - CSS columns with natural card heights, no forced uniformity
 4. **Load More** - Progressive loading for performance
 
 **Key Design Differences from Author Pages:**
+
 - **No Line Clamping**: Remove `line-clamp-3` to allow full excerpt display
 - **Variable Card Heights**: Natural content length creates organic masonry effect
 - **Enhanced Filtering**: Search + 4 filter categories (vs. no filtering on author pages)
@@ -618,24 +677,28 @@ Transform the current placeholder home page (`index.astro`) into a dynamic mason
 ### **🔧 Technical Implementation Strategy**
 
 #### **Phase 3A: Content Integration** (1 hour)
+
 1. **Update index.astro**: Replace CardWall placeholder with real review data
 2. **Query Reviews**: Use `getCollection("reviews")` to fetch all reviews with related author/tool data
 3. **Data Transformation**: Prepare review data with proper image URLs and metadata
 4. **Test Basic Display**: Ensure reviews render correctly with existing ReviewCard
 
 #### **Phase 3B: Masonry Layout Implementation** (2 hours)
+
 1. **CSS Columns Setup**: Implement responsive masonry with break-inside-avoid
 2. **ReviewCard Adaptation**: Create masonry variant that removes line clamping
 3. **Layout Testing**: Verify card arrangement across all breakpoints
 4. **Performance Optimization**: Lazy loading and virtual scrolling considerations
 
 #### **Phase 3C: Filtering System** ✅ **COMPLETED** (2-3 hours)
+
 1. ✅ **Filter Controls Component**: Search input + dropdown selectors
 2. ✅ **Client-Side Filtering**: React-based filtering logic with MasonryWall component
 3. **URL State Management**: Filter persistence and shareable URLs (Phase 3D)
 4. ✅ **Results Count Display**: Live feedback on filtered results
 
 **Technical Implementation Completed:**
+
 - ✅ MasonryWall React component with comprehensive filtering
 - ✅ Real-time search across reviews, authors, tools, and excerpts
 - ✅ Filter dropdowns for authors, moods, and brands
@@ -645,6 +708,7 @@ Transform the current placeholder home page (`index.astro`) into a dynamic mason
 - ✅ TypeScript interfaces for type safety
 
 #### **Phase 3D: Smart Arrangement & Enhancement** (Next - 1 hour)
+
 1. ✅ **URL State Management**: Filter persistence and shareable URLs
 2. ✅ **Enhanced Sorting Algorithm**: Multiple sorting options (newest, author, brand, etc.)
 3. **Performance Optimization**: Progressive loading and infinite scroll
@@ -658,18 +722,21 @@ Transform the current placeholder home page (`index.astro`) into a dynamic mason
 **Created**: `masonry-home-mockup.html` - Complete visual mockup showing:
 
 **✅ Masonry Effectiveness:**
+
 - **Variable Heights**: Cards naturally vary from 2-6+ lines of content
 - **Brand Color System**: Milwaukee red, Ryobi green, DeWALT yellow, etc.
 - **Mood/Tone Badges**: Philosophical, technical, humorous, dramatic with proper colors
 - **Content Hierarchy**: Tool images, names, excerpts, metadata all clearly organized
 
 **✅ Responsive Behavior:**
+
 - **Mobile**: 1 column for easy scrolling
 - **Tablet**: 2 columns for balanced content discovery
 - **Desktop**: 3 columns for optimal scanning
 - **Large**: 4 columns for power users with wide screens
 
 **✅ Filter Integration:**
+
 - **Search Bar**: Prominent, accessible text search
 - **Filter Dropdowns**: Author, mood, brand selections
 - **Results Count**: Live feedback on filter effectiveness
@@ -686,9 +753,69 @@ Transform the current placeholder home page (`index.astro`) into a dynamic mason
 ### **⚡ Implementation Readiness**
 
 **Dependencies Satisfied:**
+
 - ✅ ReviewCard component completed and tested
 - ✅ Content collections with all required review data
 - ✅ Design system patterns established (colors, typography, spacing)
 - ✅ Existing FloatingCardWall pattern as reference implementation
 
 **Ready for Immediate Implementation** upon design approval!
+
+---
+
+## 🛠️ NEW TASK: Phase 4: Review Page Polish & Data Integrity
+
+### 📊 Current Status: PLANNING
+
+#### **Problem Analysis**
+
+Following the successful implementation of the masonry home page, several areas for refinement have been identified to improve data accuracy and the user experience on individual review pages.
+
+- **Inaccurate Data**: `readingTime` is a hardcoded value and not representative of the actual content length.
+- **Poor UX on Review Page**: The individual review page (`/review/[slug]`) lacks visual polish, has formatting issues, and contains non-functional elements.
+
+#### **Implementation Strategy**
+
+**Phase 4A: Reading Time Calculation (Build-Time Script)** ✅ COMPLETE
+
+1.  ✅ **Create Script**: Develop a Node.js script (`calculate-reading-time.js`).
+2.  ✅ **Logic**:
+    - Read all files from `src/content/reviews/`.
+    - Use `strip-markdown` to remove Markdown syntax.
+    - Count words in the plain text content.
+    - Calculate `readingTime` using `Math.ceil(wordCount / 220)`.
+3.  ✅ **File Updates**: The script will programmatically update the `readingTime` field in the frontmatter of each review file.
+4.  ✅ **Integration**: Add the script to `package.json` to be run as part of the build process or manually.
+
+**Phase 4B: Review Page UX/UI Refinement** ✅ COMPLETE
+
+1.  ✅ **Header Redesign**:
+    - Modify `src/pages/review/[slug].astro`.
+    - Display both the author's portrait and the tool's thumbnail image in the header for better context.
+2.  ✅ **Typography & Spacing**:
+    - Add targeted CSS to the review page template.
+    - Increase bottom margin on `<p>` tags within the rendered review content to improve readability.
+
+**Phase 4C: Share Button Functionality** ✅ COMPLETE
+
+1.  ✅ **Create Component**: Build a new client-side component, `ShareButtons.tsx`.
+2.  ✅ **Props**: The component will accept the page URL and title.
+3.  ✅ **Logic**: Implement `onClick` handlers for each button (Twitter, Facebook, etc.) that use `window.open()` to trigger the respective share dialogs.
+4.  ✅ **Integration**: Add the component to `src/pages/review/[slug].astro` with a `client:load` directive.
+
+**Phase 4D: Related Reviews Carousel** ✅ COMPLETE
+
+1.  ✅ **Data Fetching**: In `src/pages/review/[slug].astro`, fetch 4-5 additional reviews.
+2.  ✅ **Relation Logic**: Prioritize reviews of the **same tool** or by the **same author**.
+3.  ✅ **Carousel Component**: Create a new `RelatedReviews.tsx` component.
+    - Use a simple, accessible flexbox-based scroller or a library like `embla-carousel-react`.
+    - The carousel will display `ReviewCard` components for each related review.
+4.  ✅ **Integration**: Place the component below the share buttons on the review page.
+
+### **🎯 Success Metrics for Phase 4**
+
+- ✅ All `readingTime` values in review files are accurate and automatically calculated.
+- ✅ The review page header is visually balanced and informative.
+- ✅ Review content is well-spaced and easy to read.
+- ✅ All share buttons are fully functional.
+- ✅ A "Related Reviews" section is present and boosts user engagement.

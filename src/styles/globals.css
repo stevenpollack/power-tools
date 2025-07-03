@@ -146,3 +146,64 @@
     background-color: transparent;
   }
 }
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 80%;
+  min-width: 0;
+  padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .embla__slide {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex-basis: 50%;
+  }
+}
+
+.embla__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.embla__button--prev {
+  left: -1.25rem;
+}
+
+.embla__button--next {
+  right: -1.25rem;
+}
+
+.embla__button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.embla__button__svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
