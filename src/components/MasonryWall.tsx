@@ -4,6 +4,16 @@ import type { ReviewWithData } from "@/lib/types";
 
 const REVIEWS_PER_PAGE = 12;
 
+type SortOrder =
+  | "newest"
+  | "oldest"
+  | "author-asc"
+  | "author-desc"
+  | "brand-asc"
+  | "brand-desc"
+  | "time-asc"
+  | "time-desc";
+
 interface MasonryWallProps {
   reviewsWithData: ReviewWithData[];
 }
@@ -22,15 +32,21 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
   const [selectedBrand, setSelectedBrand] = useState(
     () => new URLSearchParams(window.location.search).get("brand") || "",
   );
+  const [sortOrder, setSortOrder] = useState<SortOrder>(
+    () =>
+      (new URLSearchParams(window.location.search).get("sort") as SortOrder) ||
+      "newest",
+  );
   const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
 
-  // Effect to update URL when filters change
+  // Effect to update URL when filters or sort order change
   useEffect(() => {
     const params = new URLSearchParams();
     if (searchTerm) params.set("search", searchTerm);
     if (selectedAuthor) params.set("author", selectedAuthor);
     if (selectedMood) params.set("mood", selectedMood);
     if (selectedBrand) params.set("brand", selectedBrand);
+    if (sortOrder) params.set("sort", sortOrder);
 
     const queryString = params.toString();
     const newUrl = queryString
@@ -38,7 +54,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
       : window.location.pathname;
 
     window.history.pushState({}, "", newUrl);
-  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand]);
+  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand, sortOrder]);
 
   // Reset visible count when filters change
   useEffect(() => {
@@ -63,7 +79,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
 
   // Filter reviews based on active filters
   const filteredReviews = useMemo(() => {
-    return reviewsWithData.filter((item) => {
+    const filtered = reviewsWithData.filter((item) => {
       const { review, author, tool } = item;
 
       // Search term filter
@@ -95,7 +111,64 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
 
       return true;
     });
-  }, [reviewsWithData, searchTerm, selectedAuthor, selectedMood, selectedBrand]);
+
+    // Create a new array to avoid mutating the original, then sort it
+    const sortable = [...filtered];
+    switch (sortOrder) {
+      case "newest":
+        sortable.sort(
+          (a, b) =>
+            new Date(b.review.data.dateCreated).getTime() -
+            new Date(a.review.data.dateCreated).getTime(),
+        );
+        break;
+      case "oldest":
+        sortable.sort(
+          (a, b) =>
+            new Date(a.review.data.dateCreated).getTime() -
+            new Date(b.review.data.dateCreated).getTime(),
+        );
+        break;
+      case "author-asc":
+        sortable.sort((a, b) =>
+          a.author.data.name.localeCompare(b.author.data.name),
+        );
+        break;
+      case "author-desc":
+        sortable.sort((a, b) =>
+          b.author.data.name.localeCompare(a.author.data.name),
+        );
+        break;
+      case "brand-asc":
+        sortable.sort((a, b) =>
+          a.tool.data.brand.localeCompare(b.tool.data.brand),
+        );
+        break;
+      case "brand-desc":
+        sortable.sort((a, b) =>
+          b.tool.data.brand.localeCompare(a.tool.data.brand),
+        );
+        break;
+      case "time-asc":
+        sortable.sort(
+          (a, b) => a.review.data.readingTime - b.review.data.readingTime,
+        );
+        break;
+      case "time-desc":
+        sortable.sort(
+          (a, b) => b.review.data.readingTime - a.review.data.readingTime,
+        );
+        break;
+    }
+    return sortable;
+  }, [
+    reviewsWithData,
+    searchTerm,
+    selectedAuthor,
+    selectedMood,
+    selectedBrand,
+    sortOrder,
+  ]);
 
   const visibleReviews = useMemo(
     () => filteredReviews.slice(0, visibleCount),
@@ -185,6 +258,21 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
                     {brand}
                   </option>
                 ))}
+              </select>
+
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value as SortOrder)}
+                className="rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-blue-500 focus:outline-none"
+              >
+                <option value="newest">Sort by: Newest</option>
+                <option value="oldest">Sort by: Oldest</option>
+                <option value="author-asc">Sort by: Author (A-Z)</option>
+                <option value="author-desc">Sort by: Author (Z-A)</option>
+                <option value="brand-asc">Sort by: Brand (A-Z)</option>
+                <option value="brand-desc">Sort by: Brand (Z-A)</option>
+                <option value="time-asc">Sort by: Reading Time (Shortest)</option>
+                <option value="time-desc">Sort by: Reading Time (Longest)</option>
               </select>
             </div>
           </div>
