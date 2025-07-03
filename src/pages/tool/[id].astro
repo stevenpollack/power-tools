@@ -1,7 +1,9 @@
 ---
 import Layout from "../../layouts/ReviewLayout.astro";
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
+import { ReviewCard } from "@/components/ReviewCard";
+import type { ReviewWithData, Author, Review, Tool } from "@/lib/types";
 
 export async function getStaticPaths() {
   const tools = await getCollection("tools");
@@ -12,13 +14,20 @@ export async function getStaticPaths() {
   }));
 }
 
-const { tool } = Astro.props;
+const { tool }: { tool: Tool } = Astro.props;
 
 const reviews = (await getCollection("reviews")).filter(
   (review) => review.data.tool.id === tool.id,
 );
 
-const { name, brand } = tool.data;
+const reviewsWithData: Omit<ReviewWithData, "tool">[] = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    author: await getEntry(review.data.author),
+  })),
+);
+
+const { name, brand, specifications } = tool.data;
 ---
 
 <Layout title="Tool Details - Power Tools Reviews">
@@ -29,7 +38,7 @@ const { name, brand } = tool.data;
           <Picture
             src={tool.data.thumbnailUrl}
             alt={name}
-            class="h-full w-full object-cover"
+            class="h-full w-full rounded-lg border object-cover"
             widths={[300, 600]}
             sizes="300px"
           />
@@ -40,11 +49,32 @@ const { name, brand } = tool.data;
           <p class="tool-brand">{brand}</p>
           <div class="tool-specs">
             <h3>Specifications</h3>
-            <p>Tool specifications will be loaded from Stream 2 data</p>
-          </div>
-          <div class="tool-pricing">
-            <span class="price">$XXX.XX</span>
-            <a href="#" class="home-depot-link">View on Home Depot</a>
+            <dl class="specs-list">
+              <dt>Power</dt>
+              <dd>{specifications.power}</dd>
+              <dt>Weight</dt>
+              <dd>{specifications.weight}</dd>
+              <dt>Dimensions</dt>
+              <dd>{specifications.dimensions}</dd>
+              {
+                specifications.batteryLife && (
+                  <>
+                    <dt>Battery Life</dt>
+                    <dd>{specifications.batteryLife}</dd>
+                  </>
+                )
+              }
+              <dt>Key Features</dt>
+              <dd>
+                <ul class="features-list">
+                  {
+                    specifications.keyFeatures.map((feature: string) => (
+                      <li>{feature}</li>
+                    ))
+                  }
+                </ul>
+              </dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -52,22 +82,25 @@ const { name, brand } = tool.data;
       <section class="tool-reviews">
         <h2>Literary Reviews of This Tool</h2>
         <div class="reviews-grid">
-          <ul>
-            {
-              reviews &&
-                reviews.map((review) => (
-                  <li>
-                    <a href={`/review/${review.id}`}>{review.id}</a>
-                  </li>
-                ))
-            }
-          </ul>
           {
-            reviews.length === 0 && (
-              <p class="placeholder">
-                Author reviews of this tool will be displayed here after content
-                generation
-              </p>
+            reviewsWithData.length > 0 ? (
+              reviewsWithData.map(({ review, author }) => (
+                <ReviewCard
+                  client:load
+                  slug={review.id}
+                  dateCreated={review.data.dateCreated}
+                  excerpt={review.data.excerpt}
+                  toolBrand={tool.data.brand}
+                  toolName={tool.data.name}
+                  toolImage={tool.data.thumbnailUrl}
+                  authorName={author.data.name}
+                  mood={review.data.mood}
+                  tone={review.data.tone}
+                  readingTime={review.data.readingTime}
+                />
+              ))
+            ) : (
+              <p class="placeholder">No reviews available for this tool yet.</p>
             )
           }
         </div>
@@ -89,8 +122,8 @@ const { name, brand } = tool.data;
 
   .tool-header {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
     margin-bottom: 3rem;
     align-items: start;
   }
@@ -100,73 +133,44 @@ const { name, brand } = tool.data;
     height: 300px;
   }
 
-  .placeholder-image {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    text-align: center;
-    font-size: 1.125rem;
-  }
-
   .tool-info h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: var(--color-primary);
   }
 
   .tool-brand {
     font-size: 1.25rem;
-    color: var(--color-text-light);
+    color: #6b7280;
     margin-bottom: 2rem;
     font-weight: 600;
-  }
-
-  .tool-specs {
-    margin-bottom: 2rem;
   }
 
   .tool-specs h3 {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--color-primary);
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
   }
 
-  .tool-specs p {
-    line-height: 1.8;
-    color: var(--color-text);
+  .specs-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.75rem 1.5rem;
+    color: #374151;
   }
 
-  .tool-pricing {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .price {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-
-  .home-depot-link {
-    background: #f97316;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
+  .specs-list dt {
     font-weight: 600;
-    transition: background-color 0.2s ease;
   }
 
-  .home-depot-link:hover {
-    background: #ea580c;
+  .features-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .features-list li {
+    margin-bottom: 0.25rem;
   }
 
   .tool-reviews {
@@ -177,19 +181,18 @@ const { name, brand } = tool.data;
   .tool-reviews h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: var(--color-primary);
   }
 
   .reviews-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
   }
 
   .placeholder {
     grid-column: 1 / -1;
     text-align: center;
-    color: var(--color-text-light);
+    color: #9ca3af;
     font-style: italic;
     padding: 2rem;
   }
@@ -208,11 +211,6 @@ const { name, brand } = tool.data;
 
     .tool-info h1 {
       font-size: 2rem;
-    }
-
-    .tool-pricing {
-      justify-content: center;
-      flex-wrap: wrap;
     }
   }
 </style>

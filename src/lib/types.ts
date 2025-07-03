@@ -6,7 +6,7 @@ export type AuthorData = Author["data"];
 export type Review = CollectionEntry<"reviews">;
 export type ReviewData = Review["data"];
 
-type Tool = CollectionEntry<"tools">;
+export type Tool = CollectionEntry<"tools">;
 export type ToolData = Tool["data"];
 
 export type ReviewWithData = {
