@@ -18,5 +18,6 @@
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "exclude": ["src/data", "strategy-docs", "dist", "public"]
 }

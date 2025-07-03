@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/ReviewLayout.astro";
 import { getCollection } from "astro:content";
-import ToolImage from "../../components/ToolImage.astro";
 import { Picture } from "astro:assets";
 
 export async function getStaticPaths() {
@@ -19,7 +18,7 @@ const reviews = (await getCollection("reviews")).filter(
   (review) => review.data.tool.id === tool.id,
 );
 
-const { name, brand, image, specifications, pricing } = tool.data;
+const { name, brand } = tool.data;
 ---
 
 <Layout title="Tool Details - Power Tools Reviews">

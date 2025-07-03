@@ -64,10 +64,6 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
     });
   }, [reviewsWithData, searchTerm, selectedAuthor, selectedMood, selectedBrand]);
 
-  const handleCardClick = (reviewId: string) => {
-    window.location.href = `/review/${reviewId}`;
-  };
-
   return (
     <>
       {/* Filter Controls */}

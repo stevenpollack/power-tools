@@ -6,7 +6,6 @@ import { FilterBadgeGroup } from "@/components/ui/filter-badge-group";
 import { useStore } from "@nanostores/react";
 import { activeFilters } from "@/stores/filterStore";
 import { uiState } from "@/stores/uiStore";
-import { cn } from "@/lib/utils";
 import { MOOD_OPTIONS } from "@/lib/constants";
 import { Search, X, Filter, ChevronDown, ChevronUp } from "lucide-react";
 

@@ -8,15 +8,7 @@ export interface Props {
 
 const { tool } = Astro.props;
 const { id, data } = tool;
-const {
-  name,
-  brand,
-  category,
-  specifications,
-  pricing,
-  popularity,
-  thumbnailUrl,
-} = data;
+const { name, brand, specifications, pricing, popularity, thumbnailUrl } = data;
 
 // Format key features for display (limit to 2 features)
 const displayFeatures = specifications.keyFeatures.slice(0, 2).join(", ");
