@@ -1,9 +1,9 @@
 ---
+import type { Tool } from "@/lib/types";
 import { Picture } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-  tool: CollectionEntry<"tools">;
+  tool: Tool;
 }
 
 const { tool } = Astro.props;
@@ -12,12 +12,6 @@ const { name, brand, specifications, pricing, popularity, thumbnailUrl } = data;
 
 // Format key features for display (limit to 2 features)
 const displayFeatures = specifications.keyFeatures.slice(0, 2).join(", ");
-
-// Format price display
-const formatPrice = (price: number, currency: string = "USD") => {
-  const symbol = currency === "AUD" ? "A$" : "$";
-  return `${symbol}${price}`;
-};
 ---
 
 <div
@@ -75,20 +69,8 @@ const formatPrice = (price: number, currency: string = "USD") => {
         <span><strong>Features:</strong> {displayFeatures}</span>
       </div>
 
-      <!-- Price and Rating -->
-      <div class="mb-4 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl font-bold text-gray-900">
-            {formatPrice(pricing.currentPrice, pricing.currency)}
-          </span>
-          {
-            pricing.msrp && pricing.onSale && (
-              <span class="text-sm text-gray-500 line-through">
-                {formatPrice(pricing.msrp, pricing.currency)}
-              </span>
-            )
-          }
-        </div>
+      <!-- Rating -->
+      <div class="mt-4 mb-4 flex items-center justify-center">
         <div class="flex items-center gap-1">
           <div class="flex text-sm text-yellow-400">
             {"★".repeat(Math.floor(popularity.averageRating))}
