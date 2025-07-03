@@ -84,10 +84,8 @@ export const ReviewCard: FC<Props> = ({
 
         {/* Footer */}
         <div className="flex items-center justify-between text-xs text-gray-500 border-t pt-3 mt-auto">
-          <div className="flex items-center gap-3">
             <span>by {authorName}</span>
             <span>{readingTime} min read</span>
-          </div>
           <span>{relativeTime}</span>
         </div>
       </div>
