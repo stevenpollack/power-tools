@@ -26,6 +26,7 @@ const formatPrice = (price: number, currency: string = "USD") => {
   <div class="flex flex-grow flex-col">
     <!-- Tool Image with fallback -->
     <div class="relative mb-4">
+      <!-- @ts-expect-error -->
       <Picture
         src={thumbnailUrl}
         alt={name}
