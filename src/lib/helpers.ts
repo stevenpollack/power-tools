@@ -1,85 +1,17 @@
-import {
-  MOOD_COLORS,
-  AUTHOR_DATA,
-  type AuthorId,
-  type MoodType,
-} from "./constants";
-
 /**
- * Get mood-specific styling classes
+ * Format date to relative time
  */
-export function getMoodColors(mood: MoodType) {
-  return MOOD_COLORS[mood];
-}
+export function formatRelativeTime(dateString: string): string {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffInMs = now.getTime() - date.getTime();
+    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
 
-/**
- * Get author information by ID
- */
-export function getAuthorData(authorId: string) {
-  return (
-    AUTHOR_DATA[authorId as AuthorId] || {
-      name: "Unknown Author",
-      lifespan: "...",
-      image: `${authorId}.jpg`,
-    }
-  );
-}
-
-/**
- * Get author image path
- */
-export function getAuthorImagePath(authorId: string): string {
-  return getAuthorData(authorId).image;
-}
-
-/**
- * Get author lifespan
- */
-export function getAuthorLifespan(authorId: string): string {
-  return getAuthorData(authorId).lifespan;
-}
-
-/**
- * Extract first sentence from text for preview
- */
-export function findFirstSentence(text: string): string {
-  const sentenceEnders = /[.!?]/;
-  const match = text.match(sentenceEnders);
-
-  if (match && match.index !== undefined) {
-    return text.substring(0, match.index + 1);
+    if (diffInDays === 0) return "Today";
+    if (diffInDays === 1) return "1 day ago";
+    if (diffInDays < 7) return `${diffInDays} days ago`;
+    if (diffInDays < 14) return "1 week ago";
+    if (diffInDays < 30) return `${Math.floor(diffInDays / 7)} weeks ago`;
+    if (diffInDays < 60) return "1 month ago";
+    return `${Math.floor(diffInDays / 30)} months ago`;
   }
-
-  // Fallback: if no sentence ending found, truncate at 120 chars
-  return text.length > 120 ? text.substring(0, 120) + "..." : text;
-}
-
-/**
- * Format reading time text
- */
-export function formatReadingTime(minutes: number): string {
-  return minutes === 1 ? "1 minute read" : `${minutes} minutes read`;
-}
-
-/**
- * Format date for display
- */
-export function formatDateForDisplay(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
-/**
- * Generate author initials for fallback display
- */
-export function getAuthorInitials(authorName: string): string {
-  return authorName
-    .split(" ")
-    .map((name) => name.charAt(0))
-    .join("")
-    .toUpperCase()
-    .slice(0, 2);
-}

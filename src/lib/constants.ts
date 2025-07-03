@@ -1,5 +1,47 @@
-// Centralized constants for the Floating Wall UI
+// Brand color mapping
+export function getBrandColor(brand: string) {
+  const brandColors: Record<string, string> = {
+    milwaukee: "#E31E24",
+    ryobi: "#6ABE45",
+    dewalt: "#FFD320",
+    dremel: "#0066CC",
+    paslode: "#FF4500",
+    ozito: "#FF6600",
+    makita: "#00B2CC",
+    bosch: "#007BC1",
+  };
 
+  return brandColors[brand.toLowerCase()] || "#6B7280";
+}
+
+export function getBrandInitials(brand: string) {
+  return brand.slice(0, 2).toUpperCase();
+}
+
+export function getMoodColor(mood: string) {
+  return moodStyles[mood] || "bg-gray-100 text-gray-800 border-gray-200";
+}
+
+export function getToneColor(tone: string) {
+  return toneStyles[tone] || "bg-gray-100 text-gray-800 border-gray-200";
+}
+
+  // Mood/Tone badge styling
+  const moodStyles: Record<string, string> = {
+    philosophical: "bg-indigo-100 text-indigo-800 border-indigo-200",
+    technical: "bg-green-100 text-green-800 border-green-200",
+    humorous: "bg-yellow-100 text-yellow-800 border-yellow-200",
+    dramatic: "bg-red-100 text-red-800 border-red-200",
+  };
+
+  const toneStyles: Record<string, string> = {
+    formal: "bg-slate-100 text-slate-700 border-slate-200",
+    casual: "bg-emerald-100 text-emerald-700 border-emerald-200",
+    satirical: "bg-orange-100 text-orange-700 border-orange-200",
+    earnest: "bg-purple-100 text-purple-700 border-purple-200",
+  };
+
+// Centralized constants for the Floating Wall UI
 export const MOOD_COLORS = {
   technical: {
     border: "border-blue-600",
@@ -49,69 +91,3 @@ export const MOOD_OPTIONS = [
     color: MOOD_COLORS.philosophical.variant,
   },
 ];
-
-export const AUTHOR_DATA = {
-  "ernest-hemingway": {
-    name: "Ernest Hemingway",
-    lifespan: "1899-1961",
-    image: "hemingway.jpg",
-  },
-  "oscar-wilde": {
-    name: "Oscar Wilde",
-    lifespan: "1854-1900",
-    image: "wilde.jpg",
-  },
-  "virginia-woolf": {
-    name: "Virginia Woolf",
-    lifespan: "1882-1941",
-    image: "woolf.jpg",
-  },
-  "franz-kafka": {
-    name: "Franz Kafka",
-    lifespan: "1883-1924",
-    image: "kafka.jpg",
-  },
-  "mark-twain": {
-    name: "Mark Twain",
-    lifespan: "1835-1910",
-    image: "twain.jpg",
-  },
-  "hp-lovecraft": {
-    name: "H.P. Lovecraft",
-    lifespan: "1890-1937",
-    image: "lovecraft.jpg",
-  },
-  "jane-austen": {
-    name: "Jane Austen",
-    lifespan: "1775-1817",
-    image: "austen.jpg",
-  },
-  "charles-dickens": {
-    name: "Charles Dickens",
-    lifespan: "1812-1870",
-    image: "dickens.jpg",
-  },
-  "george-orwell": {
-    name: "George Orwell",
-    lifespan: "1903-1950",
-    image: "orwell.jpg",
-  },
-  "jack-kerouac": {
-    name: "Jack Kerouac",
-    lifespan: "1922-1969",
-    image: "kerouac.jpg",
-  },
-  "edgar-allan-poe": {
-    name: "Edgar Allan Poe",
-    lifespan: "1809-1849",
-    image: "poe.jpg",
-  },
-  "ayn-rand": {
-    name: "Ayn Rand",
-    lifespan: "1905-1982",
-    image: "rand.jpg",
-  },
-} as const;
-
-export type MoodType = keyof typeof MOOD_COLORS;
-export type AuthorId = keyof typeof AUTHOR_DATA;

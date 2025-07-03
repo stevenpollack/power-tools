@@ -1,5 +1,8 @@
+import { formatRelativeTime } from "@/lib/helpers";
 import type { ReviewData, AuthorData, ToolData, Review } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import {type FC} from "react";
+import { getBrandColor, getBrandInitials, getMoodColor, getToneColor } from "@/lib/constants";
 
 type Props = {
   reviewId: Review["id"];
@@ -26,51 +29,6 @@ export const ReviewCard: FC<Props> = ({
   tone,
   readingTime,
 }) => {
-  // Brand color mapping
-  const brandColors: Record<string, string> = {
-    milwaukee: "#E31E24",
-    ryobi: "#6ABE45",
-    dewalt: "#FFD320",
-    dremel: "#0066CC",
-    paslode: "#FF4500",
-    ozito: "#FF6600",
-    makita: "#00B2CC",
-    bosch: "#007BC1",
-  };
-
-  const brandColor = brandColors[toolBrand.toLowerCase()] || "#6B7280";
-
-  // Mood/Tone badge styling
-  const moodStyles: Record<string, string> = {
-    philosophical: "bg-indigo-100 text-indigo-800 border-indigo-200",
-    technical: "bg-green-100 text-green-800 border-green-200",
-    humorous: "bg-yellow-100 text-yellow-800 border-yellow-200",
-    dramatic: "bg-red-100 text-red-800 border-red-200",
-  };
-
-  const toneStyles: Record<string, string> = {
-    formal: "bg-slate-100 text-slate-700 border-slate-200",
-    casual: "bg-emerald-100 text-emerald-700 border-emerald-200",
-    satirical: "bg-orange-100 text-orange-700 border-orange-200",
-    earnest: "bg-purple-100 text-purple-700 border-purple-200",
-  };
-
-  // Format date to relative time
-  function formatRelativeTime(dateString: string): string {
-    const date = new Date(dateString);
-    const now = new Date();
-    const diffInMs = now.getTime() - date.getTime();
-    const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-    if (diffInDays === 0) return "Today";
-    if (diffInDays === 1) return "1 day ago";
-    if (diffInDays < 7) return `${diffInDays} days ago`;
-    if (diffInDays < 14) return "1 week ago";
-    if (diffInDays < 30) return `${Math.floor(diffInDays / 7)} weeks ago`;
-    if (diffInDays < 60) return "1 month ago";
-    return `${Math.floor(diffInDays / 30)} months ago`;
-  }
-
   const relativeTime = formatRelativeTime(dateCreated);
   const reviewUrl = `/review/${reviewId}`;
 
@@ -90,10 +48,9 @@ export const ReviewCard: FC<Props> = ({
               />
             ) : (
               <div
-                className="w-full h-full flex items-center justify-center text-white font-bold text-sm"
-                style={{ backgroundColor: brandColor }}
+                className={cn("w-full h-full flex items-center justify-center text-white font-bold text-sm", getBrandColor(toolBrand))}
               >
-                {toolBrand.slice(0, 2).toUpperCase()}
+                {getBrandInitials(toolBrand)}
               </div>
             )}
           </div>
@@ -109,12 +66,12 @@ export const ReviewCard: FC<Props> = ({
         {/* Badges */}
         <div className="flex flex-wrap gap-2 mb-3">
           <span
-            className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border ${moodStyles[mood]}`}
+            className={cn("inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border", getMoodColor(mood))}
           >
             {mood}
           </span>
           <span
-            className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border ${toneStyles[tone]}`}
+            className={cn("inline-flex items-center px-2 py-1 rounded-md text-xs font-medium border", getToneColor(tone))}
           >
             {tone}
           </span>
