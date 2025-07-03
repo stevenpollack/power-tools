@@ -71,7 +71,8 @@ const reviewsWithData: ReviewWithData[] = await Promise.all(
           {
             reviewsWithData.map(({ review, tool, author: reviewAuthor }) => (
               <ReviewCard
-                reviewId={review.id}
+                client:load
+                slug={review.id}
                 dateCreated={review.data.dateCreated}
                 excerpt={review.data.excerpt}
                 toolBrand={tool.data.brand}

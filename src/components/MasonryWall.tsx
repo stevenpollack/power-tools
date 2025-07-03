@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { ReviewCard } from "@/components/ReviewCard";
 import type { ReviewWithData } from "@/lib/types";
 
@@ -7,10 +7,35 @@ interface MasonryWallProps {
 }
 
 export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedAuthor, setSelectedAuthor] = useState("");
-  const [selectedMood, setSelectedMood] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("");
+  // Initialize state from URL search params on component mount
+  const [searchTerm, setSearchTerm] = useState(
+    () => new URLSearchParams(window.location.search).get("search") || "",
+  );
+  const [selectedAuthor, setSelectedAuthor] = useState(
+    () => new URLSearchParams(window.location.search).get("author") || "",
+  );
+  const [selectedMood, setSelectedMood] = useState(
+    () => new URLSearchParams(window.location.search).get("mood") || "",
+  );
+  const [selectedBrand, setSelectedBrand] = useState(
+    () => new URLSearchParams(window.location.search).get("brand") || "",
+  );
+
+  // Effect to update URL when filters change
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (searchTerm) params.set("search", searchTerm);
+    if (selectedAuthor) params.set("author", selectedAuthor);
+    if (selectedMood) params.set("mood", selectedMood);
+    if (selectedBrand) params.set("brand", selectedBrand);
+
+    const queryString = params.toString();
+    const newUrl = queryString
+      ? `${window.location.pathname}?${queryString}`
+      : window.location.pathname;
+
+    window.history.pushState({}, "", newUrl);
+  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand]);
 
   // Extract unique values for filter options
   const availableAuthors = useMemo(
@@ -152,7 +177,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({ reviewsWithData }) => 
             {filteredReviews.map(({ review, author, tool }) => (
               <div key={review.id} className="break-inside-avoid block mb-6">
                 <ReviewCard
-                  reviewId={review.id}
+                  slug={review.id}
                   dateCreated={review.data.dateCreated}
                   excerpt={review.data.excerpt}
                   toolBrand={tool.data.brand}

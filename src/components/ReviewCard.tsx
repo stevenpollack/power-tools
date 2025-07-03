@@ -5,7 +5,7 @@ import {type FC} from "react";
 import { getBrandColor, getBrandInitials, getMoodColor, getToneColor } from "@/lib/constants";
 
 type Props = {
-  reviewId: Review["id"];
+  slug: Review["id"];
   dateCreated: ReviewData["dateCreated"];
   excerpt: ReviewData["excerpt"];
   toolBrand: ToolData["brand"];
@@ -18,7 +18,7 @@ type Props = {
 }
 
 export const ReviewCard: FC<Props> = ({
-  reviewId,
+  slug,
   dateCreated,
   excerpt,
   toolBrand,
@@ -30,7 +30,7 @@ export const ReviewCard: FC<Props> = ({
   readingTime,
 }) => {
   const relativeTime = formatRelativeTime(dateCreated);
-  const reviewUrl = `/review/${reviewId}`;
+  const reviewUrl = `/review/${slug}`;
 
   return (
     <a href={reviewUrl} className="review-card block group w-full text-left">
