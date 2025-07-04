@@ -1,0 +1,33 @@
+{
+  "name": "Bosch Professional 720W 125mm Corded Angle Grinder",
+  "slug": "bosch-professional-720w-125mm-corded-angle-grinder",
+  "brand": "Bosch",
+  "category": "Grinders",
+  "subcategory": "Corded Angle Grinders",
+  "bunningsSku": "6200198",
+  "bunningsUrl": "https://www.bunnings.com.au/bosch-professional-720w-125mm-corded-angle-grinder-0601388042_p6200198",
+  "thumbnailUrl": "src/images/tools/bosch-professional-720w-125mm-corded-angle-grinder.png",
+  "specifications": {
+    "power": "720W Electric",
+    "weight": "1.9 kg",
+    "dimensions": "33 x 11 x 14 cm",
+    "keyFeatures": [
+      "720W motor for professional performance",
+      "125mm disc compatibility",
+      "Professional grade construction",
+      "Restart protection for safety",
+      "Ergonomic grip design"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 99,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 156,
+    "averageRating": 4.5,
+    "bunningsRank": 2
+  }
+}

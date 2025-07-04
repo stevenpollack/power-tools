@@ -1,0 +1,33 @@
+{
+  "name": "Ryobi 1500W 184mm Corded Circular Saw",
+  "slug": "ryobi-1500w-184mm-corded-circular-saw",
+  "brand": "Ryobi",
+  "category": "Power Saws",
+  "subcategory": "Circular Saws",
+  "bunningsSku": "0013549",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-1500w-184mm-corded-circular-saw_p0013549",
+  "thumbnailUrl": "src/images/tools/ryobi-1500w-184mm-corded-circular-saw.png",
+  "specifications": {
+    "power": "1500W Electric Motor",
+    "weight": "4.2 kg",
+    "dimensions": "30 x 25 x 25 cm",
+    "keyFeatures": [
+      "1500W powerful motor for demanding cuts",
+      "184mm blade diameter for deep cutting",
+      "Bevel adjustment 0-45 degrees",
+      "Laser guide for accurate cutting",
+      "Dust port for cleaner workspace"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 89,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 445,
+    "averageRating": 4.3,
+    "bunningsRank": 1
+  }
+}

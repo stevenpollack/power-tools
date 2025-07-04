@@ -1,0 +1,33 @@
+{
+  "name": "Makita 18V Brushless Heavy Duty Compact Driver Drill",
+  "slug": "makita-18v-brushless-compact-driver-drill",
+  "brand": "Makita",
+  "category": "Drills",
+  "subcategory": "Drill Drivers",
+  "bunningsSku": "6240421",
+  "bunningsUrl": "https://www.bunnings.com.au/makita-18v-brushless-heavy-duty-compact-driver-drill-ddf484z-skin-only_p6240421",
+  "thumbnailUrl": "src/images/tools/makita-18v-brushless-compact-driver-drill.png",
+  "specifications": {
+    "power": "18V Brushless Motor",
+    "weight": "1.5 kg",
+    "dimensions": "19 x 8 x 24 cm",
+    "keyFeatures": [
+      "Brushless motor for longer runtime and life",
+      "13mm keyless chuck with single sleeve",
+      "21 torque settings plus drilling mode",
+      "LED job light with afterglow",
+      "Compact design for tight spaces"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 189,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 87,
+    "averageRating": 4.7,
+    "bunningsRank": 3
+  }
+}

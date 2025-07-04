@@ -1,0 +1,33 @@
+{
+  "name": "Ozito PXC 18V Cordless Detail Sander",
+  "slug": "ozito-pxc-18v-cordless-detail-sander",
+  "brand": "Ozito",
+  "category": "Sanders",
+  "subcategory": "Cordless Sanders",
+  "bunningsSku": "6290475",
+  "bunningsUrl": "https://www.bunnings.com.au/ozito-pxc-18v-cordless-detail-sander-pxmss-700-skin-only_p6290475",
+  "thumbnailUrl": "src/images/tools/ozito-pxc-18v-cordless-detail-sander.png",
+  "specifications": {
+    "power": "18V Cordless Motor",
+    "weight": "1.1 kg",
+    "dimensions": "22 x 10 x 14 cm",
+    "keyFeatures": [
+      "Detail sanding for tight spaces",
+      "Multiple sanding attachments included",
+      "Part of PXC 18V system",
+      "Lightweight design for precision work",
+      "Hook and loop sanding pad"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 45,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 95,
+    "averageRating": 4.0,
+    "bunningsRank": 2
+  }
+}

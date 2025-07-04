@@ -1,0 +1,33 @@
+{
+  "name": "Gerni 3600 1810PSI 1500W High Pressure Washer",
+  "slug": "gerni-3600-1810psi-pressure-washer",
+  "brand": "Gerni",
+  "category": "Pressure Washers",
+  "subcategory": "Electric Pressure Washers",
+  "bunningsSku": "0235516",
+  "bunningsUrl": "https://www.bunnings.com.au/gerni-3600-1810psi-1500w-high-pressure-washer_p0235516",
+  "thumbnailUrl": "src/images/tools/gerni-3600-1810psi-pressure-washer.png",
+  "specifications": {
+    "power": "1500W Electric Motor",
+    "weight": "12.8 kg",
+    "dimensions": "38 x 32 x 88 cm",
+    "keyFeatures": [
+      "1810 PSI cleaning pressure",
+      "Professional grade construction",
+      "Quick connect fittings",
+      "Telescopic handle for easy transport",
+      "Multiple cleaning nozzles included"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 259,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 234,
+    "averageRating": 4.2,
+    "bunningsRank": 2
+  }
+}

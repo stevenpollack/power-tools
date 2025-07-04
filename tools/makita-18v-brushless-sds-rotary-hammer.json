@@ -1,0 +1,33 @@
+{
+  "name": "Makita 18V 24mm Brushless SDS Plus Rotary Hammer",
+  "slug": "makita-18v-brushless-sds-rotary-hammer",
+  "brand": "Makita",
+  "category": "Drills",
+  "subcategory": "Rotary Hammer Drills",
+  "bunningsSku": "6240380",
+  "bunningsUrl": "https://www.bunnings.com.au/makita-18v-24mm-brushless-sds-plus-rotary-hammer-dhr242z-skin-only_p6240380",
+  "thumbnailUrl": "src/images/tools/makita-18v-brushless-sds-rotary-hammer.png",
+  "specifications": {
+    "power": "18V Brushless Motor",
+    "weight": "2.8 kg",
+    "dimensions": "32 x 9 x 22 cm",
+    "keyFeatures": [
+      "24mm SDS Plus chuck system",
+      "Brushless motor for efficiency",
+      "3-mode operation (rotation/hammer/rotation+hammer)",
+      "Variable speed trigger control",
+      "Anti-vibration technology"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 399,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 67,
+    "averageRating": 4.6,
+    "bunningsRank": 1
+  }
+}

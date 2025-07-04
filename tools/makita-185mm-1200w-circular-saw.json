@@ -1,0 +1,33 @@
+{
+  "name": "Makita 185mm 1200W Circular Saw HS7000SP",
+  "slug": "makita-185mm-1200w-circular-saw",
+  "brand": "Makita",
+  "category": "Power Saws",
+  "subcategory": "Circular Saws",
+  "bunningsSku": "6240318",
+  "bunningsUrl": "https://www.bunnings.com.au/makita-185mm-7-1-4-1200w-circular-saw-hs7000sp_p6240318",
+  "thumbnailUrl": "src/images/tools/makita-185mm-1200w-circular-saw.png",
+  "specifications": {
+    "power": "1200W Electric Motor",
+    "weight": "4.0 kg",
+    "dimensions": "29 x 24 x 25 cm",
+    "keyFeatures": [
+      "1200W high-torque motor",
+      "185mm (7-1/4\") cutting capacity",
+      "Electric brake for safety",
+      "Large cutting capacity up to 66mm",
+      "Dust blower keeps cut line clear"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 179,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 125,
+    "averageRating": 4.6,
+    "bunningsRank": 3
+  }
+}

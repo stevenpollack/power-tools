@@ -1,0 +1,33 @@
+{
+  "name": "Ryobi 18V ONE+ Drill Driver RDD18",
+  "slug": "ryobi-18v-one-drill-driver-rdd18",
+  "brand": "Ryobi",
+  "category": "Drills",
+  "subcategory": "Drill Drivers",
+  "bunningsSku": "0539760",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-drill-driver-rdd18-tool-only_p0539760",
+  "thumbnailUrl": "src/images/tools/ryobi-18v-one-drill-driver-rdd18.png",
+  "specifications": {
+    "power": "18V Brushed Motor",
+    "weight": "1.3 kg",
+    "dimensions": "21 x 7 x 23 cm",
+    "keyFeatures": [
+      "18V ONE+ battery system compatibility",
+      "24 position clutch for precise torque control",
+      "13mm single sleeve keyless chuck",
+      "LED work light for enhanced visibility",
+      "Compact and lightweight design"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 55,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 234,
+    "averageRating": 4.3,
+    "bunningsRank": 2
+  }
+}

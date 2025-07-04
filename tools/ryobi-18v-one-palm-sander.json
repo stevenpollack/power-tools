@@ -1,0 +1,33 @@
+{
+  "name": "Ryobi 18V ONE+ Palm Sander RPS18",
+  "slug": "ryobi-18v-one-palm-sander",
+  "brand": "Ryobi",
+  "category": "Sanders",
+  "subcategory": "Cordless Sanders",
+  "bunningsSku": "0371771",
+  "bunningsUrl": "https://www.bunnings.com.au/ryobi-18v-one-palm-sander-rps18-tool-only_p0371771",
+  "thumbnailUrl": "src/images/tools/ryobi-18v-one-palm-sander.png",
+  "specifications": {
+    "power": "18V Cordless Motor",
+    "weight": "1.2 kg",
+    "dimensions": "23 x 11 x 15 cm",
+    "keyFeatures": [
+      "18V ONE+ battery system compatibility",
+      "1/4 sheet sanding pad size",
+      "Velcro pad attachment system",
+      "Dust collection port",
+      "Ergonomic grip design"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 69,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 189,
+    "averageRating": 4.2,
+    "bunningsRank": 1
+  }
+}

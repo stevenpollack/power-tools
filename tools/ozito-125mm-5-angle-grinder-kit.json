@@ -1,0 +1,33 @@
+{
+  "name": "Ozito 125mm 5\" Angle Grinder Kit",
+  "slug": "ozito-125mm-5-angle-grinder-kit",
+  "brand": "Ozito",
+  "category": "Grinders",
+  "subcategory": "Corded Angle Grinders",
+  "bunningsSku": "0048825",
+  "bunningsUrl": "https://www.bunnings.com.au/ozito-125mm-5-angle-grinder-kit_p0048825",
+  "thumbnailUrl": "src/images/tools/ozito-125mm-5-angle-grinder-kit.png",
+  "specifications": {
+    "power": "850W Electric",
+    "weight": "2.2 kg",
+    "dimensions": "35 x 12 x 15 cm",
+    "keyFeatures": [
+      "125mm disc size for versatile cutting and grinding",
+      "Complete kit with accessories included", 
+      "Corded electric operation for consistent power",
+      "Ergonomic design for comfortable operation",
+      "Auxiliary handle for better control"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 49.9,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 245,
+    "averageRating": 4.2,
+    "bunningsRank": 1
+  }
+}

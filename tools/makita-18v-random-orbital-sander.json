@@ -1,0 +1,33 @@
+{
+  "name": "Makita 18V Random Orbital Sander DBO180Z",
+  "slug": "makita-18v-random-orbital-sander",
+  "brand": "Makita",
+  "category": "Sanders",
+  "subcategory": "Cordless Sanders",
+  "bunningsSku": "6290239",
+  "bunningsUrl": "https://www.bunnings.com.au/makita-18v-random-orbital-sander-dbo180z-skin-only_p6290239",
+  "thumbnailUrl": "src/images/tools/makita-18v-random-orbital-sander.png",
+  "specifications": {
+    "power": "18V Cordless Motor",
+    "weight": "1.4 kg",
+    "dimensions": "16 x 16 x 17 cm",
+    "keyFeatures": [
+      "Random orbital action for smooth finish",
+      "125mm sanding pad diameter",
+      "Variable speed control",
+      "Electronic speed control",
+      "Dust collection system"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 149,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 67,
+    "averageRating": 4.5,
+    "bunningsRank": 3
+  }
+}

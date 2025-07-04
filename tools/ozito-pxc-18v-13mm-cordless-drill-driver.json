@@ -1,0 +1,33 @@
+{
+  "name": "Ozito PXC 18V 13mm Cordless Drill Driver",
+  "slug": "ozito-pxc-18v-13mm-cordless-drill-driver",
+  "brand": "Ozito",
+  "category": "Drills",
+  "subcategory": "Drill Drivers",
+  "bunningsSku": "0124074",
+  "bunningsUrl": "https://www.bunnings.com.au/ozito-pxc-18v-13mm-cordless-drill-driver-skin-only_p0124074",
+  "thumbnailUrl": "src/images/tools/ozito-pxc-18v-13mm-cordless-drill-driver.png",
+  "specifications": {
+    "power": "18V Brushless Motor",
+    "weight": "1.4 kg",
+    "dimensions": "22 x 8 x 24 cm",
+    "keyFeatures": [
+      "18V cordless operation for portability",
+      "13mm keyless chuck for versatile drilling",
+      "LED work light for improved visibility",
+      "Variable speed trigger control",
+      "Part of PXC battery system"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 39,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 189,
+    "averageRating": 4.1,
+    "bunningsRank": 1
+  }
+}

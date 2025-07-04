@@ -1,0 +1,33 @@
+{
+  "name": "Karcher K Silent Anniversary Edition Pressure Washer",
+  "slug": "karcher-k-silent-anniversary-pressure-washer",
+  "brand": "Karcher",
+  "category": "Pressure Washers",
+  "subcategory": "Electric Pressure Washers",
+  "bunningsSku": "0795697",
+  "bunningsUrl": "https://www.bunnings.com.au/karcher-k-silent-anniversary-edition-pressure-washer-including-ecobooster_p0795697",
+  "thumbnailUrl": "src/images/tools/karcher-k-silent-anniversary-pressure-washer.png",
+  "specifications": {
+    "power": "1800W Silent Motor",
+    "weight": "15.2 kg",
+    "dimensions": "40 x 35 x 95 cm",
+    "keyFeatures": [
+      "Silent technology for quiet operation",
+      "ecoBooster nozzle for efficient cleaning",
+      "Anniversary edition with premium features",
+      "Auto stop/start function",
+      "Integrated storage for accessories"
+    ],
+    "cordless": false
+  },
+  "pricing": {
+    "currentPrice": 399,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 167,
+    "averageRating": 4.4,
+    "bunningsRank": 1
+  }
+}

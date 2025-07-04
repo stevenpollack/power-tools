@@ -1,0 +1,33 @@
+{
+  "name": "Ozito PXC 18V Impact Driver",
+  "slug": "ozito-pxc-18v-impact-driver",
+  "brand": "Ozito",
+  "category": "Drills",
+  "subcategory": "Impact Drill Drivers",
+  "bunningsSku": "6290472",
+  "bunningsUrl": "https://www.bunnings.com.au/ozito-pxc-18v-impact-driver-skin-only_p6290472",
+  "thumbnailUrl": "src/images/tools/ozito-pxc-18v-impact-driver.png",
+  "specifications": {
+    "power": "18V Brushless Motor",
+    "weight": "1.1 kg",
+    "dimensions": "15 x 7 x 23 cm",
+    "keyFeatures": [
+      "High torque impact driving",
+      "1/4\" hex quick release chuck",
+      "Variable speed trigger control",
+      "LED work light for visibility",
+      "Part of PXC 18V system"
+    ],
+    "cordless": true
+  },
+  "pricing": {
+    "currentPrice": 55,
+    "currency": "AUD",
+    "onSale": false
+  },
+  "popularity": {
+    "reviewCount": 178,
+    "averageRating": 4.3,
+    "bunningsRank": 1
+  }
+}
