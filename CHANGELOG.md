@@ -2,34 +2,32 @@
 
 ## [1.2.0](https://github.com/stevenpollack/power-tools/compare/v1.1.0...v1.2.0) (2025-07-04)
 
-
 ### Features
 
-* add missing reviews ([7f90261](https://github.com/stevenpollack/power-tools/commit/7f902616de3851538f248513430a459f0825ea62))
-* add multiple new tool entries including grinders, saws, and sanders to the product catalog ([b3ed98b](https://github.com/stevenpollack/power-tools/commit/b3ed98b90043500a8523163f6fd7712c6312c153))
-* add sorting to MasonryWall ([1e0adf0](https://github.com/stevenpollack/power-tools/commit/1e0adf0611d706d9c53d07ea7dbbdb995c775add))
-* add tools/, authors/ and reviews/ pages ([#8](https://github.com/stevenpollack/power-tools/issues/8)) ([4fe5e8b](https://github.com/stevenpollack/power-tools/commit/4fe5e8b66db1565b71ad13c7b481f36e997bf0d8))
-* add working share buttons, and related reviews carousel to enhance review pages ([6bd233f](https://github.com/stevenpollack/power-tools/commit/6bd233f33e381fd9199855ed865f3eef69f3e22e))
-* create AuthorCards for authors/ ([b7bd39d](https://github.com/stevenpollack/power-tools/commit/b7bd39d413369eb5d009f872301e48170de2251b))
-* create masonry grid ("CardWall") on / ([8fa2fb8](https://github.com/stevenpollack/power-tools/commit/8fa2fb82dd5412d1fb1399525d53a08b724bcd6b))
-* create ReviewCard for use in author/ ([2ba566a](https://github.com/stevenpollack/power-tools/commit/2ba566a164f6f66866bf325a29bbebc9fa7f2ea1))
-* enhance MasonryWall and ReviewCard components with URL parameter handling ([45cf49f](https://github.com/stevenpollack/power-tools/commit/45cf49f0b7c6c081ec44978634e57d87706201c9))
-* implement load more functionality and reset visible reviews in MasonryWall component ([c14753d](https://github.com/stevenpollack/power-tools/commit/c14753d40be4a6ff5ca6bb88dd9fb111ad28bb2a))
-* implement SEO-friendly slug system for reviews, updating schema and routing ([dbcbbc7](https://github.com/stevenpollack/power-tools/commit/dbcbbc7f9bf998a0b75bc35974e102a21f43e3f0))
-* update tool/ page ([be01916](https://github.com/stevenpollack/power-tools/commit/be019167d67962e605a9e2d1cb8be61fbe80a46a))
-* update tools/ design to match authors/ ([78de98b](https://github.com/stevenpollack/power-tools/commit/78de98b445f3933c5bed6ab734c6269930d20fa5))
-
+- add missing reviews ([7f90261](https://github.com/stevenpollack/power-tools/commit/7f902616de3851538f248513430a459f0825ea62))
+- add multiple new tool entries including grinders, saws, and sanders to the product catalog ([b3ed98b](https://github.com/stevenpollack/power-tools/commit/b3ed98b90043500a8523163f6fd7712c6312c153))
+- add sorting to MasonryWall ([1e0adf0](https://github.com/stevenpollack/power-tools/commit/1e0adf0611d706d9c53d07ea7dbbdb995c775add))
+- add tools/, authors/ and reviews/ pages ([#8](https://github.com/stevenpollack/power-tools/issues/8)) ([4fe5e8b](https://github.com/stevenpollack/power-tools/commit/4fe5e8b66db1565b71ad13c7b481f36e997bf0d8))
+- add working share buttons, and related reviews carousel to enhance review pages ([6bd233f](https://github.com/stevenpollack/power-tools/commit/6bd233f33e381fd9199855ed865f3eef69f3e22e))
+- create AuthorCards for authors/ ([b7bd39d](https://github.com/stevenpollack/power-tools/commit/b7bd39d413369eb5d009f872301e48170de2251b))
+- create masonry grid ("CardWall") on / ([8fa2fb8](https://github.com/stevenpollack/power-tools/commit/8fa2fb82dd5412d1fb1399525d53a08b724bcd6b))
+- create ReviewCard for use in author/ ([2ba566a](https://github.com/stevenpollack/power-tools/commit/2ba566a164f6f66866bf325a29bbebc9fa7f2ea1))
+- enhance MasonryWall and ReviewCard components with URL parameter handling ([45cf49f](https://github.com/stevenpollack/power-tools/commit/45cf49f0b7c6c081ec44978634e57d87706201c9))
+- implement load more functionality and reset visible reviews in MasonryWall component ([c14753d](https://github.com/stevenpollack/power-tools/commit/c14753d40be4a6ff5ca6bb88dd9fb111ad28bb2a))
+- implement SEO-friendly slug system for reviews, updating schema and routing ([dbcbbc7](https://github.com/stevenpollack/power-tools/commit/dbcbbc7f9bf998a0b75bc35974e102a21f43e3f0))
+- update tool/ page ([be01916](https://github.com/stevenpollack/power-tools/commit/be019167d67962e605a9e2d1cb8be61fbe80a46a))
+- update tools/ design to match authors/ ([78de98b](https://github.com/stevenpollack/power-tools/commit/78de98b445f3933c5bed6ab734c6269930d20fa5))
 
 ### Bug Fixes
 
-* casing for Ryobi brand ([8a04443](https://github.com/stevenpollack/power-tools/commit/8a0444382ed9b1ce23706cd6c28754d0635ad9d8))
-* clean up frontpage copy ([9bf338b](https://github.com/stevenpollack/power-tools/commit/9bf338b8b13b267aaf3bf1b50f70e2f29c9c1b15))
-* download missing tool images and update data to use src/image/tools/* assets ([60a4116](https://github.com/stevenpollack/power-tools/commit/60a411611bf7ed44cf010219372fcb0331ef47e0))
-* import generated logo ([b8cb5ab](https://github.com/stevenpollack/power-tools/commit/b8cb5abc3e29ba7418d23375adbacd1ec30fda14))
-* remove pricing from ToolCard ([c57fbed](https://github.com/stevenpollack/power-tools/commit/c57fbed2d25e27b4afe729c882c8ff1155ccaa14))
-* styling for author cards on mobile ([c56330f](https://github.com/stevenpollack/power-tools/commit/c56330f69aa15115f7115d3e683070c7c0bc0566))
-* styling for review card component's footer ([b896966](https://github.com/stevenpollack/power-tools/commit/b8969663591d1cd03cebc8e3a0d5fbded66a62bc))
-* suppress weird build error. ([5c7f8c5](https://github.com/stevenpollack/power-tools/commit/5c7f8c5e5234e71c8835af3baa915d6da2770cbe))
+- casing for Ryobi brand ([8a04443](https://github.com/stevenpollack/power-tools/commit/8a0444382ed9b1ce23706cd6c28754d0635ad9d8))
+- clean up frontpage copy ([9bf338b](https://github.com/stevenpollack/power-tools/commit/9bf338b8b13b267aaf3bf1b50f70e2f29c9c1b15))
+- download missing tool images and update data to use src/image/tools/\* assets ([60a4116](https://github.com/stevenpollack/power-tools/commit/60a411611bf7ed44cf010219372fcb0331ef47e0))
+- import generated logo ([b8cb5ab](https://github.com/stevenpollack/power-tools/commit/b8cb5abc3e29ba7418d23375adbacd1ec30fda14))
+- remove pricing from ToolCard ([c57fbed](https://github.com/stevenpollack/power-tools/commit/c57fbed2d25e27b4afe729c882c8ff1155ccaa14))
+- styling for author cards on mobile ([c56330f](https://github.com/stevenpollack/power-tools/commit/c56330f69aa15115f7115d3e683070c7c0bc0566))
+- styling for review card component's footer ([b896966](https://github.com/stevenpollack/power-tools/commit/b8969663591d1cd03cebc8e3a0d5fbded66a62bc))
+- suppress weird build error. ([5c7f8c5](https://github.com/stevenpollack/power-tools/commit/5c7f8c5e5234e71c8835af3baa915d6da2770cbe))
 
 ## [1.1.0](https://github.com/stevenpollack/power-tools/compare/v1.0.0...v1.1.0) (2025-06-29)
 
