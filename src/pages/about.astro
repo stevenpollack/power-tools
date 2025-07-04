@@ -1,0 +1,474 @@
+---
+import Layout from "@/layouts/ReviewLayout.astro";
+---
+
+<Layout title="About">
+  <div class="about-container">
+    <header class="about-header">
+      <h1>About <code>pwrtools.lol</code></h1>
+      <p class="tagline">Where literature meets workshop machinery</p>
+    </header>
+
+    <section class="section">
+      <h2 id="why"><a href="#why">Why?</a></h2>
+      <p>The premise for this blog came from the following "tweet":</p>
+
+      <blockquote class="tweet-quote">
+        <p>
+          I don't think we're ready for the wave of power tool reviews generated
+          with the prompts like:
+        </p>
+
+        <div class="code-block">
+          <pre><code>You are Ernest Hemingway, the famous American author and war veteran.
+You have just discovered the Black & Decker CT2000 Hedge Trimmer (skin only).
+Your task is to leave a review on homedepot.com highlighting your experience with the tool.
+
+Your review should include details such as
+- how difficult it was to find a parking spot
+- how impressed you were with the relatively little amount of packaging you had to deal with to remove the tool
+- the fact that this tool was made in America
+- the speed in which you were able to trim the numerous hedges that line your property
+- the good ergonomics of the machine
+
+Please write this review in the style that high school students across America have come to recognize as "quintessential Hemingway".
+Feel free to compare the concept of masculine identity before and after the tool's acquisition.</code></pre>
+        </div>
+      </blockquote>
+
+      <p>A friend replied:</p>
+      <blockquote class="friend-quote">
+        <p><em>Powerful tool purchased by powerful tool</em></p>
+      </blockquote>
+
+      <p>And that was enough encouragement for me.</p>
+
+      <p>
+        I don't endorse the wholesale theft of human output that went into the
+        creation of the models used in this project; however I can't help but
+        chuckle at a juxtaposition that is only possible with the stochastic
+        parrots presaging our economic collapse. Namely, the answer to the
+        question,
+      </p>
+      <blockquote class="tweet-quote">
+        <p>
+          "what would <em>INSERT_DEAD_AUTHOR_HERE</em> have written, if they were
+          offered a $10 amazon gift card for a product review on a website?"
+        </p>
+      </blockquote>
+    </section>
+
+    <section class="section">
+      <h2 id="the-process"><a href="#the-process">The Process</a></h2>
+
+      <p>
+        This project has no secret sauce. The code is open source -- check it
+        out on <a
+          href="https://github.com/stevenpollack/power-tools"
+          class="link">github</a
+        > -- and the system and meta-prompts are commited to version control and
+        I had the model that generated a given review annotate that review with its
+        model name. I tried to document generating prompts, where reasonable, but
+        nearly 95% of the code was authored in Cursor through the chat panel so some
+        prompting has been lost to the chat history.
+      </p>
+
+      <div class="process-steps">
+        <div class="step">
+          <h3>Step 1: Initial Planning with Gemini-2.5-Pro</h3>
+          <ul>
+            <li>
+              Explained the project goal of generating product reviews in the
+              voices of famous, deceased authors
+            </li>
+            <li>
+              Asked GP to assume the (impossible) role of CTO and expert UI/UX
+              designer and to propose a tech stack for the project
+            </li>
+            <li>
+              After some back and forth, it created a document that included a
+              wireframe of the UI and a suggestion to use Astro keep everything
+              server-side rendered
+            </li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Step 2: Refinement with Claude-4-Sonnet (CS)</h3>
+          <ul>
+            <li>
+              I asked CS to assume the same role and critique GP's strategy
+              document and UI wireframe
+            </li>
+            <li>
+              CS eventually agreed with GP's recommendation for Astro, but
+              criticised its UI as boring and failing to allow for
+              "serendipitous browsing"
+            </li>
+            <li>
+              CS proposed an alternative, pinterest-style masonry grid with some
+              filters, and was then prompted to suggest a starting handful of
+              authors with the conditions:
+              <ol>
+                <li>
+                  the author's work must be publically available for scraping
+                  (ideally from Project Gutenberg)
+                </li>
+                <li>the list cannot be entirely male-dominated</li>
+                <li>
+                  Ernest Hemingway and Ayn Rand must be in the initial set
+                </li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+
+        <div class="step">
+          <h3>Step 3: Content Generation</h3>
+
+          <ul>
+            I did a bit more prompt refinement and had CS create a prompt
+            <em>for itself to later consume</em> that would be the basis for the
+            generated reviews.
+            <li>
+              The prompt template is
+              <a
+                href="https://github.com/stevenpollack/power-tools/blob/main/generate-featured-reviews.js#L169"
+                class="link">here</a
+              >.
+            </li>
+            <li>
+              Then came the initial scraping of <a
+                href="https://www.homedepot.com/"
+                class="link">homedepot.com</a
+              >. Which I didn't realise geo-blocks IPs outside of the US because
+              my planning with CS had it accessing the product catalogue from
+              its data centre, not from my location.
+              <li>
+                Despite CS successively gathering some product data, future data
+                refinement using puppeteer would end up dead-on-arrival.
+              </li>
+              <li>
+                Long story short, a smattering of popular products on Home
+                Depot's website (as measured by product review count) had their
+                descriptions and features scraped.
+              </li>
+            </li>
+            <li>
+              My monthly free Cursor credits ran out, and I had to switch from
+              CS to GP to generate the first 24 reviews. (I challenge the reader
+              to see if they can tell the difference between GP- and
+              CS-generated reviews.)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <h3>Step 4: Data Expansion</h3>
+        <ul>
+          <p>
+            Cursor (with CS and GP) was used extensively to adjust the code for
+            this blog's UI; however, once that was done, the task of fleshing
+            out the tool selection came up. Since I wasn't interested in paying
+            money to have robots lie to me (again), I tasked GP with using
+            puppeteer to scrape more tool data. That was a big mistake. Where CS
+            had zero difficulties accessing homedepot.com data, GP proclaimed
+            that homedepot.com's "sophisticated anti-scraping measures" made the
+            task near impossible. It exclaimed the same nonsense with
+            <a href="https://bunnings.com.au/" class="link">bunnings.com.au</a>.
+          </p><p>
+            At this point, I ponied up the cash and used CS directly from the
+            terminal. Quel surprise! CS had no issues executing the
+            excruciatingly detailed plan I made with GP to scrape and parse
+            Bunnings' power tools to even out of selection. Google's got <strong
+              >a lot</strong
+            >
+            of catching up to do.
+          </p>
+          <p>
+            I had CS scrape Bunnings' product data (including the correct tool
+            images, now), as well as generate all the Author-Tool combinations
+            that weren't already available. You can see the slightly modified
+            review prompt template <a
+              href="https://github.com/stevenpollack/power-tools/blob/main/generate-featured-reviews.js#L169"
+              class="link">here</a
+            >.
+          </p>
+        </ul>
+      </div>
+    </section>
+
+    <div class="highlight-box">
+      <h4>Key Learning</h4>
+      <p>
+        A lesson to anyone who's made it this far: these AI agents will lie if
+        it helps them claim "mission accomplished". I had prompted CS to extract
+        thumbnail images for each tool and instead it provided nonsense URLs and
+        then proclaimed its task done. This forced me to upgrade the tech stack
+        to include a <a
+          href="https://github.com/stevenpollack/mcp-pptr"
+          class="link">puppeteer MCP server</a
+        >
+        to have any future web scraping happen through puppeteer.
+      </p>
+    </div>
+
+    <section class="section">
+      <h2 id="feedback"><a href="#feedback">Feedback</a></h2>
+      <p>
+        If I missed your favourite powertool or you would like to see your
+        favourite (dead) author take a swing at some of Bunnings' more popular
+        power tools, feel free to:
+      </p>
+
+      <div class="feedback-options">
+        <a
+          href="https://github.com/stevenpollack/power-tools/issues/new/choose"
+          class="feedback-link"
+          target="_blank"
+        >
+          <span class="icon">🐛</span>
+          <span>Raise an issue on GitHub</span>
+        </a>
+        <a
+          href="mailto:steep.ship0287@fastmail.com"
+          class="feedback-link"
+          target="_blank"
+        >
+          <span class="icon">✉️</span>
+          <span>Send me an email</span>
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .about-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: #64748b;
+    font-style: italic;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #4299e1;
+    padding-bottom: 0.5rem;
+  }
+
+  .section h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+  }
+
+  .section h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+  }
+
+  .section p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .tweet-quote {
+    background: #f7fafc;
+    border-left: 4px solid #4299e1;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .friend-quote {
+    background: #f0fff4;
+    border-left: 4px solid #48bb78;
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+    text-align: center;
+  }
+
+  .code-block {
+    background: #1a202c;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .code-block pre {
+    margin: 0;
+    padding: 1.5rem;
+  }
+
+  .code-block code {
+    color: #e2e8f0;
+    font-family: "Fira Code", "Courier New", monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .process-steps {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .step {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .step h3 {
+    color: #2b6cb0;
+    margin-bottom: 1rem;
+  }
+
+  .step ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .step li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .step li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #4299e1;
+    font-weight: bold;
+  }
+
+  .highlight-box {
+    background: #fef5e7;
+    border: 1px solid #f6ad55;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box h4 {
+    color: #c05621;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-box p {
+    margin-bottom: 0;
+    color: #744210;
+  }
+
+  .feedback-options {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .feedback-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: #4299e1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+
+  .feedback-link:hover {
+    background: #3182ce;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(66, 153, 225, 0.3);
+  }
+
+  .feedback-link .icon {
+    font-size: 1.2rem;
+  }
+
+  .link {
+    color: #4299e1;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .link:hover {
+    border-bottom-color: #4299e1;
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 1rem;
+    }
+
+    .about-header h1 {
+      font-size: 2rem;
+    }
+
+    .tagline {
+      font-size: 1rem;
+    }
+
+    .section h2 {
+      font-size: 1.6rem;
+    }
+
+    .code-block {
+      margin: 1rem -1rem;
+      border-radius: 0;
+    }
+
+    .feedback-options {
+      flex-direction: column;
+    }
+
+    .feedback-link {
+      justify-content: center;
+    }
+  }
+</style>
