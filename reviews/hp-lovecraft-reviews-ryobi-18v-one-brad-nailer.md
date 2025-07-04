@@ -1,7 +1,8 @@
 ---
+slug: hp-lovecraft-ryobi-18v-one-brad-nailer
 author: hp-lovecraft
 tool: ryobi-18v-one-brad-nailer
-excerpt: >-
+excerpt: >
   One apprehends the Ryobi 18V ONE+ 18GA Brad Nailer, a slender instrument,
   seemingly innocuous, yet its very silence, its lack of the expected pneumatic
   hiss, inspires a deeper, more profound unease.

@@ -47,10 +47,10 @@ export const RelatedReviews: React.FC<RelatedReviewsProps> = ({ reviews }) => {
       <div className="embla" ref={emblaRef}>
         <div className="embla__container py-4">
           {reviews.map(({ review, author, tool }) => (
-            <div key={review.id} className="embla__slide">
+            <div key={review.data.slug} className="embla__slide">
               <ReviewCard
                 variant="fixedHeight"
-                slug={review.id}
+                slug={review.data.slug}
                 dateCreated={review.data.dateCreated}
                 excerpt={review.data.excerpt}
                 toolBrand={tool.data.brand}

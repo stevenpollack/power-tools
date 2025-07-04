@@ -68,6 +68,7 @@ const tools = defineCollection({
 const reviews = defineCollection({
   loader: glob({ pattern: "*.md", base: "reviews" }),
   schema: z.object({
+    slug: z.string().min(1, "Slug is required"),
     author: reference("authors"),
     tool: reference("tools"),
     excerpt: z.string(),

@@ -1,7 +1,8 @@
 ---
+slug: oscar-wilde-paslode-cordless-framing-nailer
 author: oscar-wilde
 tool: paslode-cordless-framing-nailer
-excerpt: >-
+excerpt: >
   One gazes upon the Paslode Cordless XP Framing Nailer, and a certain
   disquietude, a delicious sense of existential absurdity, begins to assert
   itself.

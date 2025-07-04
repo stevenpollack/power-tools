@@ -1,7 +1,8 @@
 ---
+slug: hp-lovecraft-ryobi-18v-5ah-battery-twin-pack
 author: hp-lovecraft
 tool: ryobi-18v-5ah-battery-twin-pack
-excerpt: >-
+excerpt: >
   In the cyclopean depths of my workshop, where tools both ancient and modern
   lie in unspeakable arrangement, there sits a battery of such eldritch power
   that mortal minds can scarce comprehend its true nature.

@@ -1,7 +1,8 @@
 ---
+slug: hp-lovecraft-ryobi-18v-cordless-compressor
 author: hp-lovecraft
 tool: ryobi-18v-cordless-compressor
-excerpt: >-
+excerpt: >
   One gazes upon the Ryobi 18V Cordless Compressor, and a creeping unease, a
   nameless dread, begins to coalesce within the innermost chambers of the
   intellect.

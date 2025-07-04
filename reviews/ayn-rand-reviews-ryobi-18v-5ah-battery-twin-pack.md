@@ -1,7 +1,8 @@
 ---
+slug: ayn-rand-ryobi-18v-5ah-battery-twin-pack
 author: ayn-rand
 tool: ryobi-18v-5ah-battery-twin-pack
-excerpt: >-
+excerpt: >
   The Ryobi 18V ONE+ 5.0Ah Lithium High Performance Battery, offered as a twin
   pack, embodies a fundamental principle of productive existence: the susta...
 mood: technical

@@ -1,7 +1,8 @@
 ---
+slug: mark-twain-ryobi-18v-one-circular-saw
 author: mark-twain
 tool: ryobi-18v-one-circular-saw
-excerpt: >-
+excerpt: >
   Well now, folks, gather 'round and let ol' Mark Twain tell you a thing or two
   about this here Ryobi 18V ONE+ Circular Saw.
 mood: humorous

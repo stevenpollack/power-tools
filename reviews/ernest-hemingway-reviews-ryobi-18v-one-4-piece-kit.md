@@ -1,4 +1,5 @@
 ---
+slug: ernest-hemingway-ryobi-18v-one-4-piece-kit
 author: ernest-hemingway
 tool: ryobi-18v-one-4-piece-kit
 excerpt: The drill arrived in a black case.

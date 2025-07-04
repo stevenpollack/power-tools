@@ -1,7 +1,8 @@
 ---
+slug: franz-kafka-milwaukee-m18-fuel-hammer-drill
 author: franz-kafka
 tool: milwaukee-m18-fuel-hammer-drill
-excerpt: >-
+excerpt: >
   One approaches the Milwaukee M18 FUEL Hammer Drill not merely as a tool, but
   as an artifact, a tangible manifestation of an intricate, often opaque,
   system.

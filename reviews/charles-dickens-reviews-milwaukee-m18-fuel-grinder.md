@@ -1,7 +1,8 @@
 ---
+slug: charles-dickens-milwaukee-m18-fuel-grinder
 author: charles-dickens
 tool: milwaukee-m18-fuel-grinder
-excerpt: >-
+excerpt: >
   Observe, if you will, this formidable instrument, the Milwaukee M18 FUEL Angle
   Grinder, a testament to the unyielding march of industrial prowess.
 mood: technical

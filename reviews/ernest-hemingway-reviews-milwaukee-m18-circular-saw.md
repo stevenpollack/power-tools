@@ -1,4 +1,5 @@
 ---
+slug: ernest-hemingway-milwaukee-m18-circular-saw
 author: ernest-hemingway
 tool: milwaukee-m18-circular-saw
 excerpt: The saw.

@@ -1,7 +1,8 @@
 ---
+slug: charles-dickens-ryobi-airwave-50l-air-compressor
 author: charles-dickens
 tool: ryobi-airwave-50l-air-compressor
-excerpt: >-
+excerpt: >
   Ah, what a spectacle unfolds before the discerning eye of the humble observer,
   as this magnificent Ryobi Airwave 50L Air Compressor, a veritable leviathan of
   industriousness, takes its place amongst the tools of toil!

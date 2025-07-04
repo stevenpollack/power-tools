@@ -1,4 +1,5 @@
 ---
+slug: ernest-hemingway-ryobi-18v-one-angle-grinder
 author: ernest-hemingway
 tool: ryobi-18v-one-angle-grinder
 excerpt: The Ryobi 18V ONE+ Angle Grinder.

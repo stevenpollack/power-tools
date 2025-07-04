@@ -1,7 +1,8 @@
 ---
+slug: charles-dickens-ryobi-electric-pressure-washer
 author: charles-dickens
 tool: ryobi-electric-pressure-washer
-excerpt: >-
+excerpt: >
   Ah, what a sight to behold, this stout and purposeful instrument, the RYOBI
   1,900 PSI Electric Pressure Washer!
 mood: dramatic

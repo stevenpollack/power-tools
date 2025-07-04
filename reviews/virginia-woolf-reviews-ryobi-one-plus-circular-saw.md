@@ -1,4 +1,5 @@
 ---
+slug: virginia-woolf-ryobi-one-plus-circular-saw
 author: virginia-woolf
 tool: ryobi-one-plus-circular-saw
 excerpt: The hum.

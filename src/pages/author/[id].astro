@@ -73,7 +73,7 @@ const reviewsWithData: ReviewWithData[] = await Promise.all(
               <ReviewCard
                 client:load
                 variant="fixedHeight"
-                slug={review.id}
+                slug={review.data.slug}
                 dateCreated={review.data.dateCreated}
                 excerpt={review.data.excerpt}
                 toolBrand={tool.data.brand}

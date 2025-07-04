@@ -1,7 +1,8 @@
 ---
+slug: oscar-wilde-ryobi-18v-5ah-battery-twin-pack
 author: oscar-wilde
 tool: ryobi-18v-5ah-battery-twin-pack
-excerpt: >-
+excerpt: >
   To consider a battery, in its purest essence, is to confront the stark
   utilitarianism that underpins so much of modern existence.
 mood: humorous

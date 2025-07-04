@@ -1,7 +1,8 @@
 ---
+slug: franz-kafka-ryobi-18v-5ah-battery-twin-pack
 author: franz-kafka
 tool: ryobi-18v-5ah-battery-twin-pack
-excerpt: >-
+excerpt: >
   One receives, through a process both inscrutable and, one suspects, entirely
   without deviation from established protocols, this twin pack of Ryobi 18V...
 mood: philosophical

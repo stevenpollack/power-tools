@@ -1,4 +1,5 @@
 ---
+slug: hp-lovecraft-milwaukee-m18-rotary-hammer
 author: hp-lovecraft
 tool: milwaukee-m18-rotary-hammer
 excerpt: One approaches the Milwaukee M18 FUEL 1-9/16 in.

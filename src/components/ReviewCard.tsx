@@ -10,7 +10,7 @@ import {
 } from "@/lib/constants";
 
 type Props = {
-  slug: Review["id"];
+  slug: ReviewData["slug"];
   dateCreated: ReviewData["dateCreated"];
   excerpt: ReviewData["excerpt"];
   toolBrand: ToolData["brand"];

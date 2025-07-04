@@ -1,7 +1,8 @@
 ---
+slug: mark-twain-ryobi-electric-pressure-washer
 author: mark-twain
 tool: ryobi-electric-pressure-washer
-excerpt: >-
+excerpt: >
   Well, now, folks, I've seen my share of contraptions in my time, from
   steamboats that couldn't outrun a raft to typewriters that made more noise
   than a Mississippi paddlewheel.
