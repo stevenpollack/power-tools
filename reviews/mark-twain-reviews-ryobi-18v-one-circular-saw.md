@@ -1,5 +1,6 @@
 ---
 slug: mark-twain-ryobi-18v-one-circular-saw
+llm: gemini-pro-2.5
 author: mark-twain
 tool: ryobi-18v-one-circular-saw
 excerpt: >

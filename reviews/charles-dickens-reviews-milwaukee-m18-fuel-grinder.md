@@ -1,5 +1,6 @@
 ---
 slug: charles-dickens-milwaukee-m18-fuel-grinder
+llm: gemini-pro-2.5
 author: charles-dickens
 tool: milwaukee-m18-fuel-grinder
 excerpt: >

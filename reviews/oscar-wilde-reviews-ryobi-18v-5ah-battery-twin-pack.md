@@ -1,5 +1,6 @@
 ---
 slug: oscar-wilde-ryobi-18v-5ah-battery-twin-pack
+llm: gemini-pro-2.5
 author: oscar-wilde
 tool: ryobi-18v-5ah-battery-twin-pack
 excerpt: >

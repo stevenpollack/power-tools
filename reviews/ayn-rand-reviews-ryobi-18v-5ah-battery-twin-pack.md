@@ -1,5 +1,6 @@
 ---
 slug: ayn-rand-ryobi-18v-5ah-battery-twin-pack
+llm: gemini-pro-2.5
 author: ayn-rand
 tool: ryobi-18v-5ah-battery-twin-pack
 excerpt: >

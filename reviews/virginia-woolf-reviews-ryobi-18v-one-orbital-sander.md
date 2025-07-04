@@ -1,5 +1,6 @@
 ---
 slug: virginia-woolf-ryobi-18v-one-orbital-sander
+llm: gemini-pro-2.5
 author: virginia-woolf
 tool: ryobi-18v-one-orbital-sander
 excerpt: >

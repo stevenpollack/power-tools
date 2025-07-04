@@ -1,5 +1,6 @@
 ---
 slug: ayn-rand-ryobi-18v-cordless-compressor
+llm: gemini-pro-2.5
 author: ayn-rand
 tool: ryobi-18v-cordless-compressor
 excerpt: >

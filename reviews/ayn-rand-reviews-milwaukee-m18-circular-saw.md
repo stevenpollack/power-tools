@@ -1,5 +1,6 @@
 ---
 slug: ayn-rand-milwaukee-m18-circular-saw
+llm: gemini-pro-2.5
 author: ayn-rand
 tool: milwaukee-m18-circular-saw
 excerpt: >

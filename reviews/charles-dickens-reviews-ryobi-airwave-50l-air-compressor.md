@@ -1,5 +1,6 @@
 ---
 slug: charles-dickens-ryobi-airwave-50l-air-compressor
+llm: gemini-pro-2.5
 author: charles-dickens
 tool: ryobi-airwave-50l-air-compressor
 excerpt: >

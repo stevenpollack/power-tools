@@ -1,5 +1,6 @@
 ---
 slug: virginia-woolf-ryobi-one-plus-circular-saw
+llm: gemini-pro-2.5
 author: virginia-woolf
 tool: ryobi-one-plus-circular-saw
 excerpt: The hum.

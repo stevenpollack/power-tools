@@ -1,5 +1,6 @@
 ---
 slug: ernest-hemingway-ryobi-18v-one-angle-grinder
+llm: gemini-pro-2.5
 author: ernest-hemingway
 tool: ryobi-18v-one-angle-grinder
 excerpt: The Ryobi 18V ONE+ Angle Grinder.

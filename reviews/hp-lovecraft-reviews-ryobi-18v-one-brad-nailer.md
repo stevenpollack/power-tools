@@ -1,5 +1,6 @@
 ---
 slug: hp-lovecraft-ryobi-18v-one-brad-nailer
+llm: gemini-pro-2.5
 author: hp-lovecraft
 tool: ryobi-18v-one-brad-nailer
 excerpt: >

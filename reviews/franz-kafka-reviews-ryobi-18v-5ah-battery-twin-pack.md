@@ -1,5 +1,6 @@
 ---
 slug: franz-kafka-ryobi-18v-5ah-battery-twin-pack
+llm: gemini-pro-2.5
 author: franz-kafka
 tool: ryobi-18v-5ah-battery-twin-pack
 excerpt: >

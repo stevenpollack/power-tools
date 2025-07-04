@@ -1,5 +1,6 @@
 ---
 slug: mark-twain-ryobi-electric-pressure-washer
+llm: gemini-pro-2.5
 author: mark-twain
 tool: ryobi-electric-pressure-washer
 excerpt: >

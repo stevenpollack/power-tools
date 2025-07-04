@@ -1,5 +1,6 @@
 ---
 slug: ernest-hemingway-milwaukee-m18-circular-saw
+llm: gemini-pro-2.5
 author: ernest-hemingway
 tool: milwaukee-m18-circular-saw
 excerpt: The saw.

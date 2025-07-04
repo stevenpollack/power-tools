@@ -1,5 +1,6 @@
 ---
 slug: oscar-wilde-paslode-cordless-framing-nailer
+llm: gemini-pro-2.5
 author: oscar-wilde
 tool: paslode-cordless-framing-nailer
 excerpt: >

@@ -1,5 +1,6 @@
 ---
 slug: franz-kafka-milwaukee-m18-fuel-hammer-drill
+llm: gemini-pro-2.5
 author: franz-kafka
 tool: milwaukee-m18-fuel-hammer-drill
 excerpt: >

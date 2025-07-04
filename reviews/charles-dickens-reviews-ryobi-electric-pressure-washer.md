@@ -1,5 +1,6 @@
 ---
 slug: charles-dickens-ryobi-electric-pressure-washer
+llm: gemini-pro-2.5
 author: charles-dickens
 tool: ryobi-electric-pressure-washer
 excerpt: >

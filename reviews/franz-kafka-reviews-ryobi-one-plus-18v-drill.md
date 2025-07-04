@@ -1,5 +1,6 @@
 ---
 slug: franz-kafka-ryobi-one-plus-18v-drill
+llm: gemini-pro-2.5
 author: franz-kafka
 tool: ryobi-one-plus-18v-drill
 excerpt: >
