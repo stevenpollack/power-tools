@@ -1,5 +1,8 @@
 ---
 import "../styles/globals.css";
+import FightingTools from "@/images/logos/fighting_tools.png";
+import Can from "@/images/logos/can_and_drill.png";
+import { Picture } from "astro:assets";
 
 export interface Props {
   title: string;
@@ -61,7 +64,9 @@ const canonicalURL = Astro.site
   <!-- Navigation placeholder - will be enhanced in Phase 3 -->
   <nav class="main-nav">
     <div class="nav-container">
-      <a href="/" class="nav-logo">🖋️✖️🛠️</a>
+      <a href="/" class="nav-logo"
+        ><Picture alt="🖋️✖️🛠️" src={Can} width={50} height={50} /></a
+      >
       <div class="nav-links">
         <a href="/">Home</a>
         <a href="/authors">Authors</a>

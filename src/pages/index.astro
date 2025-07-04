@@ -20,24 +20,45 @@ const reviewsWithData = await Promise.all(
   }),
 );
 
-// Sort by shareCount (popularity) and reading time for better arrangement
-const arrangedReviews = reviewsWithData.sort((a, b) => {
-  // Sort by share count (popularity) first
-  if (a.review.data.shareCount !== b.review.data.shareCount) {
-    return b.review.data.shareCount - a.review.data.shareCount;
+// Create balanced distribution ensuring author and tool diversity
+const createBalancedShuffle = (reviews: typeof reviewsWithData) => {
+  // Group reviews by author
+  const byAuthor: Record<string, typeof reviewsWithData> = reviews.reduce((acc, review) => {
+    const authorName = review.author.data.name;
+    if (!acc[authorName]) acc[authorName] = [];
+    acc[authorName].push(review);
+    return acc;
+  }, {} as Record<string, typeof reviewsWithData>);
+  
+  // Shuffle each author's reviews for variety
+  Object.keys(byAuthor).forEach(author => {
+    const authorReviews = byAuthor[author];
+    if (authorReviews) {
+      authorReviews.sort(() => Math.random() - 0.5);
+    }
+  });
+  
+  // Round-robin distribution to ensure even author representation
+  const balanced: typeof reviewsWithData = [];
+  const maxPerAuthor = Math.max(...Object.values(byAuthor).map((arr: typeof reviewsWithData) => arr.length));
+  
+  for (let round = 0; round < maxPerAuthor; round++) {
+    // Shuffle author order each round for more variety
+    const authorKeys = Object.keys(byAuthor).sort(() => Math.random() - 0.5);
+    
+    authorKeys.forEach(author => {
+      const authorReviews = byAuthor[author];
+      const review = authorReviews?.[round];
+      if (review) {
+        balanced.push(review);
+      }
+    });
   }
+  
+  return balanced;
+};
 
-  // Then by reading time (shorter first for better engagement)
-  if (a.review.data.readingTime !== b.review.data.readingTime) {
-    return a.review.data.readingTime - b.review.data.readingTime;
-  }
-
-  // Finally by date (newer first)
-  return (
-    new Date(b.review.data.dateCreated).getTime() -
-    new Date(a.review.data.dateCreated).getTime()
-  );
-});
+const arrangedReviews = createBalancedShuffle(reviewsWithData);
 ---
 
 <Layout title="pwrtools.lol - When Literature Meets Hardware">

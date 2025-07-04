@@ -2,9 +2,10 @@ import React, { useMemo, useState, useEffect } from "react";
 import { ReviewCard } from "@/components/ReviewCard";
 import type { ReviewWithData } from "@/lib/types";
 
-const REVIEWS_PER_PAGE = 12;
+const REVIEWS_PER_PAGE = 24;
 
 type SortOrder =
+  | "balanced"
   | "newest"
   | "oldest"
   | "author-asc"
@@ -37,7 +38,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
   const [sortOrder, setSortOrder] = useState<SortOrder>(
     () =>
       (new URLSearchParams(window.location.search).get("sort") as SortOrder) ||
-      "newest",
+      "balanced",
   );
   const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
 
@@ -117,6 +118,9 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
     // Create a new array to avoid mutating the original, then sort it
     const sortable = [...filtered];
     switch (sortOrder) {
+      case "balanced":
+        // Maintain homepage's balanced distribution - no additional sorting
+        break;
       case "newest":
         sortable.sort(
           (a, b) =>
@@ -267,6 +271,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
                 onChange={(e) => setSortOrder(e.target.value as SortOrder)}
                 className="rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-blue-500 focus:outline-none"
               >
+                <option value="balanced">Sort by: Balanced Mix</option>
                 <option value="newest">Sort by: Newest</option>
                 <option value="oldest">Sort by: Oldest</option>
                 <option value="author-asc">Sort by: Author (A-Z)</option>
