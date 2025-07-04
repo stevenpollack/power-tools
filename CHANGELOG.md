@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://github.com/stevenpollack/power-tools/compare/v1.2.0...v1.3.0) (2025-07-04)
+
+
+### Features
+
+* first draft of about/ ([aefce0b](https://github.com/stevenpollack/power-tools/commit/aefce0b968413b4a494018389ba6c55eaa7d4815))
+
+
+### Bug Fixes
+
+* convert about.md to about.astro ([c7f44f3](https://github.com/stevenpollack/power-tools/commit/c7f44f3fc3721181aebd51c8a231c5de9dff5fb6))
+
 ## [1.2.0](https://github.com/stevenpollack/power-tools/compare/v1.1.0...v1.2.0) (2025-07-04)
 
 ### Features
