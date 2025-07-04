@@ -311,7 +311,10 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
         ) : (
           <div className="columns-1 gap-6 lg:columns-3 xl:columns-4">
             {visibleReviews.map(({ review, author, tool }) => (
-              <div key={review.data.slug} className="mb-6 block break-inside-avoid">
+              <div
+                key={review.data.slug}
+                className="mb-6 block break-inside-avoid"
+              >
                 <ReviewCard
                   slug={review.data.slug}
                   dateCreated={review.data.dateCreated}

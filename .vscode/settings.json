@@ -6,16 +6,9 @@
     "source.fixAll.eslint": "explicit"
   },
   "piny.project_settings": {
-    "open-pages": [
-      "pinyfakepage.html"
-    ],
+    "open-pages": ["pinyfakepage.html"],
     "app-routes": {
-      "routes": [
-        "/",
-        "/authors",
-        "/demo",
-        "/tools"
-      ],
+      "routes": ["/", "/authors", "/demo", "/tools"],
       "current_route": "/tools"
     },
     "urls": {
