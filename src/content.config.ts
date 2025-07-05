@@ -1,5 +1,5 @@
 import { defineCollection, reference, z } from "astro:content";
-import { glob } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 
 const authors = defineCollection({
   loader: glob({ pattern: "*.json", base: "authors" }),
@@ -81,4 +81,15 @@ const reviews = defineCollection({
   }),
 });
 
-export const collections = { authors, tools, reviews };
+const cartoons = defineCollection({
+  loader: file("src/images/cartoons/manifest.json"),
+  schema: ({ image }) =>
+    z.object({
+      id: image(),
+      prompt: z.string(),
+      model: z.string(),
+      generationDate: z.string(),
+    }),
+});
+
+export const collections = { authors, tools, reviews, cartoons };

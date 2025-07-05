@@ -1,7 +1,6 @@
 ---
-import "../styles/globals.css";
-import FightingTools from "@/images/logos/fighting_tools.png";
-import Can from "@/images/logos/can_and_drill.png";
+import "@/styles/globals.css";
+import SprayCan from "@/images/logos/spray-paint-lol.svg";
 import { Picture } from "astro:assets";
 
 export interface Props {
@@ -62,16 +61,17 @@ const canonicalURL = Astro.site
     <title>{title}</title>
   </head>
   <!-- Navigation placeholder - will be enhanced in Phase 3 -->
-  <nav class="main-nav">
-    <div class="nav-container">
+  <nav class="border-b border-gray-200 py-4">
+    <div class="mx-auto flex max-w-300 place-items-center justify-between px-8">
       <a href="/" class="nav-logo"
-        ><Picture alt="🖋️✖️🛠️" src={Can} width={50} height={50} /></a
+        ><Picture alt="🖋️✖️🛠️" src={SprayCan} width={44} height={44} /></a
       >
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/authors">Authors</a>
-        <a href="/tools">Tools</a>
-        <a href="/about">About</a>
+      <div class="flex gap-4 text-2xl">
+        <a href="/">🏠</a>
+        <a href="/authors">👤</a>
+        <a href="/tools">🛠️</a>
+        <a href="/cartoons">🎨</a>
+        <a href="/about">💬</a>
       </div>
     </div>
   </nav>
@@ -126,8 +126,8 @@ const canonicalURL = Astro.site
     }
 
     .main-nav {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      /* background: rgba(255, 255, 255, 0.95); */
+      /* backdrop-filter: blur(10px); */
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       padding: 1rem 0;
     }

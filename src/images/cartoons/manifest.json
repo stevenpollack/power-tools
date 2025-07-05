@@ -1,0 +1,62 @@
+[
+  {
+    "id": "src/images/cartoons/austen-bunnings-interior.png",
+    "prompt": "Create a cartoon depiction of Jane Austen shopping at Bunnings with a small dog in her shopping cart.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/dickens-bunnings-carpark.png",
+    "prompt": "create a cartoon depiction of Charles Dickens getting into a fight with a construction worker over a parking spot in the Bunnings parking lot. The construction worker is wearing a safety vest and hard hat.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/wilde-hammerdrill.png",
+    "prompt": "Create a cartoon depiction of Oscar Wilde unboxing a rotary tool delivered from Bunnings with a look of pleasant surprise on his face. He is unboxing in his dining room, and his house has luxurious decor.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/twain-power-washer.png",
+    "prompt": "Create a cartoon depiction of Mark Twain power washing a dirty picket fence. He looks slightly annoyed and frustrated.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/rand-nailgun.png",
+    "prompt": "Create a cartoon depiction of Ayn Rand on a work site, wearing a \"Who is John Galt?\" t-shirt, holding a nail gun, attaching drywall to a wooden stud. There's no text in this id apart from her t-shirt.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/rand-train-tracks.png",
+    "prompt": "Create a cartoon depiction of Ayn Rand wearing a \"Who is John Galt?\" t-shirt, standing in between train tracks. She is looking at the camera with a determined expression.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/lovecraft-milwaukee-batteries.png",
+    "prompt": "Create a cartoonish depiction of H.P. Lovecraft trying (and failing) to return milkwaukee batteries at bunnings.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/kafka-powerdrill.png",
+    "prompt": "Create a cartoonish depiction of Franz Kafka throwing his hands up in frustration at a failed attempt to assemble ikea furniture with a powerdrill at his feet.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/poe-orbital-sander.png",
+    "prompt": "create a cartoonish depiction of Edgar Allan Poe using a ryobi orbital sander to buff the polish on a casket. He has a crow on his shoulder. This scheme is taking place in a funeral home.",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  },
+  {
+    "id": "src/images/cartoons/hemingway-powerdrill.png",
+    "prompt": "Create a cartoon depiction of Ernest Hemingway wearing a safety vest and holding a powerdrill",
+    "model": "gemini-2.5-pro",
+    "generationDate": "2025-07-05"
+  }
+]

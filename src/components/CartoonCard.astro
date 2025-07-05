@@ -1,0 +1,27 @@
+---
+import { Picture } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  cartoon: CollectionEntry<"cartoons">;
+  width?: number;
+  height?: number;
+}
+
+const { cartoon } = Astro.props;
+const figureId = cartoon.id.replace("src/images/cartoons/", "").toLowerCase();
+---
+
+<figure id={figureId} class="flex w-fit flex-col items-center rounded border">
+  <a href={`#${figureId}`}>
+    <Picture
+      class="w-90 rounded-t"
+      loading="lazy"
+      src={cartoon.data.id}
+      alt={cartoon.data.prompt}
+    />
+    <figcaption class="w-82 p-2 text-left text-xs md:text-center">
+      {cartoon.data.prompt}
+    </figcaption>
+  </a>
+</figure>
