@@ -3,7 +3,7 @@ import Layout from "../../layouts/ReviewLayout.astro";
 import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import { ReviewCard } from "@/components/ReviewCard";
-import type { ReviewWithData, Author, Review, Tool } from "@/lib/types";
+import type { ReviewWithData, Tool } from "@/lib/types";
 import { ExternalLink } from "lucide-react";
 
 export async function getStaticPaths() {
@@ -18,14 +18,14 @@ export async function getStaticPaths() {
 const { tool }: { tool: Tool } = Astro.props;
 
 const reviews = (await getCollection("reviews")).filter(
-  (review) => review.data.tool.id === tool.id,
+  (review) => review.data.tool.id === tool.id
 );
 
 const reviewsWithData: Omit<ReviewWithData, "tool">[] = await Promise.all(
   reviews.map(async (review) => ({
     review,
     author: await getEntry(review.data.author),
-  })),
+  }))
 );
 
 const { name, brand, specifications } = tool.data;
@@ -116,7 +116,7 @@ const { name, brand, specifications } = tool.data;
                   authorName={author.data.name}
                   mood={review.data.mood}
                   tone={review.data.tone}
-                  readingTime={review.data.readingTime}
+                  llm={review.data.llm}
                 />
               ))
             ) : (

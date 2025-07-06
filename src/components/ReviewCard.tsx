@@ -1,5 +1,5 @@
 import { formatRelativeTime } from "@/lib/helpers";
-import type { ReviewData, AuthorData, ToolData, Review } from "@/lib/types";
+import type { ReviewData, AuthorData, ToolData } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { type FC } from "react";
 import {
@@ -9,17 +9,14 @@ import {
   getToneColor,
 } from "@/lib/constants";
 
-type Props = {
-  slug: ReviewData["slug"];
-  dateCreated: ReviewData["dateCreated"];
-  excerpt: ReviewData["excerpt"];
+type Props = Pick<
+  ReviewData,
+  "slug" | "dateCreated" | "excerpt" | "mood" | "tone" | "llm"
+> & {
   toolBrand: ToolData["brand"];
   toolName: ToolData["name"];
   toolImage: ToolData["thumbnailUrl"];
   authorName: AuthorData["name"];
-  mood: ReviewData["mood"];
-  tone: ReviewData["tone"];
-  readingTime: ReviewData["readingTime"];
   variant?: "default" | "fixedHeight";
 };
 
@@ -33,7 +30,7 @@ export const ReviewCard: FC<Props> = ({
   authorName,
   mood,
   tone,
-  readingTime,
+  llm,
   variant = "default",
 }) => {
   const relativeTime = formatRelativeTime(dateCreated);
@@ -110,7 +107,7 @@ export const ReviewCard: FC<Props> = ({
         {/* Footer */}
         <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs text-gray-500">
           <span>by {authorName}</span>
-          <span>{readingTime} min read</span>
+          <span className="font-mono">{llm}</span>
           <span>{relativeTime}</span>
         </div>
       </div>

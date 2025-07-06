@@ -72,6 +72,7 @@ const reviews = defineCollection({
     author: reference("authors"),
     tool: reference("tools"),
     excerpt: z.string(),
+    llm: z.string(),
     mood: z.enum(["humorous", "dramatic", "technical", "philosophical"]),
     tone: z.enum(["formal", "casual", "satirical", "earnest"]),
     readingTime: z.number(),

@@ -59,7 +59,7 @@ export const RelatedReviews: React.FC<RelatedReviewsProps> = ({ reviews }) => {
                 authorName={author.data.name}
                 mood={review.data.mood}
                 tone={review.data.tone}
-                readingTime={review.data.readingTime}
+                llm={review.data.llm}
               />
             </div>
           ))}

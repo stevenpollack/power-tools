@@ -17,7 +17,7 @@ const { author } = Astro.props;
 
 const reviews = await getCollection(
   "reviews",
-  (review) => review.data.author.id === author.id,
+  (review) => review.data.author.id === author.id
 );
 
 // Get full author and tool data for each review
@@ -26,7 +26,7 @@ const reviewsWithData: ReviewWithData[] = await Promise.all(
     review,
     tool: await getEntry(review.data.tool),
     author: await getEntry(review.data.author),
-  })),
+  }))
 );
 ---
 
@@ -82,7 +82,7 @@ const reviewsWithData: ReviewWithData[] = await Promise.all(
                 authorName={reviewAuthor.data.name}
                 mood={review.data.mood}
                 tone={review.data.tone}
-                readingTime={review.data.readingTime}
+                llm={review.data.llm}
               />
             ))
           }

@@ -330,7 +330,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
                   authorName={author.data.name}
                   mood={review.data.mood}
                   tone={review.data.tone}
-                  readingTime={review.data.readingTime}
+                  llm={review.data.llm}
                 />
               </div>
             ))}
