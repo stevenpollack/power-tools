@@ -4,6 +4,7 @@ import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import { ReviewCard } from "@/components/ReviewCard";
 import type { ReviewWithData, Author, Review, Tool } from "@/lib/types";
+import { ExternalLink } from "lucide-react";
 
 export async function getStaticPaths() {
   const tools = await getCollection("tools");
@@ -49,7 +50,7 @@ const { name, brand, specifications } = tool.data;
           <p class="tool-brand">{brand}</p>
           <div class="tool-specs">
             <h3>Specifications</h3>
-            <dl class="specs-list">
+            <dl class="specs-list text-left">
               <dt>Power</dt>
               <dd>{specifications.power}</dd>
               <dt>Weight</dt>
@@ -74,6 +75,25 @@ const { name, brand, specifications } = tool.data;
                   }
                 </ul>
               </dd>
+              {
+                tool.data.bunningsUrl && (
+                  <>
+                    <dt>Data source</dt>
+                    <dd>
+                      <a
+                        href={tool.data.bunningsUrl}
+                        class="text-blue-500 hover:underline"
+                        target="_blank"
+                      >
+                        <span class="flex items-center gap-2">
+                          Bunnings.com.au
+                          <ExternalLink className="h-4 w-4" />
+                        </span>
+                      </a>
+                    </dd>
+                  </>
+                )
+              }
             </dl>
           </div>
         </div>
