@@ -6,6 +6,7 @@ import { Picture } from "astro:assets";
 import { ShareButtons } from "@/components/ShareButtons";
 import { RelatedReviews } from "@/components/RelatedReviews";
 import type { AuthorData, ToolData, Review, ReviewWithData } from "@/lib/types";
+import { Badge } from "@/components/ui/badge";
 
 export async function getStaticPaths() {
   const reviews = await getCollection("reviews");
@@ -20,7 +21,7 @@ const { Content } = await render(review);
 
 const author: AuthorData = (await getEntry(review.data.author)).data;
 const tool: ToolData = (await getEntry(review.data.tool)).data;
-const { mood, tone, readingTime } = review.data;
+const { llm } = review.data;
 
 // Fetch related reviews
 const allReviews = await getCollection("reviews");
@@ -29,7 +30,7 @@ const relatedReviewsRaw = allReviews
     (r) =>
       r.data.slug !== review.data.slug &&
       (r.data.author.id === review.data.author.id ||
-        r.data.tool.id === review.data.tool.id),
+        r.data.tool.id === review.data.tool.id)
   )
   .slice(0, 10);
 
@@ -38,45 +39,50 @@ const relatedReviews: ReviewWithData[] = await Promise.all(
     review: r,
     author: await getEntry(r.data.author),
     tool: await getEntry(r.data.tool),
-  })),
+  }))
 );
 ---
 
-<Layout title="Review - Power Tools Reviews">
+<Layout title={`Review - ${author.name} on ${tool.name}`}>
   <main class="review-detail">
     <div class="container">
       <article class="review-article">
         <header class="review-header">
           <div class="review-meta">
-            <div class="author-tool-info">
-              <a href={`/author/${author.slug}`} class="author-link">
-                <Picture
-                  src={author.portrait.filename}
-                  alt={author.name}
-                  width={40}
-                  height={40}
-                  layout="constrained"
-                  class="rounded-full"
-                />
-                <span>{author.name}</span>
-              </a>
-              <span class="separator">reviews</span>
-              <a href={`/tool/${tool.slug}`} class="tool-link">
+            <div class="mb-4 flex flex-col items-center gap-4 sm:flex-row">
+              <a
+                href={`/tool/${tool.slug}`}
+                class="flex w-full items-center gap-2"
+              >
                 <Picture
                   src={tool.thumbnailUrl}
                   alt={tool.name}
-                  width={40}
-                  height={40}
-                  class="rounded-lg"
+                  layout="constrained"
+                  class="h-10 min-h-10 w-10 min-w-10 rounded-lg"
                 />
                 <span>{tool.name}</span>
               </a>
+              <div
+                class="flex w-full items-center justify-between gap-4 sm:justify-end"
+              >
+                <span class="italic opacity-80">reviewed by</span>
+                <a href={`/author/${author.slug}`} class="author-link">
+                  <Picture
+                    src={author.portrait.filename}
+                    alt={author.name}
+                    layout="constrained"
+                    class="h-10 min-h-10 w-10 min-w-10 rounded-full"
+                  />
+                  <span>{author.name}</span>
+                </a>
+              </div>
             </div>
 
             <div class="review-details">
-              <span class="reading-time">{readingTime} min read</span>
-              <span class="mood-tag">{mood}</span>
-              <span class="tone-tag">{tone}</span>
+              <!-- @ts-expect-error "primary" is not a valid variant -->
+              <Badge variant="primary" className="font-mono text-xs">
+                {llm}
+              </Badge>
             </div>
           </div>
         </header>
@@ -129,13 +135,6 @@ const relatedReviews: ReviewWithData[] = await Promise.all(
     color: white;
   }
 
-  .author-tool-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
   .author-link,
   .tool-link {
     display: flex;
@@ -144,33 +143,6 @@ const relatedReviews: ReviewWithData[] = await Promise.all(
     color: white;
     text-decoration: none;
     font-weight: 500;
-  }
-
-  .author-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-  }
-
-  .tool-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-  }
-
-  .separator {
-    opacity: 0.8;
-    font-style: italic;
   }
 
   .review-details {

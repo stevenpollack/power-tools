@@ -10,26 +10,16 @@ const tools = await getCollection("tools");
 const toolCount = tools.length;
 const reviewCount = tools.reduce(
   (sum, tool) => sum + tool.data.popularity.reviewCount,
-  0,
+  0
 );
 const brandCount = new Set(tools.map((tool) => tool.data.brand)).size;
 ---
 
-<Layout title="Tools - Power Tools Reviews">
+<Layout title="Tools">
   <!-- Hero Section -->
-  <header class="hero-gradient py-16 text-white">
+  <header class="hero-gradient py-8 text-white">
     <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-      <h1 class="mb-4 text-4xl font-bold md:text-5xl">
-        Professional Power Tools
-      </h1>
-      <p class="mb-2 text-xl opacity-90">
-        Discover the Tools That Drive Excellence
-      </p>
-      <p class="mx-auto max-w-2xl text-lg opacity-80">
-        From cordless drills to industrial saws, explore our comprehensive
-        collection of professional-grade power tools reviewed by literary
-        masters
-      </p>
+      <h1 class="mb-4 text-4xl font-bold md:text-5xl">Selected Power Tools</h1>
     </div>
   </header>
 
