@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.1](https://github.com/stevenpollack/power-tools/compare/v1.5.0...v1.5.1) (2025-07-06)
+
+
+### Bug Fixes
+
+* adjust footer copy ([8ac9751](https://github.com/stevenpollack/power-tools/commit/8ac97512719bd9c625bf17355e598589a579c62c))
+* correct pasload data and image ([b783887](https://github.com/stevenpollack/power-tools/commit/b78388764959622f4409f57dd0b88703af8f9511))
+
 ## [1.5.0](https://github.com/stevenpollack/power-tools/compare/v1.4.0...v1.5.0) (2025-07-06)
 
 
