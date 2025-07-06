@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.4.0](https://github.com/stevenpollack/power-tools/compare/v1.3.0...v1.4.0) (2025-07-05)
+
+### Features
+
+- add cartoons/ page ([98c7c87](https://github.com/stevenpollack/power-tools/commit/98c7c8738ab5563fcbb682cc5887efadd6551c3c))
+
+### Bug Fixes
+
+- adjust codeblock styling for mobile ([9757d92](https://github.com/stevenpollack/power-tools/commit/9757d923afbfb8a3fcbaecc1bffa1b5fa1447698))
+
 ## [1.3.0](https://github.com/stevenpollack/power-tools/compare/v1.2.0...v1.3.0) (2025-07-04)
 
 ### Features
