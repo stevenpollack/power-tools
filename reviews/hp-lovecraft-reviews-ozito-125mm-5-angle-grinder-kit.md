@@ -10,6 +10,17 @@ readingTime: 2
 shareCount: 0
 dateCreated: "2025-07-04"
 lastUpdated: "2025-07-04"
+# Bunnings-style review fields
+rating: 2
+recommendsProduct: false
+helpfulVotes: 8
+unhelpfulVotes: 3
+verifiedPurchaser: true
+displayName: "howard"
+useCase: "Workshop projects and material modification"
+qualityRating: 2
+valueRating: 3
+userCategory: "Advanced DIYer"
 ---
 
 From the cyclopean workshops of industrial manufacture comes this Ozito grinders, an implement whose very existence speaks to humanity's relentless drive to impose order upon the chaotic forces that govern material reality.

@@ -10,6 +10,17 @@ readingTime: 1
 shareCount: 0
 dateCreated: "2025-07-04"
 lastUpdated: "2025-07-04"
+# Bunnings-style review fields
+rating: 4
+recommendsProduct: true
+helpfulVotes: 12
+unhelpfulVotes: 0
+verifiedPurchaser: true
+displayName: "Ernest"
+useCase: "Professional construction work"
+qualityRating: 4
+valueRating: 4
+userCategory: "Construction Professional"
 ---
 
 The Makita drills. It works. The LED light is positioned perfectly, no shadows. Good.

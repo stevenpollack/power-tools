@@ -10,6 +10,17 @@ readingTime: 2
 shareCount: 0
 dateCreated: "2025-07-04"
 lastUpdated: "2025-07-04"
+# Bunnings-style review fields
+rating: 5
+recommendsProduct: true
+helpfulVotes: 24
+unhelpfulVotes: 1
+verifiedPurchaser: true
+displayName: "jack"
+useCase: "Creative construction projects"
+qualityRating: 5
+valueRating: 4
+userCategory: "Weekend Warrior"
 ---
 
 Man, this Milwaukee power drills just spoke to me, you know? Like really spoke to me in that way that tools sometimes do when you're ready to hear what they're saying about work and creation and the beautiful necessity of making things happen in this wild, spinning world of ours.
