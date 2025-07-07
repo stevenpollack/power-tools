@@ -1,5 +1,5 @@
 import { type FC, useState } from "react";
-import type { ToolData, ReviewData } from "@/lib/types";
+import type { ReviewData, ReviewWithData } from "@/lib/types";
 import { RatingsSnapshot } from "./RatingsSnapshot";
 import { RatingsSummary } from "./RatingsSummary";
 import { AverageCustomerRatings } from "./AverageCustomerRatings";
@@ -7,34 +7,29 @@ import { ReviewThisProduct } from "./ReviewThisProduct";
 import { ReviewsList } from "./ReviewsList";
 import { ShareModal } from "./ShareModal";
 
-// TODO: Implement data loading logic for tool and reviews based on toolSlug
-// import { getToolBySlug, getReviewsForTool } from "@/lib/data";
-
 interface RatingsAndReviewsProps {
-  tool: ToolData;
-  reviews: ReviewData[];
-  authorNames: Record<string, string>; // author slug to display name
+  reviews: ReviewWithData[];
 }
 
-export const RatingsAndReviews: FC<RatingsAndReviewsProps> = ({
-  tool,
-  reviews,
-  authorNames,
-}) => {
+export const RatingsAndReviews: FC<RatingsAndReviewsProps> = ({ reviews }) => {
   // Ratings calculations
   const counts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
   let qualitySum = 0,
     valueSum = 0,
     ratingSum = 0,
     ratingCount = 0;
-  reviews.forEach((r) => {
-    if (r.rating) {
-      counts[r.rating as keyof typeof counts]++;
-      ratingSum += r.rating;
+  reviews.forEach(({ review }) => {
+    if (review.data.rating) {
+      counts[review.data.rating as keyof typeof counts]++;
+      ratingSum += review.data.rating;
       ratingCount++;
     }
-    if (r.qualityRating) qualitySum += r.qualityRating;
-    if (r.valueRating) valueSum += r.valueRating;
+    if (review.data.qualityRating) {
+      qualitySum += review.data.qualityRating;
+    }
+    if (review.data.valueRating) {
+      valueSum += review.data.valueRating;
+    }
   });
   const averageRating = ratingCount ? ratingSum / ratingCount : 0;
   const averageQuality = reviews.length ? qualitySum / reviews.length : 0;
@@ -64,14 +59,17 @@ export const RatingsAndReviews: FC<RatingsAndReviewsProps> = ({
       <div className="my-4">
         <ReviewThisProduct />
       </div>
-      <ReviewsList reviews={reviews} onShare={handleShare} />
+      <ReviewsList
+        reviews={reviews.map(({ review }) => review.data)}
+        onShare={handleShare}
+      />
       {shareReview && (
         <ShareModal
           open={shareOpen}
           onClose={() => setShareOpen(false)}
           review={shareReview}
-          toolName={tool.name}
-          authorName={authorNames[String(shareReview.author)] || ""}
+          toolName={reviews[0]?.tool.data.name ?? ""}
+          authorName={reviews[0]?.author.data.name ?? ""}
         />
       )}
     </section>

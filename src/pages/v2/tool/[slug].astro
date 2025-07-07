@@ -1,0 +1,41 @@
+---
+import "@/styles/globals.css";
+import { getEntry, getCollection } from "astro:content";
+import { RatingsAndReviews } from "@/components/ratings/RatingsAndReviews";
+import type { Tool, ReviewWithData } from "@/lib/types";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+
+  return tools.map((tool) => ({
+    params: { slug: tool.data.slug },
+    props: { tool },
+  }));
+}
+
+const { tool }: { tool: Tool } = Astro.props;
+
+const reviews = (await getCollection("reviews")).filter(
+  (review) => review.data.tool.id === tool.id
+);
+
+const reviewsWithData: ReviewWithData[] = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    author: await getEntry(review.data.author),
+    tool: tool,
+  }))
+);
+---
+
+<html lang="en">
+  <head>
+    <title>{tool.data.name} - Ratings & Reviews</title>
+  </head>
+  <body>
+    <main>
+      <h1 class="mb-4 text-2xl font-bold">{tool.data.name}</h1>
+      <RatingsAndReviews client:load reviews={reviewsWithData} />
+    </main>
+  </body>
+</html>
