@@ -25,6 +25,9 @@ const authors = defineCollection({
         themes: z.array(z.string()),
         quirks: z.array(z.string()),
       }),
+      // Bunnings review display settings
+      displayName: z.string(),
+      ratingBias: z.number().min(-1).max(1).default(0),
     }),
 });
 
@@ -79,6 +82,18 @@ const reviews = defineCollection({
     shareCount: z.number().default(0),
     dateCreated: z.string(),
     lastUpdated: z.string(),
+
+    // Bunnings-style review fields
+    rating: z.number().min(1).max(5),
+    recommendsProduct: z.boolean(),
+    helpfulVotes: z.number().default(0),
+    unhelpfulVotes: z.number().default(0),
+    verifiedPurchaser: z.boolean().default(true),
+    displayName: z.string(),
+    useCase: z.string(),
+    qualityRating: z.number().min(1).max(5),
+    valueRating: z.number().min(1).max(5),
+    userCategory: z.string(),
   }),
 });
 

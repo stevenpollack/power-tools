@@ -10,7 +10,7 @@ const tools = await getCollection("tools");
 const toolCount = tools.length;
 const reviewCount = tools.reduce(
   (sum, tool) => sum + tool.data.popularity.reviewCount,
-  0
+  0,
 );
 const brandCount = new Set(tools.map((tool) => tool.data.brand)).size;
 ---

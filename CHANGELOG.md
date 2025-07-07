@@ -2,23 +2,20 @@
 
 ## [1.5.1](https://github.com/stevenpollack/power-tools/compare/v1.5.0...v1.5.1) (2025-07-06)
 
-
 ### Bug Fixes
 
-* adjust footer copy ([8ac9751](https://github.com/stevenpollack/power-tools/commit/8ac97512719bd9c625bf17355e598589a579c62c))
-* correct pasload data and image ([b783887](https://github.com/stevenpollack/power-tools/commit/b78388764959622f4409f57dd0b88703af8f9511))
+- adjust footer copy ([8ac9751](https://github.com/stevenpollack/power-tools/commit/8ac97512719bd9c625bf17355e598589a579c62c))
+- correct pasload data and image ([b783887](https://github.com/stevenpollack/power-tools/commit/b78388764959622f4409f57dd0b88703af8f9511))
 
 ## [1.5.0](https://github.com/stevenpollack/power-tools/compare/v1.4.0...v1.5.0) (2025-07-06)
 
-
 ### Features
 
-* add data-source to tool description table ([5a3f608](https://github.com/stevenpollack/power-tools/commit/5a3f6083990b8836d3bddfc5094b70515ac5cf12))
-
+- add data-source to tool description table ([5a3f608](https://github.com/stevenpollack/power-tools/commit/5a3f6083990b8836d3bddfc5094b70515ac5cf12))
 
 ### Bug Fixes
 
-* replace static reading time stat with llm in Review Card ([d4655fa](https://github.com/stevenpollack/power-tools/commit/d4655fa073eab89827b80a75dc4a4491996c1583))
+- replace static reading time stat with llm in Review Card ([d4655fa](https://github.com/stevenpollack/power-tools/commit/d4655fa073eab89827b80a75dc4a4491996c1583))
 
 ## [1.4.0](https://github.com/stevenpollack/power-tools/compare/v1.3.0...v1.4.0) (2025-07-05)
 
