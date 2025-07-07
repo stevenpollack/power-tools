@@ -42,5 +42,7 @@
       "Focuses on rules and procedures",
       "Matter-of-fact tone for impossible situations"
     ]
-  }
+  },
+  "displayName": "F. Kafka",
+  "ratingBias": -0.2
 }

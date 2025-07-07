@@ -42,5 +42,7 @@
       "Uses repetition for emphasis",
       "Dialogue-driven when applicable"
     ]
-  }
+  },
+  "displayName": "Ernest",
+  "ratingBias": 0.2
 }
