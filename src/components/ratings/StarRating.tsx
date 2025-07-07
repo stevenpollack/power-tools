@@ -11,7 +11,9 @@ export const StarRating: FC<StarRatingProps> = ({ rating }) => {
         <span
           key={star}
           className={
-            star <= Math.round(rating) ? "text-yellow-400" : "text-gray-300"
+            star <= Math.round(rating)
+              ? "text-bunnings-rating-star-yellow"
+              : "text-gray-300"
           }
         >
           ★

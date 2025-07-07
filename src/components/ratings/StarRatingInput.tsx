@@ -9,7 +9,7 @@ export const StarRatingInput: FC = () => {
           key={star}
           className={
             (hovered !== null && star <= hovered
-              ? "text-yellow-400"
+              ? "text-bunnings-rating-star-yellow"
               : "text-gray-300") + " cursor-pointer text-2xl transition-colors"
           }
           onMouseEnter={() => setHovered(star)}

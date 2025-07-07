@@ -13,7 +13,12 @@ export const RatingsSummary: React.FC<RatingsSummaryProps> = ({
   const stars = Array.from({ length: 5 }, (_, i) => {
     const filled = i + 1 <= Math.round(averageRating);
     return (
-      <span key={i} className={filled ? "text-yellow-400" : "text-gray-300"}>
+      <span
+        key={i}
+        className={
+          filled ? "text-bunnings-rating-star-yellow" : "text-gray-300"
+        }
+      >
         ★
       </span>
     );
@@ -21,11 +26,13 @@ export const RatingsSummary: React.FC<RatingsSummaryProps> = ({
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-2xl font-bold text-gray-900">
+      <span className="text-bunnings-neutral-charcoal text-2xl font-bold">
         {averageRating.toFixed(1)}
       </span>
       <div className="flex items-center text-lg">{stars}</div>
-      <span className="text-sm text-gray-600">({reviewCount} reviews)</span>
+      <span className="text-bunnings-neutral-charcoal text-sm">
+        ({reviewCount} reviews)
+      </span>
     </div>
   );
 };

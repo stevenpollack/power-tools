@@ -19,12 +19,12 @@ export default {
         // Bunnings color system
         bunnings: {
           primary: {
-            green: "rgb(13, 82, 87)", // Headers, text
+            green: "rgb(0, 104, 56)", // For rating bars and links
             red: "rgb(218, 41, 28)", // Accent bars
             orange: "rgb(255, 171, 0)", // Buttons, CTAs
           },
           neutral: {
-            "dark-gray": "rgb(51, 51, 51)", // Body text
+            charcoal: "rgb(51, 51, 51)", // Main body text
             "medium-gray": "rgb(191, 191, 191)", // Borders
             "light-gray": "rgb(245, 245, 245)", // Background
           },
