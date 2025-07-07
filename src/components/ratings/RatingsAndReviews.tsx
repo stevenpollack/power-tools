@@ -1,34 +1,79 @@
-import React from "react";
+import { type FC, useState } from "react";
 import type { ToolData, ReviewData } from "@/lib/types";
+import { RatingsSnapshot } from "./RatingsSnapshot";
+import { RatingsSummary } from "./RatingsSummary";
+import { AverageCustomerRatings } from "./AverageCustomerRatings";
+import { ReviewThisProduct } from "./ReviewThisProduct";
+import { ReviewsList } from "./ReviewsList";
+import { ShareModal } from "./ShareModal";
 
 // TODO: Implement data loading logic for tool and reviews based on toolSlug
 // import { getToolBySlug, getReviewsForTool } from "@/lib/data";
 
 interface RatingsAndReviewsProps {
-  toolSlug: string;
+  tool: ToolData;
+  reviews: ReviewData[];
+  authorNames: Record<string, string>; // author slug to display name
 }
 
-export const RatingsAndReviews: React.FC<RatingsAndReviewsProps> = ({
-  toolSlug,
+export const RatingsAndReviews: FC<RatingsAndReviewsProps> = ({
+  tool,
+  reviews,
+  authorNames,
 }) => {
-  // TODO: Fetch tool and reviews data using toolSlug
-  const tool: ToolData | null = null; // placeholder
-  const reviews: ReviewData[] = []; // placeholder
+  // Ratings calculations
+  const counts = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
+  let qualitySum = 0,
+    valueSum = 0,
+    ratingSum = 0,
+    ratingCount = 0;
+  reviews.forEach((r) => {
+    if (r.rating) {
+      counts[r.rating as keyof typeof counts]++;
+      ratingSum += r.rating;
+      ratingCount++;
+    }
+    if (r.qualityRating) qualitySum += r.qualityRating;
+    if (r.valueRating) valueSum += r.valueRating;
+  });
+  const averageRating = ratingCount ? ratingSum / ratingCount : 0;
+  const averageQuality = reviews.length ? qualitySum / reviews.length : 0;
+  const averageValue = reviews.length ? valueSum / reviews.length : 0;
 
-  // TODO: Calculate ratings summary, snapshot, averages, etc.
+  // Share modal state
+  const [shareOpen, setShareOpen] = useState(false);
+  const [shareReview, setShareReview] = useState<ReviewData | null>(null);
+
+  const handleShare = (review: ReviewData) => {
+    setShareReview(review);
+    setShareOpen(true);
+  };
 
   return (
     <section className="mx-auto w-full max-w-xl p-4">
-      {/* TODO: RatingsSnapshot */}
-      <div className="mb-4">RatingsSnapshot goes here</div>
-      {/* TODO: RatingsSummary */}
-      <div className="mb-4">RatingsSummary goes here</div>
-      {/* TODO: AverageCustomerRatings */}
-      <div className="mb-4">AverageCustomerRatings goes here</div>
-      {/* TODO: ReviewThisProduct */}
-      <div className="mb-4">ReviewThisProduct goes here</div>
-      {/* TODO: ReviewsList */}
-      <div>ReviewsList goes here</div>
+      <RatingsSnapshot counts={counts} />
+      <div className="my-4">
+        <RatingsSummary
+          averageRating={averageRating}
+          reviewCount={reviews.length}
+        />
+      </div>
+      <div className="my-4">
+        <AverageCustomerRatings quality={averageQuality} value={averageValue} />
+      </div>
+      <div className="my-4">
+        <ReviewThisProduct />
+      </div>
+      <ReviewsList reviews={reviews} onShare={handleShare} />
+      {shareReview && (
+        <ShareModal
+          open={shareOpen}
+          onClose={() => setShareOpen(false)}
+          review={shareReview}
+          toolName={tool.name}
+          authorName={authorNames[String(shareReview.author)] || ""}
+        />
+      )}
     </section>
   );
 };

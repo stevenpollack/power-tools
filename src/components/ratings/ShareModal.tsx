@@ -1,27 +1,42 @@
 import { type FC } from "react";
 import type { ReviewData } from "@/lib/types";
-// TODO: Replace with actual ShareButtons and Dialog imports
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { ShareButtons } from "@/components/ShareButtons";
 
 interface ShareModalProps {
   open: boolean;
   onClose: () => void;
   review: ReviewData;
+  toolName: string;
+  authorName: string;
 }
 
-export const ShareModal: FC<ShareModalProps> = ({ open, onClose, review }) => {
-  // TODO: Replace with actual Dialog and ShareButtons usage
-  return open ? (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="w-full max-w-sm rounded bg-white p-6">
-        <div className="mb-2 font-bold">Share this review</div>
-        <div className="mb-4">ShareButtons goes here</div>
-        <button
-          onClick={onClose}
-          className="mt-2 rounded bg-gray-200 px-3 py-1"
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  ) : null;
+export const ShareModal: FC<ShareModalProps> = ({
+  open,
+  onClose,
+  review,
+  toolName,
+  authorName,
+}) => {
+  return (
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent showCloseButton>
+        <DialogHeader>
+          <DialogTitle>Share this review</DialogTitle>
+        </DialogHeader>
+        <ShareButtons toolName={toolName} authorName={authorName} />
+        <DialogClose asChild>
+          <button className="mt-4 w-full rounded bg-gray-200 px-3 py-2">
+            Close
+          </button>
+        </DialogClose>
+      </DialogContent>
+    </Dialog>
+  );
 };
