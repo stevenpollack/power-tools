@@ -83,17 +83,17 @@ const reviews = defineCollection({
     dateCreated: z.string(),
     lastUpdated: z.string(),
 
-    // Bunnings-style review fields
-    rating: z.number().min(1).max(5),
-    recommendsProduct: z.boolean(),
+    // Bunnings-style review fields (optional for backward compatibility)
+    rating: z.number().min(1).max(5).optional(),
+    recommendsProduct: z.boolean().optional(),
     helpfulVotes: z.number().default(0),
     unhelpfulVotes: z.number().default(0),
     verifiedPurchaser: z.boolean().default(true),
-    displayName: z.string(),
-    useCase: z.string(),
-    qualityRating: z.number().min(1).max(5),
-    valueRating: z.number().min(1).max(5),
-    userCategory: z.string(),
+    displayName: z.string().optional(),
+    useCase: z.string().optional(),
+    qualityRating: z.number().min(1).max(5).optional(),
+    valueRating: z.number().min(1).max(5).optional(),
+    userCategory: z.string().optional(),
   }),
 });
 

@@ -30,8 +30,8 @@ export function StarRating({
           sizeClasses[size],
           "transition-colors",
           isFilled || isHalfFilled
-            ? "fill-bunnings-rating-star-yellow text-bunnings-rating-star-yellow"
-            : "fill-bunnings-neutral-medium-gray text-bunnings-neutral-medium-gray",
+            ? "fill-yellow-500 text-yellow-500"
+            : "fill-gray-300 text-gray-300",
         )}
       />
     );

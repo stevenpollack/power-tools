@@ -1,0 +1,204 @@
+---
+import Layout from "../../layouts/ReviewLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { Picture } from "astro:assets";
+import type { ReviewWithData, Tool } from "@/lib/types";
+import { ExternalLink } from "lucide-react";
+
+// Import new Bunnings components
+import ToolFeatures from "../../components/bunnings/tool-features.astro";
+import ToolSpecifications from "../../components/bunnings/tool-specifications.astro";
+import {
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "../../components/ui/accordion";
+import { ReviewsSection } from "../../components/reviews/reviews-section";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
+}
+
+const { tool }: { tool: Tool } = Astro.props;
+
+// Get reviews for this tool
+const reviews = (await getCollection("reviews")).filter(
+  (review) => review.data.tool.id === tool.id,
+);
+
+// Get author data for each review
+const reviewsWithData: ReviewWithData[] = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    author: await getEntry(review.data.author),
+    tool,
+  })),
+);
+
+// Calculate review statistics
+const totalReviews = reviewsWithData.length;
+const averageRating =
+  totalReviews > 0
+    ? reviewsWithData.reduce((sum, r) => sum + (r.review.data.rating || 0), 0) /
+      totalReviews
+    : 0;
+
+const ratingDistribution = reviewsWithData.reduce(
+  (dist, r) => {
+    const rating = r.review.data.rating || 3;
+    dist[rating as keyof typeof dist] =
+      (dist[rating as keyof typeof dist] || 0) + 1;
+    return dist;
+  },
+  { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
+);
+
+const averageQualityRating =
+  totalReviews > 0
+    ? reviewsWithData.reduce(
+        (sum, r) => sum + (r.review.data.qualityRating || 0),
+        0,
+      ) / totalReviews
+    : 0;
+
+const averageValueRating =
+  totalReviews > 0
+    ? reviewsWithData.reduce(
+        (sum, r) => sum + (r.review.data.valueRating || 0),
+        0,
+      ) / totalReviews
+    : 0;
+
+// Transform reviews for the component
+const transformedReviews = reviewsWithData.slice(0, 6).map((r) => ({
+  rating: r.review.data.rating || 3,
+  recommendsProduct: r.review.data.recommendsProduct || true,
+  helpfulVotes: r.review.data.helpfulVotes || 0,
+  unhelpfulVotes: r.review.data.unhelpfulVotes || 0,
+  verifiedPurchaser: r.review.data.verifiedPurchaser || true,
+  displayName:
+    r.review.data.displayName ||
+    r.author.data.displayName ||
+    r.author.data.name,
+  useCase: r.review.data.useCase || "General use",
+  userCategory: r.review.data.userCategory || "DIY Enthusiast",
+  content: r.review.data.excerpt || "Great tool!",
+  dateCreated: r.review.data.dateCreated,
+  qualityRating: r.review.data.qualityRating || 4,
+  valueRating: r.review.data.valueRating || 4,
+}));
+
+const { name, brand, specifications, pricing } = tool.data;
+---
+
+<Layout title={`${name} - Reviews`}>
+  <main class="min-h-screen bg-white">
+    <!-- Tool Header Section -->
+    <div class="bg-white py-6 sm:py-8">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-6 lg:grid-cols-2 lg:gap-12">
+          <div class="flex justify-center lg:justify-start">
+            <Picture
+              src={tool.data.thumbnailUrl}
+              alt={name}
+              class="h-64 w-64 rounded-lg border object-cover sm:h-80 sm:w-80 lg:h-96 lg:w-96"
+              widths={[300, 600]}
+              sizes="(max-width: 768px) 250px, 300px"
+            />
+          </div>
+
+          <div class="space-y-4 text-center lg:text-left">
+            <h1
+              class="font-bunnings-heading text-bunnings-2xl text-bunnings-primary-green font-bold lg:text-3xl"
+            >
+              {name}
+            </h1>
+            <p
+              class="text-bunnings-xl text-bunnings-neutral-dark-gray font-medium"
+            >
+              {brand}
+            </p>
+
+            <div
+              class="flex flex-col items-center gap-2 sm:flex-row lg:items-start"
+            >
+              <span
+                class="text-bunnings-primary-green text-2xl font-bold sm:text-3xl"
+                >${pricing.currentPrice}</span
+              >
+              {
+                pricing.onSale && pricing.msrp && (
+                  <span class="text-bunnings-base text-bunnings-neutral-dark-gray line-through">
+                    ${pricing.msrp}
+                  </span>
+                )
+              }
+            </div>
+
+            {
+              tool.data.bunningsUrl && (
+                <div class="mt-4">
+                  <a
+                    href={tool.data.bunningsUrl}
+                    class="bg-bunnings-primary-orange hover:bg-bunnings-primary-orange/90 inline-flex items-center rounded-md px-6 py-3 font-medium text-white transition-colors"
+                    target="_blank"
+                  >
+                    <span class="flex items-center gap-2">
+                      View on Bunnings.com.au
+                      <ExternalLink className="h-4 w-4" />
+                    </span>
+                  </a>
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bunnings-style Accordion Sections -->
+    <div class="bg-bunnings-neutral-light-gray py-8">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <!-- Features Section -->
+        <AccordionItem defaultOpen={true}>
+          <AccordionTrigger>Features</AccordionTrigger>
+          <AccordionContent>
+            <ToolFeatures
+              features={specifications.keyFeatures}
+              description="Key features and capabilities of this tool."
+            />
+          </AccordionContent>
+        </AccordionItem>
+
+        <!-- Specifications Section -->
+        <AccordionItem>
+          <AccordionTrigger>Specifications</AccordionTrigger>
+          <AccordionContent>
+            <ToolSpecifications specifications={specifications} />
+          </AccordionContent>
+        </AccordionItem>
+
+        <!-- Ratings & Reviews Section -->
+        <AccordionItem>
+          <AccordionTrigger>Ratings & Reviews</AccordionTrigger>
+          <AccordionContent>
+            <ReviewsSection
+              client:load
+              reviews={transformedReviews}
+              totalReviews={totalReviews}
+              averageRating={averageRating}
+              ratingDistribution={ratingDistribution}
+              averageQualityRating={averageQualityRating}
+              averageValueRating={averageValueRating}
+            />
+          </AccordionContent>
+        </AccordionItem>
+      </div>
+    </div>
+  </main>
+</Layout>
