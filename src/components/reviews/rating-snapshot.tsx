@@ -50,7 +50,7 @@ export function RatingSnapshot({
                 {rating} star{rating !== 1 ? "s" : ""}
               </span>
 
-              <div className="h-2 flex-1 overflow-hidden rounded-full bg-gray-200">
+              <div className="h-3 flex-1 overflow-hidden rounded-full bg-gray-200">
                 <div
                   className="h-full bg-yellow-500 transition-all duration-300"
                   style={{ width: `${percentage}%` }}
@@ -66,7 +66,7 @@ export function RatingSnapshot({
       </div>
 
       {/* Overall Rating */}
-      <div className="border-t border-gray-200 pt-4">
+      <div className="pt-4">
         <h4 className="mb-2 text-base font-medium text-gray-900">
           Overall Rating
         </h4>
@@ -87,7 +87,7 @@ export function RatingSnapshot({
       </div>
 
       {/* Review this Product */}
-      <div className="border-t border-gray-200 pt-4">
+      <div className="pt-4">
         <h4 className="mb-3 text-base font-medium text-gray-900">
           Review this Product
         </h4>
@@ -135,7 +135,7 @@ export function RatingSnapshot({
 
       {/* Average Customer Ratings */}
       {(qualityRating || valueRating) && (
-        <div className="border-t border-gray-200 pt-4">
+        <div className="pt-4">
           <h4 className="mb-3 text-base font-medium text-gray-900">
             Average Customer Ratings
           </h4>

@@ -91,20 +91,35 @@ export function Accordion2({
   averageValueRating: number;
 }) {
   return (
-    <div className="overflow-hidden rounded-md border border-gray-200 bg-white">
+    <div className="bg-white">
       <BaseAccordion type="single" collapsible className="w-full">
         <AccordionItem value="features" className="border-b border-gray-200">
-          <AccordionTrigger className="relative flex items-center pl-6 text-xl font-extrabold text-bunnings-primary-green hover:no-underline lg:text-2xl">
-            <div className="absolute left-0 top-0 h-8 w-2 bg-bunnings-primary-red lg:top-1"></div>
+          <AccordionTrigger
+            className="relative flex items-center pl-6 text-xl font-extrabold hover:no-underline lg:text-2xl"
+            style={{ color: "rgb(13, 82, 87)" }}
+          >
+            <div
+              className="absolute top-0 bottom-0 left-0 w-2"
+              style={{ backgroundColor: "rgb(218, 41, 28)" }}
+            ></div>
             Features
           </AccordionTrigger>
           <AccordionContent className="p-0">
             <ToolFeatures features={keyFeatures} description={description} />
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="ratings-reviews">
-          <AccordionTrigger className="relative flex items-center pl-6 text-xl font-extrabold text-bunnings-primary-green hover:no-underline lg:text-2xl">
-            <div className="absolute left-0 top-0 h-8 w-2 bg-bunnings-primary-red lg:top-1"></div>
+        <AccordionItem
+          value="ratings-reviews"
+          className="border-b border-gray-200"
+        >
+          <AccordionTrigger
+            className="relative flex items-center pl-6 text-xl font-extrabold hover:no-underline lg:text-2xl"
+            style={{ color: "rgb(13, 82, 87)" }}
+          >
+            <div
+              className="absolute top-0 bottom-0 left-0 w-2"
+              style={{ backgroundColor: "rgb(218, 41, 28)" }}
+            ></div>
             Ratings & Reviews
           </AccordionTrigger>
           <AccordionContent className="p-0">
