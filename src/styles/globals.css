@@ -1,6 +1,29 @@
 @import "tailwindcss";
 
 @theme {
+  --font-sans: "Inter", "system-ui", "sans-serif";
+  --font-serif: "Merriweather", "serif";
+  --font-bunnings: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  --font-bunnings-heading:
+    "Futura", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
+  --color-bunnings-primary-green: "rgb(0, 104, 56)";
+  --color-bunnings-primary-red: "rgb(218, 41, 28)";
+  --color-bunnings-primary-orange: "rgb(255, 171, 0)";
+
+  --color-bunnings-neutral-charcoal: "rgb(51, 51, 51)";
+  --color-bunnings-neutral-medium-gray: "rgb(191, 191, 191)";
+  --color-bunnings-neutral-light-gray: "rgb(245, 245, 245)";
+
+  --color-bunnings-rating-star-yellow: "rgb(255, 171, 0)";
+  --color-bunnings-rating-progress-bar: "rgb(255, 171, 0)";
+
+  --color-bunnings-xl: "20px";
+  --color-bunnings-2xl: "26px";
+  --color-bunnings-base: "16px";
+  --color-bunnings-sm: "14px";
+}
+@theme {
   --color-background: oklch(100% 0 0);
   --color-foreground: oklch(9% 0.02 285.88);
   --color-card: oklch(100% 0 0);

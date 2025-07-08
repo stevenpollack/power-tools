@@ -1,38 +1,24 @@
-import React from "react";
+import { type FC } from "react";
+import { StarRating } from "./StarRating";
 
 interface RatingsSummaryProps {
   averageRating: number;
   reviewCount: number;
 }
 
-export const RatingsSummary: React.FC<RatingsSummaryProps> = ({
+export const RatingsSummary: FC<RatingsSummaryProps> = ({
   averageRating,
   reviewCount,
 }) => {
-  // Render stars (filled to averageRating, rounded to nearest half)
-  const stars = Array.from({ length: 5 }, (_, i) => {
-    const filled = i + 1 <= Math.round(averageRating);
-    return (
-      <span
-        key={i}
-        className={
-          filled ? "text-bunnings-rating-star-yellow" : "text-gray-300"
-        }
-      >
-        ★
-      </span>
-    );
-  });
-
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-bunnings-neutral-charcoal text-2xl font-bold">
+    <div className="flex items-center gap-2">
+      <span className="text-bunnings-neutral-charcoal text-3xl font-bold">
         {averageRating.toFixed(1)}
       </span>
-      <div className="flex items-center text-lg">{stars}</div>
-      <span className="text-bunnings-neutral-charcoal text-sm">
-        ({reviewCount} reviews)
-      </span>
+      <div className="flex flex-col">
+        <StarRating rating={averageRating} />
+        <span className="text-xs text-gray-500">({reviewCount} reviews)</span>
+      </div>
     </div>
   );
 };

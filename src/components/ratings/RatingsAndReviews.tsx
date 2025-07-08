@@ -45,15 +45,7 @@ export const RatingsAndReviews: FC<RatingsAndReviewsProps> = ({ reviews }) => {
   };
 
   return (
-    <section className="relative mx-auto w-full max-w-xl p-4">
-      {/* TEMPORARY: Visual Overlay for Pixel-Perfect Verification */}
-      <img
-        src="/testing/image.png"
-        alt="Reference Overlay"
-        className="pointer-events-none absolute top-0 left-0 z-50 w-full opacity-50"
-        style={{ maxWidth: "100%", height: "auto" }}
-      />
-      {/* END TEMPORARY OVERLAY */}
+    <section className="mx-auto w-full max-w-xl p-4">
       <RatingsSnapshot counts={counts} />
       <div className="my-4">
         <RatingsSummary
@@ -64,9 +56,11 @@ export const RatingsAndReviews: FC<RatingsAndReviewsProps> = ({ reviews }) => {
       <div className="my-4">
         <AverageCustomerRatings quality={averageQuality} value={averageValue} />
       </div>
+      <hr className="my-6 border-gray-200" />
       <div className="my-4">
         <ReviewThisProduct />
       </div>
+      <hr className="my-6 border-gray-200" />
       <ReviewsList
         reviews={reviews.map(({ review }) => review.data)}
         onShare={handleShare}

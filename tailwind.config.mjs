@@ -2,45 +2,6 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        serif: ["Merriweather", "serif"],
-        // Bunnings-style fonts
-        bunnings: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
-        "bunnings-heading": [
-          "Futura",
-          "Helvetica Neue",
-          "Helvetica",
-          "Arial",
-          "sans-serif",
-        ],
-      },
-      colors: {
-        // Bunnings color system
-        bunnings: {
-          primary: {
-            green: "rgb(0, 104, 56)", // For rating bars and links
-            red: "rgb(218, 41, 28)", // Accent bars
-            orange: "rgb(255, 171, 0)", // Buttons, CTAs
-          },
-          neutral: {
-            charcoal: "rgb(51, 51, 51)", // Main body text
-            "medium-gray": "rgb(191, 191, 191)", // Borders
-            "light-gray": "rgb(245, 245, 245)", // Background
-          },
-          rating: {
-            "star-yellow": "rgb(255, 171, 0)", // Star ratings
-            "progress-bar": "rgb(255, 171, 0)", // Rating bars
-          },
-        },
-      },
-      fontSize: {
-        // Bunnings typography scale
-        "bunnings-xl": "20px", // Main headings
-        "bunnings-2xl": "26px", // Large headings (desktop)
-        "bunnings-base": "16px", // Body text
-        "bunnings-sm": "14px", // Secondary text
-      },
       screens: {
         // Optimized breakpoints for mobile-first
         xs: "375px", // iPhone SE

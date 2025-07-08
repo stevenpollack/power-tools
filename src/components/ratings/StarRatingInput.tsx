@@ -1,3 +1,4 @@
+import { Star } from "lucide-react";
 import { type FC, useState } from "react";
 
 export const StarRatingInput: FC = () => {
@@ -9,13 +10,13 @@ export const StarRatingInput: FC = () => {
           key={star}
           className={
             (hovered !== null && star <= hovered
-              ? "text-bunnings-rating-star-yellow"
-              : "text-gray-300") + " cursor-pointer text-2xl transition-colors"
+              ? "bunnings-rating-star-yellow"
+              : "text-gray-200") + " cursor-pointer text-2xl transition-colors"
           }
           onMouseEnter={() => setHovered(star)}
           onMouseLeave={() => setHovered(null)}
         >
-          ★
+          <Star />
         </span>
       ))}
     </div>
