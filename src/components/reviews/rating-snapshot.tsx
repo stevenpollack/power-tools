@@ -52,7 +52,7 @@ export function RatingSnapshot({
 
               <div className="h-3 flex-1 overflow-hidden rounded-full bg-gray-200">
                 <div
-                  className="h-full bg-yellow-500 transition-all duration-300"
+                  className="h-full bg-bunnings-rating-progress-bar transition-all duration-300"
                   style={{ width: `${percentage}%` }}
                 />
               </div>

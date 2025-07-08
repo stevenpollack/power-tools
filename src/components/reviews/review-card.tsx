@@ -60,19 +60,23 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
 
       {/* User info */}
       <div className="text-bunnings-sm text-bunnings-neutral-dark-gray flex flex-col gap-1">
-        <div className="flex items-center gap-2">
-          <span className="font-medium">{review.displayName}</span>
-          {review.verifiedPurchaser && (
-            <div className="bg-bunnings-primary-green flex items-center gap-1 rounded-full px-2 py-0.5 text-xs text-white">
-              <Check className="h-3 w-3" />
-              <span>VERIFIED PURCHASER</span>
-            </div>
-          )}
-        </div>
-        <div className="text-bunnings-neutral-dark-gray flex items-center gap-2">
+        <div className="flex flex-col gap-1">
+          <span className="text-bunnings-base">{review.displayName}</span>
+                  <div className="text-bunnings-neutral-dark-gray flex items-center gap-2">
           <span>{formatDate(review.dateCreated)}</span>
           <span>•</span>
           <span>{review.userCategory}</span>
+        </div>
+          {review.verifiedPurchaser && (
+            
+              <div className="flex items-center gap-1">
+                <Check className="bg-[#00A651] rounded-full h-5 w-5 p-0.5 text-white" />
+                <span className="text-bunnings-xs text-bunnings-neutral-medium-gray uppercase">
+                  Verified Purchaser
+                </span>
+              </div>
+            
+          )}
         </div>
       </div>
 
@@ -85,7 +89,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
       <div className="flex items-center gap-2">
         {review.recommendsProduct ? (
           <>
-            <Check className="text-bunnings-primary-green h-4 w-4" />
+            <Check className="text-white bg-black rounded-full h-4 w-4 p-0.5" />
             <span className="text-bunnings-sm text-bunnings-neutral-dark-gray">
               Yes, I recommend this product.
             </span>
@@ -101,7 +105,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
       </div>
 
       {/* Actions */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex items-center gap-3 sm:flex-row sm:items-center sm:justify-between">
         <VotingButtons
           helpfulCount={review.helpfulVotes}
           unhelpfulCount={review.unhelpfulVotes}
@@ -110,7 +114,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
         <button
           onClick={onShare}
           className={cn(
-            "text-bunnings-sm text-bunnings-primary-green flex items-center gap-1 self-start transition-colors",
+            "text-bunnings-sm flex items-center gap-1 self-start transition-colors",
             "focus:ring-bunnings-primary-orange rounded hover:underline focus:ring-2 focus:ring-offset-2 focus:outline-none",
           )}
         >

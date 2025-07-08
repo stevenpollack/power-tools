@@ -8,31 +8,32 @@
   --font-bunnings-heading:
     "Futura", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 
-  --color-bunnings-primary-green: "rgb(0, 104, 56)";
-  --color-bunnings-primary-red: "rgb(218, 41, 28)";
-  --color-bunnings-primary-orange: "rgb(255, 171, 0)";
+  --color-bunnings-primary-green: rgb(0, 104, 56);
+  --color-bunnings-primary-red: rgb(218, 41, 28);
+  --color-bunnings-primary-orange: rgb(255, 171, 0);
 
-  --color-bunnings-neutral-charcoal: "rgb(51, 51, 51)";
-  --color-bunnings-neutral-medium-gray: "rgb(191, 191, 191)";
-  --color-bunnings-neutral-light-gray: "rgb(245, 245, 245)";
+  --color-bunnings-neutral-charcoal: rgb(51, 51, 51);
+  --color-bunnings-neutral-medium-gray: rgb(191, 191, 191);
+  --color-bunnings-neutral-light-gray: rgb(245, 245, 245);
 
-  --color-bunnings-rating-star-yellow: "rgb(255, 171, 0)";
-  --color-bunnings-rating-progress-bar: "rgb(255, 171, 0)";
+  --color-bunnings-rating-star-yellow: rgb(255, 171, 0);
+  --color-bunnings-rating-progress-bar: rgb(255, 171, 0);
 
-  --text-bunnings-xl: "20px";
-  --text-bunnings-2xl: "26px";
-  --text-bunnings-base: "16px";
-  --text-bunnings-sm: "14px";
+  --text-bunnings-xl: 20px;
+  --text-bunnings-2xl: 26px;
+  --text-bunnings-base: 16px;
+  --text-bunnings-sm: 14px;
+  --text-bunnings-xs: 12px;
 
-  --breakpoint-xs: "375px";
-  --breakpoint-sm: "640px";
-  --breakpoint-md: "768px";
-  --breakpoint-lg: "1024px";
-  --breakpoint-xl: "1280px";
-  --breakpoint-2xl: "1536px";
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 
-  --animate-accordion-down: "accordion-down 0.2s ease-out";
-  --animate-accordion-up: "accordion-up 0.2s ease-out";
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
 }
 @theme {
   --color-background: oklch(100% 0 0);

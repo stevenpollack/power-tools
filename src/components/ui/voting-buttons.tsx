@@ -28,24 +28,24 @@ export function VotingButtons({
           onClick={onHelpfulClick}
           disabled={disabled}
           className={cn(
-            "border-bunnings-neutral-medium-gray text-bunnings-sm flex items-center gap-1 rounded-md border px-3 py-1 transition-colors",
+            "text-bunnings-sm flex items-center gap-1 rounded-md px-3 py-1 transition-colors",
             "hover:bg-bunnings-neutral-light-gray disabled:cursor-not-allowed disabled:opacity-50",
             "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
           )}
         >
-          <ThumbsUp className="h-3 w-3" />
+          <ThumbsUp className="stroke-bunnings-primary-green stroke-1 h-5 w-5" />
           <span>({helpfulCount})</span>
         </button>
         <button
           onClick={onUnhelpfulClick}
           disabled={disabled}
           className={cn(
-            "border-bunnings-neutral-medium-gray text-bunnings-sm flex items-center gap-1 rounded-md border px-3 py-1 transition-colors",
+            "text-bunnings-sm flex items-center gap-1 rounded-md px-3 py-1 transition-colors",
             "hover:bg-bunnings-neutral-light-gray disabled:cursor-not-allowed disabled:opacity-50",
             "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
           )}
         >
-          <ThumbsDown className="h-3 w-3" />
+          <ThumbsDown className="stroke-bunnings-primary-green stroke-1 h-5 w-5" />
           <span>({unhelpfulCount})</span>
         </button>
       </div>
