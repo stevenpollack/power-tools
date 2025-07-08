@@ -90,45 +90,58 @@ const { name, brand, specifications, pricing } = tool.data;
 ---
 
 <Layout title={`${name} - Reviews`}>
-  <main class="bunnings-tool-page">
+  <main class="min-h-screen bg-white">
     <!-- Tool Header Section -->
-    <div class="tool-header-section">
-      <div class="container">
-        <div class="tool-header">
-          <div class="tool-image">
+    <div class="border-border border-b bg-white py-4 sm:py-6">
+      <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-4 lg:grid-cols-2 lg:gap-8">
+          <div class="flex justify-center lg:justify-start">
             <Picture
               src={tool.data.thumbnailUrl}
               alt={name}
-              class="tool-image-img"
+              class="border-border h-64 w-64 rounded-lg border object-cover sm:h-80 sm:w-80 lg:h-96 lg:w-96"
               widths={[300, 600]}
               sizes="(max-width: 768px) 250px, 300px"
             />
           </div>
 
-          <div class="tool-info">
-            <h1 class="tool-title">{name}</h1>
-            <p class="tool-brand">{brand}</p>
+          <div
+            class="flex flex-col items-center text-center lg:items-start lg:text-left"
+          >
+            <h1
+              class="font-bunnings-heading mb-1 text-[24px] leading-tight font-bold text-[rgb(13,82,87)] lg:text-[30px]"
+            >
+              {name}
+            </h1>
+            <p class="mb-3 text-[16px] font-medium text-[rgb(102,102,102)]">
+              {brand}
+            </p>
 
-            <div class="tool-price">
-              <span class="current-price">${pricing.currentPrice}</span>
+            <div class="mb-3 flex flex-col items-center gap-1 lg:items-start">
+              <span
+                class="text-[1.25rem] font-bold text-[rgb(13,82,87)] lg:text-[1.5rem]"
+                >${pricing.currentPrice}</span
+              >
               {
                 pricing.onSale && pricing.msrp && (
-                  <span class="original-price">${pricing.msrp}</span>
+                  <span class="text-[16px] text-[rgb(51,51,51)] line-through">
+                    ${pricing.msrp}
+                  </span>
                 )
               }
             </div>
 
             {
               tool.data.bunningsUrl && (
-                <div class="tool-links">
+                <div class="mt-3">
                   <a
                     href={tool.data.bunningsUrl}
-                    class="bunnings-link"
+                    class="inline-flex items-center rounded-md bg-[rgb(255,171,0)] px-6 py-3 font-medium text-white no-underline transition-colors hover:bg-[rgba(255,171,0,0.9)]"
                     target="_blank"
                   >
-                    <span class="link-content">
+                    <span class="flex items-center gap-2">
                       View on Bunnings.com.au
-                      <ExternalLink className="external-icon" />
+                      <ExternalLink className="h-4 w-4" />
                     </span>
                   </a>
                 </div>
@@ -140,9 +153,9 @@ const { name, brand, specifications, pricing } = tool.data;
     </div>
 
     <!-- Bunnings-style Accordion Sections -->
-    <div class="bunnings-sections">
-      <div class="container">
-        <div class="accordion-container">
+    <div class="bg-white py-6">
+      <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="w-full max-w-full">
           <Accordion2
             client:idle
             keyFeatures={specifications.keyFeatures}
@@ -154,227 +167,8 @@ const { name, brand, specifications, pricing } = tool.data;
             averageQualityRating={3.6}
             averageValueRating={4.0}
           />
-          <!-- <Accordion type="single" collapsible>
-            <AccordionItem value="features">
-              <AccordionTrigger>Features</AccordionTrigger>
-              <AccordionContent>
-                <ToolFeatures
-                  features={specifications.keyFeatures}
-                  description="Key features and capabilities of this tool."
-                />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="specifications">
-              <AccordionTrigger>Specifications</AccordionTrigger>
-              <AccordionContent>
-                <ToolSpecifications specifications={specifications} />
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="ratings-reviews">
-              <AccordionTrigger>Ratings & Reviews</AccordionTrigger>
-              <AccordionContent>
-                <ReviewsSection
-                  client:load
-                  reviews={transformedReviews}
-                  totalReviews={totalReviews}
-                  averageRating={averageRating}
-                  ratingDistribution={ratingDistribution}
-                  averageQualityRating={averageQualityRating}
-                  averageValueRating={averageValueRating}
-                />
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion> -->
         </div>
       </div>
     </div>
   </main>
-
-  <style>
-    /* Base styles */
-    .bunnings-tool-page {
-      min-height: 100vh;
-      background-color: white;
-    }
-
-    .container {
-      max-width: 72rem;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    /* Tool Header Section */
-    .tool-header-section {
-      background-color: white;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .tool-header {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
-    }
-
-    .tool-image {
-      display: flex;
-      justify-content: center;
-    }
-
-    .tool-image-img {
-      height: 16rem;
-      width: 16rem;
-      border-radius: 0.5rem;
-      border: 1px solid #e5e7eb;
-      object-fit: cover;
-    }
-
-    .tool-info {
-      text-align: center;
-    }
-
-    .tool-title {
-      font-family: "Futura", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-      font-size: 24px;
-      font-weight: bold;
-      color: rgb(13, 82, 87);
-      margin-bottom: 0.25rem;
-      line-height: 1.2;
-    }
-
-    .tool-brand {
-      font-size: 16px;
-      font-weight: 500;
-      color: rgb(102, 102, 102);
-      margin-bottom: 0.75rem;
-    }
-
-    .tool-price {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .current-price {
-      font-size: 1.25rem;
-      font-weight: bold;
-      color: rgb(13, 82, 87);
-    }
-
-    .original-price {
-      font-size: 16px;
-      color: rgb(51, 51, 51);
-      text-decoration: line-through;
-    }
-
-    .tool-links {
-      margin-top: 0.75rem;
-    }
-
-    .bunnings-link {
-      display: inline-flex;
-      align-items: center;
-      border-radius: 0.375rem;
-      background-color: rgb(255, 171, 0);
-      padding: 0.75rem 1.5rem;
-      font-weight: 500;
-      color: white;
-      text-decoration: none;
-      transition: background-color 0.2s;
-    }
-
-    .bunnings-link:hover {
-      background-color: rgba(255, 171, 0, 0.9);
-    }
-
-    .link-content {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .external-icon {
-      height: 1rem;
-      width: 1rem;
-    }
-
-    /* Bunnings Sections */
-    .bunnings-sections {
-      background-color: white;
-      padding-top: 1.5rem;
-      padding-bottom: 1.5rem;
-    }
-
-    .accordion-container {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    /* Desktop styles */
-    @media (min-width: 640px) {
-      .container {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-      }
-
-      .tool-header-section {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-      }
-
-      .tool-image-img {
-        height: 20rem;
-        width: 20rem;
-      }
-
-      .current-price {
-        font-size: 1.875rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .container {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-
-      .tool-header {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-      }
-
-      .tool-image {
-        justify-content: flex-start;
-      }
-
-      .tool-image-img {
-        height: 24rem;
-        width: 24rem;
-      }
-
-      .tool-info {
-        text-align: left;
-      }
-
-      .tool-title {
-        font-size: 1.875rem;
-      }
-
-      .tool-price {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-
-      .current-price {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
 </Layout>
