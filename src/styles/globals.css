@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource/lemon";
 @plugin "daisyui";
 
 @theme {
@@ -7,8 +8,11 @@
   --font-bunnings: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   --font-bunnings-heading:
     "Futura", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  --font-bunnings-price:
+    "Lemon", "Futura", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
 
   --color-bunnings-primary-green: rgb(0, 104, 56);
+  --color-bunnings-secondary-green: rgb(13, 82, 87);
   --color-bunnings-primary-red: rgb(218, 41, 28);
   --color-bunnings-primary-orange: rgb(255, 171, 0);
 

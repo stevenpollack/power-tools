@@ -1,6 +1,7 @@
 import { StarRating } from "@/components/ui/star-rating";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
+import { ProgressBar } from "@/components/ui/progress-bar";
 
 interface RatingSnapshotProps {
   averageRating: number;
@@ -22,51 +23,47 @@ export function RatingSnapshot({
   const [hoveredStar, setHoveredStar] = useState<number | null>(null);
 
   return (
-    <div className={cn("space-y-6", className)}>
+    <div className={cn("grid grid-cols-1 space-y-1 lg:grid-cols-3", className)}>
       {/* Rating Snapshot Header */}
-      <div>
+      <div className="col-span-1">
         <h3 className="mb-3 text-lg font-medium text-gray-900">
           Rating Snapshot
         </h3>
-        <p className="text-sm text-gray-600">
-          Select a row below to filter reviews.
-        </p>
-      </div>
 
-      {/* Rating Distribution */}
-      <div className="space-y-2">
-        {[5, 4, 3, 2, 1].map((rating) => {
-          const count =
-            ratingDistribution[rating as keyof typeof ratingDistribution] || 0;
-          const percentage =
-            totalReviews > 0 ? (count / totalReviews) * 100 : 0;
+        {/* Rating Distribution */}
+        <div className="space-y-0 pr-4 pl-2">
+          <p className="pt-1 pb-3.5 text-sm text-gray-600">
+            Select a row below to filter reviews.
+          </p>
+          {[5, 4, 3, 2, 1].map((rating) => {
+            const count =
+              ratingDistribution[rating as keyof typeof ratingDistribution] ||
+              0;
+            const percentage =
+              totalReviews > 0 ? (count / totalReviews) * 100 : 0;
 
-          return (
-            <button
-              key={rating}
-              className="group flex w-full items-center gap-3 rounded p-2 transition-colors hover:bg-gray-50"
-            >
-              <span className="w-12 text-sm text-gray-700">
-                {rating} star{rating !== 1 ? "s" : ""}
-              </span>
+            return (
+              <button
+                key={rating}
+                className="flex w-full items-center gap-2 rounded py-1 transition-colors hover:bg-gray-50"
+              >
+                <span className="w-16 text-left text-sm text-gray-700">
+                  {`${rating} star${rating !== 1 ? "s" : ""}`}
+                </span>
 
-              <div className="h-3 flex-1 overflow-hidden rounded-full bg-gray-200">
-                <div
-                  className="h-full bg-bunnings-rating-progress-bar transition-all duration-300"
-                  style={{ width: `${percentage}%` }}
-                />
-              </div>
+                <ProgressBar width={percentage} variant="rounded" />
 
-              <span className="w-8 text-right text-sm text-gray-700">
-                {count}
-              </span>
-            </button>
-          );
-        })}
+                <span className="min-w-5 text-left text-sm text-gray-700">
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Overall Rating */}
-      <div className="pt-4">
+      <div className="col-span-1 pt-2 lg:justify-self-center">
         <h4 className="mb-2 text-base font-medium text-gray-900">
           Overall Rating
         </h4>
@@ -87,12 +84,12 @@ export function RatingSnapshot({
       </div>
 
       {/* Review this Product */}
-      <div className="pt-4">
+      <div className="col-span-1 pt-2 pb-4 lg:justify-self-center">
         <h4 className="mb-3 text-base font-medium text-gray-900">
           Review this Product
         </h4>
         <div
-          className="mb-3 flex gap-2"
+          className="mb-3 ml-1 flex justify-start gap-2 pl-1.5"
           onMouseLeave={() => setHoveredStar(null)}
         >
           {[1, 2, 3, 4, 5].map((star) => {
@@ -101,7 +98,7 @@ export function RatingSnapshot({
               <button
                 key={star}
                 className={cn(
-                  "flex h-12 w-12 items-center justify-center rounded border border-yellow-500 p-3 transition-colors",
+                  "flex h-14 w-14 items-center justify-center rounded border border-yellow-500 p-3 transition-colors",
                   isHighlighted
                     ? "bg-yellow-500"
                     : "bg-white hover:bg-yellow-500",
@@ -128,83 +125,52 @@ export function RatingSnapshot({
             );
           })}
         </div>
-        <p className="text-sm text-gray-600">
+        <p className="text-bunnings-base ml-1 pl-1.5 text-gray-600">
           Adding a review will require a valid email for verification
         </p>
       </div>
 
       {/* Average Customer Ratings */}
       {(qualityRating || valueRating) && (
-        <div className="pt-4">
-          <h4 className="mb-3 text-base font-medium text-gray-900">
+        <div className="border-t border-gray-400 pt-4 col-span-1 lg:col-span-3 lg:w-full lg:justify-self-center">
+          <h4 className="mb-3 text-base font-medium text-gray-900 lg:text-center">
             Average Customer Ratings
           </h4>
           <div className="space-y-3">
-            {qualityRating && (
-              <div>
-                <div className="mb-1 flex items-center justify-between">
-                  <span className="text-sm text-gray-700">
-                    Quality of Product
-                  </span>
-                  <span className="text-sm font-medium text-gray-900">
-                    {qualityRating.toFixed(1)}
-                  </span>
-                </div>
-                <div className="relative flex h-3 bg-gray-200">
-                  {/* Yellow fill based on actual rating */}
-                  <div
-                    className="bg-yellow-500"
-                    style={{ width: `${(qualityRating / 5) * 100}%` }}
-                  />
-                  {/* White separators overlay */}
-                  <div className="absolute inset-0 flex">
-                    {[1, 2, 3, 4].map((separator) => (
-                      <div
-                        key={separator}
-                        className="flex-1"
-                        style={{
-                          borderRight: "1px solid white",
-                        }}
-                      />
-                    ))}
-                    <div className="flex-1" />
+            <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-10">
+              {qualityRating && (
+                <div className="lg:min-w-2xs">
+                  <div className="mb-1 flex items-center justify-between">
+                    <span className="text-sm text-gray-700">
+                      Quality of Product
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {qualityRating.toFixed(1)}
+                    </span>
                   </div>
-                </div>
-              </div>
-            )}
-
-            {valueRating && (
-              <div>
-                <div className="mb-1 flex items-center justify-between">
-                  <span className="text-sm text-gray-700">
-                    Value of Product
-                  </span>
-                  <span className="text-sm font-medium text-gray-900">
-                    {valueRating.toFixed(1)}
-                  </span>
-                </div>
-                <div className="relative flex h-3 bg-gray-200">
-                  {/* Yellow fill based on actual rating */}
-                  <div
-                    className="bg-yellow-500"
-                    style={{ width: `${(valueRating / 5) * 100}%` }}
+                  <ProgressBar
+                    width={(qualityRating / 5) * 100}
+                    variant="notched"
                   />
-                  {/* White separators overlay */}
-                  <div className="absolute inset-0 flex">
-                    {[1, 2, 3, 4].map((separator) => (
-                      <div
-                        key={separator}
-                        className="flex-1"
-                        style={{
-                          borderRight: "1px solid white",
-                        }}
-                      />
-                    ))}
-                    <div className="flex-1" />
-                  </div>
                 </div>
-              </div>
-            )}
+              )}
+              {valueRating && (
+                <div className="lg:min-w-2xs">
+                  <div className="mb-1 flex items-center justify-between">
+                    <span className="text-sm text-gray-700">
+                      Value of Product
+                    </span>
+                    <span className="text-sm font-medium text-gray-900">
+                      {valueRating.toFixed(1)}
+                    </span>
+                  </div>
+                  <ProgressBar
+                    width={(valueRating / 5) * 100}
+                    variant="notched"
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}

@@ -50,20 +50,18 @@ export function ReviewsSection({
   return (
     <div className={cn("space-y-6", className)}>
       {/* Mobile-first layout: Stack vertically on mobile, side-by-side on larger screens */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
+      <div className="grid grid-cols-1 gap-6 lg:gap-8">
         {/* Rating snapshot - full width on mobile, 1/3 on desktop */}
-        <div className="lg:col-span-1">
-          <RatingSnapshot
-            averageRating={averageRating}
-            totalReviews={totalReviews}
-            ratingDistribution={ratingDistribution}
-            qualityRating={averageQualityRating}
-            valueRating={averageValueRating}
-          />
-        </div>
+        <RatingSnapshot
+          averageRating={averageRating}
+          totalReviews={totalReviews}
+          ratingDistribution={ratingDistribution}
+          qualityRating={averageQualityRating}
+          valueRating={averageValueRating}
+        />
 
         {/* Reviews content - full width on mobile, 2/3 on desktop */}
-        <div className="space-y-6 lg:col-span-2">
+        <div className="space-y-6">
           {/* Filters */}
           <ReviewFilters
             totalReviews={totalReviews}
@@ -78,7 +76,7 @@ export function ReviewsSection({
                 key={index}
                 review={review}
                 onShare={() => handleShare(review)}
-                className="pt-6 first:pt-0"
+                className="mt-6"
               />
             ))}
           </div>
@@ -86,7 +84,7 @@ export function ReviewsSection({
           {/* Load more / View more button */}
           {totalReviews > reviewsPerPage && (
             <div className="pt-6">
-              <button className="bg-bunnings-primary-green hover:bg-bunnings-primary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none">
+              <button className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none">
                 View More
               </button>
             </div>

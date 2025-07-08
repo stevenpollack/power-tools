@@ -44,7 +44,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
     <div
       className={cn(
         "border-bunnings-neutral-medium-gray space-y-3 border-b pb-6 last:border-b-0",
-        "mobile-first: p-4",
+        "mobile-first:p-4",
         "sm:p-0 sm:pb-6",
         className,
       )}
@@ -62,20 +62,18 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
       <div className="text-bunnings-sm text-bunnings-neutral-dark-gray flex flex-col gap-1">
         <div className="flex flex-col gap-1">
           <span className="text-bunnings-base">{review.displayName}</span>
-                  <div className="text-bunnings-neutral-dark-gray flex items-center gap-2">
-          <span>{formatDate(review.dateCreated)}</span>
-          <span>•</span>
-          <span>{review.userCategory}</span>
-        </div>
+          <div className="text-bunnings-neutral-dark-gray flex items-center gap-2">
+            <span>{formatDate(review.dateCreated)}</span>
+            <span>•</span>
+            <span>{review.userCategory}</span>
+          </div>
           {review.verifiedPurchaser && (
-            
-              <div className="flex items-center gap-1">
-                <Check className="bg-[#00A651] rounded-full h-5 w-5 p-0.5 text-white" />
-                <span className="text-bunnings-xs text-bunnings-neutral-medium-gray uppercase">
-                  Verified Purchaser
-                </span>
-              </div>
-            
+            <div className="flex items-center gap-1">
+              <Check className="h-5 w-5 rounded-full bg-[#00A651] p-0.5 text-white" />
+              <span className="text-bunnings-xs text-bunnings-neutral-medium-gray uppercase">
+                Verified Purchaser
+              </span>
+            </div>
           )}
         </div>
       </div>
@@ -89,7 +87,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
       <div className="flex items-center gap-2">
         {review.recommendsProduct ? (
           <>
-            <Check className="text-white bg-black rounded-full h-4 w-4 p-0.5" />
+            <Check className="h-4 w-4 rounded-full bg-black p-0.5 text-white" />
             <span className="text-bunnings-sm text-bunnings-neutral-dark-gray">
               Yes, I recommend this product.
             </span>

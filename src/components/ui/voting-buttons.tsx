@@ -33,7 +33,7 @@ export function VotingButtons({
             "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
           )}
         >
-          <ThumbsUp className="stroke-bunnings-primary-green stroke-1 h-5 w-5" />
+          <ThumbsUp className="stroke-bunnings-primary-green h-5 w-5 stroke-1" />
           <span>({helpfulCount})</span>
         </button>
         <button
@@ -45,7 +45,7 @@ export function VotingButtons({
             "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
           )}
         >
-          <ThumbsDown className="stroke-bunnings-primary-green stroke-1 h-5 w-5" />
+          <ThumbsDown className="stroke-bunnings-primary-green h-5 w-5 stroke-1" />
           <span>({unhelpfulCount})</span>
         </button>
       </div>
