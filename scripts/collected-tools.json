@@ -1,0 +1,105 @@
+{
+  "scraping_summary": {
+    "date": "2025-07-04",
+    "categories_analyzed": 6,
+    "subcategories_analyzed": 12,
+    "tools_collected": 20,
+    "unique_brands": 8
+  },
+  "scraped_tools": [
+    {
+      "brand": "Ozito",
+      "name": "Ozito 125mm 5\" Angle Grinder Kit",
+      "slug": "ozito-125mm-5-angle-grinder-kit",
+      "price": "$49.90",
+      "sku": "p0048825",
+      "imageUrl": "https://media.bunnings.com.au/api/public/content/d1b1051e84e141a6aca719df30b91515?v=1cb42874",
+      "category": "grinders",
+      "subcategory": "corded-angle-grinders",
+      "url": "https://www.bunnings.com.au/ozito-125mm-5-angle-grinder-kit_p0048825",
+      "specifications": {
+        "disc_size": "125mm",
+        "power": "850W",
+        "type": "corded"
+      }
+    },
+    {
+      "brand": "Bosch",
+      "name": "Bosch Professional 720W 125mm Corded Angle Grinder",
+      "slug": "bosch-professional-720w-125mm-corded-angle-grinder",
+      "price": "$125",
+      "sku": "p6200198",
+      "imageUrl": "https://media.bunnings.com.au/api/public/content/08be4ddd6dbc4108b726420d2ad9913e?v=f3d6eb14",
+      "category": "grinders",
+      "subcategory": "corded-angle-grinders",
+      "url": "https://www.bunnings.com.au/bosch-professional-720w-125mm-corded-angle-grinder-0601388042_p6200198",
+      "specifications": {
+        "disc_size": "125mm",
+        "power": "720W",
+        "type": "corded"
+      }
+    },
+    {
+      "brand": "Ryobi",
+      "name": "Ryobi 800W 125mm Angle Grinder",
+      "slug": "ryobi-800w-125mm-angle-grinder",
+      "price": "$75",
+      "sku": "p0096776",
+      "imageUrl": "https://media.bunnings.com.au/api/public/content/08be4ddd6dbc4108b726420d2ad9913e?v=f3d6eb14",
+      "category": "grinders",
+      "subcategory": "corded-angle-grinders",
+      "url": "https://www.bunnings.com.au/ryobi-800w-125mm-angle-grinder_p0096776",
+      "specifications": {
+        "disc_size": "125mm",
+        "power": "800W",
+        "type": "corded"
+      }
+    },
+    {
+      "brand": "AEG",
+      "name": "AEG 1100W 125mm Angle Grinder",
+      "slug": "aeg-1100w-125mm-angle-grinder",
+      "price": "$99",
+      "sku": "p0227989",
+      "imageUrl": "https://media.bunnings.com.au/api/public/content/08be4ddd6dbc4108b726420d2ad9913e?v=f3d6eb14",
+      "category": "grinders",
+      "subcategory": "corded-angle-grinders",
+      "url": "https://www.bunnings.com.au/aeg-1100w-125mm-angle-grinder_p0227989",
+      "specifications": {
+        "disc_size": "125mm",
+        "power": "1100W",
+        "type": "corded"
+      }
+    }
+  ],
+  "identified_products": {
+    "cordless_angle_grinders": [
+      {
+        "brand": "Ryobi",
+        "name": "Ryobi 18V ONE+ 115mm Angle Grinder - Tool Only",
+        "url": "https://www.bunnings.com.au/ryobi-18v-one-115mm-angle-grinder-tool-only_p0509295"
+      },
+      {
+        "brand": "Ozito",
+        "name": "Ozito PXC 18V 115mm Cordless Angle Grinder PXAGS-115 - Skin Only",
+        "url": "https://www.bunnings.com.au/ozito-pxc-18v-115mm-cordless-angle-grinder-pxags-115-skin-only_p0412273"
+      },
+      {
+        "brand": "Makita",
+        "name": "Makita 18V Brushless 125mm Slide Switch Angle Grinder DGA504Z - Skin Only",
+        "url": "https://www.bunnings.com.au/makita-18v-brushless-125mm-slide-switch-angle-grinder-dga504z-skin-only_p6240307"
+      },
+      {
+        "brand": "AEG",
+        "name": "AEG 18V 125mm Angle Grinder - Skin Only",
+        "url": "https://www.bunnings.com.au/aeg-18v-125mm-angle-grinder-skin-only_p0509294"
+      }
+    ],
+    "drill_drivers": [
+      "16 products identified",
+      "Multiple brands including Ozito, Ryobi, DeWalt, Makita"
+    ],
+    "impact_drill_drivers": ["Available in drills category"],
+    "rotary_hammer_drills": ["Available in drills category"]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "scraping_plan": {
+    "date": "2025-07-04",
+    "target_categories": {
+      "grinders": {
+        "subcategories": ["corded-angle-grinders", "cordless-angle-grinders"],
+        "tools_per_sub": 4,
+        "status": "in_progress"
+      },
+      "drills": {
+        "subcategories": [
+          "drill-drivers",
+          "impact-drill-drivers",
+          "rotary-hammer-drills"
+        ],
+        "tools_per_sub": 3,
+        "status": "pending"
+      },
+      "power_saws": {
+        "subcategories": ["circular-saws", "jigsaw-tools"],
+        "tools_per_sub": 3,
+        "status": "pending"
+      },
+      "pressure_washers": {
+        "subcategories": [
+          "electric-pressure-washers",
+          "petrol-pressure-washers"
+        ],
+        "tools_per_sub": 3,
+        "status": "pending"
+      },
+      "sanders": {
+        "subcategories": ["cordless-sanders", "belt-sanders"],
+        "tools_per_sub": 3,
+        "status": "pending"
+      },
+      "air_compressors": {
+        "subcategories": ["direct-drive-compressor", "belt-drive-compressor"],
+        "tools_per_sub": 3,
+        "status": "pending"
+      }
+    },
+    "collection_progress": {
+      "completed_tools": [
+        {
+          "category": "grinders",
+          "subcategory": "corded-angle-grinders",
+          "brand": "Ozito",
+          "name": "Ozito 125mm 5\" Angle Grinder Kit",
+          "sku": "p0048825",
+          "price": "$49.90",
+          "status": "extracted"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,232 @@
+{
+  "authors": [
+    {
+      "slug": "ayn-rand",
+      "name": "Ayn Rand"
+    },
+    {
+      "slug": "charles-dickens",
+      "name": "Charles Dickens"
+    },
+    {
+      "slug": "edgar-allan-poe",
+      "name": "Edgar Allan Poe"
+    },
+    {
+      "slug": "ernest-hemingway",
+      "name": "Ernest Hemingway"
+    },
+    {
+      "slug": "franz-kafka",
+      "name": "Franz Kafka"
+    },
+    {
+      "slug": "george-orwell",
+      "name": "George Orwell"
+    },
+    {
+      "slug": "hp-lovecraft",
+      "name": "H.P. Lovecraft"
+    },
+    {
+      "slug": "jack-kerouac",
+      "name": "Jack Kerouac"
+    },
+    {
+      "slug": "jane-austen",
+      "name": "Jane Austen"
+    },
+    {
+      "slug": "mark-twain",
+      "name": "Mark Twain"
+    },
+    {
+      "slug": "oscar-wilde",
+      "name": "Oscar Wilde"
+    },
+    {
+      "slug": "virginia-woolf",
+      "name": "Virginia Woolf"
+    }
+  ],
+  "tools": [
+    {
+      "slug": "bosch-professional-720w-125mm-corded-angle-grinder",
+      "name": "Bosch Professional 720W 125mm Corded Angle Grinder",
+      "brand": "Bosch"
+    },
+    {
+      "slug": "dewalt-18v-165mm-xr-brushless-circular-saw",
+      "name": "DeWALT 18V 165mm XR Brushless Circular Saw",
+      "brand": "DeWALT"
+    },
+    {
+      "slug": "dewalt-18v-xr-brushless-impact-driver",
+      "name": "DeWALT 18V XR Brushless 3-Speed Impact Driver",
+      "brand": "DeWALT"
+    },
+    {
+      "slug": "gerni-3600-1810psi-pressure-washer",
+      "name": "Gerni 3600 1810PSI 1500W High Pressure Washer",
+      "brand": "Gerni"
+    },
+    {
+      "slug": "karcher-k-silent-anniversary-pressure-washer",
+      "name": "Karcher K Silent Anniversary Edition Pressure Washer",
+      "brand": "Karcher"
+    },
+    {
+      "slug": "makita-185mm-1200w-circular-saw",
+      "name": "Makita 185mm 1200W Circular Saw HS7000SP",
+      "brand": "Makita"
+    },
+    {
+      "slug": "makita-18v-brushless-compact-driver-drill",
+      "name": "Makita 18V Brushless Heavy Duty Compact Driver Drill",
+      "brand": "Makita"
+    },
+    {
+      "slug": "makita-18v-brushless-sds-rotary-hammer",
+      "name": "Makita 18V 24mm Brushless SDS Plus Rotary Hammer",
+      "brand": "Makita"
+    },
+    {
+      "slug": "makita-18v-random-orbital-sander",
+      "name": "Makita 18V Random Orbital Sander DBO180Z",
+      "brand": "Makita"
+    },
+    {
+      "slug": "milwaukee-m18-circular-saw",
+      "name": "Milwaukee M18 FUEL 7-1/4 in. Circular Saw",
+      "brand": "Milwaukee"
+    },
+    {
+      "slug": "milwaukee-m18-fuel-grinder",
+      "name": "Milwaukee M18 FUEL 4-1/2 in. / 5 in. Angle Grinder",
+      "brand": "Milwaukee"
+    },
+    {
+      "slug": "milwaukee-m18-fuel-hammer-drill",
+      "name": "Milwaukee M18 FUEL 18V Lithium-Ion Brushless Cordless Hammer Drill",
+      "brand": "Milwaukee"
+    },
+    {
+      "slug": "milwaukee-m18-rotary-hammer",
+      "name": "Milwaukee M18 FUEL 1-9/16 in. SDS Max Rotary Hammer",
+      "brand": "Milwaukee"
+    },
+    {
+      "slug": "ozito-125mm-5-angle-grinder-kit",
+      "name": "Ozito 125mm 5\" Angle Grinder Kit",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "ozito-1800w-pressure-washer",
+      "name": "Ozito 1800W 2030PSI High Pressure Washer",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "ozito-185mm-1300w-corded-circular-saw",
+      "name": "Ozito 185mm 1300W Corded Circular Saw",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "ozito-3-6v-cordless-rotary-tool",
+      "name": "Ozito 3.6V Lithium Ion Cordless Rotary Tool With 118 Piece Accessory Kit",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "ozito-pxc-18v-13mm-cordless-drill-driver",
+      "name": "Ozito PXC 18V 13mm Cordless Drill Driver",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "ozito-pxc-18v-cordless-detail-sander",
+      "name": "Ozito PXC 18V Cordless Detail Sander",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "ozito-pxc-18v-impact-driver",
+      "name": "Ozito PXC 18V Impact Driver",
+      "brand": "Ozito"
+    },
+    {
+      "slug": "paslode-cordless-framing-nailer",
+      "name": "Paslode Cordless XP Framing Nailer",
+      "brand": "Paslode"
+    },
+    {
+      "slug": "ryobi-1500w-184mm-corded-circular-saw",
+      "name": "Ryobi 1500W 184mm Corded Circular Saw",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-5ah-battery-twin-pack",
+      "name": "Ryobi 18V ONE+ 5.0Ah Lithium High Performance Battery - Twin Pack",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-cordless-compressor",
+      "name": "Ryobi 18V One+ 3.8L Air Compressor - Skin Only",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-4-piece-kit",
+      "name": "Ryobi 18V ONE+ 4 Piece Kit R18X4C1422B",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-angle-grinder",
+      "name": "Ryobi 18V ONE+ 125mm Angle Grinder - Tool Only",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-brad-nailer",
+      "name": "Ryobi 18V ONE+ 18GA Brad Nailer - Tool Only",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-circular-saw",
+      "name": "Ryobi 18V ONE+ 165mm Circular Saw - Skin Only",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-drill-driver-rdd18",
+      "name": "Ryobi 18V ONE+ Drill Driver RDD18",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-orbital-sander",
+      "name": "Ryobi 18V ONE+ Random Orbital Sander RROS18 - Tool Only",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-18v-one-palm-sander",
+      "name": "Ryobi 18V ONE+ Palm Sander RPS18",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-airwave-50l-air-compressor",
+      "name": "Ryobi Airwave 50L 2.0HP Air Compressor RA-C2550-G",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-electric-pressure-washer",
+      "name": "Ryobi 1,900 PSI 1.2 GPM Electric Pressure Washer",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-one-plus-18v-drill",
+      "name": "Ryobi ONE+ 18V Cordless Drill/Driver Kit",
+      "brand": "Ryobi"
+    },
+    {
+      "slug": "ryobi-one-plus-circular-saw",
+      "name": "Ryobi ONE+ 18V 6-1/2 in. Circular Saw",
+      "brand": "Ryobi"
+    }
+  ],
+  "generated": 398,
+  "existing": 23,
+  "total": 420
+}
