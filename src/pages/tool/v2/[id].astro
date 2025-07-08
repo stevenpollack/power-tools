@@ -4,9 +4,7 @@ import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import type { ReviewWithData, Tool } from "@/lib/types";
 import { ExternalLink } from "lucide-react";
-
-// Import new Bunnings components
-import { Accordion2 } from "@/components/Accordion";
+import { ReviewsSection } from "@/components/reviews/reviews-section";
 
 export async function getStaticPaths() {
   const tools = await getCollection("tools");
@@ -156,17 +154,74 @@ const { name, brand, specifications, pricing } = tool.data;
     <div class="bg-white py-6">
       <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-full">
-          <Accordion2
-            client:idle
-            keyFeatures={specifications.keyFeatures}
-            description="Key features and capabilities of this tool."
-            reviews={transformedReviews}
-            totalReviews={39}
-            averageRating={3.9}
-            ratingDistribution={ratingDistribution}
-            averageQualityRating={3.6}
-            averageValueRating={4.0}
-          />
+          <div class="join join-vertical bg-white">
+            <!-- Features Accordion -->
+            <div
+              class="collapse-arrow join-item border-bunnings-neutral-charcoal collapse rounded-none border-b-1"
+            >
+              <input type="radio" name="tool-accordion" checked />
+              <div
+                class="collapse-title text-bunnings-primary-green relative pl-6 text-xl font-extrabold before:absolute before:top-2 before:bottom-2 before:left-0 before:w-1 before:bg-[rgb(218,41,28)] lg:text-2xl"
+                style="color:rgb(13,82,87)"
+              >
+                Features
+              </div>
+              <div class="collapse-content p-0">
+                <!-- Features content -->
+                <div class="bg-white p-4">
+                  <p class="mb-4 text-sm leading-relaxed text-gray-600">
+                    Key features and capabilities of this tool.
+                  </p>
+                  <ul class="m-0 flex list-none flex-col gap-3 p-0">
+                    {
+                      specifications.keyFeatures.map((feature, index) => (
+                        <li class="flex items-start gap-3">
+                          <svg
+                            class="text-bunnings-primary-green mt-0.5 h-4 w-4 flex-shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                          <span class="text-sm leading-relaxed text-gray-700">
+                            {feature}
+                          </span>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Ratings & Reviews Accordion -->
+            <div class="collapse-arrow join-item collapse rounded-none">
+              <input type="radio" name="tool-accordion" />
+              <div
+                class="collapse-title relative pl-6 text-xl font-extrabold before:absolute before:top-2 before:bottom-2 before:left-0 before:w-1 before:bg-[rgb(218,41,28)] lg:text-2xl"
+                style="color:rgb(13,82,87)"
+              >
+                Ratings & Reviews
+              </div>
+              <div class="collapse-content p-0">
+                <!-- Ratings & Reviews content -->
+                <!-- TODO: Ratings & Reviews section refactor for visual parity -->
+                <ReviewsSection
+                  reviews={transformedReviews}
+                  totalReviews={39}
+                  averageRating={3.9}
+                  ratingDistribution={ratingDistribution}
+                  averageQualityRating={3.6}
+                  averageValueRating={4.0}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
