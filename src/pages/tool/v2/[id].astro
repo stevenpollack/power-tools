@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 const { tool }: { tool: Tool } = Astro.props;
 
 // Get reviews for this tool
-const reviews = (await getCollection("reviews")).filter(
+const reviews = (await getCollection("reviewsV2")).filter(
   (review) => review.data.tool.id === tool.id,
 );
 
@@ -67,23 +67,9 @@ const averageValueRating =
     : 0;
 
 // Transform reviews for the component (pass all reviews, component will handle pagination)
-const transformedReviews = reviewsWithData.map((r) => ({
-  rating: r.review.data.rating || 3,
-  recommendsProduct: r.review.data.recommendsProduct || true,
-  helpfulVotes: r.review.data.helpfulVotes || 0,
-  unhelpfulVotes: r.review.data.unhelpfulVotes || 0,
-  verifiedPurchaser: r.review.data.verifiedPurchaser || true,
-  displayName:
-    r.review.data.displayName ||
-    r.author.data.displayName ||
-    r.author.data.name,
-  useCase: r.review.data.useCase || "General use",
-  userCategory: r.review.data.userCategory || "DIY Enthusiast",
-  content: r.review.data.excerpt || "Great tool!",
-  dateCreated: r.review.data.dateCreated,
-  qualityRating: r.review.data.qualityRating || 4,
-  valueRating: r.review.data.valueRating || 4,
-}));
+const transformedReviews = reviewsWithData.map((r) => {
+  return { ...r.review.data, ...r.author.data, content: r.review.body };
+});
 
 const { name, brand, specifications, pricing } = tool.data;
 ---

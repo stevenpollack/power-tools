@@ -92,15 +92,44 @@ const tools = defineCollection({
 });
 
 const reviews = defineCollection({
-  loader: glob({ pattern: "*.md", base: "reviews" }),
+  loader: glob({ pattern: "*.md", base: "reviews/v1" }),
   schema: z.object({
     slug: z.string().min(1, "Slug is required"),
     author: reference("authors"),
     tool: reference("tools"),
     excerpt: z.string(),
     llm: z.string(),
-    mood: z.enum(["humorous", "dramatic", "technical", "philosophical"]),
+    mood: z.enum(["humorous", "dramatic", "technical", "philosophical", "appreciative"]),
     tone: z.enum(["formal", "casual", "satirical", "earnest"]),
+    readingTime: z.number(),
+    shareCount: z.number().default(0),
+    dateCreated: z.string(),
+    lastUpdated: z.string(),
+
+    // Bunnings-style review fields (optional for backward compatibility)
+    rating: z.number().min(1).max(5).optional(),
+    recommendsProduct: z.boolean().optional(),
+    helpfulVotes: z.number().default(0),
+    unhelpfulVotes: z.number().default(0),
+    verifiedPurchaser: z.boolean().default(true),
+    displayName: z.string().optional(),
+    useCase: z.string().optional(),
+    qualityRating: z.number().min(1).max(5).optional(),
+    valueRating: z.number().min(1).max(5).optional(),
+    userCategory: z.string().optional(),
+  }),
+});
+
+const reviewsV2 = defineCollection({
+  loader: glob({ pattern: "*.md", base: "reviews/v2" }),
+  schema: z.object({
+    slug: z.string().min(1, "Slug is required"),
+    author: reference("authors"),
+    tool: reference("tools"),
+    excerpt: z.string(),
+    llm: z.string(),
+    mood: z.string(),
+    tone: z.string(),
     readingTime: z.number(),
     shareCount: z.number().default(0),
     dateCreated: z.string(),
@@ -131,4 +160,4 @@ const cartoons = defineCollection({
     }),
 });
 
-export const collections = { authors, tools, reviews, cartoons };
+export const collections = { authors, tools, reviews, reviewsV2, cartoons };
