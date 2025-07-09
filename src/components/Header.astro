@@ -1,0 +1,29 @@
+---
+import { Info, Drill, Sticker, UsersRound } from "lucide-react";
+import FunningsLogo from "@/images/logos/funnings.svg";
+import { Picture } from "astro:assets";
+
+const standardBtnSize = "h-8 w-8 m-2";
+---
+
+<header class="bg-bunnings-secondary-green font-bunnings-heading text-white">
+  <div class="grid grid-cols-2 items-center">
+    <div class="col-span-1">
+      <Picture
+        src={FunningsLogo}
+        alt="🖋️✖️🛠️"
+        width={100}
+        height={100}
+        class="m-4"
+      />
+    </div>
+    <div class="col-span-1">
+      <div class="flex items-center justify-end pe-4">
+        <a href="/tools"><Drill className={standardBtnSize} /></a>
+        <a href="/authors"><UsersRound className={standardBtnSize} /></a>
+        <a href="/cartoons"><Sticker className={standardBtnSize} /></a>
+        <a href="/about"><Info className={standardBtnSize} /></a>
+      </div>
+    </div>
+  </div>
+</header>
