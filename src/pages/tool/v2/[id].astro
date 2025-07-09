@@ -220,6 +220,7 @@ const { name, brand, specifications, pricing } = tool.data;
               <div class="collapse-content p-0">
                 <!-- Ratings & Reviews content -->
                 <ReviewsSection
+                  client:visible
                   reviews={transformedReviews}
                   totalReviews={totalReviews}
                   averageRating={averageRating}

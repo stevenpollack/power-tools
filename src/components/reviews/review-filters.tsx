@@ -4,19 +4,17 @@ import { cn } from "@/lib/utils";
 
 interface ReviewFiltersProps {
   totalReviews: number;
-  currentPage?: number;
-  reviewsPerPage?: number;
+  visibleReviews: number;
   className?: string;
 }
 
 export function ReviewFilters({
   totalReviews,
-  currentPage = 1,
-  reviewsPerPage = 6,
+  visibleReviews,
   className,
 }: ReviewFiltersProps) {
-  const startReview = (currentPage - 1) * reviewsPerPage + 1;
-  const endReview = Math.min(currentPage * reviewsPerPage, totalReviews);
+  const startReview = 1;
+  const endReview = visibleReviews;
 
   return (
     <div className={cn("space-y-4", className)}>

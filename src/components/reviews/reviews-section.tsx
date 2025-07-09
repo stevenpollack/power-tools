@@ -73,8 +73,7 @@ export function ReviewsSection({
           {/* Filters */}
           <ReviewFilters
             totalReviews={totalReviews}
-            currentPage={1}
-            reviewsPerPage={REVIEWS_PER_PAGE}
+            visibleReviews={visibleReviews.length}
           />
 
           {/* Reviews list */}
@@ -91,7 +90,7 @@ export function ReviewsSection({
 
           {/* View more button */}
           {visibleCount < reviews.length && (
-            <div className="pt-6">
+            <div className="pt-6 px-1">
               <button 
                 onClick={handleLoadMore}
                 className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
