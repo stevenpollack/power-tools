@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useMemo } from "react";
 import { RatingSnapshot } from "./rating-snapshot";
 import { ReviewFilters } from "./review-filters";
 import { ReviewCard } from "./review-card";
@@ -27,8 +27,6 @@ interface ReviewsSectionProps {
   averageQualityRating: number;
   averageValueRating: number;
   className?: string;
-  currentPage?: number;
-  reviewsPerPage?: number;
 }
 
 export function ReviewsSection({
@@ -39,9 +37,19 @@ export function ReviewsSection({
   averageQualityRating,
   averageValueRating,
   className,
-  currentPage = 1,
-  reviewsPerPage = 6,
 }: ReviewsSectionProps) {
+  const REVIEWS_PER_PAGE = 3;
+  const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
+
+  const visibleReviews = useMemo(
+    () => reviews.slice(0, visibleCount),
+    [reviews, visibleCount]
+  );
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + REVIEWS_PER_PAGE);
+  };
+
   const handleShare = (review: Review) => {
     // Share functionality - could open dialog or copy link
     console.log("Share review:", review);
@@ -65,13 +73,13 @@ export function ReviewsSection({
           {/* Filters */}
           <ReviewFilters
             totalReviews={totalReviews}
-            currentPage={currentPage}
-            reviewsPerPage={reviewsPerPage}
+            currentPage={1}
+            reviewsPerPage={REVIEWS_PER_PAGE}
           />
 
           {/* Reviews list */}
           <div className="divide-bunnings-neutral-medium-gray space-y-0 divide-y">
-            {reviews.map((review, index) => (
+            {visibleReviews.map((review, index) => (
               <ReviewCard
                 key={index}
                 review={review}
@@ -81,10 +89,13 @@ export function ReviewsSection({
             ))}
           </div>
 
-          {/* Load more / View more button */}
-          {totalReviews > reviewsPerPage && (
+          {/* View more button */}
+          {visibleCount < reviews.length && (
             <div className="pt-6">
-              <button className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none">
+              <button 
+                onClick={handleLoadMore}
+                className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+              >
                 View More
               </button>
             </div>

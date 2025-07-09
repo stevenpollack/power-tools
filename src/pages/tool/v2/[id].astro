@@ -66,8 +66,8 @@ const averageValueRating =
       ) / totalReviews
     : 0;
 
-// Transform reviews for the component
-const transformedReviews = reviewsWithData.slice(0, 6).map((r) => ({
+// Transform reviews for the component (pass all reviews, component will handle pagination)
+const transformedReviews = reviewsWithData.map((r) => ({
   rating: r.review.data.rating || 3,
   recommendsProduct: r.review.data.recommendsProduct || true,
   helpfulVotes: r.review.data.helpfulVotes || 0,
@@ -105,7 +105,7 @@ const { name, brand, specifications, pricing } = tool.data;
           </div>
 
           <div
-            class="bg-bunnings-neutral-light-gray h-fit flex flex-col rounded p-4 lg:items-start lg:text-left"
+            class="bg-bunnings-neutral-light-gray flex h-fit flex-col rounded p-4 lg:items-start lg:text-left"
           >
             <p
               class="text-bunnings-base text-bunnings-secondary-green mb-3 text-left font-medium"
@@ -140,7 +140,7 @@ const { name, brand, specifications, pricing } = tool.data;
 
             {
               tool.data.bunningsUrl && (
-                <div class="mt-3 self-center pb-3 lg:self-start lg:pb-0 lg:items-end">
+                <div class="mt-3 self-center pb-3 lg:items-end lg:self-start lg:pb-0">
                   <a
                     href={tool.data.bunningsUrl}
                     class="bg-bunnings-primary-orange hover:bg-bunnings-primary-orange inline-flex items-center rounded-md border-2 border-black px-6 py-3 font-medium text-black no-underline transition-colors"
@@ -221,11 +221,11 @@ const { name, brand, specifications, pricing } = tool.data;
                 <!-- Ratings & Reviews content -->
                 <ReviewsSection
                   reviews={transformedReviews}
-                  totalReviews={39}
-                  averageRating={3.9}
+                  totalReviews={totalReviews}
+                  averageRating={averageRating}
                   ratingDistribution={ratingDistribution}
-                  averageQualityRating={3.6}
-                  averageValueRating={4.0}
+                  averageQualityRating={averageQualityRating}
+                  averageValueRating={averageValueRating}
                 />
               </div>
             </div>
