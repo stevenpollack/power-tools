@@ -94,7 +94,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
           </>
         ) : (
           <>
-            <X className="text-bunnings-primary-red h-4 w-4" />
+            <X className="h-4 w-4 border border-black rounded-full p-0 stroke-2 bg-black text-white" />
             <span className="text-bunnings-sm text-bunnings-neutral-dark-gray">
               No, I do not recommend this product.
             </span>
