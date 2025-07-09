@@ -146,6 +146,18 @@ const reviewsV2 = defineCollection({
     qualityRating: z.number().min(1).max(5).optional(),
     valueRating: z.number().min(1).max(5).optional(),
     userCategory: z.string().optional(),
+  }).refine(data => {
+    // Validate rating/recommendation consistency
+    const rating = data.rating;
+    const recommends = data.recommendsProduct;
+    
+    // Only validate if both fields are present
+    if (rating !== undefined && recommends !== undefined) {
+      return (rating >= 3 && recommends) || (rating < 3 && !recommends);
+    }
+    return true; // Skip validation if either field is missing
+  }, {
+    message: "Rating and recommendsProduct must be consistent: 1-2 stars should not recommend (false), 3+ stars should recommend (true)"
   }),
 });
 

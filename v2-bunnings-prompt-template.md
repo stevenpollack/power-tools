@@ -77,6 +77,14 @@ Based on product rating distribution, include appropriate feedback:
 **Karcher (Premium)**: Quality engineering, long-term investment
 **Makita/Bosch (Professional)**: Reliability, professional features
 
+## Rating Logic Rules
+
+**CRITICAL**: Ensure logical consistency between rating and recommendation:
+- **1-2 stars**: Set `recommendsProduct: false` (Poor/Bad experience - would not recommend)
+- **3+ stars**: Set `recommendsProduct: true` (Neutral to Excellent - would recommend)
+- Maintain consistency across `rating`, `qualityRating`, `valueRating` fields
+- Quality and value ratings can vary independently but should be reasonable relative to overall rating
+
 ## Fallback Content Strategy
 
 When specific product data is limited, use these category patterns:
