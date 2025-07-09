@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { SlidersHorizontal, ArrowUpDown } from "lucide-react";
 import { ToolCard } from "./ToolCard";
 import { 
@@ -10,10 +8,9 @@ import {
   SheetTitle, 
   SheetTrigger 
 } from "./sheet";
-import { cn } from "@/lib/utils";
 import type { Tool } from "@/lib/types";
 
-const TOOLS_PER_PAGE = 10;
+const TOOLS_PER_PAGE = 8;
 
 type SortOrder = "default" | "price-low" | "price-high" | "rating-low" | "rating-high";
 
@@ -264,7 +261,7 @@ export function ToolGrid({ tools }: ToolGridProps) {
         <div className="pb-16 text-center">
           <button
             onClick={handleLoadMore}
-            className="rounded-lg bg-blue-600 px-8 py-3 font-medium text-white transition-colors hover:bg-blue-700"
+            className="rounded-lg bg-bunnings-primary-orange px-8 py-3 font-medium text-black transition-colors hover:bg-bunnings-primary-orange/90"
           >
             Load More Tools
           </button>
