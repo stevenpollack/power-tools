@@ -105,7 +105,7 @@ const { name, brand, specifications, pricing } = tool.data;
           </div>
 
           <div
-            class="bg-bunnings-neutral-light-gray flex flex-col rounded p-4 lg:items-start lg:text-left"
+            class="bg-bunnings-neutral-light-gray h-fit flex flex-col rounded p-4 lg:items-start lg:text-left"
           >
             <p
               class="text-bunnings-base text-bunnings-secondary-green mb-3 text-left font-medium"
@@ -140,7 +140,7 @@ const { name, brand, specifications, pricing } = tool.data;
 
             {
               tool.data.bunningsUrl && (
-                <div class="mt-3 self-center pb-3 lg:self-start lg:pb-0">
+                <div class="mt-3 self-center pb-3 lg:self-start lg:pb-0 lg:items-end">
                   <a
                     href={tool.data.bunningsUrl}
                     class="bg-bunnings-primary-orange hover:bg-bunnings-primary-orange inline-flex items-center rounded-md border-2 border-black px-6 py-3 font-medium text-black no-underline transition-colors"

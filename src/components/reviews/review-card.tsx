@@ -112,7 +112,7 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
         <button
           onClick={onShare}
           className={cn(
-            "text-bunnings-sm flex items-center gap-1 self-start transition-colors",
+            "text-bunnings-sm flex flex-1 pr-1 items-center justify-end gap-1 transition-colors",
             "focus:ring-bunnings-primary-orange rounded hover:underline focus:ring-2 focus:ring-offset-2 focus:outline-none",
           )}
         >

@@ -108,6 +108,6 @@ To confirm the task is complete, perform the following checks:
 
 ### **Progress Log:**
 - [x] Task 1: Create FilterSortBar.astro component - COMPLETED
-- [ ] Task 2: Create ToolCard-v2.astro component  
-- [ ] Task 3: Update tools/v2.astro page
-- [ ] Testing and verification complete
+- [x] Task 2: Create ToolCard-v2.astro component - COMPLETED
+- [x] Task 3: Update tools/v2.astro page - COMPLETED
+- [x] Testing and verification complete - COMPLETED

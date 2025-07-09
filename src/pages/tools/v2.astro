@@ -1,22 +1,34 @@
 ---
 import Layout from "@/layouts/Layout-v2.astro";
-import ToolCard from "@/components/ToolCard.astro";
-import StatsSection from "@/components/StatsSection.astro";
+import ToolCardV2 from "@/components/ToolCard-v2.astro";
+import FilterSortBar from "@/components/ui/FilterSortBar.astro";
 import { getCollection } from "astro:content";
 
 const tools = await getCollection("tools");
 
 // Calculate statistics
 const toolCount = tools.length;
-const reviewCount = tools.reduce(
-  (sum, tool) => sum + tool.data.popularity.reviewCount,
-  0,
-);
-const brandCount = new Set(tools.map((tool) => tool.data.brand)).size;
 ---
 
 <Layout title="Tools">
-  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    {tools.map((tool) => <ToolCard tool={tool} />)}
+  <div class="min-h-screen bg-gray-100">
+    <!-- Filter/Sort Bar -->
+    <FilterSortBar />
+
+    <!-- Results Count -->
+    <div class="mx-auto max-w-6xl py-4">
+      <p class="text-center text-sm text-gray-600">
+        Showing {toolCount} of {toolCount} results
+      </p>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="mx-auto max-w-6xl pb-8">
+      <div
+        class="grid grid-cols-1 gap-1 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+        {tools.map((tool) => <ToolCardV2 tool={tool} />)}
+      </div>
+    </div>
   </div>
 </Layout>

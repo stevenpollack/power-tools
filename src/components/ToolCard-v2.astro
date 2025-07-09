@@ -1,0 +1,112 @@
+---
+import type { Tool } from "@/lib/types";
+import { Picture } from "astro:assets";
+import { StarRating } from "@/components/ratings/StarRating";
+import { Eye } from "lucide-react";
+
+export interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const { id, data } = tool;
+const { name, brand, popularity, pricing, thumbnailUrl } = data;
+---
+
+<div
+  class="card flex h-full flex-col bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-md"
+>
+  <!-- Mobile: Horizontal layout | Tablet+: Vertical layout -->
+  <div class="flex flex-grow gap-4 md:flex-col md:gap-3">
+    <!-- Image section -->
+    <div class="flex flex-shrink-0 items-center md:w-full md:justify-center">
+      <!-- @ts-expect-error -->
+      <Picture
+        src={thumbnailUrl}
+        alt={name}
+        class="h-30 w-30 rounded-lg object-cover"
+        widths={[120, 240]}
+        sizes="120px"
+        formats={["avif", "webp"]}
+        inferSize={true}
+      />
+    </div>
+
+    <!-- Content section (mobile) / Tool name section (tablet+) -->
+    <div class="flex flex-1 flex-col gap-2 md:flex-none">
+      <p class="text-bunnings-sm text-bunnings-neutral-charcoal leading-tight">
+        {name}
+      </p>
+
+      <!-- Rating section (visible on mobile, hidden on tablet+ to be moved below) -->
+      <div class="flex gap-2 md:hidden">
+        <StarRating rating={popularity.averageRating} />
+        <span class="text-bunnings-2xs text-bunnings-neutral-charcoal">
+          {popularity.averageRating.toFixed(1)}&nbsp;({popularity.reviewCount})
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom section (tablet+ only) - Rating + Price/Button grouped together -->
+  <div class="hidden md:mt-auto md:flex md:flex-col md:gap-3">
+    <!-- Rating section -->
+    <div class="flex justify-start gap-4">
+      <StarRating rating={popularity.averageRating} />
+      <span class="text-bunnings-2xs text-bunnings-neutral-charcoal">
+        {popularity.averageRating.toFixed(1)}&nbsp;({popularity.reviewCount})
+      </span>
+    </div>
+
+    <!-- Price & Button section -->
+    <div class="flex items-center justify-between gap-5">
+      <!-- Price -->
+      <div class="flex-1">
+        <span
+          class="font-bunnings-price text-right text-2xl font-bold text-gray-900"
+        >
+          ${pricing.currentPrice}
+        </span>
+      </div>
+
+      <!-- Action Button -->
+      <a
+        href={`/tool/v2/${id}`}
+        class="btn btn-square bg-bunnings-primary-orange hover:bg-bunnings-primary-orange border-0 text-black shadow-sm transition-all duration-200 hover:shadow-md"
+        aria-label={`View details for ${name}`}
+      >
+        <Eye className="h-5 w-5" />
+      </a>
+    </div>
+  </div>
+
+  <!-- Price & Button section (mobile only) -->
+  <div class="mt-4 flex items-center justify-between gap-5 md:hidden">
+    <!-- Price -->
+    <div class="flex-1">
+      <span
+        class="font-bunnings-price text-right text-2xl font-bold text-gray-900"
+      >
+        ${pricing.currentPrice}
+      </span>
+    </div>
+
+    <!-- Action Button -->
+    <a
+      href={`/tool/v2/${id}`}
+      class="btn btn-square bg-bunnings-primary-orange hover:bg-bunnings-primary-orange border-0 text-black shadow-sm transition-all duration-200 hover:shadow-md"
+      aria-label={`View details for ${name}`}
+    >
+      <Eye className="h-5 w-5" />
+    </a>
+  </div>
+</div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
