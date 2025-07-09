@@ -69,9 +69,9 @@ const averageValueRating =
 // Transform reviews for the component (pass all reviews, component will handle pagination)
 const transformedReviews = reviewsWithData.map((r) => ({
   rating: r.review.data.rating || 3,
-  recommendsProduct: r.review.data.recommendsProduct || true,
-  helpfulVotes: r.review.data.helpfulVotes || 0,
-  unhelpfulVotes: r.review.data.unhelpfulVotes || 0,
+  recommendsProduct: r.review.data.recommendsProduct ?? false,
+  helpfulVotes: r.review.data.helpfulVotes ?? 0,
+  unhelpfulVotes: r.review.data.unhelpfulVotes ?? 0,
   verifiedPurchaser: r.review.data.verifiedPurchaser || true,
   displayName:
     r.review.data.displayName ||
