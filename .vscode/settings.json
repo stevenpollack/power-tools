@@ -28,5 +28,8 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "tailwindCSS.classFunctions": ["cva", "cx"]
+  "tailwindCSS.classFunctions": [
+    "cva",
+    "cx"
+  ]
 }
