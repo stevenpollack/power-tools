@@ -27,47 +27,46 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 Use the following data from each author's JSON file:
 - **displayName**: Use `author.displayName` exactly as specified (e.g., "Ernest", "C. Dickens", "V. Woolf")  
 - **userCategory**: Use `author.userCategory` from the predefined categories
-- **ratingBias**: Apply the `author.ratingBias` to influence review ratings
+- **ratingBias**: Use as general tendency, but allow for occasional variance for realism
 
-### Author Rating Bias Guidelines
-- **Advanced DIYer** (Hemingway, Ayn Rand, Orwell): Knowledgeable, practical assessments
-- **Intermediate** (Dickens, Austen): Appreciates quality, social considerations  
-- **Weekend Warrior** (Twain, Kerouac): Enthusiastic but intermittent use
-- **Hobbyist** (Woolf, Wilde): Creative/aesthetic focus over pure utility
-- **Beginner** (Poe, Kafka, Lovecraft): Uncertainty, focus on problems or complexity
+### Author Rating Bias Guidelines (With Realistic Variance)
+- **Advanced DIYer** (Hemingway, Ayn Rand, Orwell): Generally positive, but will criticize poor quality or overpriced tools
+- **Intermediate** (Dickens, Austen): Balanced approach, occasionally disappointed by products that don't meet expectations  
+- **Weekend Warrior** (Twain, Kerouac): Usually enthusiastic, but sometimes get unlucky with defective units
+- **Hobbyist** (Woolf, Wilde): Focus on aesthetics/creativity, may dislike purely utilitarian designs
+- **Beginner** (Poe, Kafka, Lovecraft): Generally struggle with tools, but occasionally surprised by something that works well
+
+**CRITICAL**: 15-20% of reviews should diverge from author's typical bias to create realistic variance. Even positive reviewers sometimes get defective products; even negative reviewers occasionally find gems.
 
 ## Required Elements
 
-### 1. Authentic Human Experience
-Include ONE of these realistic details:
-- **Timing context**: "Picked up Sunday morning", "needed for weekend project", "bought during lunch break"
-- **Personal context**: "replacing my old one", "first cordless tool", "upgrading from cheaper model"
-- **Physical experience**: "lighter than expected", "easier on the wrists", "fits well in toolbox"
-- **Social context**: "mate recommended it", "saw neighbor using one", "tradesman mentioned it"
+### 1. Personal Story/Anecdote (MANDATORY)
+Build the review around a specific personal experience. Examples:
+- **Project Context**: "Was building a pergola when...", "Fixing the back gate and...", "Helping dad with his shed..."
+- **Problem/Solution**: "Old drill finally died, so...", "Needed something for tight spaces...", "Wife's honey-do list required..."
+- **Unexpected Situations**: "Halfway through the job it started raining...", "Battery died right when I needed it most...", "Worked great until..."
+- **Comparison Stories**: "My neighbor's fancy one broke, so...", "Used my mate's first, then bought my own..."
 
-### 2. Bunnings-Specific Detail
-Include ONE Bunnings store experience:
-- **Staff interaction**: "helpful bloke in power tools", "took ages to find someone", "explained warranty clearly"
-- **Store logistics**: "busy Saturday, parked miles away", "easy to load in ute", "got lucky with close spot"
-- **Service elements**: "price matched competitor", "staff carried it to car", "loading bay was helpful"
-- **Product availability**: "last one on shelf", "special order came in quick", "plenty in stock"
+### 2. Bunnings Experience Story
+Include a specific Bunnings interaction as part of your anecdote:
+- **Staff Stories**: "Bloke at Bunnings said...", "Had to ask three different people...", "Staff member knew exactly what I needed..."
+- **Shopping Experience**: "Saturday arvo chaos at Bunnings...", "Found it tucked away on the bottom shelf...", "Queue was mental but..."
+- **Service Stories**: "They price-matched my phone screenshot...", "Loading dock made life easy...", "Guy offered to help carry it..."
 
-### 3. Category-Appropriate Use Case
-Reference realistic application based on tool type:
+### 3. Specific Use Case Within Story
+Don't just list what the tool CAN do - tell what YOU did with it:
+- **Concrete Examples**: "Cut 47 fence palings", "Drilled 12 holes through brick", "Sanded the entire back deck"
+- **Real Problems**: "Cord kept getting tangled", "Dust everywhere despite the collection bag", "Chuck started slipping after heavy use"
+- **Practical Details**: "Ran for 3 hours straight", "Went through two 5.0Ah batteries", "Had to stop every 20 minutes to clear chips"
 
-**Drills**: deck building, furniture assembly, hanging pictures, driving screws
-**Circular Saws**: cutting decking, framing, sheet goods, fence repairs
-**Grinders**: rust removal, cutting metal, sharpening tools, tile cutting
-**Sanders**: deck restoration, furniture refinishing, paint prep
-**Pressure Washers**: driveway cleaning, car washing, deck maintenance
-**Impact Drivers**: deck screws, lag bolts, heavy-duty fastening
+### 4. Honest Opinion (Not Product Description)
+Focus on YOUR experience, not manufacturer claims:
+- **What surprised you** (good or bad)
+- **How it compared to expectations**
+- **Specific things that worked/didn't work for your project**
+- **Whether you'd buy it again/recommend to a mate**
 
-### 4. Authentic Positive/Negative Balance
-Based on product rating distribution, include appropriate feedback:
-
-**For 4+ star products**: Focus on positive aspects, minor quibbles if any
-**For 3-4 star products**: Balanced view, acknowledge limitations
-**For <3 star products**: Honest about problems, may still find value
+**AVOID**: Listing specifications, repeating marketing copy, sounding like a sales brochure
 
 ## Brand-Specific Considerations
 
@@ -112,46 +111,61 @@ When specific product data is limited, use these category patterns:
 
 ## Style Guidelines
 
-### Voice Adaptation Examples
+### Voice Adaptation Examples (Story-Driven)
 
 **Hemingway Style**: 
-"Bought this Sunday. Good drill. Chuck holds tight. Used it on deck boards. Battery lasts long enough. Staff at Bunnings knew their stuff. Worth the money."
+"Old drill died halfway through the deck project. Grabbed this at Bunnings Sunday morning. Staff guy knew his stuff. Used it to finish forty-seven deck boards. Chuck stayed tight. Battery lasted the whole job. Good drill."
 
 **Dickens Style**:
-"A most agreeable experience acquiring this implement! The helpful gentleman in the power tools section possessed an encyclopedic knowledge of batteries, and the drill itself proved most capable during my recent garden shed construction."
+"The calamity began when my ancient drill expired during the garden shed endeavor. The most agreeable gentleman at Bunnings recommended this particular implement, and what a recommendation it proved! Twenty-three fence palings later, both the drill and I remained in excellent spirits."
 
 **Woolf Style**: 
-"There's something rather meditative about the rhythm of drilling, the way this tool becomes an extension of one's intentions. Purchased during a particularly frantic Saturday at Bunnings—such crowds!—yet it's brought order to my renovation chaos."
+"One finds oneself contemplating mortality when a drill dies mid-project. The Saturday chaos at Bunnings felt overwhelming—such crowds, such noise—yet this little device has since brought unexpected order to my chaotic renovation. Thirty holes drilled with surprising precision."
 
 **Kafka Style**:
-"The drill requires completion of Form 7-B before initial use, though the manual neglects to specify where one obtains this document. The Bunnings clerk directed me to Customer Service, who informed me that Tool Authorization falls under a different department entirely."
+"My permit application for drill replacement was processed through Department K, though the clerk at Bunnings assured me no permit was required. The contradiction remains unresolved. Nevertheless, the device performed adequately, boring seventeen holes before requiring Form 22-C for continued operation."
 
 **Lovecraft Style**:
-"The implement's motor emits frequencies that should not be heard by human ears, and its vibrations seem to resonate with dimensions beyond our understanding. I acquired it at Bunnings despite growing unease about the clerk's too-eager assistance."
+"When my previous implement succumbed to malevolent forces during basement excavation, I reluctantly acquired this replacement at Bunnings. The clerk's enthusiasm about its 'efficiency' filled me with cosmic dread. Twelve holes later, I suspect the tool operates through principles man was not meant to comprehend."
 
 **Kerouac Style**:
-"Man this drill is ALIVE, you know? Got it at Bunnings and the cats there were cool, and now I'm drilling holes like Charlie Parker blowing bebop—spontaneous creation through mechanical jazz, baby, building the American dream one screw at a time!"
+"Baby, when your drill dies on you in the middle of building paradise, you grab the first replacement you can find! Bunnings was jumping that Saturday, man, and this little cat has been singing mechanical jazz ever since—twenty-eight perfect holes through wood like butter, keeping the creative flow alive!"
 
 ## Review Structure Template
 
-1. **Opening Context** (10-15 words): Brief setup of purchase/use situation
-2. **Main Experience** (25-40 words): Core product performance and use case
-3. **Bunnings Detail** (8-12 words): Store experience or interaction
-4. **Author Voice Flourish** (10-15 words): Distinctive perspective or observation
-5. **Conclusion/Rating Justification** (5-10 words): Why this rating
+1. **Story Opening** (15-25 words): Set up the situation/project that led to needing/using this tool
+2. **Main Experience Narrative** (40-60 words): Tell what happened when you used it - specific details, problems, successes
+3. **Bunnings Story Integration** (10-15 words): Weave in your Bunnings experience as part of the narrative
+4. **Author Voice Perspective** (15-25 words): Your distinctive take on the experience, filtered through author's personality
+5. **Honest Bottom Line** (5-10 words): Would you buy it again/recommend it?
+
+**Structure as STORY, not product review. Think: "Here's what happened when I..." not "This product has X features."**
+
+## Creating Realistic Negative Reviews
+
+When creating 2-star or occasional 3-star reviews (15-20% of total), focus on realistic problems:
+
+### Common Realistic Issues:
+- **Defective Units**: "Chuck wouldn't stay tight", "Motor died after 2 weeks", "Battery wouldn't hold charge"
+- **Wrong Tool for Job**: "Not powerful enough for my concrete work", "Too heavy for overhead tasks", "Cord too short for my workshop"
+- **User Error Stories**: "Couldn't figure out the settings", "Instructions were useless", "Kept jamming on me"
+- **Expectation Mismatches**: "Thought it'd be quieter", "Expected better build quality for the price", "Not as portable as advertised"
+- **Context Problems**: "Great tool, wrong time" (bought right before needing something different)
+
+**Make negative reviews story-driven**: "Was halfway through tiling the bathroom when the motor started making grinding noises..."
 
 ## Quality Checklist
 
 - [ ] 50-120 words total
-- [ ] Maintains author's distinctive voice
-- [ ] Includes authentic human detail
-- [ ] References Bunnings store experience
-- [ ] Uses appropriate use case for tool category
-- [ ] Rating aligns with author bias and product data
-- [ ] Feels conversational, not promotional
-- [ ] No overly philosophical or verbose language
-- [ ] Brand positioning appropriate (budget vs premium)
-- [ ] Entertainment value while remaining believable
+- [ ] Structured as personal story/anecdote, not product description
+- [ ] Maintains author's distinctive voice throughout the narrative
+- [ ] Includes specific Bunnings experience woven into story
+- [ ] Contains concrete details about actual use ("drilled 47 holes", "ran for 3 hours")
+- [ ] Rating reflects realistic variance (occasional surprises even for biased authors)
+- [ ] Feels like genuine customer experience, not promotional content
+- [ ] Avoids listing specifications or marketing language
+- [ ] Focuses on "what happened to me" rather than "what this product does"
+- [ ] Entertainment value while remaining completely believable
 
 ## Output Format
 
