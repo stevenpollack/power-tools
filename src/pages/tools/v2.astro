@@ -1,34 +1,29 @@
 ---
 import Layout from "@/layouts/Layout-v2.astro";
-import ToolCardV2 from "@/components/ToolCard-v2.astro";
-import FilterSortBar from "@/components/ui/FilterSortBar.astro";
+import { ToolGrid } from "@/components/ui/ToolGrid";
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 
 const tools = await getCollection("tools");
 
-// Calculate statistics
-const toolCount = tools.length;
+// Pre-process images for optimal performance
+const toolsWithOptimizedImages = await Promise.all(
+  tools.map(async (tool) => ({
+    ...tool,
+    optimizedImageUrl: (
+      await getImage({
+        src: tool.data.thumbnailUrl,
+        width: 120,
+        height: 120,
+        format: "webp",
+      })
+    ).src,
+  })),
+);
 ---
 
 <Layout title="Tools">
   <div class="min-h-screen bg-gray-100">
-    <!-- Filter/Sort Bar -->
-    <FilterSortBar />
-
-    <!-- Results Count -->
-    <div class="mx-auto max-w-6xl py-4">
-      <p class="text-center text-sm text-gray-600">
-        Showing {toolCount} of {toolCount} results
-      </p>
-    </div>
-
-    <!-- Tools Grid -->
-    <div class="mx-auto max-w-6xl pb-8">
-      <div
-        class="grid grid-cols-1 gap-1 p-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-      >
-        {tools.map((tool) => <ToolCardV2 tool={tool} />)}
-      </div>
-    </div>
+    <ToolGrid client:load tools={toolsWithOptimizedImages} />
   </div>
 </Layout>
