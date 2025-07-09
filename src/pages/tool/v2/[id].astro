@@ -2,7 +2,7 @@
 import Layout from "@/layouts/Layout-v2.astro";
 import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
-import type { ReviewWithData, Tool } from "@/lib/types";
+import type { ReviewV2WithData, Tool } from "@/lib/types";
 import { ExternalLink } from "lucide-react";
 import { ReviewsSection } from "@/components/reviews/reviews-section";
 import { StarRating } from "@/components/ui/star-rating";
@@ -24,7 +24,7 @@ const reviews = (await getCollection("reviewsV2")).filter(
 );
 
 // Get author data for each review
-const reviewsWithData: ReviewWithData[] = await Promise.all(
+const reviewsWithData: ReviewV2WithData[] = await Promise.all(
   reviews.map(async (review) => ({
     review,
     author: await getEntry(review.data.author),
@@ -67,9 +67,26 @@ const averageValueRating =
     : 0;
 
 // Transform reviews for the component (pass all reviews, component will handle pagination)
-const transformedReviews = reviewsWithData.map((r) => {
-  return { ...r.review.data, ...r.author.data, content: r.review.body };
-});
+const transformedReviews = reviewsWithData.map((r) => ({
+  rating: r.review.data.rating || 3,
+  recommendsProduct: r.review.data.recommendsProduct || true,
+  helpfulVotes: r.review.data.helpfulVotes || 0,
+  unhelpfulVotes: r.review.data.unhelpfulVotes || 0,
+  verifiedPurchaser: r.review.data.verifiedPurchaser || true,
+  displayName:
+    r.review.data.displayName ||
+    r.author.data.displayName ||
+    r.author.data.name,
+  useCase: r.review.data.useCase || "General use",
+  userCategory:
+    r.review.data.userCategory ||
+    r.author.data.userCategory ||
+    "DIY Enthusiast",
+  content: r.review.body || r.review.data.excerpt || "Great tool!",
+  dateCreated: r.review.data.dateCreated,
+  qualityRating: r.review.data.qualityRating || 4,
+  valueRating: r.review.data.valueRating || 4,
+}));
 
 const { name, brand, specifications, pricing } = tool.data;
 ---
