@@ -22,21 +22,19 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 **Positive Patterns**: {POSITIVE_FEEDBACK}
 **Negative Patterns**: {NEGATIVE_FEEDBACK}
 
-## Author-Specific Rating Bias
+## Author-Specific Data Usage
 
-Apply these rating tendencies based on author personality:
-- **Hemingway**: Practical, honest assessment (bias toward 3-4 stars)
-- **Dickens**: Appreciates craftsmanship and human stories (bias toward 4-5 stars)
-- **Woolf**: Introspective, considers broader implications (bias toward 3-4 stars)
-- **Wilde**: Focus on aesthetics and wit (bias toward 3-5 stars, variable)
-- **Austen**: Social dynamics and value assessment (bias toward 3-4 stars)
-- **Orwell**: Utilitarian, suspicious of claims (bias toward 2-4 stars)
-- **Tolkien**: Appreciates quality construction (bias toward 4-5 stars)
-- **Rowling**: Imaginative applications (bias toward 4-5 stars)
-- **Shakespeare**: Dramatic tendencies (bias toward 2-5 stars, extremes)
-- **Poe**: Dark perspectives on failure (bias toward 1-3 stars)
-- **Twain**: Skeptical humor (bias toward 2-4 stars)
-- **Rand**: Objective assessment of value (bias toward 3-4 stars)
+Use the following data from each author's JSON file:
+- **displayName**: Use `author.displayName` exactly as specified (e.g., "Ernest", "C. Dickens", "V. Woolf")  
+- **userCategory**: Use `author.userCategory` from the predefined categories
+- **ratingBias**: Apply the `author.ratingBias` to influence review ratings
+
+### Author Rating Bias Guidelines
+- **Advanced DIYer** (Hemingway, Ayn Rand, Orwell): Knowledgeable, practical assessments
+- **Intermediate** (Dickens, Austen): Appreciates quality, social considerations  
+- **Weekend Warrior** (Twain, Kerouac): Enthusiastic but intermittent use
+- **Hobbyist** (Woolf, Wilde): Creative/aesthetic focus over pure utility
+- **Beginner** (Poe, Kafka, Lovecraft): Uncertainty, focus on problems or complexity
 
 ## Required Elements
 
@@ -117,6 +115,15 @@ When specific product data is limited, use these category patterns:
 **Woolf Style**: 
 "There's something rather meditative about the rhythm of drilling, the way this tool becomes an extension of one's intentions. Purchased during a particularly frantic Saturday at Bunnings—such crowds!—yet it's brought order to my renovation chaos."
 
+**Kafka Style**:
+"The drill requires completion of Form 7-B before initial use, though the manual neglects to specify where one obtains this document. The Bunnings clerk directed me to Customer Service, who informed me that Tool Authorization falls under a different department entirely."
+
+**Lovecraft Style**:
+"The implement's motor emits frequencies that should not be heard by human ears, and its vibrations seem to resonate with dimensions beyond our understanding. I acquired it at Bunnings despite growing unease about the clerk's too-eager assistance."
+
+**Kerouac Style**:
+"Man this drill is ALIVE, you know? Got it at Bunnings and the cats there were cool, and now I'm drilling holes like Charlie Parker blowing bebop—spontaneous creation through mechanical jazz, baby, building the American dream one screw at a time!"
+
 ## Review Structure Template
 
 1. **Opening Context** (10-15 words): Brief setup of purchase/use situation
@@ -142,10 +149,27 @@ When specific product data is limited, use these category patterns:
 
 ```
 ---
+slug: "{author-slug}-reviews-{tool-slug}"
+author: "{author-slug}"
+tool: "{tool-slug}"
+excerpt: "{First sentence or brief summary}"
+llm: "claude-4-sonnet"
+mood: "{humorous|dramatic|technical|philosophical}"
+tone: "{formal|casual|satirical|earnest}"
+readingTime: {estimated minutes}
+shareCount: 0
+dateCreated: "{YYYY-MM-DD}"
+lastUpdated: "{YYYY-MM-DD}"
 rating: {1-5}
-title: "{Brief review title in author's voice}"
-author: {author-slug}
-tool: {tool-slug}
+recommendsProduct: {true|false}
+helpfulVotes: 0
+unhelpfulVotes: 0
+verifiedPurchaser: true
+displayName: "{Use author.displayName from JSON}"
+useCase: "{specific use case from review}"
+qualityRating: {1-5}
+valueRating: {1-5}
+userCategory: "{Use author.userCategory from JSON}"
 ---
 
 {Review content following all guidelines above}

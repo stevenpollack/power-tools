@@ -44,5 +44,6 @@
     ]
   },
   "displayName": "howard",
-  "ratingBias": -0.5
+  "ratingBias": -0.5,
+  "userCategory": "Beginner"
 }

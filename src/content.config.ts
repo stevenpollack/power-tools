@@ -28,6 +28,7 @@ const authors = defineCollection({
       // Bunnings review display settings
       displayName: z.string(),
       ratingBias: z.number().min(-1).max(1).default(0),
+      userCategory: z.enum(["Advanced DIYer", "Construction Professional", "Intermediate", "Beginner", "Hobbyist", "Weekend Warrior"]),
     }),
 });
 

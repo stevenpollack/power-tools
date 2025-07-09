@@ -44,5 +44,6 @@
     ]
   },
   "displayName": "jack",
-  "ratingBias": 0.4
+  "ratingBias": 0.4,
+  "userCategory": "Weekend Warrior"
 }

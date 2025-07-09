@@ -38,5 +38,6 @@
     ]
   },
   "displayName": "J. Austen",
-  "ratingBias": 0.1
+  "ratingBias": 0.1,
+  "userCategory": "Intermediate"
 }

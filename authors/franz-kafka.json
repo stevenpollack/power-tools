@@ -44,5 +44,6 @@
     ]
   },
   "displayName": "F. Kafka",
-  "ratingBias": -0.2
+  "ratingBias": -0.2,
+  "userCategory": "Beginner"
 }
