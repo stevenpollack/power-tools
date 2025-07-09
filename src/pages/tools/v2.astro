@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout-v2.astro";
+import ToolCard from "@/components/ToolCard.astro";
+import StatsSection from "@/components/StatsSection.astro";
+import { getCollection } from "astro:content";
+
+const tools = await getCollection("tools");
+
+// Calculate statistics
+const toolCount = tools.length;
+const reviewCount = tools.reduce(
+  (sum, tool) => sum + tool.data.popularity.reviewCount,
+  0,
+);
+const brandCount = new Set(tools.map((tool) => tool.data.brand)).size;
+---
+
+<Layout title="Tools">
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    {tools.map((tool) => <ToolCard tool={tool} />)}
+  </div>
+</Layout>
