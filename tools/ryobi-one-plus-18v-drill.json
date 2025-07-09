@@ -37,5 +37,26 @@
     "reviewCount": 1894,
     "averageRating": 4.3,
     "homeDepotRank": 3
+  },
+  "reviewAnalysis": {
+    "scrapedFrom": "https://www.bunnings.com.au/ryobi-18v-one-4-piece-kit-r18x4c1422b_p0539762",
+    "actualProduct": "Ryobi 18V ONE+ 4 Piece Kit R18X4C1422B",
+    "urlMismatch": true,
+    "reviewsScrapped": 33,
+    "averageReviewLength": 45,
+    "commonUseCases": ["DIY projects", "drilling holes", "driving screws", "multi-tool tasks", "weekend projects"],
+    "positivePatterns": ["precise torque control", "variable speed", "long battery runtime", "versatile kit", "good value"],
+    "negativePatterns": ["multiple tools to manage", "kit size", "learning curve for different tools"],
+    "humanFlourishes": ["weekend DIY", "garage projects", "first cordless kit purchase"],
+    "experienceContext": ["upgrading from corded tools", "building deck", "furniture assembly", "home renovation"],
+    "bunningsSpecificDetails": ["kit comes with carry bag", "staff explained different tools", "good starter kit"],
+    "ratingDistribution": {
+      "1star": 1,
+      "2star": 2,
+      "3star": 5,
+      "4star": 15,
+      "5star": 10
+    },
+    "averageRating": 4.5
   }
 }

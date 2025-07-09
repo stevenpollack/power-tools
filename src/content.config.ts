@@ -65,6 +65,28 @@ const tools = defineCollection({
         homeDepotRank: z.number().optional(),
         bunningsRank: z.number().optional(),
       }),
+      // Review analysis data from Bunnings scraping
+      reviewAnalysis: z.object({
+        scrapedFrom: z.string(),
+        actualProduct: z.string(), 
+        urlMismatch: z.boolean(),
+        reviewsScrapped: z.number(),
+        averageReviewLength: z.number(),
+        commonUseCases: z.array(z.string()),
+        positivePatterns: z.array(z.string()),
+        negativePatterns: z.array(z.string()),
+        humanFlourishes: z.array(z.string()),
+        experienceContext: z.array(z.string()),
+        bunningsSpecificDetails: z.array(z.string()),
+        ratingDistribution: z.object({
+          "1star": z.number(),
+          "2star": z.number(), 
+          "3star": z.number(),
+          "4star": z.number(),
+          "5star": z.number()
+        }),
+        averageRating: z.number()
+      }).optional(),
     }),
 });
 

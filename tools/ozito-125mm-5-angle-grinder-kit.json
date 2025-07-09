@@ -29,5 +29,26 @@
     "reviewCount": 245,
     "averageRating": 4.2,
     "bunningsRank": 1
+  },
+  "reviewAnalysis": {
+    "scrapedFrom": "https://www.bunnings.com.au/ozito-125mm-5-angle-grinder-kit_p0048825",
+    "actualProduct": "Ozito 125mm 5\" Angle Grinder Kit",
+    "urlMismatch": false,
+    "reviewsScrapped": 95,
+    "averageReviewLength": 42,
+    "commonUseCases": ["cutting metal pipes", "grinding rust", "cutting timber skirting", "general cutting tasks", "metalwork"],
+    "positivePatterns": ["good value", "powerful motor", "complete kit", "easy to use", "reliable performance"],
+    "negativePatterns": ["sparks and dust", "noisy operation", "disc wear", "corded limitation"],
+    "humanFlourishes": ["weekend metalwork", "renovation projects", "first grinder purchase"],
+    "experienceContext": ["home renovation", "metal fabrication", "rust removal", "cutting tasks"],
+    "bunningsSpecificDetails": ["kit includes accessories", "good entry-level option", "value for money"],
+    "ratingDistribution": {
+      "1star": 3,
+      "2star": 6,
+      "3star": 15,
+      "4star": 45,
+      "5star": 26
+    },
+    "averageRating": 4.3
   }
 }

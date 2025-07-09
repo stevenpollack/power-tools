@@ -1,0 +1,154 @@
+# V2 Bunnings Product Review Generation Template
+
+## Core Instructions
+
+Generate a Bunnings.com.au product review that authentically parodies real customer experiences while maintaining the distinctive voice of {AUTHOR_NAME}. The review should feel like a genuine customer wrote it after visiting Bunnings and using the product.
+
+## Target Specifications
+
+- **Length**: 50-120 words (significantly shorter than v1 reviews)
+- **Style**: Conversational and human, not promotional or philosophical
+- **Rating**: Use authentic distribution based on product data
+- **Voice**: Maintain {AUTHOR_NAME}'s literary style but make it feel like they're an actual Bunnings customer
+
+## Product Context
+
+**Tool**: {TOOL_NAME}
+**Category**: {TOOL_CATEGORY}
+**Brand Positioning**: {BRAND_TYPE} (budget/mid-range/premium)
+**Actual Product**: {ACTUAL_PRODUCT_NAME} (may differ from expected due to URL mismatches)
+**Rating Distribution**: {RATING_DISTRIBUTION}
+**Common Use Cases**: {COMMON_USES}
+**Positive Patterns**: {POSITIVE_FEEDBACK}
+**Negative Patterns**: {NEGATIVE_FEEDBACK}
+
+## Author-Specific Rating Bias
+
+Apply these rating tendencies based on author personality:
+- **Hemingway**: Practical, honest assessment (bias toward 3-4 stars)
+- **Dickens**: Appreciates craftsmanship and human stories (bias toward 4-5 stars)
+- **Woolf**: Introspective, considers broader implications (bias toward 3-4 stars)
+- **Wilde**: Focus on aesthetics and wit (bias toward 3-5 stars, variable)
+- **Austen**: Social dynamics and value assessment (bias toward 3-4 stars)
+- **Orwell**: Utilitarian, suspicious of claims (bias toward 2-4 stars)
+- **Tolkien**: Appreciates quality construction (bias toward 4-5 stars)
+- **Rowling**: Imaginative applications (bias toward 4-5 stars)
+- **Shakespeare**: Dramatic tendencies (bias toward 2-5 stars, extremes)
+- **Poe**: Dark perspectives on failure (bias toward 1-3 stars)
+- **Twain**: Skeptical humor (bias toward 2-4 stars)
+- **Rand**: Objective assessment of value (bias toward 3-4 stars)
+
+## Required Elements
+
+### 1. Authentic Human Experience
+Include ONE of these realistic details:
+- **Timing context**: "Picked up Sunday morning", "needed for weekend project", "bought during lunch break"
+- **Personal context**: "replacing my old one", "first cordless tool", "upgrading from cheaper model"
+- **Physical experience**: "lighter than expected", "easier on the wrists", "fits well in toolbox"
+- **Social context**: "mate recommended it", "saw neighbor using one", "tradesman mentioned it"
+
+### 2. Bunnings-Specific Detail
+Include ONE Bunnings store experience:
+- **Staff interaction**: "helpful bloke in power tools", "took ages to find someone", "explained warranty clearly"
+- **Store logistics**: "busy Saturday, parked miles away", "easy to load in ute", "got lucky with close spot"
+- **Service elements**: "price matched competitor", "staff carried it to car", "loading bay was helpful"
+- **Product availability**: "last one on shelf", "special order came in quick", "plenty in stock"
+
+### 3. Category-Appropriate Use Case
+Reference realistic application based on tool type:
+
+**Drills**: deck building, furniture assembly, hanging pictures, driving screws
+**Circular Saws**: cutting decking, framing, sheet goods, fence repairs
+**Grinders**: rust removal, cutting metal, sharpening tools, tile cutting
+**Sanders**: deck restoration, furniture refinishing, paint prep
+**Pressure Washers**: driveway cleaning, car washing, deck maintenance
+**Impact Drivers**: deck screws, lag bolts, heavy-duty fastening
+
+### 4. Authentic Positive/Negative Balance
+Based on product rating distribution, include appropriate feedback:
+
+**For 4+ star products**: Focus on positive aspects, minor quibbles if any
+**For 3-4 star products**: Balanced view, acknowledge limitations
+**For <3 star products**: Honest about problems, may still find value
+
+## Brand-Specific Considerations
+
+**Ozito (Budget)**: Emphasize value for money, good for light tasks, entry-level
+**Milwaukee/DeWalt (Professional)**: Focus on power, durability, trade use
+**Ryobi (Mid-range)**: Balance of features and price, good for DIY
+**Karcher (Premium)**: Quality engineering, long-term investment
+**Makita/Bosch (Professional)**: Reliability, professional features
+
+## Fallback Content Strategy
+
+When specific product data is limited, use these category patterns:
+
+### Common Drill Experiences
+- Chuck quality and bit retention
+- Battery life and charging time  
+- LED light usefulness
+- Weight for overhead work
+- Torque settings and clutch
+
+### Common Grinder Experiences
+- Sparks and dust management
+- Disc changing ease
+- Power for different materials
+- Vibration and comfort
+- Noise levels
+
+### Common Pressure Washer Experiences
+- Hose management and storage
+- Cleaning power effectiveness
+- Setup and portability
+- Nozzle variety and use
+- Water pressure consistency
+
+## Style Guidelines
+
+### Voice Adaptation Examples
+
+**Hemingway Style**: 
+"Bought this Sunday. Good drill. Chuck holds tight. Used it on deck boards. Battery lasts long enough. Staff at Bunnings knew their stuff. Worth the money."
+
+**Dickens Style**:
+"A most agreeable experience acquiring this implement! The helpful gentleman in the power tools section possessed an encyclopedic knowledge of batteries, and the drill itself proved most capable during my recent garden shed construction."
+
+**Woolf Style**: 
+"There's something rather meditative about the rhythm of drilling, the way this tool becomes an extension of one's intentions. Purchased during a particularly frantic Saturday at Bunnings—such crowds!—yet it's brought order to my renovation chaos."
+
+## Review Structure Template
+
+1. **Opening Context** (10-15 words): Brief setup of purchase/use situation
+2. **Main Experience** (25-40 words): Core product performance and use case
+3. **Bunnings Detail** (8-12 words): Store experience or interaction
+4. **Author Voice Flourish** (10-15 words): Distinctive perspective or observation
+5. **Conclusion/Rating Justification** (5-10 words): Why this rating
+
+## Quality Checklist
+
+- [ ] 50-120 words total
+- [ ] Maintains author's distinctive voice
+- [ ] Includes authentic human detail
+- [ ] References Bunnings store experience
+- [ ] Uses appropriate use case for tool category
+- [ ] Rating aligns with author bias and product data
+- [ ] Feels conversational, not promotional
+- [ ] No overly philosophical or verbose language
+- [ ] Brand positioning appropriate (budget vs premium)
+- [ ] Entertainment value while remaining believable
+
+## Output Format
+
+```
+---
+rating: {1-5}
+title: "{Brief review title in author's voice}"
+author: {author-slug}
+tool: {tool-slug}
+---
+
+{Review content following all guidelines above}
+```
+
+This template should produce reviews that feel authentically human while maintaining the entertaining parody element of famous authors shopping at Bunnings and reviewing power tools. 
