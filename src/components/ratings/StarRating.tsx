@@ -18,20 +18,20 @@ export const StarRating: FC<StarRatingProps> = ({ rating, className }) => {
       {Array.from({ length: fullStars }).map((_, index) => (
         <Star
           key={`full-${index}`}
-          className={cn("h-4 w-4 text-bunnings-rating-star-yellow", className)}
+          className={cn("text-bunnings-rating-star-yellow h-4 w-4", className)}
           fill="currentColor"
         />
       ))}
-      
+
       {/* Render half star if needed */}
       {hasHalfStar && (
         <StarHalf
           key="half"
-          className={cn("h-4 w-4 text-bunnings-rating-star-yellow", className)}
+          className={cn("text-bunnings-rating-star-yellow h-4 w-4", className)}
           fill="currentColor"
         />
       )}
-      
+
       {/* Render empty stars */}
       {Array.from({ length: emptyStars }).map((_, index) => (
         <Star

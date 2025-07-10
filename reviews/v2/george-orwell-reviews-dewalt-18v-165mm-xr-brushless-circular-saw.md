@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Advanced DIYer"
 ---
 
-Testing brushless motor claims during deck reconstruction—examining actual performance versus corporate marketing promises about efficiency and power. Cut through fifty-two treated pine boards without noticeable power decline. Electronic brake stopped blade within seconds as advertised. Depth adjustment operated smoothly despite manufacturer's tendency toward over-engineered controls. Bunnings pricing typical for professional-grade equipment. Cordless operation eliminates extension cord hazards. Functions as promised without corporate doublespeak. 
+Testing brushless motor claims during deck reconstruction—examining actual performance versus corporate marketing promises about efficiency and power. Cut through fifty-two treated pine boards without noticeable power decline. Electronic brake stopped blade within seconds as advertised. Depth adjustment operated smoothly despite manufacturer's tendency toward over-engineered controls. Bunnings pricing typical for professional-grade equipment. Cordless operation eliminates extension cord hazards. Functions as promised without corporate doublespeak.

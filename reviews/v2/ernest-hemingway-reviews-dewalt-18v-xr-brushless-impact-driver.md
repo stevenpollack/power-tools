@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Deck screws needed driving. Got this DeWALT at Bunnings. Works good. Drove two hundred screws without stopping. Battery lasted. Chuck holds bits tight. Good weight for overhead work. Not too loud. Two hundred forty-nine dollars. Worth it. 
+Deck screws needed driving. Got this DeWALT at Bunnings. Works good. Drove two hundred screws without stopping. Battery lasted. Chuck holds bits tight. Good weight for overhead work. Not too loud. Two hundred forty-nine dollars. Worth it.

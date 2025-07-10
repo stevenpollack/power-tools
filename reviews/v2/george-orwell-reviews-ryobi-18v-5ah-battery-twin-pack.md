@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Advanced DIYer"
 ---
 
-Testing manufacturer claims about five-amp-hour capacity and charge time during actual workshop use rather than believing corporate marketing promises. Two batteries mean continuous work without downtime—one charges while using the other. Actual runtime closer to three hours with drill, not the "up to four hours" advertised. Charge indicators useful for planning work. Bunnings honest about pricing versus individual battery costs. Functions as advertised without exaggeration. 
+Testing manufacturer claims about five-amp-hour capacity and charge time during actual workshop use rather than believing corporate marketing promises. Two batteries mean continuous work without downtime—one charges while using the other. Actual runtime closer to three hours with drill, not the "up to four hours" advertised. Charge indicators useful for planning work. Bunnings honest about pricing versus individual battery costs. Functions as advertised without exaggeration.

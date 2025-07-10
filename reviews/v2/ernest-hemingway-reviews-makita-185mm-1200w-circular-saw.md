@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Building deck. Cut through treated pine. Blade stayed sharp. Depth adjustment worked smooth. Bevel cuts clean at forty-five degrees. Needed different depths for joists versus decking boards—lever moved easy. Cord long enough. Dust shot out the back, not in my face. Bunnings guy knew his saws. Good saw. Does the job. 
+Building deck. Cut through treated pine. Blade stayed sharp. Depth adjustment worked smooth. Bevel cuts clean at forty-five degrees. Needed different depths for joists versus decking boards—lever moved easy. Cord long enough. Dust shot out the back, not in my face. Bunnings guy knew his saws. Good saw. Does the job.

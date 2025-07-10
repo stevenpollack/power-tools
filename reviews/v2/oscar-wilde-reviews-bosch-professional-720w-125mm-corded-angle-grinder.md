@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Hobbyist"
 ---
 
-Reshaping garden sculpture required tool capable of artistic temperament—this German machine understands aesthetic subtlety better than most gallery critics. Side handle prevents barbaric grip while spindle lock enables civilized disc changes between creative phases. The Bunnings attendant showed remarkable appreciation for sculpture work. Professional power serves artistic purpose without vulgar excess. Sparks provide dramatic effect during creative destruction. Beauty emerges through controlled violence. 
+Reshaping garden sculpture required tool capable of artistic temperament—this German machine understands aesthetic subtlety better than most gallery critics. Side handle prevents barbaric grip while spindle lock enables civilized disc changes between creative phases. The Bunnings attendant showed remarkable appreciation for sculpture work. Professional power serves artistic purpose without vulgar excess. Sparks provide dramatic effect during creative destruction. Beauty emerges through controlled violence.

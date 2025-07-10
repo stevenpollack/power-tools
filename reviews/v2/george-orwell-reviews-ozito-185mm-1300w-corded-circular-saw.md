@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Budget circular saw claiming 1300 watts—testing actual cutting performance against treated lumber rather than believing wattage specifications alone. Cuts through pine decking boards adequately. Blade depth adjustment works but requires more effort than premium models. Cord length sufficient for most work. Gets job done without pretense. Bunnings pricing transparent about budget positioning. 
+Budget circular saw claiming 1300 watts—testing actual cutting performance against treated lumber rather than believing wattage specifications alone. Cuts through pine decking boards adequately. Blade depth adjustment works but requires more effort than premium models. Cord length sufficient for most work. Gets job done without pretense. Bunnings pricing transparent about budget positioning.

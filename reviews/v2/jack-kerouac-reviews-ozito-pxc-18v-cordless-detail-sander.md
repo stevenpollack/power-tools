@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Weekend Warrior"
 ---
 
-Man, detail sanding bus windows for mobile poetry readings—this Ozito gets into tight corners like improvisational jazz gets into your soul! Converting old school bus into rolling poetry venue, window frames needed delicate touch before painting. Bunnings guy suggested this for intricate work around glass. Multiple attachments handle different angles, lightweight design keeps hands free for creative flow. Hook and loop system quick like jazz tempo changes. Forty-five dollars budget-friendly for artistic freedom projects! 
+Man, detail sanding bus windows for mobile poetry readings—this Ozito gets into tight corners like improvisational jazz gets into your soul! Converting old school bus into rolling poetry venue, window frames needed delicate touch before painting. Bunnings guy suggested this for intricate work around glass. Multiple attachments handle different angles, lightweight design keeps hands free for creative flow. Hook and loop system quick like jazz tempo changes. Forty-five dollars budget-friendly for artistic freedom projects!

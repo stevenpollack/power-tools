@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Sick of constantly swapping batteries during projects, so bought this twin pack. Finally—uninterrupted work time! Building custom furniture requires sustained focus, not constant charging breaks. Bunnings guy understood exactly what I needed. Each battery runs about four hours depending on the tool. LED charge indicators are genuinely useful, not just marketing gimmick. Love that these don't develop memory issues like old battery types. At two-thirty-nine dollars, worth every penny for serious DIY work where stopping kills momentum! 
+Sick of constantly swapping batteries during projects, so bought this twin pack. Finally—uninterrupted work time! Building custom furniture requires sustained focus, not constant charging breaks. Bunnings guy understood exactly what I needed. Each battery runs about four hours depending on the tool. LED charge indicators are genuinely useful, not just marketing gimmick. Love that these don't develop memory issues like old battery types. At two-thirty-nine dollars, worth every penny for serious DIY work where stopping kills momentum!

@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Weekend Warrior"
 ---
 
-They call it "professional" but I'm just a weekend tinkerer—still cuts metal like it means business. Seven hundred twenty watts sounds fancy, but what matters is results. Needed to trim fence posts that were installed by optimists with poor measuring skills. Bunnings clerk appreciated my skepticism about marketing claims. Sparks fly proper, cord's long enough, and grip doesn't tire these old hands. Ninety-nine dollars reasonable for honest work, despite grandiose professional labeling! 
+They call it "professional" but I'm just a weekend tinkerer—still cuts metal like it means business. Seven hundred twenty watts sounds fancy, but what matters is results. Needed to trim fence posts that were installed by optimists with poor measuring skills. Bunnings clerk appreciated my skepticism about marketing claims. Sparks fly proper, cord's long enough, and grip doesn't tire these old hands. Ninety-nine dollars reasonable for honest work, despite grandiose professional labeling!

@@ -1,18 +1,23 @@
 import { useState, useEffect, useMemo } from "react";
 import { SlidersHorizontal, ArrowUpDown } from "lucide-react";
 import { ToolCard } from "./ToolCard";
-import { 
-  Sheet, 
-  SheetContent, 
-  SheetHeader, 
-  SheetTitle, 
-  SheetTrigger 
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
 } from "./sheet";
 import type { Tool } from "@/lib/types";
 
 const TOOLS_PER_PAGE = 8;
 
-type SortOrder = "default" | "price-low" | "price-high" | "rating-low" | "rating-high";
+type SortOrder =
+  | "default"
+  | "price-low"
+  | "price-high"
+  | "rating-low"
+  | "rating-high";
 
 interface ToolWithOptimizedImage extends Tool {
   optimizedImageUrl: string;
@@ -37,7 +42,7 @@ export function ToolGrid({ tools }: ToolGridProps) {
     const brands = params.get("brands");
     const categories = params.get("categories");
     const sort = params.get("sort") as SortOrder;
-    
+
     if (brands) setSelectedBrands(brands.split(","));
     if (categories) setSelectedCategories(categories.split(","));
     if (sort) setSortOrder(sort);
@@ -46,8 +51,10 @@ export function ToolGrid({ tools }: ToolGridProps) {
   // Effect to update URL when filters or sort order change (following MasonryWall pattern)
   useEffect(() => {
     const params = new URLSearchParams();
-    if (selectedBrands.length > 0) params.set("brands", selectedBrands.join(","));
-    if (selectedCategories.length > 0) params.set("categories", selectedCategories.join(","));
+    if (selectedBrands.length > 0)
+      params.set("brands", selectedBrands.join(","));
+    if (selectedCategories.length > 0)
+      params.set("categories", selectedCategories.join(","));
     if (sortOrder !== "default") params.set("sort", sortOrder);
 
     const queryString = params.toString();
@@ -66,20 +73,23 @@ export function ToolGrid({ tools }: ToolGridProps) {
   // Extract unique values for filter options
   const availableBrands = useMemo(
     () => [...new Set(tools.map((tool) => tool.data.brand))].sort(),
-    [tools]
+    [tools],
   );
 
   const availableCategories = useMemo(
     () => [...new Set(tools.map((tool) => tool.data.category))].sort(),
-    [tools]
+    [tools],
   );
 
   // Filter and sort tools
   const filteredAndSortedTools = useMemo(() => {
     // Filter first
     let filtered = tools.filter((tool) => {
-      const brandMatch = selectedBrands.length === 0 || selectedBrands.includes(tool.data.brand);
-      const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(tool.data.category);
+      const brandMatch =
+        selectedBrands.length === 0 || selectedBrands.includes(tool.data.brand);
+      const categoryMatch =
+        selectedCategories.length === 0 ||
+        selectedCategories.includes(tool.data.category);
       return brandMatch && categoryMatch;
     });
 
@@ -87,16 +97,26 @@ export function ToolGrid({ tools }: ToolGridProps) {
     const sorted = [...filtered];
     switch (sortOrder) {
       case "price-low":
-        sorted.sort((a, b) => a.data.pricing.currentPrice - b.data.pricing.currentPrice);
+        sorted.sort(
+          (a, b) => a.data.pricing.currentPrice - b.data.pricing.currentPrice,
+        );
         break;
       case "price-high":
-        sorted.sort((a, b) => b.data.pricing.currentPrice - a.data.pricing.currentPrice);
+        sorted.sort(
+          (a, b) => b.data.pricing.currentPrice - a.data.pricing.currentPrice,
+        );
         break;
       case "rating-low":
-        sorted.sort((a, b) => a.data.popularity.averageRating - b.data.popularity.averageRating);
+        sorted.sort(
+          (a, b) =>
+            a.data.popularity.averageRating - b.data.popularity.averageRating,
+        );
         break;
       case "rating-high":
-        sorted.sort((a, b) => b.data.popularity.averageRating - a.data.popularity.averageRating);
+        sorted.sort(
+          (a, b) =>
+            b.data.popularity.averageRating - a.data.popularity.averageRating,
+        );
         break;
       case "default":
       default:
@@ -109,7 +129,7 @@ export function ToolGrid({ tools }: ToolGridProps) {
 
   const visibleTools = useMemo(
     () => filteredAndSortedTools.slice(0, visibleCount),
-    [filteredAndSortedTools, visibleCount]
+    [filteredAndSortedTools, visibleCount],
   );
 
   const handleLoadMore = () => {
@@ -118,13 +138,13 @@ export function ToolGrid({ tools }: ToolGridProps) {
 
   const handleBrandChange = (brand: string, checked: boolean) => {
     setSelectedBrands((prev) =>
-      checked ? [...prev, brand] : prev.filter((b) => b !== brand)
+      checked ? [...prev, brand] : prev.filter((b) => b !== brand),
     );
   };
 
   const handleCategoryChange = (category: string, checked: boolean) => {
     setSelectedCategories((prev) =>
-      checked ? [...prev, category] : prev.filter((c) => c !== category)
+      checked ? [...prev, category] : prev.filter((c) => c !== category),
     );
   };
 
@@ -133,7 +153,8 @@ export function ToolGrid({ tools }: ToolGridProps) {
     setSelectedCategories([]);
   };
 
-  const hasActiveFilters = selectedBrands.length > 0 || selectedCategories.length > 0;
+  const hasActiveFilters =
+    selectedBrands.length > 0 || selectedCategories.length > 0;
 
   return (
     <>
@@ -143,7 +164,7 @@ export function ToolGrid({ tools }: ToolGridProps) {
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value as SortOrder)}
-            className="flex w-full items-center justify-center gap-2 text-sm font-medium text-gray-700 bg-transparent border-none focus:outline-none cursor-pointer"
+            className="flex w-full cursor-pointer items-center justify-center gap-2 border-none bg-transparent text-sm font-medium text-gray-700 focus:outline-none"
           >
             <option value="default">Sort By: Default</option>
             <option value="price-low">Price: Low to High</option>
@@ -169,7 +190,7 @@ export function ToolGrid({ tools }: ToolGridProps) {
               <SheetHeader>
                 <SheetTitle>Filter Tools</SheetTitle>
               </SheetHeader>
-              
+
               <div className="space-y-6 p-4">
                 {/* Clear all filters */}
                 {hasActiveFilters && (
@@ -186,11 +207,16 @@ export function ToolGrid({ tools }: ToolGridProps) {
                   <h3 className="mb-3 font-medium">Brand</h3>
                   <div className="space-y-2">
                     {availableBrands.map((brand) => (
-                      <label key={brand} className="flex items-center space-x-2">
+                      <label
+                        key={brand}
+                        className="flex items-center space-x-2"
+                      >
                         <input
                           type="checkbox"
                           checked={selectedBrands.includes(brand)}
-                          onChange={(e) => handleBrandChange(brand, e.target.checked)}
+                          onChange={(e) =>
+                            handleBrandChange(brand, e.target.checked)
+                          }
                           className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                         />
                         <span className="text-sm">{brand}</span>
@@ -204,11 +230,16 @@ export function ToolGrid({ tools }: ToolGridProps) {
                   <h3 className="mb-3 font-medium">Category</h3>
                   <div className="space-y-2">
                     {availableCategories.map((category) => (
-                      <label key={category} className="flex items-center space-x-2">
+                      <label
+                        key={category}
+                        className="flex items-center space-x-2"
+                      >
                         <input
                           type="checkbox"
                           checked={selectedCategories.includes(category)}
-                          onChange={(e) => handleCategoryChange(category, e.target.checked)}
+                          onChange={(e) =>
+                            handleCategoryChange(category, e.target.checked)
+                          }
                           className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                         />
                         <span className="text-sm">{category}</span>
@@ -225,7 +256,8 @@ export function ToolGrid({ tools }: ToolGridProps) {
       {/* Results Count */}
       <div className="mx-auto max-w-6xl py-4">
         <p className="text-center text-sm text-gray-600">
-          Showing {Math.min(visibleCount, filteredAndSortedTools.length)} of {filteredAndSortedTools.length} results
+          Showing {Math.min(visibleCount, filteredAndSortedTools.length)} of{" "}
+          {filteredAndSortedTools.length} results
           {filteredAndSortedTools.length !== tools.length && " (filtered)"}
         </p>
       </div>
@@ -261,7 +293,7 @@ export function ToolGrid({ tools }: ToolGridProps) {
         <div className="pb-16 text-center">
           <button
             onClick={handleLoadMore}
-            className="rounded-lg bg-bunnings-primary-orange px-8 py-3 font-medium text-black transition-colors hover:bg-bunnings-primary-orange/90"
+            className="bg-bunnings-primary-orange hover:bg-bunnings-primary-orange/90 rounded-lg px-8 py-3 font-medium text-black transition-colors"
           >
             Load More Tools
           </button>
@@ -269,4 +301,4 @@ export function ToolGrid({ tools }: ToolGridProps) {
       )}
     </>
   );
-} 
+}

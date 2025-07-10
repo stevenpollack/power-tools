@@ -132,12 +132,12 @@ export function RatingSnapshot({
 
       {/* Average Customer Ratings */}
       {(qualityRating || valueRating) && (
-        <div className="border-t border-gray-400 pt-4 col-span-1 lg:col-span-3 lg:w-full lg:justify-self-center">
+        <div className="col-span-1 border-t border-gray-400 pt-4 lg:col-span-3 lg:w-full lg:justify-self-center">
           <h4 className="mb-3 text-base font-medium text-gray-900 lg:text-center">
             Average Customer Ratings
           </h4>
           <div className="space-y-3">
-            <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-10">
+            <div className="flex flex-col justify-center gap-4 lg:flex-row lg:gap-10">
               {qualityRating && (
                 <div className="lg:min-w-2xs">
                   <div className="mb-1 flex items-center justify-between">

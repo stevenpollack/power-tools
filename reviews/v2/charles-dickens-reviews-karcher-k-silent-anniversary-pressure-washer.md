@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Intermediate"
 ---
 
-A most remarkable contraption that transforms the humblest driveway into a canvas of cleanliness! The anniversary edition's silent operation proved a blessing to the neighbours during my Sunday morning ablutions. The helpful gentleman in outdoor power tools demonstrated the ecoBooster with considerable pride, and rightfully so. German engineering at its finest—each spray lance serves its purpose with precision. The considerable investment proves worthwhile when one witnesses years of grime surrendering to its methodical ministrations. Quite brilliant. 
+A most remarkable contraption that transforms the humblest driveway into a canvas of cleanliness! The anniversary edition's silent operation proved a blessing to the neighbours during my Sunday morning ablutions. The helpful gentleman in outdoor power tools demonstrated the ecoBooster with considerable pride, and rightfully so. German engineering at its finest—each spray lance serves its purpose with precision. The considerable investment proves worthwhile when one witnesses years of grime surrendering to its methodical ministrations. Quite brilliant.

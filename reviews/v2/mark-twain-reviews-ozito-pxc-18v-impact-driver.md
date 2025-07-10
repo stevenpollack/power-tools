@@ -22,4 +22,4 @@ valueRating: 5
 userCategory: "Weekend Warrior"
 ---
 
-Building fence posts called for impact driver with more sense than showoff—this Australian budget tool delivers honest work without fancy pretensions. Drove eighty-seven deck screws without battery crying uncle or torque control throwing tantrums. PXC system means one battery runs the whole Ozito gang, which tickles my practical sensibilities. Bunnings clerk said it ain't the fanciest but gets the job done, which suits me fine. Sometimes the best tool is the one that works without making a speech about it. 
+Building fence posts called for impact driver with more sense than showoff—this Australian budget tool delivers honest work without fancy pretensions. Drove eighty-seven deck screws without battery crying uncle or torque control throwing tantrums. PXC system means one battery runs the whole Ozito gang, which tickles my practical sensibilities. Bunnings clerk said it ain't the fanciest but gets the job done, which suits me fine. Sometimes the best tool is the one that works without making a speech about it.

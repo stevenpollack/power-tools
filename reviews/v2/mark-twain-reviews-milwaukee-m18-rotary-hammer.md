@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Weekend Warrior"
 ---
 
-Neighbor claimed his old hammer drill could bore through concrete block to save his reputation. This Milwaukee makes better promises and keeps 'em too. Fella at Bunnings said it hammers like Thor's younger brother—exaggeration maybe, but it did punch through my basement wall without complaint. Three modes of operation: drill, hammer, and "why didn't I buy this sooner." Pricey at three-ninety-nine, but beats borrowing tools from boastful neighbors! 
+Neighbor claimed his old hammer drill could bore through concrete block to save his reputation. This Milwaukee makes better promises and keeps 'em too. Fella at Bunnings said it hammers like Thor's younger brother—exaggeration maybe, but it did punch through my basement wall without complaint. Three modes of operation: drill, hammer, and "why didn't I buy this sooner." Pricey at three-ninety-nine, but beats borrowing tools from boastful neighbors!

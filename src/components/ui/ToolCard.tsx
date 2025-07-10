@@ -12,7 +12,11 @@ interface ToolCardProps {
   className?: string;
 }
 
-export function ToolCard({ tool, optimizedImageUrl, className }: ToolCardProps) {
+export function ToolCard({
+  tool,
+  optimizedImageUrl,
+  className,
+}: ToolCardProps) {
   const { id, data } = tool;
   const { name, brand, popularity, pricing } = data;
 
@@ -20,7 +24,7 @@ export function ToolCard({ tool, optimizedImageUrl, className }: ToolCardProps) 
     <div
       className={cn(
         "card flex h-full flex-col bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-md",
-        className
+        className,
       )}
     >
       {/* Mobile: Horizontal layout | Tablet+: Vertical layout */}
@@ -46,7 +50,8 @@ export function ToolCard({ tool, optimizedImageUrl, className }: ToolCardProps) 
           <div className="flex gap-2 md:hidden">
             <StarRating rating={popularity.averageRating} />
             <span className="text-bunnings-2xs text-bunnings-neutral-charcoal">
-              {popularity.averageRating.toFixed(1)}&nbsp;({popularity.reviewCount})
+              {popularity.averageRating.toFixed(1)}&nbsp;(
+              {popularity.reviewCount})
             </span>
           </div>
         </div>
@@ -58,7 +63,8 @@ export function ToolCard({ tool, optimizedImageUrl, className }: ToolCardProps) 
         <div className="flex justify-start gap-4">
           <StarRating rating={popularity.averageRating} />
           <span className="text-bunnings-2xs text-bunnings-neutral-charcoal">
-            {popularity.averageRating.toFixed(1)}&nbsp;({popularity.reviewCount})
+            {popularity.averageRating.toFixed(1)}&nbsp;({popularity.reviewCount}
+            )
           </span>
         </div>
 
@@ -102,4 +108,4 @@ export function ToolCard({ tool, optimizedImageUrl, className }: ToolCardProps) 
       </div>
     </div>
   );
-} 
+}

@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Hobbyist"
 ---
 
-One goes to Bunnings seeking a simple drill and discovers instead a universe of possibilities—this four-piece kit arrived like an unexpected gift. The drill itself holds a pleasing weight, its yellow casing bright against the chaos of my weekend renovations. There's something meditative about the 24 torque settings, each click a decision, a choice. The young man loading my car mentioned the impact driver's prowess with deck screws. Already I'm imagining autumn projects, the satisfaction of creation. Quite transformative, really. 
+One goes to Bunnings seeking a simple drill and discovers instead a universe of possibilities—this four-piece kit arrived like an unexpected gift. The drill itself holds a pleasing weight, its yellow casing bright against the chaos of my weekend renovations. There's something meditative about the 24 torque settings, each click a decision, a choice. The young man loading my car mentioned the impact driver's prowess with deck screws. Already I'm imagining autumn projects, the satisfaction of creation. Quite transformative, really.

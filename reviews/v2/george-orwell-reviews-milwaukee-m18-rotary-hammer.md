@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Advanced DIYer"
 ---
 
-Testing claims about concrete drilling performance and SDS bit changing during actual foundation repair work rather than believing manufacturer specifications. Drilled twelve holes through concrete block walls—tool maintained consistent power without overheating nonsense claimed by competing brands. Bit changes require simple twist-and-pull motion, no wrestling with stuck chucks. Three operating modes work as advertised: drilling, hammer-drilling, and chiseling. Bunnings pricing honest about premium positioning. Functions without corporate hyperbole. 
+Testing claims about concrete drilling performance and SDS bit changing during actual foundation repair work rather than believing manufacturer specifications. Drilled twelve holes through concrete block walls—tool maintained consistent power without overheating nonsense claimed by competing brands. Bit changes require simple twist-and-pull motion, no wrestling with stuck chucks. Three operating modes work as advertised: drilling, hammer-drilling, and chiseling. Bunnings pricing honest about premium positioning. Functions without corporate hyperbole.

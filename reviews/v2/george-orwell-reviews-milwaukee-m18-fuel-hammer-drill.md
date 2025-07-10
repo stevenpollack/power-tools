@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Advanced DIYer"
 ---
 
-Marketing claims aside, this drill works. Drilled concrete anchors without issues. Battery lasted three hours of actual use. Bunnings staff avoided sales pitch, just answered questions. "POWERSTATE" and "REDLINK" are marketing terms. What matters: the motor has power, chuck holds bits, battery charges properly. One hundred forty-nine dollars. Does what it says. 
+Marketing claims aside, this drill works. Drilled concrete anchors without issues. Battery lasted three hours of actual use. Bunnings staff avoided sales pitch, just answered questions. "POWERSTATE" and "REDLINK" are marketing terms. What matters: the motor has power, chuck holds bits, battery charges properly. One hundred forty-nine dollars. Does what it says.

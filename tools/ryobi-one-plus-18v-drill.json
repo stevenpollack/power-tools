@@ -44,12 +44,41 @@
     "urlMismatch": true,
     "reviewsScrapped": 33,
     "averageReviewLength": 45,
-    "commonUseCases": ["DIY projects", "drilling holes", "driving screws", "multi-tool tasks", "weekend projects"],
-    "positivePatterns": ["precise torque control", "variable speed", "long battery runtime", "versatile kit", "good value"],
-    "negativePatterns": ["multiple tools to manage", "kit size", "learning curve for different tools"],
-    "humanFlourishes": ["weekend DIY", "garage projects", "first cordless kit purchase"],
-    "experienceContext": ["upgrading from corded tools", "building deck", "furniture assembly", "home renovation"],
-    "bunningsSpecificDetails": ["kit comes with carry bag", "staff explained different tools", "good starter kit"],
+    "commonUseCases": [
+      "DIY projects",
+      "drilling holes",
+      "driving screws",
+      "multi-tool tasks",
+      "weekend projects"
+    ],
+    "positivePatterns": [
+      "precise torque control",
+      "variable speed",
+      "long battery runtime",
+      "versatile kit",
+      "good value"
+    ],
+    "negativePatterns": [
+      "multiple tools to manage",
+      "kit size",
+      "learning curve for different tools"
+    ],
+    "humanFlourishes": [
+      "weekend DIY",
+      "garage projects",
+      "first cordless kit purchase"
+    ],
+    "experienceContext": [
+      "upgrading from corded tools",
+      "building deck",
+      "furniture assembly",
+      "home renovation"
+    ],
+    "bunningsSpecificDetails": [
+      "kit comes with carry bag",
+      "staff explained different tools",
+      "good starter kit"
+    ],
     "ratingDistribution": {
       "1star": 1,
       "2star": 2,

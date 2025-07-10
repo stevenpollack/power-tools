@@ -44,12 +44,42 @@
     "urlMismatch": true,
     "reviewsScrapped": 21,
     "averageReviewLength": 52,
-    "commonUseCases": ["masonry drilling", "concrete work", "heavy-duty fastening", "construction projects", "trade work"],
-    "positivePatterns": ["powerful motor", "brushless performance", "battery life", "professional quality", "hammer action"],
-    "negativePatterns": ["price point", "heavy weight", "overkill for light tasks", "battery cost"],
-    "humanFlourishes": ["tradesman recommendation", "job site use", "replacing old corded drill"],
-    "experienceContext": ["professional work", "concrete renovation", "building extension", "fence installation"],
-    "bunningsSpecificDetails": ["trade discount available", "heavy to carry from car", "good warranty explanation"],
+    "commonUseCases": [
+      "masonry drilling",
+      "concrete work",
+      "heavy-duty fastening",
+      "construction projects",
+      "trade work"
+    ],
+    "positivePatterns": [
+      "powerful motor",
+      "brushless performance",
+      "battery life",
+      "professional quality",
+      "hammer action"
+    ],
+    "negativePatterns": [
+      "price point",
+      "heavy weight",
+      "overkill for light tasks",
+      "battery cost"
+    ],
+    "humanFlourishes": [
+      "tradesman recommendation",
+      "job site use",
+      "replacing old corded drill"
+    ],
+    "experienceContext": [
+      "professional work",
+      "concrete renovation",
+      "building extension",
+      "fence installation"
+    ],
+    "bunningsSpecificDetails": [
+      "trade discount available",
+      "heavy to carry from car",
+      "good warranty explanation"
+    ],
     "ratingDistribution": {
       "1star": 1,
       "2star": 3,

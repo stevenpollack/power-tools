@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Building shed. Laser showed cut line clear. Depth adjustment worked easy. Cut forty-three boards without blade change. Good balance for repetitive work. Cord long enough for most cuts. Bunnings had spare blades ready. Cuts straight when you keep steady pressure. Works like should. 
+Building shed. Laser showed cut line clear. Depth adjustment worked easy. Cut forty-three boards without blade change. Good balance for repetitive work. Cord long enough for most cuts. Bunnings had spare blades ready. Cuts straight when you keep steady pressure. Works like should.

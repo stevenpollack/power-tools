@@ -22,4 +22,4 @@ valueRating: 3
 userCategory: "Weekend Warrior"
 ---
 
-Cleaning deck after winter mess—this European contraption works like a charm, though it's fancier than anything we'd build back home. Turbo nozzle strips paint off weatherboards faster than a politician changes positions. Hose reel keeps everything tidy, which my wife appreciates more than the 1810 PSI rating. Bunnings fellow recommended it over cheaper models—good advice. German engineering meets Australian grime with predictable results. Worth every dollar for deck resurrection work. 
+Cleaning deck after winter mess—this European contraption works like a charm, though it's fancier than anything we'd build back home. Turbo nozzle strips paint off weatherboards faster than a politician changes positions. Hose reel keeps everything tidy, which my wife appreciates more than the 1810 PSI rating. Bunnings fellow recommended it over cheaper models—good advice. German engineering meets Australian grime with predictable results. Worth every dollar for deck resurrection work.

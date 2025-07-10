@@ -22,4 +22,4 @@ valueRating: 5
 userCategory: "Advanced DIYer"
 ---
 
-Bought this Sunday morning. Needed it for weekend project. Good drill for the price. Chuck holds tight. Battery lasted long enough to finish my deck repairs. Staff at Bunnings knew where to find the PXC batteries. Lightweight but feels solid. LED light actually helps in tight spots. Not for heavy masonry work but perfect for wood and screws. Saved fifty bucks over the big brands. Does the job. 
+Bought this Sunday morning. Needed it for weekend project. Good drill for the price. Chuck holds tight. Battery lasted long enough to finish my deck repairs. Staff at Bunnings knew where to find the PXC batteries. Lightweight but feels solid. LED light actually helps in tight spots. Not for heavy masonry work but perfect for wood and screws. Saved fifty bucks over the big brands. Does the job.

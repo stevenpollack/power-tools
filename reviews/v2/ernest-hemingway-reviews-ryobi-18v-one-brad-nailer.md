@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Trim work around windows. Magazine held hundred nails. Depth dial prevented blowouts. Battery lasted whole room. Clean finish. No compressor needed. Bunnings guy showed loading technique. Fires fast when you get rhythm going. 
+Trim work around windows. Magazine held hundred nails. Depth dial prevented blowouts. Battery lasted whole room. Clean finish. No compressor needed. Bunnings guy showed loading technique. Fires fast when you get rhythm going.

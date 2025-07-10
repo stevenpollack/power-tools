@@ -7,7 +7,7 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 ## Target Specifications
 
 - **Length**: Author-dependent word counts (see Author-Specific Word Count Ranges below)
-- **Style**: Conversational and human, not promotional or philosophical  
+- **Style**: Conversational and human, not promotional or philosophical
 - **Rating**: Use authentic distribution based on product data
 - **Voice**: Maintain {AUTHOR_NAME}'s literary style but make it feel like they're an actual Bunnings customer
 
@@ -16,25 +16,30 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 **CRITICAL**: Word count should match each author's natural literary style and voice:
 
 ### Ultra-Concise (40-60 words)
+
 - **Ernest Hemingway**: Master of minimalism, telegraphic prose, "iceberg theory"
 - **George Orwell**: Clear, direct communication, "never use a long word where a short one will do"
 
-### Short (50-70 words)  
+### Short (50-70 words)
+
 - **Oscar Wilde**: Witty but precise, epigram-like observations
 - **Jane Austen**: Social observation with economy, sharp but concise
 - **Mark Twain**: Folksy storytelling but not verbose, gets to the point
 
 ### Medium (60-90 words)
+
 - **Ayn Rand**: Heroic declarations, philosophical but focused on core message
 - **Edgar Allan Poe**: Atmospheric but controlled, builds mood efficiently
 - **Jack Kerouac**: Jazz rhythms, energetic flow but can be tight when needed
 
 ### Medium-Long (70-100 words)
+
 - **Virginia Woolf**: Stream-of-consciousness, introspective complexity
 - **HP Lovecraft**: Horror descriptions, cosmic dread requires atmospheric detail
 - **Franz Kafka**: Bureaucratic complexity, anxious precision requires explanation
 
 ### Longer (80-120 words)
+
 - **Charles Dickens**: Naturally descriptive, humanitarian detail, character-rich scenarios
 
 **Implementation**: When generating reviews, use the specific word count range for each author to maintain authentic voice patterns while ensuring reviews feel natural to their literary style.
@@ -42,6 +47,7 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 **CRITICAL VOICE AUTHENTICITY**: Authors should sound like **people** who happen to have those perspectives, not like they're performing their literary personas. Even distinctive voices like Ayn Rand or Lovecraft must feel like genuine customers sharing real experiences, not philosophical treatises or dramatic performances.
 
 **Example Fixes**:
+
 - **WRONG**: "Power tool acquisition represents rational engineering triumph enabling individual productive mastery!" (sounds like propaganda)
 - **RIGHT**: "Needed reliable drill for workshop projects—this one delivers excellent performance without breaking the budget!" (sounds like a person with practical values)
 
@@ -59,13 +65,15 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 ## Author-Specific Data Usage
 
 Use the following data from each author's JSON file:
-- **displayName**: Use `author.displayName` exactly as specified (e.g., "Ernest", "C. Dickens", "V. Woolf")  
+
+- **displayName**: Use `author.displayName` exactly as specified (e.g., "Ernest", "C. Dickens", "V. Woolf")
 - **userCategory**: Use `author.userCategory` from the predefined categories
 - **ratingBias**: Use as general tendency, but allow for occasional variance for realism
 
 ### Author Rating Bias Guidelines (With Realistic Variance)
+
 - **Advanced DIYer** (Hemingway, Ayn Rand, Orwell): Generally positive, but will criticize poor quality or overpriced tools
-- **Intermediate** (Dickens, Austen): Balanced approach, occasionally disappointed by products that don't meet expectations  
+- **Intermediate** (Dickens, Austen): Balanced approach, occasionally disappointed by products that don't meet expectations
 - **Weekend Warrior** (Twain, Kerouac): Usually enthusiastic, but sometimes get unlucky with defective units
 - **Hobbyist** (Woolf, Wilde): Focus on aesthetics/creativity, may dislike purely utilitarian designs
 - **Beginner** (Poe, Kafka, Lovecraft): Generally struggle with tools, but occasionally surprised by something that works well
@@ -75,26 +83,34 @@ Use the following data from each author's JSON file:
 ## Required Elements
 
 ### 1. Personal Story/Anecdote (MANDATORY)
+
 Build the review around a specific personal experience. Examples:
+
 - **Project Context**: "Was building a pergola when...", "Fixing the back gate and...", "Helping dad with his shed..."
 - **Problem/Solution**: "Old drill finally died, so...", "Needed something for tight spaces...", "Wife's honey-do list required..."
 - **Unexpected Situations**: "Halfway through the job it started raining...", "Battery died right when I needed it most...", "Worked great until..."
 - **Comparison Stories**: "My neighbor's fancy one broke, so...", "Used my mate's first, then bought my own..."
 
 ### 2. Bunnings Experience Story
+
 Include a specific Bunnings interaction as part of your anecdote:
+
 - **Staff Stories**: "Bloke at Bunnings said...", "Had to ask three different people...", "Staff member knew exactly what I needed..."
 - **Shopping Experience**: "Saturday arvo chaos at Bunnings...", "Found it tucked away on the bottom shelf...", "Queue was mental but..."
 - **Service Stories**: "They price-matched my phone screenshot...", "Loading dock made life easy...", "Guy offered to help carry it..."
 
 ### 3. Specific Use Case Within Story
+
 Don't just list what the tool CAN do - tell what YOU did with it. **Features should emerge naturally from the story, not be listed separately**:
+
 - **Story-Driven Features**: "Halfway through cutting the deck boards, battery died—swapped in the second one and kept going" (shows battery system)
 - **Problem-Solution Narrative**: "Couldn't see the cut line in the corner, then noticed this little LED—game changer for tight spaces" (shows LED feature)
 - **Natural Performance Details**: "Three hours of sanding later, my arm wasn't tired like usual—must be the lighter weight" (shows ergonomics)
 
 ### 4. Honest Opinion (Not Product Description)
+
 Focus on YOUR experience, not manufacturer claims:
+
 - **What surprised you** (good or bad)
 - **How it compared to expectations**
 - **Specific things that worked/didn't work for your project**
@@ -105,6 +121,7 @@ Focus on YOUR experience, not manufacturer claims:
 **CRITICAL**: Let tool features emerge naturally from your story rather than describing them directly. Show the feature working through your experience, don't tell about the feature itself.
 
 **PRICE MENTIONS**: Only mention price when it naturally fits the story context - avoid forced "X dollars well invested" endings. Examples of natural price mentions:
+
 - "Bit pricey but worth every cent when you need reliability"
 - "Cheap enough to take a punt on for occasional use"
 - "Costs more than expected but saved me hiring a tradesman"
@@ -122,6 +139,7 @@ Focus on YOUR experience, not manufacturer claims:
 ## Rating Logic Rules
 
 **CRITICAL**: Ensure logical consistency between rating and recommendation:
+
 - **1-2 stars**: Set `recommendsProduct: false` (Poor/Bad experience - would not recommend)
 - **3+ stars**: Set `recommendsProduct: true` (Neutral to Excellent - would recommend)
 - Maintain consistency across `rating`, `qualityRating`, `valueRating` fields
@@ -132,13 +150,15 @@ Focus on YOUR experience, not manufacturer claims:
 When specific product data is limited, use these category patterns:
 
 ### Common Drill Experiences
+
 - Chuck quality and bit retention
-- Battery life and charging time  
+- Battery life and charging time
 - LED light usefulness
 - Weight for overhead work
 - Torque settings and clutch
 
 ### Common Grinder Experiences
+
 - Sparks and dust management
 - Disc changing ease
 - Power for different materials
@@ -146,6 +166,7 @@ When specific product data is limited, use these category patterns:
 - Noise levels
 
 ### Common Pressure Washer Experiences
+
 - Hose management and storage
 - Cleaning power effectiveness
 - Setup and portability
@@ -156,13 +177,13 @@ When specific product data is limited, use these category patterns:
 
 ### Voice Adaptation Examples (Story-Driven)
 
-**Hemingway Style**: 
+**Hemingway Style**:
 "Old drill died halfway through the deck project. Grabbed this at Bunnings Sunday morning. Staff guy knew his stuff. Used it to finish forty-seven deck boards. Chuck stayed tight. Battery lasted the whole job. Good drill."
 
 **Dickens Style**:
 "The calamity began when my ancient drill expired during the garden shed endeavor. The most agreeable gentleman at Bunnings recommended this particular implement, and what a recommendation it proved! Twenty-three fence palings later, both the drill and I remained in excellent spirits."
 
-**Woolf Style**: 
+**Woolf Style**:
 "One finds oneself contemplating mortality when a drill dies mid-project. The Saturday chaos at Bunnings felt overwhelming—such crowds, such noise—yet this little device has since brought unexpected order to my chaotic renovation. Thirty holes drilled with surprising precision."
 
 **Kafka Style**:
@@ -189,6 +210,7 @@ When specific product data is limited, use these category patterns:
 When creating 2-star or occasional 3-star reviews (15-20% of total), focus on realistic problems:
 
 ### Common Realistic Issues:
+
 - **Defective Units**: "Chuck wouldn't stay tight", "Motor died after 2 weeks", "Battery wouldn't hold charge"
 - **Wrong Tool for Job**: "Not powerful enough for my concrete work", "Too heavy for overhead tasks", "Cord too short for my workshop"
 - **User Error Stories**: "Couldn't figure out the settings", "Instructions were useless", "Kept jamming on me"
@@ -240,4 +262,4 @@ userCategory: "{Use author.userCategory from JSON}"
 {Review content following all guidelines above}
 ```
 
-This template should produce reviews that feel authentically human while maintaining the entertaining parody element of famous authors shopping at Bunnings and reviewing power tools. 
+This template should produce reviews that feel authentically human while maintaining the entertaining parody element of famous authors shopping at Bunnings and reviewing power tools.

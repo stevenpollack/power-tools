@@ -22,4 +22,4 @@ valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Refinishing old table. Battery died after two hours. Velcro paper stayed put. Dust collector worked decent. Light showed missed spots. Comfortable grip for long work. Bunnings had extra sandpaper. Changed grits easy. Cordless beats dragging extension cord around workshop. Good for detail work but not heavy stock removal. 
+Refinishing old table. Battery died after two hours. Velcro paper stayed put. Dust collector worked decent. Light showed missed spots. Comfortable grip for long work. Bunnings had extra sandpaper. Changed grits easy. Cordless beats dragging extension cord around workshop. Good for detail work but not heavy stock removal.
