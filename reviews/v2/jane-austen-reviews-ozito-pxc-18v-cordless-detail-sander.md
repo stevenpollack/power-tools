@@ -2,9 +2,9 @@
 slug: "jane-austen-reviews-ozito-pxc-18v-cordless-detail-sander"
 author: "jane-austen"
 tool: "ozito-pxc-18v-cordless-detail-sander"
-excerpt: "An instrument of refinement that addresses the peculiar satisfaction derived from restoring surfaces to their proper dignity."
+excerpt: "Refinishing grandmother's writing desk required delicate attention—this modest Ozito proved admirably suited to furniture restoration requiring social propriety."
 llm: "claude-4-sonnet"
-mood: "witty"
+mood: "domestic"
 tone: "formal"
 readingTime: 1
 shareCount: 0
@@ -16,10 +16,10 @@ helpfulVotes: 0
 unhelpfulVotes: 0
 verifiedPurchaser: true
 displayName: "J. Austen"
-useCase: "furniture restoration propriety"
+useCase: "antique furniture restoration with domestic propriety and social consideration"
 qualityRating: 4
 valueRating: 4
 userCategory: "Intermediate"
 ---
 
-An instrument of refinement that addresses the peculiar satisfaction derived from restoring surfaces to their proper dignity. The detail sanding capability proves essential for attending to those neglected corners that betray a household's commitment to thorough maintenance. At Bunnings, I noted with approval that this tool's modest price prevents it from attracting those who purchase equipment merely for social display. The hook and loop sanding system demonstrates thoughtful engineering, allowing for efficient replacement without unseemly struggles. Most suitable for those who understand that true domestic elegance lies in attention to details others might overlook. 
+Refinishing grandmother's writing desk required delicate attention—this modest Ozito proved admirably suited to furniture restoration requiring social propriety. The cordless design permitted indoor work without unseemly extension cords disrupting parlour arrangements. Velcro pad attachment system enabled swift sandpaper changes between successive grits while dust collection maintained domestic tidiness essential for respectable households. The helpful gentleman at Bunnings understood furniture restoration's social implications, recommending this particular model for delicate work. Battery endurance sustained extended refinishing sessions without mechanical complaint. Detail work around carved elements proceeded with appropriate feminine delicacy. 
