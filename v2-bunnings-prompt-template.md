@@ -6,10 +6,38 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 
 ## Target Specifications
 
-- **Length**: 50-120 words (significantly shorter than v1 reviews)
-- **Style**: Conversational and human, not promotional or philosophical
+- **Length**: Author-dependent word counts (see Author-Specific Word Count Ranges below)
+- **Style**: Conversational and human, not promotional or philosophical  
 - **Rating**: Use authentic distribution based on product data
 - **Voice**: Maintain {AUTHOR_NAME}'s literary style but make it feel like they're an actual Bunnings customer
+
+## Author-Specific Word Count Ranges
+
+**CRITICAL**: Word count should match each author's natural literary style and voice:
+
+### Ultra-Concise (40-60 words)
+- **Ernest Hemingway**: Master of minimalism, telegraphic prose, "iceberg theory"
+- **George Orwell**: Clear, direct communication, "never use a long word where a short one will do"
+
+### Short (50-70 words)  
+- **Oscar Wilde**: Witty but precise, epigram-like observations
+- **Jane Austen**: Social observation with economy, sharp but concise
+- **Mark Twain**: Folksy storytelling but not verbose, gets to the point
+
+### Medium (60-90 words)
+- **Ayn Rand**: Heroic declarations, philosophical but focused on core message
+- **Edgar Allan Poe**: Atmospheric but controlled, builds mood efficiently
+- **Jack Kerouac**: Jazz rhythms, energetic flow but can be tight when needed
+
+### Medium-Long (70-100 words)
+- **Virginia Woolf**: Stream-of-consciousness, introspective complexity
+- **HP Lovecraft**: Horror descriptions, cosmic dread requires atmospheric detail
+- **Franz Kafka**: Bureaucratic complexity, anxious precision requires explanation
+
+### Longer (80-120 words)
+- **Charles Dickens**: Naturally descriptive, humanitarian detail, character-rich scenarios
+
+**Implementation**: When generating reviews, use the specific word count range for each author to maintain authentic voice patterns while ensuring reviews feel natural to their literary style.
 
 ## Product Context
 
@@ -156,7 +184,7 @@ When creating 2-star or occasional 3-star reviews (15-20% of total), focus on re
 
 ## Quality Checklist
 
-- [ ] 50-120 words total
+- [ ] Word count matches author's specific range (Hemingway: 40-60, Dickens: 80-120, etc.)
 - [ ] Structured as personal story/anecdote, not product description
 - [ ] Maintains author's distinctive voice throughout the narrative
 - [ ] Includes specific Bunnings experience woven into story
