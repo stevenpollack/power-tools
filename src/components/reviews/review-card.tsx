@@ -1,10 +1,13 @@
 import * as React from "react";
+import { useState } from "react";
 import { Check, X, Share2, ThumbsUp, ThumbsDown } from "lucide-react";
 import { StarRating } from "@/components/ui/star-rating";
+import { ReviewShareModal } from "@/components/ReviewShareModal";
 import { cn } from "@/lib/utils";
 
 interface ReviewCardProps {
   review: {
+    id?: string; // Review slug for sharing
     rating: number;
     recommendsProduct: boolean;
     helpfulVotes: number;
@@ -16,12 +19,22 @@ interface ReviewCardProps {
     content: string;
     dateCreated: string;
   };
+  authorName?: string | undefined; // For sharing modal
+  toolName?: string | undefined; // For sharing modal
   className?: string;
   onShare?: () => void;
   id?: string;
 }
 
-export function ReviewCard({ review, className, onShare, id }: ReviewCardProps) {
+export function ReviewCard({
+  review,
+  authorName,
+  toolName,
+  className,
+  onShare,
+  id,
+}: ReviewCardProps) {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   // Format the date to be relative (e.g., "2 years ago")
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -43,13 +56,13 @@ export function ReviewCard({ review, className, onShare, id }: ReviewCardProps) 
   return (
     <div
       id={id}
-              className={cn(
-          "border-bunnings-neutral-medium-gray space-y-3 border-b pb-6 last:border-b-0",
-          "p-4 sm:p-6",
-          // Add extra padding when highlighted (detected by background color)
-          className?.includes("bg-orange") && "p-6 sm:p-8",
-          className,
-        )}
+      className={cn(
+        "border-bunnings-neutral-medium-gray space-y-3 border-b pb-6 last:border-b-0",
+        "p-4 sm:p-6",
+        // Add extra padding when highlighted (detected by background color)
+        className?.includes("bg-orange") && "p-6 sm:p-8",
+        className,
+      )}
     >
       {/* Rating and title */}
       <div className="space-y-2">
@@ -96,7 +109,7 @@ export function ReviewCard({ review, className, onShare, id }: ReviewCardProps) 
           </>
         ) : (
           <>
-            <X className="h-4 w-4 border border-black rounded-full p-0 stroke-2 bg-black text-white" />
+            <X className="h-4 w-4 rounded-full border border-black bg-black stroke-2 p-0 text-white" />
             <span className="text-bunnings-sm text-bunnings-neutral-dark-gray">
               No, I do not recommend this product.
             </span>
@@ -131,7 +144,7 @@ export function ReviewCard({ review, className, onShare, id }: ReviewCardProps) 
             <span>({review.unhelpfulVotes})</span>
           </button>
           <button
-            onClick={onShare}
+            onClick={() => setIsShareModalOpen(true)}
             className={cn(
               "text-bunnings-sm flex items-center gap-1 rounded-md px-3 py-1 transition-colors",
               "hover:bg-bunnings-neutral-light-gray",
@@ -143,6 +156,20 @@ export function ReviewCard({ review, className, onShare, id }: ReviewCardProps) 
           </button>
         </div>
       </div>
+
+      {/* Share Modal */}
+      {authorName && toolName && review.id && (
+        <ReviewShareModal
+          isOpen={isShareModalOpen}
+          onClose={() => setIsShareModalOpen(false)}
+          reviewData={{
+            slug: review.id,
+            content: review.content,
+          }}
+          authorName={authorName}
+          toolName={toolName}
+        />
+      )}
     </div>
   );
 }

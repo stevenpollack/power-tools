@@ -18,6 +18,8 @@ interface Review {
   dateCreated: string;
   qualityRating: number;
   valueRating: number;
+  authorName?: string; // For sharing modal
+  toolName?: string; // For sharing modal
 }
 
 interface ReviewsSectionProps {
@@ -41,32 +43,38 @@ export function ReviewsSection({
 }: ReviewsSectionProps) {
   const REVIEWS_PER_PAGE = 3;
   const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
-  const [highlightedReviewId, setHighlightedReviewId] = useState<string | null>(null);
+  const [highlightedReviewId, setHighlightedReviewId] = useState<string | null>(
+    null,
+  );
 
   // Check for shared review in URL params
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const sharedReviewId = urlParams.get('review');
-    
+    const sharedReviewId = urlParams.get("review");
+
     if (sharedReviewId) {
       setHighlightedReviewId(sharedReviewId);
-      
+
       // Find the review and ensure it's visible
-      const reviewIndex = reviews.findIndex(r => r.id === sharedReviewId);
+      const reviewIndex = reviews.findIndex((r) => r.id === sharedReviewId);
       if (reviewIndex !== -1) {
         // Ensure enough reviews are visible to show the highlighted one
         const minVisible = reviewIndex + 1;
         if (minVisible > visibleCount) {
-          setVisibleCount(Math.ceil(minVisible / REVIEWS_PER_PAGE) * REVIEWS_PER_PAGE);
+          setVisibleCount(
+            Math.ceil(minVisible / REVIEWS_PER_PAGE) * REVIEWS_PER_PAGE,
+          );
         }
-        
+
         // Scroll to review after a brief delay for rendering
         setTimeout(() => {
-          const reviewElement = document.getElementById(`review-${sharedReviewId}`);
+          const reviewElement = document.getElementById(
+            `review-${sharedReviewId}`,
+          );
           if (reviewElement) {
-            reviewElement.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'center' 
+            reviewElement.scrollIntoView({
+              behavior: "smooth",
+              block: "center",
             });
           }
         }, 100);
@@ -76,7 +84,7 @@ export function ReviewsSection({
 
   const visibleReviews = useMemo(
     () => reviews.slice(0, visibleCount),
-    [reviews, visibleCount]
+    [reviews, visibleCount],
   );
 
   const handleLoadMore = () => {
@@ -86,12 +94,12 @@ export function ReviewsSection({
   const handleShare = (review: Review) => {
     if (review.id) {
       const currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.set('review', review.id);
-      
+      currentUrl.searchParams.set("review", review.id);
+
       // Copy to clipboard
       navigator.clipboard.writeText(currentUrl.toString()).then(() => {
         // Could show toast notification here
-        console.log('Review link copied to clipboard');
+        console.log("Review link copied to clipboard");
       });
     }
   };
@@ -123,12 +131,14 @@ export function ReviewsSection({
               <ReviewCard
                 key={review.id || index}
                 review={review}
+                authorName={review.authorName}
+                toolName={review.toolName}
                 onShare={() => handleShare(review)}
                 className={cn(
                   "mt-6",
                   // Highlight shared review
-                  highlightedReviewId === review.id && 
-                  "bg-orange-50/30 transition-all duration-300"
+                  highlightedReviewId === review.id &&
+                    "bg-orange-50/30 transition-all duration-300",
                 )}
                 id={review.id ? `review-${review.id}` : ""}
               />
@@ -137,8 +147,8 @@ export function ReviewsSection({
 
           {/* View more button */}
           {visibleCount < reviews.length && (
-            <div className="pt-6 px-1">
-              <button 
+            <div className="px-1 pt-6">
+              <button
                 onClick={handleLoadMore}
                 className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
               >

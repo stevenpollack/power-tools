@@ -66,33 +66,30 @@ const averageValueRating =
       ) / totalReviews
     : 0;
 
+const { name: toolName, brand, specifications, pricing } = tool.data;
+
 // Transform reviews for the component (pass all reviews, component will handle pagination)
 const transformedReviews = reviewsWithData.map((r) => ({
   id: r.review.data.slug, // Add review slug as ID for sharing
-  rating: r.review.data.rating || 3,
+  rating: r.review.data.rating ?? 3,
   recommendsProduct: r.review.data.recommendsProduct ?? false,
   helpfulVotes: r.review.data.helpfulVotes ?? 0,
   unhelpfulVotes: r.review.data.unhelpfulVotes ?? 0,
-  verifiedPurchaser: r.review.data.verifiedPurchaser || true,
-  displayName:
-    r.review.data.displayName ||
-    r.author.data.displayName ||
-    r.author.data.name,
-  useCase: r.review.data.useCase || "General use",
-  userCategory:
-    r.review.data.userCategory ||
-    r.author.data.userCategory ||
-    "DIY Enthusiast",
-  content: r.review.body || r.review.data.excerpt || "Great tool!",
+  verifiedPurchaser: r.review.data.verifiedPurchaser ?? true,
+  displayName: r.author.data.displayName,
+  useCase: r.review.data.useCase ?? "General use",
+  userCategory: r.author.data.userCategory ?? "DIY Enthusiast",
+  content: r.review.body ?? r.review.data.excerpt,
   dateCreated: r.review.data.dateCreated,
-  qualityRating: r.review.data.qualityRating || 4,
-  valueRating: r.review.data.valueRating || 4,
+  qualityRating: r.review.data.qualityRating ?? 4,
+  valueRating: r.review.data.valueRating ?? 4,
+  // Add sharing data for each review
+  authorName: r.author.data.name,
+  toolName: toolName,
 }));
-
-const { name, brand, specifications, pricing } = tool.data;
 ---
 
-<Layout title={`${name} - Reviews`}>
+<Layout title={`${toolName} - Reviews`}>
   <main class="min-h-screen bg-white">
     <!-- Tool Header Section -->
     <div class="border-border border-b bg-white py-4 sm:py-6">
@@ -101,7 +98,7 @@ const { name, brand, specifications, pricing } = tool.data;
           <div class="flex justify-center lg:justify-start">
             <Picture
               src={tool.data.thumbnailUrl}
-              alt={name}
+              alt={toolName}
               class="border-border h-64 w-64 rounded-lg border object-cover sm:h-80 sm:w-80 lg:h-96 lg:w-96"
               widths={[300, 600]}
               sizes="(max-width: 768px) 250px, 300px"
@@ -119,7 +116,7 @@ const { name, brand, specifications, pricing } = tool.data;
             <h1
               class="font-bunnings-heading text-bunnings-secondary-green text-bunnings-xl lg:text-bunnings-2xl mb-1 leading-tight font-bold lg:mb-4"
             >
-              {name}
+              {toolName}
             </h1>
 
             <div
