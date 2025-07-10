@@ -2,7 +2,7 @@
 slug: "ernest-hemingway-reviews-makita-185mm-1200w-circular-saw"
 author: "ernest-hemingway"
 tool: "makita-185mm-1200w-circular-saw"
-excerpt: "Cut forty-seven dock planks without stopping. The electric brake works. Heavy but balanced. Good saw."
+excerpt: "Built new dock pilings with this saw. 1200 watts cuts pressure-treated lumber clean. Electric brake saves fingers when waves rock the platform. Good tool."
 llm: "claude-4-sonnet"
 mood: "practical"
 tone: "casual"
@@ -16,10 +16,10 @@ helpfulVotes: 0
 unhelpfulVotes: 0
 verifiedPurchaser: true
 displayName: "Ernest"
-useCase: "fishing dock plank replacement"
+useCase: "marine dock construction with pressure-treated lumber cutting"
 qualityRating: 4
 valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Cut forty-seven dock planks without stopping. The electric brake works. Heavy but balanced. Good saw. The old dock planks had rotted through after Hurricane Betty pushed salt water up the creek. Needed new lumber cut to length before the tide turned. Man at Bunnings said this saw would handle marine timber. He was right. The 1200-watt motor cut through pressure-treated pine like it was balsa. Dust blower kept the cut line clear even when the sawdust got thick. Made straight cuts for three hours. The blade never bound. The weight takes getting used to but it doesn't tire your arms like cheap saws do. When you need forty-seven identical planks by sunset, this saw delivers. The electric brake stopped the blade fast when a pelican landed on the dock. Good safety feature. Reliable tool for real work. 
+Built new dock pilings with this saw. 1200 watts cuts pressure-treated lumber clean. Electric brake saves fingers when waves rock the platform. Good tool. Old dock rotted through after eight years of salt water and winter storms. Needed reliable saw for cutting 2x12 pressure-treated planks and 4x4 posts. Picked this up at Bunnings where clerk understood about marine construction requiring corded power reliability. Dust blower kept cut lines visible despite coastal wind conditions. 185-millimeter blade handled thick lumber without binding or burning wood. Electric brake stopped blade immediately when boat wakes shifted cutting platform—safety feature essential for waterside construction. Four-kilogram weight manageable for overhead cuts when installing cross-braces. 66-millimeter cutting depth handled doubled-up joists in single pass. Cord length adequate for dock work with hundred-foot extension. At one hundred seventy-nine dollars, reasonable investment for equipment that handles serious marine construction. Essential for waterfront property maintenance where power and safety matter more than convenience. 
