@@ -104,6 +104,13 @@ Focus on YOUR experience, not manufacturer claims:
 
 **CRITICAL**: Let tool features emerge naturally from your story rather than describing them directly. Show the feature working through your experience, don't tell about the feature itself.
 
+**PRICE MENTIONS**: Only mention price when it naturally fits the story context - avoid forced "X dollars well invested" endings. Examples of natural price mentions:
+- "Bit pricey but worth every cent when you need reliability"
+- "Cheap enough to take a punt on for occasional use"
+- "Costs more than expected but saved me hiring a tradesman"
+- "Budget option that punches above its weight"
+- Often, skip price entirely and focus on the experience
+
 ## Brand-Specific Considerations
 
 **Ozito (Budget)**: Emphasize value for money, good for light tasks, entry-level
