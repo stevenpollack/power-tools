@@ -39,6 +39,12 @@ Generate a Bunnings.com.au product review that authentically parodies real custo
 
 **Implementation**: When generating reviews, use the specific word count range for each author to maintain authentic voice patterns while ensuring reviews feel natural to their literary style.
 
+**CRITICAL VOICE AUTHENTICITY**: Authors should sound like **people** who happen to have those perspectives, not like they're performing their literary personas. Even distinctive voices like Ayn Rand or Lovecraft must feel like genuine customers sharing real experiences, not philosophical treatises or dramatic performances.
+
+**Example Fixes**:
+- **WRONG**: "Power tool acquisition represents rational engineering triumph enabling individual productive mastery!" (sounds like propaganda)
+- **RIGHT**: "Needed reliable drill for workshop projects—this one delivers excellent performance without breaking the budget!" (sounds like a person with practical values)
+
 ## Product Context
 
 **Tool**: {TOOL_NAME}
@@ -82,10 +88,10 @@ Include a specific Bunnings interaction as part of your anecdote:
 - **Service Stories**: "They price-matched my phone screenshot...", "Loading dock made life easy...", "Guy offered to help carry it..."
 
 ### 3. Specific Use Case Within Story
-Don't just list what the tool CAN do - tell what YOU did with it:
-- **Concrete Examples**: "Cut 47 fence palings", "Drilled 12 holes through brick", "Sanded the entire back deck"
-- **Real Problems**: "Cord kept getting tangled", "Dust everywhere despite the collection bag", "Chuck started slipping after heavy use"
-- **Practical Details**: "Ran for 3 hours straight", "Went through two 5.0Ah batteries", "Had to stop every 20 minutes to clear chips"
+Don't just list what the tool CAN do - tell what YOU did with it. **Features should emerge naturally from the story, not be listed separately**:
+- **Story-Driven Features**: "Halfway through cutting the deck boards, battery died—swapped in the second one and kept going" (shows battery system)
+- **Problem-Solution Narrative**: "Couldn't see the cut line in the corner, then noticed this little LED—game changer for tight spaces" (shows LED feature)
+- **Natural Performance Details**: "Three hours of sanding later, my arm wasn't tired like usual—must be the lighter weight" (shows ergonomics)
 
 ### 4. Honest Opinion (Not Product Description)
 Focus on YOUR experience, not manufacturer claims:
@@ -94,7 +100,9 @@ Focus on YOUR experience, not manufacturer claims:
 - **Specific things that worked/didn't work for your project**
 - **Whether you'd buy it again/recommend to a mate**
 
-**AVOID**: Listing specifications, repeating marketing copy, sounding like a sales brochure
+**AVOID**: Listing specifications, repeating marketing copy, sounding like a sales brochure, or reciting features as bullet points
+
+**CRITICAL**: Let tool features emerge naturally from your story rather than describing them directly. Show the feature working through your experience, don't tell about the feature itself.
 
 ## Brand-Specific Considerations
 
