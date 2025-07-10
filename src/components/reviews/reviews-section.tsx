@@ -1,10 +1,11 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { RatingSnapshot } from "./rating-snapshot";
 import { ReviewFilters } from "./review-filters";
 import { ReviewCard } from "./review-card";
 import { cn } from "@/lib/utils";
 
 interface Review {
+  id?: string; // Add ID for sharing
   rating: number;
   recommendsProduct: boolean;
   helpfulVotes: number;
@@ -40,6 +41,38 @@ export function ReviewsSection({
 }: ReviewsSectionProps) {
   const REVIEWS_PER_PAGE = 3;
   const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
+  const [highlightedReviewId, setHighlightedReviewId] = useState<string | null>(null);
+
+  // Check for shared review in URL params
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sharedReviewId = urlParams.get('review');
+    
+    if (sharedReviewId) {
+      setHighlightedReviewId(sharedReviewId);
+      
+      // Find the review and ensure it's visible
+      const reviewIndex = reviews.findIndex(r => r.id === sharedReviewId);
+      if (reviewIndex !== -1) {
+        // Ensure enough reviews are visible to show the highlighted one
+        const minVisible = reviewIndex + 1;
+        if (minVisible > visibleCount) {
+          setVisibleCount(Math.ceil(minVisible / REVIEWS_PER_PAGE) * REVIEWS_PER_PAGE);
+        }
+        
+        // Scroll to review after a brief delay for rendering
+        setTimeout(() => {
+          const reviewElement = document.getElementById(`review-${sharedReviewId}`);
+          if (reviewElement) {
+            reviewElement.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center' 
+            });
+          }
+        }, 100);
+      }
+    }
+  }, [reviews, visibleCount]);
 
   const visibleReviews = useMemo(
     () => reviews.slice(0, visibleCount),
@@ -51,8 +84,16 @@ export function ReviewsSection({
   };
 
   const handleShare = (review: Review) => {
-    // Share functionality - could open dialog or copy link
-    console.log("Share review:", review);
+    if (review.id) {
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set('review', review.id);
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText(currentUrl.toString()).then(() => {
+        // Could show toast notification here
+        console.log('Review link copied to clipboard');
+      });
+    }
   };
 
   return (
@@ -80,10 +121,16 @@ export function ReviewsSection({
           <div className="divide-bunnings-neutral-medium-gray space-y-0 divide-y">
             {visibleReviews.map((review, index) => (
               <ReviewCard
-                key={index}
+                key={review.id || index}
                 review={review}
                 onShare={() => handleShare(review)}
-                className="mt-6"
+                className={cn(
+                  "mt-6",
+                  // Highlight shared review
+                  highlightedReviewId === review.id && 
+                  "bg-orange-50/30 transition-all duration-300"
+                )}
+                id={review.id ? `review-${review.id}` : ""}
               />
             ))}
           </div>

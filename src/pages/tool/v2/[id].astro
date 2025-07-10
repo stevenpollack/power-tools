@@ -68,6 +68,7 @@ const averageValueRating =
 
 // Transform reviews for the component (pass all reviews, component will handle pagination)
 const transformedReviews = reviewsWithData.map((r) => ({
+  id: r.review.data.slug, // Add review slug as ID for sharing
   rating: r.review.data.rating || 3,
   recommendsProduct: r.review.data.recommendsProduct ?? false,
   helpfulVotes: r.review.data.helpfulVotes ?? 0,

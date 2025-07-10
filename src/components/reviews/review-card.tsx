@@ -1,7 +1,6 @@
 import * as React from "react";
-import { Check, X, Share2 } from "lucide-react";
+import { Check, X, Share2, ThumbsUp, ThumbsDown } from "lucide-react";
 import { StarRating } from "@/components/ui/star-rating";
-import { VotingButtons } from "@/components/ui/voting-buttons";
 import { cn } from "@/lib/utils";
 
 interface ReviewCardProps {
@@ -19,9 +18,10 @@ interface ReviewCardProps {
   };
   className?: string;
   onShare?: () => void;
+  id?: string;
 }
 
-export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
+export function ReviewCard({ review, className, onShare, id }: ReviewCardProps) {
   // Format the date to be relative (e.g., "2 years ago")
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -42,12 +42,14 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
 
   return (
     <div
-      className={cn(
-        "border-bunnings-neutral-medium-gray space-y-3 border-b pb-6 last:border-b-0",
-        "mobile-first:p-4",
-        "sm:p-0 sm:pb-6",
-        className,
-      )}
+      id={id}
+              className={cn(
+          "border-bunnings-neutral-medium-gray space-y-3 border-b pb-6 last:border-b-0",
+          "p-4 sm:p-6",
+          // Add extra padding when highlighted (detected by background color)
+          className?.includes("bg-orange") && "p-6 sm:p-8",
+          className,
+        )}
     >
       {/* Rating and title */}
       <div className="space-y-2">
@@ -103,22 +105,43 @@ export function ReviewCard({ review, className, onShare }: ReviewCardProps) {
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <VotingButtons
-          helpfulCount={review.helpfulVotes}
-          unhelpfulCount={review.unhelpfulVotes}
-        />
-
-        <button
-          onClick={onShare}
-          className={cn(
-            "text-bunnings-sm flex flex-1 pr-1 items-center justify-end gap-1 transition-colors",
-            "focus:ring-bunnings-primary-orange rounded hover:underline focus:ring-2 focus:ring-offset-2 focus:outline-none",
-          )}
-        >
-          <Share2 className="h-3 w-3" />
-          Share
-        </button>
+      <div className="flex items-center gap-4">
+        <span className="text-bunnings-sm text-bunnings-neutral-dark-gray">
+          Helpful?
+        </span>
+        <div className="flex items-center gap-2">
+          <button
+            className={cn(
+              "text-bunnings-sm flex items-center gap-1 rounded-md px-3 py-1 transition-colors",
+              "hover:bg-bunnings-neutral-light-gray",
+              "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
+            )}
+          >
+            <ThumbsUp className="stroke-bunnings-primary-green h-5 w-5 stroke-1" />
+            <span>({review.helpfulVotes})</span>
+          </button>
+          <button
+            className={cn(
+              "text-bunnings-sm flex items-center gap-1 rounded-md px-3 py-1 transition-colors",
+              "hover:bg-bunnings-neutral-light-gray",
+              "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
+            )}
+          >
+            <ThumbsDown className="stroke-bunnings-primary-green h-5 w-5 stroke-1" />
+            <span>({review.unhelpfulVotes})</span>
+          </button>
+          <button
+            onClick={onShare}
+            className={cn(
+              "text-bunnings-sm flex items-center gap-1 rounded-md px-3 py-1 transition-colors",
+              "hover:bg-bunnings-neutral-light-gray",
+              "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
+            )}
+          >
+            <Share2 className="h-5 w-5 stroke-1" />
+            Share
+          </button>
+        </div>
       </div>
     </div>
   );
