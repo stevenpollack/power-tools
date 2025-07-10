@@ -11,7 +11,7 @@ shareCount: 0
 dateCreated: "2025-07-09"
 lastUpdated: "2025-07-09"
 rating: 2
-recommendsProduct: true
+recommendsProduct: false
 helpfulVotes: 0
 unhelpfulVotes: 0
 verifiedPurchaser: true
