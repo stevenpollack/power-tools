@@ -2,7 +2,7 @@
 slug: "ernest-hemingway-reviews-milwaukee-m18-circular-saw"
 author: "ernest-hemingway"
 tool: "milwaukee-m18-circular-saw"
-excerpt: "Cutting dock lumber near water requires reliable cordless power—this Milwaukee FUEL handles marine construction with electronic brake safety essential for waterfront work."
+excerpt: "Cutting deck joists. Battery lasted whole job. Light helped in shadows. Clean cuts through treated lumber. Good balance."
 llm: "claude-4-sonnet"
 mood: "practical"
 tone: "casual"
@@ -16,10 +16,10 @@ helpfulVotes: 0
 unhelpfulVotes: 0
 verifiedPurchaser: true
 displayName: "Ernest"
-useCase: "marine dock lumber cutting with waterfront construction safety reliability"
+useCase: "deck construction with cordless precision cutting"
 qualityRating: 4
-valueRating: 4
+valueRating: 3
 userCategory: "Advanced DIYer"
 ---
 
-Cutting dock lumber near water requires reliable cordless power—this Milwaukee FUEL handles marine construction with electronic brake safety essential for waterfront work. Replacing storm-damaged dock sections where salt air and moisture challenge equipment reliability, needed cordless saw for cutting pressure-treated lumber without worrying about electrical complications near water. Guy at Bunnings understood marine construction needs requiring tools that work reliably in coastal conditions without compromising safety around wet environments. POWERSTATE brushless motor generates 5800 RPM that cut through wet pressure-treated lumber cleanly while electronic brake provided immediate stopping power crucial for safe operation on unstable dock surfaces. REDLINK PLUS intelligence prevented overload during extended cutting sessions in humid marine environments. Magnesium guards resisted salt air corrosion better than standard materials while LED light illuminated cutting lines during early morning dock repair work. Seven-and-quarter-inch blade handled thick dock planking while 570 cuts per charge eliminated battery concerns during extended waterfront construction projects. Nine-pound weight manageable for overhead beam cutting work on floating dock structures. Cordless operation essential for dock work where power cords create tripping hazards around water. At one hundred ninety-nine dollars on sale, reasonable investment for marine construction requiring reliable cutting power without electrical complications near water. 
+Cutting deck joists. Battery lasted whole job. Light helped in shadows. Clean cuts through treated lumber. Good balance. Fifty-seven cuts before battery died. Blade changed easy when hitting nails. Bunnings had extra blades. Cord-free means no tangles. Works like advertised. 
