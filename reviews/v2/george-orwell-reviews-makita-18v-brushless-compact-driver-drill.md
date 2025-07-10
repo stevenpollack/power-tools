@@ -2,10 +2,10 @@
 slug: "george-orwell-reviews-makita-18v-brushless-compact-driver-drill"
 author: "george-orwell"
 tool: "makita-18v-brushless-compact-driver-drill"
-excerpt: "Compact drill. Works as advertised. Chuck tightens properly. Twenty-one torque settings—more than needed but functional."
+excerpt: "Testing marketing claims about brushless motors and precision torque control during actual workshop use rather than believing manufacturer promises."
 llm: "claude-4-sonnet"
-mood: "straightforward"
-tone: "casual"
+mood: "skeptical"
+tone: "direct"
 readingTime: 1
 shareCount: 0
 dateCreated: "2025-07-09"
@@ -16,10 +16,10 @@ helpfulVotes: 0
 unhelpfulVotes: 0
 verifiedPurchaser: true
 displayName: "G. Orwell"
-useCase: "general drilling with marketing skepticism"
+useCase: "practical workshop testing versus marketing claims"
 qualityRating: 4
 valueRating: 4
 userCategory: "Advanced DIYer"
 ---
 
-Compact drill. Works as advertised. Chuck tightens properly. Twenty-one torque settings—more than needed but functional. Built deck using this for pilot holes. LED light useful. "Brushless motor" means fewer maintenance issues, despite fancy terminology. Bunnings honest about price. One hundred eighty-nine dollars reasonable for quality. 
+Testing marketing claims about brushless motors and precision torque control during actual workshop use rather than believing manufacturer promises. Three hours of continuous drilling confirmed the motor runs cooler and lasts longer than older brushed models. Found the exact setting for cabinet screws without overdrive—something the manual's flowery language couldn't explain but practical testing revealed quickly. Works in cramped spaces where larger drills won't fit. Bunnings staff spoke plainly about trade-offs. Performs as advertised without corporate doublespeak. 
