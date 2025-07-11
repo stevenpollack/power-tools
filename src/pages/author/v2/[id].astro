@@ -52,7 +52,9 @@ const reviewsWithData = await Promise.all(
             formats={["avif", "webp"]}
             loading="lazy"
           />
-          <h1 class="mb-2 text-2xl font-bold">{author.data.name}</h1>
+          <h1 class="text-bunnings-neutral-charcoal mb-2 text-2xl font-bold">
+            {author.data.name}
+          </h1>
           <p class="text-bunnings-neutral-charcoal mb-6 text-sm">
             {author.data.lifespan}
           </p>
@@ -61,7 +63,7 @@ const reviewsWithData = await Promise.all(
             <h2 class="mb-4 text-xl font-semibold">About</h2>
             {
               author.data.bio ? (
-                <p class="">{author.data.bio}</p>
+                <p class="text-bunnings-neutral-charcoal">{author.data.bio}</p>
               ) : (
                 <p class="text-bunnings-neutral-medium-gray italic">
                   Bio coming soon...
