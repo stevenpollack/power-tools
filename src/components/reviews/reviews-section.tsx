@@ -114,7 +114,7 @@ export function ReviewsSection({
     if (!selectedRating) return reviews;
 
     // Use a more efficient filter for large datasets
-    const filtered: ReviewForUI[] = []; 
+    const filtered: ReviewForUI[] = [];
     for (let i = 0; i < reviews.length; i++) {
       const review = reviews[i];
       if (review && review.rating === selectedRating) {

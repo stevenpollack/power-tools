@@ -30,27 +30,27 @@ export interface UseMasonryWallReturn {
   setSelectedBrand: (brand: string) => void;
   sortOrder: SortOrder;
   setSortOrder: (order: SortOrder) => void;
-  
+
   // Computed results
   filteredReviews: ReviewWithData[];
   visibleReviews: ReviewWithData[];
   availableAuthors: string[];
   availableMoods: string[];
   availableBrands: string[];
-  
+
   // Pagination
   visibleCount: number;
   handleLoadMore: () => void;
-  
+
   // Utility actions
   clearSearch: () => void;
   clearFilters: () => void;
 }
 
 /**
- * Custom hook for MasonryWall components that provides shared filtering, sorting, 
+ * Custom hook for MasonryWall components that provides shared filtering, sorting,
  * pagination, and URL state management functionality.
- * 
+ *
  * @param options Configuration options for the hook
  * @returns Object containing all state, computed values, and actions
  */
@@ -60,58 +60,50 @@ export function useMasonryWall({
   enableTimeSort = false,
 }: UseMasonryWallOptions): UseMasonryWallReturn {
   // Initialize state from URL search params on component mount
-  const [searchTerm, setSearchTerm] = useState(
-    () => {
-      if (typeof window !== "undefined") {
-        return new URLSearchParams(window.location.search).get("search") || "";
-      }
-      return "";
+  const [searchTerm, setSearchTerm] = useState(() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("search") || "";
     }
-  );
-  
-  const [selectedAuthor, setSelectedAuthor] = useState(
-    () => {
-      if (typeof window !== "undefined") {
-        return new URLSearchParams(window.location.search).get("author") || "";
-      }
-      return "";
+    return "";
+  });
+
+  const [selectedAuthor, setSelectedAuthor] = useState(() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("author") || "";
     }
-  );
-  
-  const [selectedMood, setSelectedMood] = useState(
-    () => {
-      if (typeof window !== "undefined") {
-        return new URLSearchParams(window.location.search).get("mood") || "";
-      }
-      return "";
+    return "";
+  });
+
+  const [selectedMood, setSelectedMood] = useState(() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("mood") || "";
     }
-  );
-  
-  const [selectedBrand, setSelectedBrand] = useState(
-    () => {
-      if (typeof window !== "undefined") {
-        return new URLSearchParams(window.location.search).get("brand") || "";
-      }
-      return "";
+    return "";
+  });
+
+  const [selectedBrand, setSelectedBrand] = useState(() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("brand") || "";
     }
-  );
-  
-  const [sortOrder, setSortOrder] = useState<SortOrder>(
-    () => {
-      if (typeof window !== "undefined") {
-        const urlSort = new URLSearchParams(window.location.search).get("sort") as SortOrder;
-        return urlSort || "balanced";
-      }
-      return "balanced";
+    return "";
+  });
+
+  const [sortOrder, setSortOrder] = useState<SortOrder>(() => {
+    if (typeof window !== "undefined") {
+      const urlSort = new URLSearchParams(window.location.search).get(
+        "sort",
+      ) as SortOrder;
+      return urlSort || "balanced";
     }
-  );
-  
+    return "balanced";
+  });
+
   const [visibleCount, setVisibleCount] = useState(initialCount);
 
   // Effect to update URL when filters or sort order change
   useEffect(() => {
     if (typeof window === "undefined") return;
-    
+
     const params = new URLSearchParams();
     if (searchTerm) params.set("search", searchTerm);
     if (selectedAuthor) params.set("author", selectedAuthor);
@@ -130,22 +122,29 @@ export function useMasonryWall({
   // Reset visible count when filters change
   useEffect(() => {
     setVisibleCount(initialCount);
-  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand, sortOrder, initialCount]);
+  }, [
+    searchTerm,
+    selectedAuthor,
+    selectedMood,
+    selectedBrand,
+    sortOrder,
+    initialCount,
+  ]);
 
   // Extract unique values for filter options
   const availableAuthors = useMemo(
     () => [...new Set(reviewsWithData.map((r) => r.author.data.name))].sort(),
-    [reviewsWithData]
+    [reviewsWithData],
   );
 
   const availableMoods = useMemo(
     () => [...new Set(reviewsWithData.map((r) => r.review.data.mood))].sort(),
-    [reviewsWithData]
+    [reviewsWithData],
   );
 
   const availableBrands = useMemo(
     () => [...new Set(reviewsWithData.map((r) => r.tool.data.brand))].sort(),
-    [reviewsWithData]
+    [reviewsWithData],
   );
 
   // Filter and sort reviews based on active filters
@@ -157,7 +156,8 @@ export function useMasonryWall({
       // Search term filter
       if (searchTerm) {
         const searchLower = searchTerm.toLowerCase();
-        const searchableText = `${author.data.name} ${tool.data.name} ${tool.data.brand} ${review.data.excerpt}`.toLowerCase();
+        const searchableText =
+          `${author.data.name} ${tool.data.name} ${tool.data.brand} ${review.data.excerpt}`.toLowerCase();
         if (!searchableText.includes(searchLower)) {
           return false;
         }
@@ -191,52 +191,52 @@ export function useMasonryWall({
         sortable.sort(
           (a, b) =>
             new Date(b.review.data.dateCreated).getTime() -
-            new Date(a.review.data.dateCreated).getTime()
+            new Date(a.review.data.dateCreated).getTime(),
         );
         break;
       case "oldest":
         sortable.sort(
           (a, b) =>
             new Date(a.review.data.dateCreated).getTime() -
-            new Date(b.review.data.dateCreated).getTime()
+            new Date(b.review.data.dateCreated).getTime(),
         );
         break;
       case "author-asc":
         sortable.sort((a, b) =>
-          a.author.data.name.localeCompare(b.author.data.name)
+          a.author.data.name.localeCompare(b.author.data.name),
         );
         break;
       case "author-desc":
         sortable.sort((a, b) =>
-          b.author.data.name.localeCompare(a.author.data.name)
+          b.author.data.name.localeCompare(a.author.data.name),
         );
         break;
       case "brand-asc":
         sortable.sort((a, b) =>
-          a.tool.data.brand.localeCompare(b.tool.data.brand)
+          a.tool.data.brand.localeCompare(b.tool.data.brand),
         );
         break;
       case "brand-desc":
         sortable.sort((a, b) =>
-          b.tool.data.brand.localeCompare(a.tool.data.brand)
+          b.tool.data.brand.localeCompare(a.tool.data.brand),
         );
         break;
       case "time-asc":
         if (enableTimeSort) {
           sortable.sort(
-            (a, b) => a.review.data.readingTime - b.review.data.readingTime
+            (a, b) => a.review.data.readingTime - b.review.data.readingTime,
           );
         }
         break;
       case "time-desc":
         if (enableTimeSort) {
           sortable.sort(
-            (a, b) => b.review.data.readingTime - a.review.data.readingTime
+            (a, b) => b.review.data.readingTime - a.review.data.readingTime,
           );
         }
         break;
     }
-    
+
     return sortable;
   }, [
     reviewsWithData,
@@ -251,7 +251,7 @@ export function useMasonryWall({
   // Get visible reviews based on pagination
   const visibleReviews = useMemo(
     () => filteredReviews.slice(0, visibleCount),
-    [filteredReviews, visibleCount]
+    [filteredReviews, visibleCount],
   );
 
   // Pagination handler
@@ -284,20 +284,20 @@ export function useMasonryWall({
     setSelectedBrand,
     sortOrder,
     setSortOrder,
-    
+
     // Computed results
     filteredReviews,
     visibleReviews,
     availableAuthors,
     availableMoods,
     availableBrands,
-    
+
     // Pagination
     visibleCount,
     handleLoadMore,
-    
+
     // Utility actions
     clearSearch,
     clearFilters,
   };
-} 
+}

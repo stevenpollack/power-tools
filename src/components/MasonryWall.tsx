@@ -22,18 +22,18 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
     setSelectedBrand,
     sortOrder,
     setSortOrder,
-    
+
     // Computed results
     filteredReviews,
     visibleReviews,
     availableAuthors,
     availableMoods,
     availableBrands,
-    
+
     // Pagination
     visibleCount,
     handleLoadMore,
-    
+
     // Utility actions
     clearSearch,
   } = useMasonryWall({
