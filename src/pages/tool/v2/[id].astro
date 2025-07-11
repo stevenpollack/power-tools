@@ -91,6 +91,25 @@ const transformedReviews = reviewsWithData.map((r) => ({
 
 <Layout title={`${toolName} - Reviews`}>
   <main class="min-h-screen bg-white">
+    <!-- Breadcrumb Navigation -->
+    <div class="container mx-auto max-w-6xl px-4 pt-4 sm:px-6 lg:px-8">
+      <div class="breadcrumbs mb-6 text-sm">
+        <ul>
+          <li>
+            <a
+              href="/tools/v2"
+              class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+            >
+              Tools
+            </a>
+          </li>
+          <li class="text-bunnings-neutral-charcoal font-medium">
+            {toolName}
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- Tool Header Section -->
     <div class="border-border border-b bg-white py-4 sm:py-6">
       <div class="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
