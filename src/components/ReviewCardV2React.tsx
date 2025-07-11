@@ -42,9 +42,6 @@ export function ReviewCardV2React({
           <h3 className="text-bunnings-neutral-charcoal mb-1 line-clamp-2 text-lg font-semibold">
             {toolName}
           </h3>
-          <p className="text-bunnings-neutral-medium-gray text-sm">
-            {toolBrand}
-          </p>
         </div>
 
         {/* Review Preview */}
