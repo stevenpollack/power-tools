@@ -79,9 +79,9 @@ const reviewsWithData = await Promise.all(
         {
           reviewsWithData.length > 0 ? (
             <div>
-              <div class="mb-6 flex items-center justify-between">
+              <div class="mb-2 flex items-center justify-between">
                 <h2 class="text-bunnings-neutral-charcoal text-xl font-semibold">
-                  Reviews ({reviewsWithData.length})
+                  Reviews
                 </h2>
                 <select
                   id="brand-sort"
@@ -91,16 +91,27 @@ const reviewsWithData = await Promise.all(
                   <option value="brand-desc">Sort by Brand Z-A</option>
                 </select>
               </div>
+              <div class="mb-4">
+                <p
+                  id="reviews-count"
+                  class="text-bunnings-neutral-medium-gray text-sm"
+                >
+                  Showing 1 – {Math.min(4, reviewsWithData.length)} of{" "}
+                  {reviewsWithData.length} review
+                  {reviewsWithData.length !== 1 ? "s" : ""}
+                </p>
+              </div>
 
               <div
                 id="reviews-grid"
                 class="grid grid-cols-1 gap-6 xl:grid-cols-2"
               >
                 {reviewsWithData.map(
-                  ({ review, tool, author: reviewAuthor }) => (
+                  ({ review, tool, author: reviewAuthor }, index) => (
                     <div
                       class="review-card border-bunnings-neutral-medium-gray flex h-full flex-col rounded-lg border p-4 transition-shadow hover:shadow-md"
                       data-brand={tool.data.brand.toLowerCase()}
+                      data-index={index}
                     >
                       <div class="mb-3 flex items-start gap-3">
                         <Picture
@@ -155,6 +166,18 @@ const reviewsWithData = await Promise.all(
                   ),
                 )}
               </div>
+
+              {/* Load More Button */}
+              {reviewsWithData.length > 4 && (
+                <div class="mt-6 flex justify-center">
+                  <button
+                    id="load-more-btn"
+                    class="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                  >
+                    Load More Reviews
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
             <div class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-8 text-center shadow-sm">
@@ -173,15 +196,52 @@ const reviewsWithData = await Promise.all(
 </Layout>
 
 <script>
-  // Brand sorting functionality
+  // Brand sorting and load more functionality
   document.addEventListener("DOMContentLoaded", () => {
     const sortSelect = document.getElementById(
       "brand-sort",
     ) as HTMLSelectElement;
     const reviewsGrid = document.getElementById("reviews-grid") as HTMLElement;
+    const loadMoreBtn = document.getElementById(
+      "load-more-btn",
+    ) as HTMLButtonElement;
     const reviewCards = Array.from(
       document.querySelectorAll(".review-card"),
     ) as HTMLElement[];
+
+    const REVIEWS_PER_PAGE = 4;
+    let visibleCount = REVIEWS_PER_PAGE;
+
+    const updateVisibility = () => {
+      reviewCards.forEach((card, index) => {
+        if (index < visibleCount) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // Update reviews count display
+      const reviewsCountEl = document.getElementById("reviews-count");
+      if (reviewsCountEl) {
+        const currentVisible = Math.min(visibleCount, reviewCards.length);
+        const totalReviews = reviewCards.length;
+        const startNum = currentVisible > 0 ? 1 : 0;
+        const endNum = currentVisible;
+        const reviewText = totalReviews !== 1 ? "reviews" : "review";
+
+        reviewsCountEl.textContent = `Showing ${startNum} – ${endNum} of ${totalReviews} ${reviewText}`;
+      }
+
+      // Hide load more button if all reviews are visible
+      if (loadMoreBtn) {
+        if (visibleCount >= reviewCards.length) {
+          loadMoreBtn.style.display = "none";
+        } else {
+          loadMoreBtn.style.display = "block";
+        }
+      }
+    };
 
     const sortReviews = (order: "brand-asc" | "brand-desc") => {
       const sorted = [...reviewCards].sort((a, b) => {
@@ -198,14 +258,34 @@ const reviewsWithData = await Promise.all(
       // Clear grid and re-append sorted cards
       reviewsGrid.innerHTML = "";
       sorted.forEach((card) => reviewsGrid.appendChild(card));
+
+      // Update reviewCards array reference
+      reviewCards.length = 0;
+      reviewCards.push(...sorted);
+
+      // Re-apply visibility after sorting
+      updateVisibility();
     };
 
+    const handleLoadMore = () => {
+      visibleCount += REVIEWS_PER_PAGE;
+      updateVisibility();
+    };
+
+    // Event listeners
     if (sortSelect) {
       sortSelect.addEventListener("change", (e) => {
         const target = e.target as HTMLSelectElement;
         sortReviews(target.value as "brand-asc" | "brand-desc");
       });
     }
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", handleLoadMore);
+    }
+
+    // Initial setup
+    updateVisibility();
   });
 </script>
 

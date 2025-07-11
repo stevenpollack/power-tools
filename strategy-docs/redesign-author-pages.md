@@ -30,7 +30,7 @@ Redesign the author pages system to create a V2 experience that fully embraces t
 ```tsx
 // Collection locations:
 - authors/     → Author biographical data (JSON files)
-- tools/       → Tool specifications and data (JSON files) 
+- tools/       → Tool specifications and data (JSON files)
 - reviews/v2/  → V2 review content (Markdown files)
 ```
 
@@ -38,26 +38,28 @@ Redesign the author pages system to create a V2 experience that fully embraces t
 
 ```tsx
 interface Author {
-  name: string;              // "Franz Kafka"
-  displayName: string;       // "Kafka" (for Bunnings name tags)
-  headshot?: string;         // "kafka.svg" (NEW: points to src/images/headshots/)
-  lifespan: string;          // "1883-1924"
-  styleKeywords: string[];   // ["existential", "surreal", "bureaucratic"]
-  primaryWorks: string[];    // ["The Metamorphosis", "The Trial"]
-  portrait: {               // LEGACY: Keep for V1 backwards compatibility
+  name: string; // "Franz Kafka"
+  displayName: string; // "Kafka" (for Bunnings name tags)
+  headshot?: string; // "kafka.svg" (NEW: points to src/images/headshots/)
+  lifespan: string; // "1883-1924"
+  styleKeywords: string[]; // ["existential", "surreal", "bureaucratic"]
+  primaryWorks: string[]; // ["The Metamorphosis", "The Trial"]
+  portrait: {
+    // LEGACY: Keep for V1 backwards compatibility
     filename: string;
   };
-  bio?: string;             // Social media-style bio for V2 pages
+  bio?: string; // Social media-style bio for V2 pages
   literaryMovement: string; // "Modernism", "Romanticism", etc.
-  nationality: string;      // "Czech", "British", etc.
+  nationality: string; // "Czech", "British", etc.
 }
 ```
 
 ### **New SVG Headshots Available**
 
 Located in `src/images/headshots/`:
+
 - `ayn-rand.svg` (165KB)
-- `charles-dickens.svg` (661KB)  
+- `charles-dickens.svg` (661KB)
 - `edgar-allan-poe.svg` (114KB)
 - (Additional headshots for all 12 authors)
 
@@ -73,8 +75,9 @@ Located in `src/images/headshots/`:
 
 ```tsx
 // Get reviews for an author using Astro collections (no metrics needed)
-const reviews = await getCollection("reviewsV2", 
-  (review) => review.data.author.id === authorId
+const reviews = await getCollection(
+  "reviewsV2",
+  (review) => review.data.author.id === authorId,
 );
 
 // Get full data for each review
@@ -83,7 +86,7 @@ const reviewsWithData = await Promise.all(
     review,
     tool: await getEntry(review.data.tool),
     author: await getEntry(review.data.author),
-  }))
+  })),
 );
 ```
 
@@ -98,7 +101,7 @@ const reviewsWithData = await Promise.all(
 ### **Required New Components**
 
 1. **AuthorCardV2.astro** - Bunnings team member style cards
-2. **AuthorFilterBar.tsx** - Advanced filtering interface  
+2. **AuthorFilterBar.tsx** - Advanced filtering interface
 3. **AuthorSearchBox.tsx** - Real-time search functionality
 4. **AuthorProfileHeader.astro** - Large profile header for individual pages
 5. **ReviewGallery.tsx** - Grid of author's reviews with sorting
@@ -119,6 +122,7 @@ const reviewsWithData = await Promise.all(
 ### **Bunnings Brand Guidelines**
 
 **Colors** (Official Bunnings Brand Colors):
+
 - Primary Green: `rgb(0, 104, 56)` (Bunnings primary)
 - Secondary Green: `rgb(13, 82, 87)` (Bunnings secondary)
 - Primary Orange: `rgb(255, 171, 0)` (Bunnings signature color)
@@ -128,11 +132,13 @@ const reviewsWithData = await Promise.all(
 - Neutral Light Gray: `rgb(245, 245, 245)` (Background/subtle sections)
 
 **Typography**:
+
 - Headers: `font-bunnings` (custom Bunnings font stack)
 - Body: Clean sans-serif, high readability
 - Name tags: Bold, uppercase for "team member" feel
 
 **Layout Patterns**:
+
 - Wide layout utilization (Bunnings stores are spacious)
 - Clear grid systems with generous whitespace
 - Card-based information architecture
@@ -150,11 +156,13 @@ const reviewsWithData = await Promise.all(
 4. "View Profile" CTA button
 ```
 
-**Card Dimensions**: 
+**Card Dimensions**:
+
 - Desktop: `320px × 400px` (taller than V1 for more information)
 - Mobile: Full width, responsive height
 
 **Hover States**:
+
 - Subtle lift animation (`hover:-translate-y-2`)
 - Orange border highlight
 - Metrics reveal/expand
@@ -162,16 +170,19 @@ const reviewsWithData = await Promise.all(
 ### **Author Profile Page Layout**
 
 **Hero Section**:
+
 - Large rounded square headshot (left side)
 - Author name and lifespan
 - Social media-style biographical blurb
 
 **Content Sections**:
+
 1. **Review Gallery** - Grid of all their reviews with brand sorting
 
 ### **Search Interface**
 
 **Pattern**: Follow existing MasonryWall.tsx approach for consistency:
+
 - Single search input with clear button
 - useState with function initializer for URL state management
 - useEffect to update URL via URLSearchParams and pushState
@@ -181,6 +192,7 @@ const reviewsWithData = await Promise.all(
 ### **Review Sorting**
 
 **Simple Approach** (following existing patterns from reviews-section.tsx):
+
 - Single select dropdown with two options: "Sort by Brand A-Z", "Sort by Brand Z-A"
 - Use DaisyUI select component for consistency
 - Extract brand from tool data in reviews, sort using localeCompare()
@@ -194,11 +206,13 @@ Generate engaging, Twitter/Instagram-style biographical blurbs for each author u
 ```
 
 **Example Bios**:
+
 - Franz Kafka: "📚 Existential writer turned tool reviewer ⚡️ Transforming hardware anxiety into literary gold since 1883 🔨 'The power drill chooses you'"
 - Charles Dickens: "📖 Victorian novelist crafting epic tool tales 🔧 From workhouse to workshop since 1812 ⚙️ 'It was the best of drills, it was the worst of drills'"
 - Ernest Hemingway: "🥃 Minimalist wordsmith meets maximum power tools 💪 Clean prose, dirty work boots since 1899 🎣 'The drill also rises'"
 
 **Bio Guidelines**:
+
 - Keep to 1-2 sentences max
 - Include relevant emojis (2-3 max)
 - Reference their writing style or famous works
@@ -219,7 +233,10 @@ Social media-style bios will be stored directly in the author JSON files as a `b
 
 ```tsx
 // Extract brand information from reviews for sorting:
-const getAuthorReviewsByBrand = (authorId: string, sortOrder: 'asc' | 'desc') => {
+const getAuthorReviewsByBrand = (
+  authorId: string,
+  sortOrder: "asc" | "desc",
+) => {
   // Implementation to get reviews and sort by brand name
 };
 ```
@@ -237,14 +254,14 @@ const authorCardVariants = cva(
     variants: {
       size: {
         small: "p-4",
-        medium: "p-6", 
-        large: "p-8"
-      }
+        medium: "p-6",
+        large: "p-8",
+      },
     },
     defaultVariants: {
-      size: "medium"
-    }
-  }
+      size: "medium",
+    },
+  },
 );
 
 interface AuthorCardV2Props extends VariantProps<typeof authorCardVariants> {
@@ -273,12 +290,14 @@ interface ReviewGalleryProps {
 ## **Success Criteria**
 
 ### **Visual & Brand Compliance**
+
 - [ ] Full Bunnings orange/green color scheme implementation
 - [ ] SVG headshots properly integrated and responsive (rounded squares)
 - [ ] Clean, minimal design without visual clutter
 - [ ] Maintains literary parody concept while embracing Bunnings theme
 
 ### **Functionality & UX**
+
 - [ ] Real-time search works across author names
 - [ ] Author cards show only essential info (headshot, name, lifespan, CTA)
 - [ ] Individual author pages showcase their reviews effectively
@@ -286,6 +305,7 @@ interface ReviewGalleryProps {
 - [ ] Review sorting by brand works correctly
 
 ### **Technical Quality**
+
 - [ ] TypeScript interfaces are properly defined
 - [ ] Components are reusable and well-documented
 - [ ] Performance is optimized (lazy loading for images)
@@ -293,6 +313,7 @@ interface ReviewGalleryProps {
 - [ ] Mobile-responsive across all breakpoints
 
 ### **Content Integration**
+
 - [ ] All 12 authors display with proper headshots
 - [ ] Social media-style bios generated for each author
 - [ ] Review gallery displays and sorts correctly by brand
@@ -302,7 +323,7 @@ interface ReviewGalleryProps {
 ### **Completed Components ✅**
 
 1. **AuthorCardV2.astro** - Simplified author cards with:
-   - Rounded square headshots (80x80px) with 4px Bunnings green border
+   - Rounded square headshots (100x100px) with 4px Bunnings green border
    - Graceful fallback to author initials when headshot missing
    - Author name and lifespan display
    - "View Profile" CTA button with hover effects
@@ -316,10 +337,13 @@ interface ReviewGalleryProps {
    - "No results" message handling
 
 3. **author/v2/[id].astro** - Individual author profile pages with:
-   - Large profile header with 128x128px headshot or initials
+   - Large profile header with 300x300px headshot or initials
    - Social media-style bio display from author JSON data
    - Review gallery showing author's reviews from reviewsV2 collection
    - Brand sorting dropdown (A-Z, Z-A) with live DOM reordering
+   - Load More functionality (4 reviews initially, +4 per click)
+   - Reviews count display following site-wide pattern ("Showing 1 – 4 of 12 reviews")
+   - Sticky footer cards with date and "Read More" actions pinned to bottom
    - Responsive review cards with tool images, ratings, and excerpts
    - Graceful handling when author has no reviews
 
@@ -332,7 +356,10 @@ interface ReviewGalleryProps {
 
 - **Search Pattern**: Follows existing MasonryWall.tsx approach for consistency
 - **URL State Management**: Uses URLSearchParams and pushState for shareable search URLs
-- **Image Handling**: Proper Astro image() schema with optional chaining for safety
+- **Image Handling**: Proper Astro Picture elements for optimized image delivery
+- **Reviews Count Display**: Implements site-wide pattern matching ToolGrid.tsx and MasonryWall.tsx
+- **Load More Pattern**: Follows ReviewsSection.tsx approach (4 reviews per page, +4 per click)
+- **Card Layout**: Sticky footer design with flexbox for consistent spacing
 - **Styling**: Direct Tailwind utilities with official Bunnings color variables
 - **Fallback Strategy**: Author initials displayed when headshots unavailable
 - **Performance**: Lazy loading for all images, debounced search input
@@ -342,17 +369,20 @@ interface ReviewGalleryProps {
 **✅ PHASE 1 & 2 COMPLETE** - The V2 author pages system is fully implemented and ready for use:
 
 1. **`/authors/v2`** - New author listing page with search and Bunnings theme
-2. **`/author/v2/[id]`** - Individual author profiles with bios and review galleries  
+2. **`/author/v2/[id]`** - Individual author profiles with bios and review galleries
 3. **AuthorCardV2.astro** - Clean, minimal author cards following wireframe design
 4. **Data Enhancement** - All 12 authors updated with headshots and social media bios
 
 **Key Features Delivered:**
+
 - 🔍 Real-time search with URL state persistence
 - 🎨 Full Bunnings color scheme and branding
 - 📱 Responsive design (mobile-first)
 - 🖼️ Graceful headshot fallbacks (3 SVGs exist, others show initials)
 - 📝 Social media-style bios for all authors
 - 🔄 Brand sorting (A-Z, Z-A) on individual profile pages
+- 📊 Load More functionality with reviews count display ("Showing 1 – 4 of 12 reviews")
+- 🃏 Sticky footer cards with date and "Read More" actions
 - ♿ Basic accessibility (keyboard navigation, alt text, focus states)
 
 **Browser Testing Ready** - Navigate to `/authors/v2` to test the full experience.
@@ -360,6 +390,7 @@ interface ReviewGalleryProps {
 ## **Implementation Roadmap (Simplified)**
 
 ### **Phase 1: Core Functionality (MVP)**
+
 - [x] Update author JSON files with `headshot` and `bio` fields ✅
 - [x] Create `authors/v2.astro` page with search input and grid layout ✅
 - [x] Build `AuthorCardV2.astro` component (headshot, name, lifespan, CTA only) ✅
@@ -367,26 +398,30 @@ interface ReviewGalleryProps {
 - [x] Implement client-side search following MasonryWall.tsx pattern ✅
 
 ### **Phase 2: Individual Profiles**
+
 - [x] Create `author/v2/[id].astro` individual profile pages ✅
 - [x] Build review gallery with brand sorting (A-Z, Z-A) ✅
 - [x] Test with existing reviews from reviewsV2 collection ✅
 - [x] Handle missing headshots gracefully with author initials placeholder ✅
 
 ### **Phase 3: Polish Only**
+
 - [ ] Responsive design testing and fixes
-- [ ] Accessibility improvements (keyboard nav, screen readers)  
+- [ ] Accessibility improvements (keyboard nav, screen readers)
 - [ ] Performance optimization (lazy loading for images)
 
 ## **Files to Create/Modify**
 
 ### **New Files**
-- `src/pages/authors/v2.astro` - Main author directory  
+
+- `src/pages/authors/v2.astro` - Main author directory
 - `src/pages/author/v2/[id].astro` - Individual author profiles
 - `src/components/AuthorCardV2.astro` - Simplified author cards
 - `src/components/ReviewGallery.tsx` - Author's review showcase (DaisyUI select for brand sorting)
 - `strategy-docs/author-bio-prompt-template.md` - Bio generation template for LLMs
 
 ### **Files to Reference**
+
 - `src/images/headshots/*.svg` - New SVG headshots
 - `src/components/reviews/review-card.tsx` - For review display patterns
 - `src/components/ui/*` - ShadCN components for interactions
@@ -401,16 +436,19 @@ interface ReviewGalleryProps {
 
 ```tsx
 // Author card styling (using official Bunnings colors)
-className="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl"
+className =
+  "bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl";
 
 // Rounded square headshot
-className="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray"
+className =
+  "w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray";
 
 // Authors grid
-className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+className =
+  "grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 
 // Bio text styling
-className="text-bunnings-neutral-charcoal text-lg"
+className = "text-bunnings-neutral-charcoal text-lg";
 ```
 
 ### **Component Variants with CVA**
@@ -419,7 +457,7 @@ Use `class-variance-authority` only for true variants, not basic styling:
 
 ```tsx
 const buttonVariants = cva("base-button-classes", {
-  variants: { size: { small: "p-2", large: "p-4" }}
+  variants: { size: { small: "p-2", large: "p-4" } },
 });
 ```
 
@@ -445,4 +483,4 @@ const buttonVariants = cva("base-button-classes", {
 
 **Wireframe Demo**: See `strategy-docs/author-wireframe-demo.html` for interactive visual demonstration of the proposed designs. This shows exactly how the author cards and profile pages should look with proper Bunnings styling.
 
-**Start Implementation**: Begin with the core `AuthorCardV2.astro` component and `authors/v2.astro` page structure, following the simplified roadmap and KISS principles. 
+**Start Implementation**: Begin with the core `AuthorCardV2.astro` component and `authors/v2.astro` page structure, following the simplified roadmap and KISS principles.
