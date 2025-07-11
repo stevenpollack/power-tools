@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { RatingSnapshot } from "./rating-snapshot";
 import { ReviewFilters } from "./review-filters";
 import { ReviewCard } from "./review-card";
@@ -27,137 +27,151 @@ interface ReviewsSectionProps {
   totalReviews: number;
   averageRating: number;
   ratingDistribution: Record<1 | 2 | 3 | 4 | 5, number>;
-  averageQualityRating: number;
-  averageValueRating: number;
   className?: string;
 }
+
+// URL state management utilities (memoized)
+const getFilterFromURL = (): number | null => {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  const rating = params.get("rating");
+  return rating &&
+    !isNaN(Number(rating)) &&
+    Number(rating) >= 1 &&
+    Number(rating) <= 5
+    ? Number(rating)
+    : null;
+};
+
+const updateURL = (rating: number | null) => {
+  if (typeof window === "undefined") return;
+
+  const url = new URL(window.location.href);
+  if (rating) {
+    url.searchParams.set("rating", rating.toString());
+  } else {
+    url.searchParams.delete("rating");
+  }
+
+  // Update URL without triggering a page reload
+  window.history.replaceState({}, "", url.toString());
+};
 
 export function ReviewsSection({
   reviews,
   totalReviews,
   averageRating,
   ratingDistribution,
-  averageQualityRating,
-  averageValueRating,
   className,
 }: ReviewsSectionProps) {
-  const REVIEWS_PER_PAGE = 3;
-  const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
-  const [highlightedReviewId, setHighlightedReviewId] = useState<string | null>(
-    null,
-  );
+  // Initialize rating filter from URL on mount
+  const [selectedRating, setSelectedRating] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(3);
 
-  // Check for shared review in URL params
+  // Load rating filter from URL on component mount
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sharedReviewId = urlParams.get("review");
+    const urlRating = getFilterFromURL();
+    setSelectedRating(urlRating);
+  }, []);
 
-    if (sharedReviewId) {
-      setHighlightedReviewId(sharedReviewId);
+  // Memoized rating change handler to prevent unnecessary re-renders
+  const handleRatingChange = useCallback((rating: number | null) => {
+    setSelectedRating(rating);
+    setVisibleCount(3); // Reset pagination when filter changes
+    updateURL(rating);
+  }, []);
 
-      // Find the review and ensure it's visible
-      const reviewIndex = reviews.findIndex((r) => r.id === sharedReviewId);
-      if (reviewIndex !== -1) {
-        // Ensure enough reviews are visible to show the highlighted one
-        const minVisible = reviewIndex + 1;
-        if (minVisible > visibleCount) {
-          setVisibleCount(
-            Math.ceil(minVisible / REVIEWS_PER_PAGE) * REVIEWS_PER_PAGE,
-          );
-        }
+  // Memoized load more handler
+  const handleLoadMore = useCallback(() => {
+    setVisibleCount((prev) => prev + 3);
+  }, []);
 
-        // Scroll to review after a brief delay for rendering
-        setTimeout(() => {
-          const reviewElement = document.getElementById(
-            `review-${sharedReviewId}`,
-          );
-          if (reviewElement) {
-            reviewElement.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-            });
-          }
-        }, 100);
+  // Performance-optimized review filtering with memoization
+  const filteredReviews = useMemo(() => {
+    // Early return for no filter case (most common)
+    if (!selectedRating) return reviews;
+
+    // Use a more efficient filter for large datasets
+    const filtered: Review[] = [];
+    for (let i = 0; i < reviews.length; i++) {
+      const review = reviews[i];
+      if (review && review.rating === selectedRating) {
+        filtered.push(review);
       }
     }
-  }, [reviews, visibleCount]);
+    return filtered;
+  }, [reviews, selectedRating]);
 
-  const visibleReviews = useMemo(
-    () => reviews.slice(0, visibleCount),
-    [reviews, visibleCount],
+  // Memoized visible reviews calculation
+  const visibleReviews = useMemo(() => {
+    return filteredReviews.slice(0, visibleCount);
+  }, [filteredReviews, visibleCount]);
+
+  // Memoized calculations for UI state
+  const reviewStats = useMemo(
+    () => ({
+      hasMoreReviews: visibleCount < filteredReviews.length,
+      remainingCount: filteredReviews.length - visibleCount,
+      isEmpty: filteredReviews.length === 0 && selectedRating !== null,
+    }),
+    [visibleCount, filteredReviews.length, selectedRating],
   );
 
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + REVIEWS_PER_PAGE);
-  };
-
-  const handleShare = (review: Review) => {
-    if (review.id) {
-      const currentUrl = new URL(window.location.href);
-      currentUrl.searchParams.set("review", review.id);
-
-      // Copy to clipboard
-      navigator.clipboard.writeText(currentUrl.toString()).then(() => {
-        // Could show toast notification here
-        console.log("Review link copied to clipboard");
-      });
-    }
-  };
+  // Memoized clear filter handler
+  const handleClearFilter = useCallback(() => {
+    handleRatingChange(null);
+  }, [handleRatingChange]);
 
   return (
-    <div className={cn("space-y-6", className)}>
-      {/* Mobile-first layout: Stack vertically on mobile, side-by-side on larger screens */}
-      <div className="grid grid-cols-1 gap-6 lg:gap-8">
-        {/* Rating snapshot - full width on mobile, 1/3 on desktop */}
-        <RatingSnapshot
-          averageRating={averageRating}
-          totalReviews={totalReviews}
-          ratingDistribution={ratingDistribution}
-          qualityRating={averageQualityRating}
-          valueRating={averageValueRating}
-        />
+    <section className={cn("space-y-8", className)}>
+      {/* Rating Snapshot */}
+      <RatingSnapshot
+        averageRating={averageRating}
+        totalReviews={totalReviews}
+        ratingDistribution={ratingDistribution}
+      />
 
-        {/* Reviews content - full width on mobile, 2/3 on desktop */}
-        <div className="space-y-6">
-          {/* Filters */}
-          <ReviewFilters
-            totalReviews={totalReviews}
-            visibleReviews={visibleReviews.length}
-          />
+      {/* Review Filters */}
+      <ReviewFilters
+        totalReviews={filteredReviews.length}
+        visibleReviews={visibleReviews.length}
+        selectedRating={selectedRating}
+        onRatingChange={handleRatingChange}
+      />
 
-          {/* Reviews list */}
-          <div className="divide-bunnings-neutral-medium-gray space-y-0 divide-y">
-            {visibleReviews.map((review, index) => (
-              <ReviewCard
-                key={review.id || index}
-                review={review}
-                authorName={review.authorName}
-                toolName={review.toolName}
-                onShare={() => handleShare(review)}
-                className={cn(
-                  "mt-6",
-                  // Highlight shared review
-                  highlightedReviewId === review.id &&
-                    "bg-orange-50/30 transition-all duration-300",
-                )}
-                id={review.id ? `review-${review.id}` : ""}
-              />
-            ))}
-          </div>
-
-          {/* View more button */}
-          {visibleCount < reviews.length && (
-            <div className="px-1 pt-6">
-              <button
-                onClick={handleLoadMore}
-                className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange w-full rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
-              >
-                View More
-              </button>
-            </div>
-          )}
-        </div>
+      {/* Reviews Grid */}
+      <div className="space-y-6">
+        {visibleReviews.map((review, index) => (
+          <ReviewCard key={index} review={review} />
+        ))}
       </div>
-    </div>
+
+      {/* Load More Button */}
+      {reviewStats.hasMoreReviews && (
+        <div className="flex justify-center">
+          <button
+            onClick={handleLoadMore}
+            className="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/80 text-bunnings-sm rounded p-4 text-white transition-colors"
+          >
+            Load More Reviews ({reviewStats.remainingCount} remaining)
+          </button>
+        </div>
+      )}
+
+      {/* No Reviews Message */}
+      {reviewStats.isEmpty && (
+        <div className="py-8 text-center">
+          <p className="text-bunnings-neutral-dark-gray text-lg">
+            No {selectedRating}-star reviews found.
+          </p>
+          <button
+            onClick={handleClearFilter}
+            className="text-bunnings-primary-orange hover:text-bunnings-primary-orange/80 mt-4 transition-colors"
+          >
+            Show all reviews
+          </button>
+        </div>
+      )}
+    </section>
   );
 }

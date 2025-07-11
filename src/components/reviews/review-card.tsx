@@ -130,7 +130,7 @@ export function ReviewCard({
               "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
             )}
           >
-            <ThumbsUp className="stroke-bunnings-primary-green h-5 w-5 stroke-1" />
+            <ThumbsUp className="stroke-bunnings-secondary-green h-5 w-5 stroke-1" />
             <span>({review.helpfulVotes})</span>
           </button>
           <button
@@ -140,7 +140,7 @@ export function ReviewCard({
               "focus:ring-bunnings-primary-orange focus:ring-2 focus:ring-offset-2 focus:outline-none",
             )}
           >
-            <ThumbsDown className="stroke-bunnings-primary-green h-5 w-5 stroke-1" />
+            <ThumbsDown className="stroke-bunnings-secondary-green h-5 w-5 stroke-1" />
             <span>({review.unhelpfulVotes})</span>
           </button>
           <button

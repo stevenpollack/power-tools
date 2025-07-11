@@ -69,7 +69,7 @@ export function RatingSnapshot({
         </h4>
         <div className="flex items-center gap-3">
           <span
-            className="font-bold text-gray-900"
+            className="text-bunnings-neutral-charcoal"
             style={{ fontSize: "45px" }}
           >
             {averageRating.toFixed(1)}
