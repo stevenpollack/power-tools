@@ -271,4 +271,159 @@ If critical issues arise:
 
 ---
 
+## **Development Guidelines & Standards**
+
+### **Git Workflow & Commit Strategy**
+
+Follow conventional commits specification for all migration work:
+
+```bash
+# Phase 1 commits
+git commit -m "refactor(migration): move v1 pages to legacy directories"
+git commit -m "test(migration): verify v1 legacy URLs functionality"
+
+# Phase 2 commits  
+git commit -m "feat(migration): promote v2 pages to main URLs"
+git commit -m "refactor(migration): update homepage to use v2 reviews"
+
+# Phase 3 commits
+git commit -m "fix(migration): update hardcoded v2 URL references"
+git commit -m "docs(migration): update navigation and internal links"
+
+# Final verification
+git commit -m "test(migration): complete URL migration verification"
+```
+
+**Commit Strategy**:
+- **One commit per logical step** - don't combine file moves with URL updates
+- **Descriptive commit messages** - include what changed and why
+- **Atomic commits** - each commit should be independently testable
+- **Progressive commits** - commit after each verification step passes
+
+### **Comprehensive Testing Requirements**
+
+**Phase-Level Testing**:
+```bash
+# After each phase, run complete test suite:
+pnpm type-check          # TypeScript validation
+pnpm lint               # Code quality
+pnpm build              # Production build test  
+pnpm preview            # Local server verification
+
+# Additional browser testing:
+# Test in Chrome (mobile + desktop)
+# Test in Firefox (mobile + desktop)  
+# Test in Safari (mobile + desktop)
+```
+
+**Content Validation Testing**:
+- **Review Data Integrity**: Spot-check 5 random reviews load correctly
+- **Image Loading**: Verify author and tool images display
+- **Navigation Flow**: Test all internal page transitions
+- **Mobile Responsiveness**: Verify layouts work on mobile viewports
+- **Performance**: Compare page load times (should be ≤5% degradation)
+
+**SEO & Analytics Testing**:
+- **Meta Tags**: Verify page titles, descriptions unchanged
+- **URL Structure**: Confirm clean URLs work correctly
+- **Internal Links**: Ensure no broken links in content
+- **Sitemap**: Update and verify if sitemap.xml exists
+
+### **Error Handling & Debugging Protocols**
+
+**Diagnostic Commands**:
+```bash
+# If builds fail:
+pnpm type-check --verbose     # Detailed TypeScript errors
+pnpm build --verbose          # Detailed build errors
+
+# If pages don't load:
+grep -r "getCollection" src/   # Find content collection issues
+grep -r "404" .astro/         # Check for routing errors
+
+# If links break:
+find src/ -name "*.astro" -exec grep -l "/v2/" {} \;  # Find remaining v2 links
+```
+
+**Issue Escalation Process**:
+1. **Document the specific error** with exact commands and outputs
+2. **Identify the phase** where the error occurred
+3. **Check emergency rollback** if issue blocks progress
+4. **Report with context**: What you were doing, what happened, what you expected
+
+**Common Issues & Solutions**:
+- **Build Errors**: Usually TypeScript or missing imports - check file paths
+- **404s**: Often routing issues - verify file structure matches URLs
+- **Content Loading**: Usually content collection path issues - check imports
+- **Performance**: Often missing optimizations - check image loading
+
+### **Progress Communication Standards**
+
+**Regular Updates Required**:
+- **Phase Start**: "Beginning Phase X: [brief description]"
+- **Phase Complete**: "Phase X Complete: [verification results]"  
+- **Blockers**: "Blocked on: [specific issue] - investigating [approach]"
+- **Completion**: "Migration Complete: [summary of changes and testing]"
+
+**Status Report Format**:
+```markdown
+## Migration Progress: Phase X
+
+**Completed**:
+- [Specific accomplishment]
+- [Verification results]
+
+**In Progress**:
+- [Current task]
+- [Expected completion]
+
+**Blockers**:
+- [None / specific issue]
+
+**Next Steps**:
+- [Next task]
+- [Dependencies]
+```
+
+### **Definition of Done Criteria**
+
+**Phase Completion Requirements**:
+- ✅ All commands executed successfully
+- ✅ Build passes without errors or warnings
+- ✅ Manual URL testing complete
+- ✅ No broken internal links found
+- ✅ Performance within acceptable range
+- ✅ Changes committed with proper messages
+
+**Migration Completion Requirements**:
+- ✅ All 6 success criteria met
+- ✅ Browser testing complete (3 browsers minimum)
+- ✅ Content integrity verified (review data loads correctly)
+- ✅ SEO impact verified (no ranking loss indicators)
+- ✅ Analytics continuity verified (tracking still works)
+- ✅ Documentation updated
+- ✅ Team notified of completion
+
+### **Quality Assurance Standards**
+
+**Code Quality**:
+- **TypeScript strict mode** compliance required
+- **ESLint** must pass with zero warnings
+- **Prettier** formatting must be consistent
+- **No console.log** statements in production code
+
+**Performance Standards**:
+- **Build time** should not increase >10%
+- **Page load time** should not increase >5%  
+- **Bundle size** should not increase significantly
+- **Lighthouse scores** should remain stable
+
+**Accessibility Requirements**:
+- **Navigation** must remain keyboard accessible
+- **Links** must have proper focus indicators
+- **Images** must retain alt text
+- **Headings** must maintain proper hierarchy
+
+---
+
 **Remember**: This migration promotes the superior v2 design to standard URLs while preserving v1 as an intentionally accessible legacy version. The result is a cleaner, more professional URL structure that doesn't expose version numbers to users. 
