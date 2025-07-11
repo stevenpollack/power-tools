@@ -21,18 +21,18 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
     setSelectedBrand,
     sortOrder,
     setSortOrder,
-    
+
     // Computed results
     filteredReviews,
     visibleReviews,
     availableAuthors,
     availableMoods,
     availableBrands,
-    
+
     // Pagination
     visibleCount,
     handleLoadMore,
-    
+
     // Utility actions
     clearSearch,
   } = useMasonryWall({
@@ -44,10 +44,9 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
   return (
     <div id="masonry-wall-v2">
       {/* Filter Controls */}
-      <div className="sticky top-0 z-10 border-b border-bunnings-neutral-light-gray bg-white/80 py-4 backdrop-blur-md">
+      <div className="border-bunnings-neutral-light-gray sticky top-0 z-10 border-b bg-white/80 py-4 backdrop-blur-md">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-            
             {/* Search */}
             <div className="relative max-w-md flex-1">
               <input
@@ -55,12 +54,12 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search reviews, authors, or tools..."
-                className="w-full rounded-lg border border-bunnings-neutral-medium-gray px-4 py-2 text-sm focus:border-bunnings-secondary-green focus:ring-1 focus:ring-bunnings-secondary-green focus:outline-none"
+                className="border-bunnings-neutral-medium-gray focus:border-bunnings-secondary-green focus:ring-bunnings-secondary-green w-full rounded-lg border px-4 py-2 text-sm focus:ring-1 focus:outline-none"
               />
               {searchTerm && (
                 <button
                   onClick={clearSearch}
-                  className="absolute inset-y-0 right-0 flex items-center pr-3 text-bunnings-neutral-medium-gray hover:text-bunnings-neutral-charcoal"
+                  className="text-bunnings-neutral-medium-gray hover:text-bunnings-neutral-charcoal absolute inset-y-0 right-0 flex items-center pr-3"
                   aria-label="Clear search"
                 >
                   <svg
@@ -86,7 +85,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
               <select
                 value={selectedAuthor}
                 onChange={(e) => setSelectedAuthor(e.target.value)}
-                className="rounded-md border border-bunnings-neutral-medium-gray px-3 py-1 text-sm focus:border-bunnings-secondary-green focus:outline-none"
+                className="border-bunnings-neutral-medium-gray focus:border-bunnings-secondary-green rounded-md border px-3 py-1 text-sm focus:outline-none"
               >
                 <option value="">All Authors</option>
                 {availableAuthors.map((author) => (
@@ -99,7 +98,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
               <select
                 value={selectedMood}
                 onChange={(e) => setSelectedMood(e.target.value)}
-                className="rounded-md border border-bunnings-neutral-medium-gray px-3 py-1 text-sm focus:border-bunnings-secondary-green focus:outline-none"
+                className="border-bunnings-neutral-medium-gray focus:border-bunnings-secondary-green rounded-md border px-3 py-1 text-sm focus:outline-none"
               >
                 <option value="">All Moods</option>
                 {availableMoods.map((mood) => (
@@ -112,7 +111,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
               <select
                 value={selectedBrand}
                 onChange={(e) => setSelectedBrand(e.target.value)}
-                className="rounded-md border border-bunnings-neutral-medium-gray px-3 py-1 text-sm focus:border-bunnings-secondary-green focus:outline-none"
+                className="border-bunnings-neutral-medium-gray focus:border-bunnings-secondary-green rounded-md border px-3 py-1 text-sm focus:outline-none"
               >
                 <option value="">All Brands</option>
                 {availableBrands.map((brand) => (
@@ -125,7 +124,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
               <select
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value as any)}
-                className="rounded-md border border-bunnings-neutral-medium-gray px-3 py-1 text-sm focus:border-bunnings-secondary-green focus:outline-none"
+                className="border-bunnings-neutral-medium-gray focus:border-bunnings-secondary-green rounded-md border px-3 py-1 text-sm focus:outline-none"
               >
                 <option value="balanced">Sort by: Balanced Mix</option>
                 <option value="newest">Sort by: Newest</option>
@@ -140,9 +139,11 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
 
           {/* Results Count */}
           <div className="mt-2">
-            <p className="text-sm text-bunnings-neutral-medium-gray">
-              Showing {visibleReviews.length} of {filteredReviews.length} reviews
-              {filteredReviews.length !== reviewsWithData.length && " (filtered)"}
+            <p className="text-bunnings-neutral-medium-gray text-sm">
+              Showing {visibleReviews.length} of {filteredReviews.length}{" "}
+              reviews
+              {filteredReviews.length !== reviewsWithData.length &&
+                " (filtered)"}
             </p>
           </div>
         </div>
@@ -151,12 +152,12 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
       {/* Masonry Grid */}
       <div className="mx-auto max-w-7xl py-8">
         {filteredReviews.length === 0 ? (
-          <div className="min-h-96 flex items-center justify-center">
+          <div className="flex min-h-96 items-center justify-center">
             <div className="text-center">
-              <p className="mb-2 text-lg text-bunnings-neutral-medium-gray">
+              <p className="text-bunnings-neutral-medium-gray mb-2 text-lg">
                 No reviews match your filters
               </p>
-              <p className="text-sm text-bunnings-neutral-light-gray">
+              <p className="text-bunnings-neutral-light-gray text-sm">
                 Try adjusting your search criteria
               </p>
             </div>
@@ -175,6 +176,8 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
                   toolName={tool.data.name}
                   toolImage={tool.data.thumbnailUrl}
                   authorName={author.data.name}
+                  authorSlug={author.data.slug}
+                  authorHeadshot={(author as any).optimizedHeadshotUrl || null}
                   excerpt={review.data.excerpt}
                 />
               </div>
@@ -188,7 +191,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
         <div className="pb-16 text-center">
           <button
             onClick={handleLoadMore}
-            className="bg-bunnings-primary-orange hover:bg-bunnings-secondary-green text-black hover:text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md"
+            className="bg-bunnings-primary-orange hover:bg-bunnings-secondary-green rounded-lg px-8 py-3 font-medium text-black shadow-sm transition-all duration-300 hover:text-white hover:shadow-md"
           >
             Load More Reviews
           </button>
@@ -196,4 +199,4 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
       )}
     </div>
   );
-} 
+}

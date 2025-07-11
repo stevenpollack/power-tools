@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout-v2.astro";
 import { MasonryWallV2 } from "../components/MasonryWallV2";
 import { getCollection, getEntry } from "astro:content";
+import { getImage } from "astro:assets";
 import FunningsLogo from "@/images/logos/funnings.svg";
 import { Picture } from "astro:assets";
 
@@ -14,9 +15,20 @@ const reviewsWithData = await Promise.all(
       getEntry(review.data.author),
       getEntry(review.data.tool),
     ]);
+
+    // Preprocess author headshot for React component
+    const optimizedHeadshot = await getImage({
+      src: author.data.headshot,
+      width: 48,
+      format: "webp",
+    });
+
     return {
       review,
-      author,
+      author: {
+        ...author,
+        optimizedHeadshotUrl: optimizedHeadshot.src,
+      },
       tool,
     };
   }),
@@ -69,7 +81,7 @@ const arrangedReviews = createBalancedShuffle(reviewsWithData);
 ---
 
 <Layout title="Funnings Joke House - When Literature Meets Hardware">
-  <div class="mx-auto max-w-7xl py-8">
+  <div class="mx-auto max-w-7xl px-4 py-8">
     <!-- Header Section with V2 Theme -->
     <header
       class="bg-bunnings-secondary-green mb-8 rounded-lg py-12 text-white"

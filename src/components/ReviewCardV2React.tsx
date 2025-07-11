@@ -7,6 +7,8 @@ interface Props {
   toolName: string;
   toolImage: { src: string; width: number; height: number; format: string };
   authorName: string;
+  authorSlug: string;
+  authorHeadshot: string | null;
   excerpt: string;
 }
 
@@ -17,6 +19,8 @@ export function ReviewCardV2React({
   toolName,
   toolImage,
   authorName,
+  authorSlug,
+  authorHeadshot,
   excerpt,
 }: Props) {
   // Link to tool page with review anchor for deep linking
@@ -51,11 +55,28 @@ export function ReviewCardV2React({
 
         {/* Author Credit */}
         <div className="border-bunnings-neutral-light-gray border-t pt-3 text-center">
-          <span className="text-bunnings-neutral-medium-gray text-sm">
-            by {authorName}
-          </span>
+          <div className="flex items-center justify-between gap-2">
+            <a
+              href={`/author/${authorSlug}`}
+              className="text-bunnings-neutral-medium-gray hover:text-bunnings-secondary-green text-sm"
+            >
+              by {authorName}
+            </a>
+            {authorHeadshot ? (
+              <img
+                src={authorHeadshot}
+                alt={authorName}
+                className="h-12 w-12 rounded-full bg-amber-100 object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <div className="bg-bunnings-neutral-medium-gray flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold text-white">
+                {authorName.charAt(0)}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </a>
   );
-} 
+}
