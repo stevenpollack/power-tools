@@ -1,0 +1,46 @@
+{
+  "scraping_targets": {
+    "grinders": {
+      "corded_angle_grinders": [
+        {
+          "url": "https://www.bunnings.com.au/ozito-125mm-5-angle-grinder-kit_p0048825",
+          "expected_brand": "Ozito",
+          "expected_price": "$49.90"
+        },
+        {
+          "url": "https://www.bunnings.com.au/bosch-professional-720w-125mm-corded-angle-grinder-0601388042_p6200198",
+          "expected_brand": "Bosch",
+          "expected_price": "$125"
+        },
+        {
+          "url": "https://www.bunnings.com.au/ryobi-800w-125mm-angle-grinder_p0096776",
+          "expected_brand": "Ryobi",
+          "expected_price": "$75"
+        },
+        {
+          "url": "https://www.bunnings.com.au/aeg-1100w-125mm-angle-grinder_p0227989",
+          "expected_brand": "AEG",
+          "expected_price": "$99"
+        }
+      ],
+      "cordless_angle_grinders": [
+        {
+          "url": "https://www.bunnings.com.au/ryobi-18v-one-115mm-angle-grinder-tool-only_p0509295",
+          "expected_brand": "Ryobi"
+        },
+        {
+          "url": "https://www.bunnings.com.au/ozito-pxc-18v-115mm-cordless-angle-grinder-pxags-115-skin-only_p0412273",
+          "expected_brand": "Ozito"
+        },
+        {
+          "url": "https://www.bunnings.com.au/makita-18v-brushless-125mm-slide-switch-angle-grinder-dga504z-skin-only_p6240307",
+          "expected_brand": "Makita"
+        },
+        {
+          "url": "https://www.bunnings.com.au/aeg-18v-125mm-angle-grinder-skin-only_p0509294",
+          "expected_brand": "AEG"
+        }
+      ]
+    }
+  }
+}

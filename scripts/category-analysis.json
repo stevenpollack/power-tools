@@ -1,0 +1,71 @@
+{
+  "bunnings_power_tools_analysis": {
+    "date": "2025-07-04",
+    "base_url": "https://www.bunnings.com.au/products/tools/power-tools",
+    "categories": {
+      "grinders": {
+        "name": "Grinders",
+        "subcategories": [
+          "Cordless Angle Grinders",
+          "Corded Angle Grinders",
+          "Bench Grinders"
+        ],
+        "product_counts": [61, 83, "unknown"],
+        "total_products": "144+",
+        "top_2_subcategories": [
+          "Corded Angle Grinders",
+          "Cordless Angle Grinders"
+        ],
+        "url": "https://www.bunnings.com.au/products/tools/power-tools/grinders"
+      },
+      "power_saws": {
+        "name": "Power Saws",
+        "subcategories": [
+          "Circular Saws",
+          "Jigsaw Tools",
+          "Reciprocating Saws",
+          "Cordless Saws",
+          "Brick & Tile Saws"
+        ],
+        "product_counts": [31, 28, "unknown", "unknown", "unknown"],
+        "total_products": "59+",
+        "top_2_subcategories": ["Circular Saws", "Jigsaw Tools"],
+        "url": "https://www.bunnings.com.au/products/tools/power-tools/power-saws"
+      },
+      "pressure_washers": {
+        "name": "Pressure Washers",
+        "subcategories": [
+          "Electric Pressure Washers",
+          "Petrol Pressure Washers",
+          "Cordless Pressure Washers",
+          "Pressure Washer Parts & Accessories"
+        ],
+        "product_counts": [30, 16, "unknown", "unknown"],
+        "total_products": "46+",
+        "top_2_subcategories": [
+          "Electric Pressure Washers",
+          "Petrol Pressure Washers"
+        ],
+        "url": "https://www.bunnings.com.au/products/tools/power-tools/pressure-washers"
+      },
+      "air_compressors": {
+        "name": "Air Compressors",
+        "subcategories": ["Direct Drive Compressor", "Belt Drive Compressor"],
+        "product_counts": [31, 2],
+        "total_products": 33,
+        "top_2_subcategories": [
+          "Direct Drive Compressor",
+          "Belt Drive Compressor"
+        ],
+        "url": "https://www.bunnings.com.au/products/tools/power-tools/air-compressors"
+      }
+    },
+    "analysis_notes": [
+      "Grinders is the largest category with 144+ products",
+      "Power Saws is second with 59+ products",
+      "Pressure Washers has 46+ products",
+      "Air Compressors has 33 products",
+      "Skipping Drills category per user request"
+    ]
+  }
+}

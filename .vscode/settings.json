@@ -31,5 +31,8 @@
   "tailwindCSS.classFunctions": ["cva", "cx"],
   "[markdown]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   }
 }

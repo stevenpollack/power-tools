@@ -1,0 +1,47 @@
+{
+  "Drills": [
+    "https://www.bunnings.com.au/products/tools/power-tools/drills/drill-drivers",
+    "https://www.bunnings.com.au/products/tools/power-tools/drills/impact-drill-drivers",
+    "https://www.bunnings.com.au/products/tools/power-tools/drills/rotary-hammer-drills"
+  ],
+  "Power Saws": [
+    "https://www.bunnings.com.au/products/tools/power-tools/power-saws/circular-saws",
+    "https://www.bunnings.com.au/products/tools/power-tools/power-saws/mitre-saws",
+    "https://www.bunnings.com.au/products/tools/power-tools/power-saws/jigsaws"
+  ],
+  "Grinders": [
+    "https://www.bunnings.com.au/products/tools/power-tools/grinders/angle-grinders",
+    "https://www.bunnings.com.au/products/tools/power-tools/grinders/bench-grinders"
+  ],
+  "Sanders": [
+    "https://www.bunnings.com.au/products/tools/power-tools/sanders/orbital-sanders",
+    "https://www.bunnings.com.au/products/tools/power-tools/sanders/belt-sanders",
+    "https://www.bunnings.com.au/products/tools/power-tools/sanders/random-orbital-sanders"
+  ],
+  "Air Compressors": [
+    "https://www.bunnings.com.au/products/tools/power-tools/air-compressors/direct-drive-compressors",
+    "https://www.bunnings.com.au/products/tools/power-tools/air-compressors/belt-drive-compressors",
+    "https://www.bunnings.com.au/products/tools/power-tools/air-compressors/cordless-compressors"
+  ],
+  "Batteries & Chargers": [
+    "https://www.bunnings.com.au/products/tools/power-tools/batteries-chargers"
+  ],
+  "Multi Tools": [
+    "https://www.bunnings.com.au/products/tools/power-tools/multi-tools"
+  ],
+  "Nail, Glue & Heat Guns": [
+    "https://www.bunnings.com.au/products/tools/power-tools/nail-glue-heat-guns/nail-guns",
+    "https://www.bunnings.com.au/products/tools/power-tools/nail-glue-heat-guns/glue-guns",
+    "https://www.bunnings.com.au/products/tools/power-tools/nail-glue-heat-guns/heat-guns"
+  ],
+  "Pressure Washers": [
+    "https://www.bunnings.com.au/products/tools/power-tools/pressure-washers"
+  ],
+  "Worksite Radios": [
+    "https://www.bunnings.com.au/products/tools/power-tools/worksite-radios"
+  ],
+  "Routers": [
+    "https://www.bunnings.com.au/products/tools/power-tools/routers-trimmers/routers",
+    "https://www.bunnings.com.au/products/tools/power-tools/routers-trimmers/trimmers"
+  ]
+}
