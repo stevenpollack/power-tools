@@ -208,12 +208,12 @@ const initialReviews = reviewsWithData.slice(0, initialCount);
       brandFilter.value = params.get('brand') || '';
       sortFilter.value = params.get('sort') || 'balanced';
       
-      clearSearch.style.display = searchInput.value ? 'flex' : 'none';
+      if (clearSearch) clearSearch.style.display = searchInput.value ? 'flex' : 'none';
     }
     
     function filterAndSort() {
       // Filter reviews
-      filteredReviews = reviewsData.filter(item => {
+      filteredReviews = reviewsData.filter((item: any) => {
         const { review, author, tool } = item;
         
         // Search filter
@@ -263,7 +263,7 @@ const initialReviews = reviewsWithData.slice(0, initialCount);
       const visibleReviews = filteredReviews.slice(0, visibleCount);
       
       if (filteredReviews.length === 0) {
-        masonryGrid.style.display = 'none';
+        masonryGrid!.style.display = 'none';
         noResults.style.display = 'flex';
         loadMoreContainer.style.display = 'none';
       } else {
