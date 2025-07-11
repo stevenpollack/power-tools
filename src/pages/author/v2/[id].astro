@@ -32,144 +32,161 @@ const reviewsWithData = await Promise.all(
     author: await getEntry(review.data.author),
   })),
 );
-
-
 ---
 
 <Layout title={`${author.data.name} - Tool Review Expert`}>
-  <main class="max-w-7xl mx-auto px-4 py-8">
-    
+  <main class="mx-auto max-w-7xl px-4 py-8">
     <!-- Mobile: Stacked Layout, Desktop: 2-Column Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-8">
-      
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-[400px_1fr]">
       <!-- Left Column: Author Profile -->
-      <div class="bg-bunnings-neutral-light-gray rounded-lg shadow-sm h-fit text-bunnings-secondary-green p-8">
+      <div
+        class="bg-bunnings-neutral-light-gray text-bunnings-secondary-green h-fit rounded-lg p-8 shadow-sm"
+      >
         <div class="text-center">
           <Picture
             src={author.data.headshot}
             alt={author.data.name}
-            class="w-[300px] h-[300px] rounded-lg bg-amber-100 mx-auto mb-6 object-cover"
+            class="mx-auto mb-6 h-[300px] w-[300px] rounded-lg bg-amber-100 object-cover"
             widths={[300, 600]}
             sizes="300px"
             formats={["avif", "webp"]}
             loading="lazy"
           />
-          <h1 class="text-2xl font-bold mb-2">{author.data.name}</h1>
-          <p class="text-sm text-bunnings-neutral-charcoal mb-6">{author.data.lifespan}</p>
-          
+          <h1 class="mb-2 text-2xl font-bold">{author.data.name}</h1>
+          <p class="text-bunnings-neutral-charcoal mb-6 text-sm">
+            {author.data.lifespan}
+          </p>
+
           <div class="text-left">
-            <h2 class="text-xl font-semibold mb-4 ">About</h2>
-            {author.data.bio ? (
-              <p class="">
-                {author.data.bio}
-              </p>
-            ) : (
-              <p class="text-bunnings-neutral-medium-gray italic">
-                Bio coming soon...
-              </p>
-            )}
+            <h2 class="mb-4 text-xl font-semibold">About</h2>
+            {
+              author.data.bio ? (
+                <p class="">{author.data.bio}</p>
+              ) : (
+                <p class="text-bunnings-neutral-medium-gray italic">
+                  Bio coming soon...
+                </p>
+              )
+            }
           </div>
         </div>
       </div>
 
       <!-- Right Column: Reviews -->
       <div class="space-y-8">
-        {reviewsWithData.length > 0 ? (
-          <div class="px-8">
-            <div class="flex justify-between items-center mb-6">
-              <h2 class="text-xl font-semibold text-bunnings-neutral-charcoal">
-                Reviews ({reviewsWithData.length})
-              </h2>
-              <select 
-                id="brand-sort" 
-                class="px-3 py-2 border border-bunnings-neutral-medium-gray rounded-md text-sm focus:ring-2 focus:ring-bunnings-secondary-green focus:border-bunnings-secondary-green"
-              >
-                <option value="brand-asc">Sort by Brand A-Z</option>
-                <option value="brand-desc">Sort by Brand Z-A</option>
-              </select>
-            </div>
-
-            <!-- Review Cards Grid -->
-            <div id="reviews-grid" class="grid grid-cols-1 xl:grid-cols-2 gap-6">
-              {reviewsWithData.map(({ review, tool, author: reviewAuthor }) => (
-                            <div class="review-card border border-bunnings-neutral-medium-gray rounded-lg p-4 hover:shadow-md transition-shadow flex flex-col h-full" data-brand={tool.data.brand.toLowerCase()}>
-              <div class="flex items-start gap-3 mb-3">
-                <Picture
-                  src={tool.data.thumbnailUrl}
-                  alt={tool.data.name}
-                  class="w-15 h-15 rounded object-cover flex-shrink-0"
-                  widths={[60]}
-                  formats={["avif", "webp"]}
-                  loading="lazy"
-                />
-                <div class="flex-1 min-w-0">
-                  <h3 class="font-medium text-sm line-clamp-2 text-bunnings-neutral-charcoal mb-1">
-                    {tool.data.name}
-                  </h3>
-                  <p class="text-xs text-bunnings-neutral-medium-gray mb-1">
-                    {tool.data.brand}
-                  </p>
-                  {review.data.rating && (
-                    <div class="flex items-center gap-1">
-                      <div class="flex text-bunnings-primary-orange text-sm">
-                        {'★'.repeat(review.data.rating)}{'☆'.repeat(5 - review.data.rating)}
-                      </div>
-                      <span class="text-xs text-bunnings-neutral-medium-gray">
-                        {review.data.rating}/5
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
-              
-              <!-- Excerpt with flex-grow to push footer down -->
-              <div class="flex-grow mb-4">
-                <p class="text-sm text-bunnings-neutral-charcoal line-clamp-3">
-                  {review.data.excerpt}
-                </p>
-              </div>
-              
-              <!-- Sticky footer -->
-              <div class="flex justify-between items-center text-xs text-bunnings-neutral-medium-gray pt-3 border-t border-bunnings-neutral-light-gray">
-                <span>{new Date(review.data.dateCreated).toLocaleDateString()}</span>
-                <a 
-                  href={`/tool/v2/${tool.id}?review=${review.data.slug}`}
-                  class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+        {
+          reviewsWithData.length > 0 ? (
+            <div>
+              <div class="mb-6 flex items-center justify-between">
+                <h2 class="text-bunnings-neutral-charcoal text-xl font-semibold">
+                  Reviews ({reviewsWithData.length})
+                </h2>
+                <select
+                  id="brand-sort"
+                  class="border-bunnings-neutral-medium-gray focus:ring-bunnings-secondary-green focus:border-bunnings-secondary-green rounded-md border px-3 py-2 text-sm focus:ring-2"
                 >
-                  Read More →
-                </a>
+                  <option value="brand-asc">Sort by Brand A-Z</option>
+                  <option value="brand-desc">Sort by Brand Z-A</option>
+                </select>
+              </div>
+
+              <div
+                id="reviews-grid"
+                class="grid grid-cols-1 gap-6 xl:grid-cols-2"
+              >
+                {reviewsWithData.map(
+                  ({ review, tool, author: reviewAuthor }) => (
+                    <div
+                      class="review-card border-bunnings-neutral-medium-gray flex h-full flex-col rounded-lg border p-4 transition-shadow hover:shadow-md"
+                      data-brand={tool.data.brand.toLowerCase()}
+                    >
+                      <div class="mb-3 flex items-start gap-3">
+                        <Picture
+                          src={tool.data.thumbnailUrl}
+                          alt={tool.data.name}
+                          class="h-15 w-15 flex-shrink-0 rounded object-cover"
+                          widths={[60]}
+                          formats={["avif", "webp"]}
+                          loading="lazy"
+                        />
+                        <div class="min-w-0 flex-1">
+                          <h3 class="text-bunnings-neutral-charcoal mb-1 line-clamp-2 text-sm font-medium">
+                            {tool.data.name}
+                          </h3>
+                          <p class="text-bunnings-neutral-medium-gray mb-1 text-xs">
+                            {tool.data.brand}
+                          </p>
+                          {review.data.rating && (
+                            <div class="flex items-center gap-1">
+                              <div class="text-bunnings-primary-orange flex text-sm">
+                                {"★".repeat(review.data.rating)}
+                                {"☆".repeat(5 - review.data.rating)}
+                              </div>
+                              <span class="text-bunnings-neutral-medium-gray text-xs">
+                                {review.data.rating}/5
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      <div class="mb-4 flex-grow">
+                        <p class="text-bunnings-neutral-charcoal line-clamp-3 text-sm">
+                          {review.data.excerpt}
+                        </p>
+                      </div>
+
+                      <div class="text-bunnings-neutral-medium-gray border-bunnings-neutral-light-gray flex items-center justify-between border-t pt-3 text-xs">
+                        <span>
+                          {new Date(
+                            review.data.dateCreated,
+                          ).toLocaleDateString()}
+                        </span>
+                        <a
+                          href={`/tool/v2/${tool.id}?review=${review.data.slug}`}
+                          class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+                        >
+                          Read More →
+                        </a>
+                      </div>
+                    </div>
+                  ),
+                )}
               </div>
             </div>
-              ))}
+          ) : (
+            <div class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-8 text-center shadow-sm">
+              <p class="text-bunnings-neutral-medium-gray mb-2 text-lg">
+                No reviews yet
+              </p>
+              <p class="text-bunnings-neutral-medium-gray text-sm">
+                {author.data.name} hasn't reviewed any tools yet.
+              </p>
             </div>
-          </div>
-        ) : (
-          <div class="bg-white rounded-lg shadow-sm border border-bunnings-neutral-medium-gray p-8 text-center">
-            <p class="text-lg text-bunnings-neutral-medium-gray mb-2">No reviews yet</p>
-            <p class="text-sm text-bunnings-neutral-medium-gray">
-              {author.data.name} hasn't reviewed any tools yet.
-            </p>
-          </div>
-        )}
+          )
+        }
       </div>
-      
     </div>
   </main>
 </Layout>
 
 <script>
   // Brand sorting functionality
-  document.addEventListener('DOMContentLoaded', () => {
-    const sortSelect = document.getElementById('brand-sort') as HTMLSelectElement;
-    const reviewsGrid = document.getElementById('reviews-grid') as HTMLElement;
-    const reviewCards = Array.from(document.querySelectorAll('.review-card')) as HTMLElement[];
+  document.addEventListener("DOMContentLoaded", () => {
+    const sortSelect = document.getElementById(
+      "brand-sort",
+    ) as HTMLSelectElement;
+    const reviewsGrid = document.getElementById("reviews-grid") as HTMLElement;
+    const reviewCards = Array.from(
+      document.querySelectorAll(".review-card"),
+    ) as HTMLElement[];
 
-    const sortReviews = (order: 'brand-asc' | 'brand-desc') => {
+    const sortReviews = (order: "brand-asc" | "brand-desc") => {
       const sorted = [...reviewCards].sort((a, b) => {
-        const brandA = a.dataset.brand || '';
-        const brandB = b.dataset.brand || '';
-        
-        if (order === 'brand-asc') {
+        const brandA = a.dataset.brand || "";
+        const brandB = b.dataset.brand || "";
+
+        if (order === "brand-asc") {
           return brandA.localeCompare(brandB);
         } else {
           return brandB.localeCompare(brandA);
@@ -177,14 +194,14 @@ const reviewsWithData = await Promise.all(
       });
 
       // Clear grid and re-append sorted cards
-      reviewsGrid.innerHTML = '';
-      sorted.forEach(card => reviewsGrid.appendChild(card));
+      reviewsGrid.innerHTML = "";
+      sorted.forEach((card) => reviewsGrid.appendChild(card));
     };
 
     if (sortSelect) {
-      sortSelect.addEventListener('change', (e) => {
+      sortSelect.addEventListener("change", (e) => {
         const target = e.target as HTMLSelectElement;
-        sortReviews(target.value as 'brand-asc' | 'brand-desc');
+        sortReviews(target.value as "brand-asc" | "brand-desc");
       });
     }
   });
@@ -205,4 +222,4 @@ const reviewsWithData = await Promise.all(
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-</style> 
+</style>
