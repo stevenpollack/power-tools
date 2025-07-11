@@ -232,7 +232,7 @@ const transformedReviews = reviewsWithData.map((r) => ({
               <div class="collapse-content p-0">
                 <!-- Ratings & Reviews content -->
                 <ReviewsSection
-                  client:visible
+                  client:load
                   reviews={transformedReviews}
                   totalReviews={totalReviews}
                   averageRating={averageRating}

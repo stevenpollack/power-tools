@@ -108,9 +108,6 @@ export function ReviewsSection({
           });
           // Optional: Add a temporary highlight effect
           reviewElement.style.backgroundColor = "#fef3cd";
-          setTimeout(() => {
-            reviewElement.style.backgroundColor = "";
-          }, 3000);
         }
       }, 100);
     }
