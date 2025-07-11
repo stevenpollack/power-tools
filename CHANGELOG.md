@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/stevenpollack/power-tools/compare/v1.5.1...v2.0.0) (2025-07-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* redesign style to match bunnings theme ([#14](https://github.com/stevenpollack/power-tools/issues/14))
+
+### Features
+
+* redesign style to match bunnings theme ([#14](https://github.com/stevenpollack/power-tools/issues/14)) ([f39ee7a](https://github.com/stevenpollack/power-tools/commit/f39ee7a1bc4a6dd9d4731acf8bbdf56bb851ddf0))
+
 ## [1.5.1](https://github.com/stevenpollack/power-tools/compare/v1.5.0...v1.5.1) (2025-07-06)
 
 ### Bug Fixes
