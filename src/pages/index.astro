@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout-v2.astro";
-import MasonryWallV2 from "../components/MasonryWallV2.astro";
+import { MasonryWallV2 } from "../components/MasonryWallV2";
 import { getCollection, getEntry } from "astro:content";
 
 // Get all reviews with related author and tool data (v2 reviews)
@@ -82,7 +82,7 @@ const arrangedReviews = createBalancedShuffle(reviewsWithData);
       </div>
     </header>
 
-    <!-- MasonryWallV2 with Server-Side Rendering -->
-    <MasonryWallV2 reviewsWithData={arrangedReviews as any} />
+    <!-- MasonryWallV2 with React Client-Side Interactivity -->
+    <MasonryWallV2 client:load reviewsWithData={arrangedReviews as any} />
   </main>
 </Layout>
