@@ -63,18 +63,28 @@ Located in `src/images/headshots/`:
 
 **Design Advantage**: SVG format ensures crisp display at any size, perfect for responsive cards and profile headers.
 
+**Naming Convention**: Headshot filenames match author JSON file names (e.g., `franz-kafka.json` → `franz-kafka.svg`)
+
+**Current Status**: Only 3 headshots exist: `ayn-rand.svg`, `charles-dickens.svg`, `edgar-allan-poe.svg`
+
+**Graceful Handling**: When headshot field is undefined or file missing, show placeholder with author initials
+
 ### **Review Data Integration**
 
 ```tsx
-// Calculate author metrics from reviews/v2/
-const authorMetrics = {
-  totalReviews: number;
-  averageRating: number;
-  totalHelpfulVotes: number;
-  toolCategories: string[];     // ["drills", "saws", "sanders"]
-  favoriteTools: string[];      // Top 3 most-reviewed tools
-  recentActivity: Date;
-};
+// Get reviews for an author using Astro collections (no metrics needed)
+const reviews = await getCollection("reviewsV2", 
+  (review) => review.data.author.id === authorId
+);
+
+// Get full data for each review
+const reviewsWithData = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    tool: await getEntry(review.data.tool),
+    author: await getEntry(review.data.author),
+  }))
+);
 ```
 
 ## **Technical Requirements**
@@ -133,13 +143,11 @@ const authorMetrics = {
 **Bunnings "Team Member" Aesthetic**:
 
 ```tsx
-// Visual hierarchy:
-1. Large SVG headshot (circle crop with orange border)
-2. "Name tag" style display name
-3. Literary period badge (like department badges)
-4. Tool specialization icons
-5. Performance metrics (review count, avg rating)
-6. "Years of service" (literary career span)
+// Visual hierarchy (simplified, no metrics):
+1. Large SVG headshot (rounded square with border)
+2. Author name
+3. Lifespan (birth-death years)
+4. "View Profile" CTA button
 ```
 
 **Card Dimensions**: 
@@ -163,16 +171,19 @@ const authorMetrics = {
 
 ### **Search Interface**
 
-**Search Implementation**:
-- Simple search bar on authors listing page
-- Search across: author names
-- Real-time search as user types
+**Pattern**: Follow existing MasonryWall.tsx approach for consistency:
+- Single search input with clear button
+- useState with function initializer for URL state management
+- useEffect to update URL via URLSearchParams and pushState
+- Real-time filtering as user types (debounced)
+- Search across author names only (KISS principle)
 
 ### **Review Sorting**
 
-**Sort Options**:
-- Sort by Brand A-Z
-- Sort by Brand Z-A
+**Simple Approach** (following existing patterns from reviews-section.tsx):
+- Single select dropdown with two options: "Sort by Brand A-Z", "Sort by Brand Z-A"
+- Use DaisyUI select component for consistency
+- Extract brand from tool data in reviews, sort using localeCompare()
 
 ### **Social Media-Style Bio Template**
 
@@ -241,14 +252,12 @@ interface AuthorCardV2Props extends VariantProps<typeof authorCardVariants> {
 }
 ```
 
-### **AuthorSearchBox.tsx Props**
+### **Search Implementation**
 
 ```tsx
-interface AuthorSearchBoxProps {
-  authors: Author[];
-  onSearch: (filtered: Author[]) => void;
-  placeholder?: string;
-}
+// Follow MasonryWall.tsx pattern - no separate search component needed
+// Implement search state directly in authors/v2.astro with client:load React component
+// Or use simple Astro component with AlpineJS for minimal JavaScript
 ```
 
 ### **ReviewGallery.tsx Props**
@@ -291,17 +300,17 @@ interface ReviewGalleryProps {
 ## **Implementation Roadmap (Simplified)**
 
 ### **Phase 1: Core Functionality (MVP)**
-- [ ] Update author JSON files with `headshot` property
-- [ ] Create `authors/v2.astro` page with basic grid layout
+- [ ] Update author JSON files with `headshot` and `bio` fields
+- [ ] Create `authors/v2.astro` page with search input and grid layout
 - [ ] Build `AuthorCardV2.astro` component (headshot, name, lifespan, CTA only)
-- [ ] Integrate SVG headshots from `src/images/headshots/` (rounded squares)
-- [ ] Add simple search functionality (author names only)
+- [ ] Integrate SVG headshots with graceful fallback for missing files
+- [ ] Implement client-side search following MasonryWall.tsx pattern
 
 ### **Phase 2: Individual Profiles**
 - [ ] Create `author/v2/[id].astro` individual profile pages
-- [ ] Generate social media-style bios for each author using `author-bio-prompt-template.md`
-- [ ] Update author JSON files with `bio` and `headshot` fields
 - [ ] Build review gallery with brand sorting (A-Z, Z-A)
+- [ ] Test with existing reviews from reviewsV2 collection
+- [ ] Handle missing headshots gracefully with author initials placeholder
 
 ### **Phase 3: Polish Only**
 - [ ] Responsive design testing and fixes
@@ -311,11 +320,10 @@ interface ReviewGalleryProps {
 ## **Files to Create/Modify**
 
 ### **New Files**
-- `src/pages/authors/v2.astro` - Main author directory
+- `src/pages/authors/v2.astro` - Main author directory  
 - `src/pages/author/v2/[id].astro` - Individual author profiles
 - `src/components/AuthorCardV2.astro` - Simplified author cards
-- `src/components/AuthorSearchBox.tsx` - Search functionality
-- `src/components/ReviewGallery.tsx` - Author's review showcase
+- `src/components/ReviewGallery.tsx` - Author's review showcase (DaisyUI select for brand sorting)
 - `strategy-docs/author-bio-prompt-template.md` - Bio generation template for LLMs
 
 ### **Files to Reference**
