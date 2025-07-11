@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/ReviewLayout.astro";
+import { MasonryWall } from "../components/MasonryWall";
+import { getCollection, getEntry } from "astro:content";
+
+// Get all reviews with related author and tool data (v2 reviews)
+const reviews = await getCollection("reviewsV2");
+
+const reviewsWithData = await Promise.all(
+  reviews.map(async (review) => {
+    const [author, tool] = await Promise.all([
+      getEntry(review.data.author),
+      getEntry(review.data.tool),
+    ]);
+    return {
+      review,
+      author,
+      tool,
+    };
+  }),
+);
+
+// Create balanced distribution ensuring author and tool diversity
+const createBalancedShuffle = (reviews: typeof reviewsWithData) => {
+  // Group reviews by author
+  const byAuthor: Record<string, typeof reviewsWithData> = reviews.reduce(
+    (acc, review) => {
+      const authorName = review.author.data.name;
+      if (!acc[authorName]) acc[authorName] = [];
+      acc[authorName].push(review);
+      return acc;
+    },
+    {} as Record<string, typeof reviewsWithData>,
+  );
+
+  // Shuffle each author's reviews for variety
+  Object.keys(byAuthor).forEach((author) => {
+    const authorReviews = byAuthor[author];
+    if (authorReviews) {
+      authorReviews.sort(() => Math.random() - 0.5);
+    }
+  });
+
+  // Round-robin distribution to ensure even author representation
+  const balanced: typeof reviewsWithData = [];
+  const maxPerAuthor = Math.max(
+    ...Object.values(byAuthor).map((arr: typeof reviewsWithData) => arr.length),
+  );
+
+  for (let round = 0; round < maxPerAuthor; round++) {
+    // Shuffle author order each round for more variety
+    const authorKeys = Object.keys(byAuthor).sort(() => Math.random() - 0.5);
+
+    authorKeys.forEach((author) => {
+      const authorReviews = byAuthor[author];
+      const review = authorReviews?.[round];
+      if (review) {
+        balanced.push(review);
+      }
+    });
+  }
+
+  return balanced;
+};
+
+const arrangedReviews = createBalancedShuffle(reviewsWithData);
+---
+
+<Layout title="pwrtools.lol - When Literature Meets Hardware">
+  <main>
+    <!-- Hero Section -->
+    <header class="hero-section">
+      <div class="mx-auto max-w-7xl px-4 py-16 text-center">
+        <h1 class="mb-4 text-4xl font-bold md:text-5xl">
+          Humanity's most powerful tools...
+        </h1>
+        <h2 class="mb-4 text-xl font-bold md:text-2xl">
+          Reviewed by history's most powerful tools.
+        </h2>
+      </div>
+    </header>
+
+    <!-- MasonryWall with Filtering -->
+    <MasonryWall reviewsWithData={arrangedReviews as any} client:only />
+  </main>
+</Layout>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+  }
+</style>
