@@ -1,7 +1,7 @@
 ---
 slug: "oscar-wilde-reviews-ryobi-cordless-compressor"
 author: "oscar-wilde"
-tool: "ryobi-cordless-compressor"
+tool: "ryobi-18v-cordless-compressor"
 excerpt: "The device inflates sculptural elements with commendable efficiency, though one despairs at the complete aesthetic abandonment evident in its brutally utilitarian design philosophy."
 llm: "claude-4-sonnet"
 mood: "aesthetic"

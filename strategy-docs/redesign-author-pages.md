@@ -297,20 +297,80 @@ interface ReviewGalleryProps {
 - [ ] Social media-style bios generated for each author
 - [ ] Review gallery displays and sorts correctly by brand
 
+## **Implementation Status & Progress**
+
+### **Completed Components ✅**
+
+1. **AuthorCardV2.astro** - Simplified author cards with:
+   - Rounded square headshots (80x80px) with 4px Bunnings green border
+   - Graceful fallback to author initials when headshot missing
+   - Author name and lifespan display
+   - "View Profile" CTA button with hover effects
+   - Proper Bunnings color scheme throughout
+
+2. **authors/v2.astro** - Main author listing page with:
+   - Bunnings-themed header ("Our Team" with secondary green background)
+   - Real-time search functionality with URL state management
+   - Debounced search input (300ms) following MasonryWall.tsx pattern
+   - Responsive grid layout (1-4 columns based on screen size)
+   - "No results" message handling
+
+3. **author/v2/[id].astro** - Individual author profile pages with:
+   - Large profile header with 128x128px headshot or initials
+   - Social media-style bio display from author JSON data
+   - Review gallery showing author's reviews from reviewsV2 collection
+   - Brand sorting dropdown (A-Z, Z-A) with live DOM reordering
+   - Responsive review cards with tool images, ratings, and excerpts
+   - Graceful handling when author has no reviews
+
+4. **Author Data Enhancement** - Updated all 12 author JSON files with:
+   - `headshot` field pointing to SVG files in `src/images/headshots/`
+   - `bio` field containing generated social media-style biographical blurbs
+   - Maintains backward compatibility with existing `portrait` field
+
+### **Technical Implementation Details**
+
+- **Search Pattern**: Follows existing MasonryWall.tsx approach for consistency
+- **URL State Management**: Uses URLSearchParams and pushState for shareable search URLs
+- **Image Handling**: Proper Astro image() schema with optional chaining for safety
+- **Styling**: Direct Tailwind utilities with official Bunnings color variables
+- **Fallback Strategy**: Author initials displayed when headshots unavailable
+- **Performance**: Lazy loading for all images, debounced search input
+
+### **Delivery Summary**
+
+**✅ PHASE 1 & 2 COMPLETE** - The V2 author pages system is fully implemented and ready for use:
+
+1. **`/authors/v2`** - New author listing page with search and Bunnings theme
+2. **`/author/v2/[id]`** - Individual author profiles with bios and review galleries  
+3. **AuthorCardV2.astro** - Clean, minimal author cards following wireframe design
+4. **Data Enhancement** - All 12 authors updated with headshots and social media bios
+
+**Key Features Delivered:**
+- 🔍 Real-time search with URL state persistence
+- 🎨 Full Bunnings color scheme and branding
+- 📱 Responsive design (mobile-first)
+- 🖼️ Graceful headshot fallbacks (3 SVGs exist, others show initials)
+- 📝 Social media-style bios for all authors
+- 🔄 Brand sorting (A-Z, Z-A) on individual profile pages
+- ♿ Basic accessibility (keyboard navigation, alt text, focus states)
+
+**Browser Testing Ready** - Navigate to `/authors/v2` to test the full experience.
+
 ## **Implementation Roadmap (Simplified)**
 
 ### **Phase 1: Core Functionality (MVP)**
-- [ ] Update author JSON files with `headshot` and `bio` fields
-- [ ] Create `authors/v2.astro` page with search input and grid layout
-- [ ] Build `AuthorCardV2.astro` component (headshot, name, lifespan, CTA only)
-- [ ] Integrate SVG headshots with graceful fallback for missing files
-- [ ] Implement client-side search following MasonryWall.tsx pattern
+- [x] Update author JSON files with `headshot` and `bio` fields ✅
+- [x] Create `authors/v2.astro` page with search input and grid layout ✅
+- [x] Build `AuthorCardV2.astro` component (headshot, name, lifespan, CTA only) ✅
+- [x] Integrate SVG headshots with graceful fallback for missing files ✅
+- [x] Implement client-side search following MasonryWall.tsx pattern ✅
 
 ### **Phase 2: Individual Profiles**
-- [ ] Create `author/v2/[id].astro` individual profile pages
-- [ ] Build review gallery with brand sorting (A-Z, Z-A)
-- [ ] Test with existing reviews from reviewsV2 collection
-- [ ] Handle missing headshots gracefully with author initials placeholder
+- [x] Create `author/v2/[id].astro` individual profile pages ✅
+- [x] Build review gallery with brand sorting (A-Z, Z-A) ✅
+- [x] Test with existing reviews from reviewsV2 collection ✅
+- [x] Handle missing headshots gracefully with author initials placeholder ✅
 
 ### **Phase 3: Polish Only**
 - [ ] Responsive design testing and fixes

@@ -1,0 +1,148 @@
+---
+import Layout from "@/layouts/Layout-v2.astro";
+import AuthorCardV2 from "@/components/AuthorCardV2.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+// Get all authors
+const authors: CollectionEntry<"authors">[] = await getCollection("authors");
+---
+
+<Layout title="Our Team - Power Tool Experts">
+  <main>
+    <!-- Header Section -->
+    <header
+      class="bg-bunnings-secondary-green mx-4 mt-4 mb-8 rounded-lg py-8 text-white"
+    >
+      <div class="text-center">
+        <h1 class="mb-2 text-4xl font-bold">Our Authors</h1>
+      </div>
+    </header>
+
+    <!-- Authors Grid Container -->
+    <div class="mx-auto max-w-7xl px-4 py-8">
+      <!-- Search Bar -->
+      <div
+        class="border-bunnings-neutral-medium-gray mb-8 rounded-lg border bg-white p-4 shadow-sm"
+      >
+        <input
+          type="text"
+          id="author-search"
+          placeholder="Search authors..."
+          class="border-bunnings-neutral-medium-gray focus:ring-bunnings-secondary-green focus:border-bunnings-secondary-green w-full rounded-md border px-4 py-2 focus:ring-2"
+        />
+      </div>
+
+      <!-- Authors Grid -->
+      <div
+        id="authors-grid"
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+        {
+          authors.map((author) => (
+            <div class="author-card" data-name={author.data.name.toLowerCase()}>
+              <AuthorCardV2 author={author} />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- No Results Message -->
+      <div id="no-results" class="hidden py-16 text-center">
+        <p class="text-bunnings-neutral-medium-gray mb-2 text-lg">
+          No authors match your search
+        </p>
+        <p class="text-bunnings-neutral-medium-gray text-sm">
+          Try adjusting your search criteria
+        </p>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Client-side search functionality following MasonryWall.tsx pattern
+  document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById(
+      "author-search",
+    ) as HTMLInputElement;
+    const authorsGrid = document.getElementById("authors-grid") as HTMLElement;
+    const noResults = document.getElementById("no-results") as HTMLElement;
+    const authorCards = document.querySelectorAll(
+      ".author-card",
+    ) as NodeListOf<HTMLElement>;
+
+    // Initialize from URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSearch = urlParams.get("search") || "";
+    if (searchInput) {
+      searchInput.value = initialSearch;
+    }
+
+    // Filter function
+    const filterAuthors = (searchTerm: string) => {
+      const term = searchTerm.toLowerCase().trim();
+      let visibleCount = 0;
+
+      authorCards.forEach((card) => {
+        const authorName = card.dataset.name || "";
+        const matches = authorName.includes(term);
+
+        if (matches) {
+          card.style.display = "block";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      // Show/hide no results message
+      if (visibleCount === 0 && term !== "") {
+        authorsGrid.style.display = "none";
+        noResults.style.display = "block";
+      } else {
+        authorsGrid.style.display = "grid";
+        noResults.style.display = "none";
+      }
+
+      // Update URL
+      const params = new URLSearchParams();
+      if (term) params.set("search", term);
+
+      const queryString = params.toString();
+      const newUrl = queryString
+        ? `${window.location.pathname}?${queryString}`
+        : window.location.pathname;
+
+      window.history.pushState({}, "", newUrl);
+    };
+
+    // Initial filter
+    if (initialSearch) {
+      filterAuthors(initialSearch);
+    }
+
+    // Search input handler with debouncing
+    let debounceTimer: number;
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = window.setTimeout(() => {
+          const target = e.target as HTMLInputElement;
+          filterAuthors(target.value);
+        }, 300);
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Ensure consistent grid layout */
+  #authors-grid {
+    min-height: 400px;
+  }
+
+  .author-card {
+    transition: opacity 0.2s ease-in-out;
+  }
+</style>
