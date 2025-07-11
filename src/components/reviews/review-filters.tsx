@@ -38,19 +38,8 @@ export function ReviewFilters({
             <ChevronDown className="text-bunnings-neutral-dark-gray pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2" />
           </div>
 
-          {/* Locale Filter */}
-          <div className="relative">
-            <select className="border-bunnings-neutral-medium-gray text-bunnings-base text-bunnings-neutral-dark-gray focus:border-bunnings-primary-orange focus:ring-bunnings-primary-orange w-full appearance-none rounded-md border bg-white px-4 py-3 focus:ring-2 focus:ring-offset-2 focus:outline-none">
-              <option value="">Locale</option>
-              <option value="au">Australia</option>
-              <option value="us">United States</option>
-              <option value="uk">United Kingdom</option>
-              <option value="ca">Canada</option>
-            </select>
-            <ChevronDown className="text-bunnings-neutral-dark-gray pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2" />
-          </div>
-
-          {/* Sort Filter */}
+          {/* Sort Filter - TODO: add this back in later */}
+          {/* 
           <div className="relative">
             <select className="border-bunnings-neutral-medium-gray text-bunnings-base text-bunnings-neutral-dark-gray focus:border-bunnings-primary-orange focus:ring-bunnings-primary-orange w-full appearance-none rounded-md border bg-white px-4 py-3 focus:ring-2 focus:ring-offset-2 focus:outline-none">
               <option value="helpful">Sort by Most Helpful</option>
@@ -60,7 +49,7 @@ export function ReviewFilters({
               <option value="rating-low">Lowest Rating</option>
             </select>
             <ChevronDown className="text-bunnings-neutral-dark-gray pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2" />
-          </div>
+          </div> */}
         </div>
       </div>
 
