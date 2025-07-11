@@ -35,7 +35,24 @@ const reviewsWithData = await Promise.all(
 ---
 
 <Layout title={`${author.data.name} - Tool Review Expert`}>
-  <main class="mx-auto max-w-7xl px-4 py-8">
+  <main class="mx-auto max-w-7xl px-4 py-4">
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumbs mb-6 text-sm">
+      <ul>
+        <li>
+          <a
+            href="/authors/v2"
+            class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+          >
+            Authors
+          </a>
+        </li>
+        <li class="text-bunnings-neutral-charcoal font-medium">
+          {author.data.name}
+        </li>
+      </ul>
+    </div>
+
     <!-- Mobile: Stacked Layout, Desktop: 2-Column Layout -->
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-[400px_1fr]">
       <!-- Left Column: Author Profile -->
