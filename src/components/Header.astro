@@ -4,14 +4,112 @@ import FunningsLogo from "@/images/logos/funnings.svg";
 import { Picture } from "astro:assets";
 ---
 
-<header
+<div
   class="bg-bunnings-secondary-green font-bunnings-heading text-white shadow-lg"
 >
   <div class="mx-auto max-w-7xl px-4">
-    <div class="flex items-center justify-between py-4">
-      <!-- Logo -->
-      <div class="flex-shrink-0">
-        <a href="/" class="block">
+    <div class="navbar">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg
+              class="h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16"></path>
+            </svg>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-bunnings-neutral-light-gray text-bunnings-secondary-green z-[1] mt-3 w-52 rounded p-2 shadow"
+          >
+            <li>
+              <a
+                href="/tools/v2"
+                class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+              >
+                <Wrench className="h-4 w-4" />
+                <span>Tools</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/authors/v2"
+                class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+              >
+                <Users className="h-4 w-4" />
+                <span>Authors</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/cartoons"
+                class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+              >
+                <Sticker className="h-4 w-4" />
+                <span>Cartoons</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about"
+                class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+              >
+                <Info className="h-4 w-4" />
+                <span>About</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li>
+            <a
+              href="/tools/v2"
+              class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+            >
+              <Wrench className="h-5 w-5" />
+              <span>Tools</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/authors/v2"
+              class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+            >
+              <Users className="h-5 w-5" />
+              <span>Authors</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/cartoons"
+              class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+            >
+              <Sticker className="h-5 w-5" />
+              <span>Cartoons</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="/about"
+              class="hover:bg-bunnings-primary-orange flex items-center space-x-2 hover:text-black"
+            >
+              <Info className="h-5 w-5" />
+              <span>About</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a href="/tools/v2" class="h-fit text-xl">
           <Picture
             src={FunningsLogo}
             alt="🖋️✖️🛠️"
@@ -21,108 +119,6 @@ import { Picture } from "astro:assets";
           />
         </a>
       </div>
-
-      <!-- Navigation -->
-      <nav class="hidden items-center space-x-8 md:flex">
-        <a
-          href="/tools/v2"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-2 rounded-md px-3 py-2 font-medium text-white transition-colors duration-200 hover:text-black"
-        >
-          <Wrench className="h-5 w-5" />
-          <span>Tools</span>
-        </a>
-        <a
-          href="/authors/v2"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-2 rounded-md px-3 py-2 font-medium text-white transition-colors duration-200 hover:text-black"
-        >
-          <Users className="h-5 w-5" />
-          <span>Authors</span>
-        </a>
-        <a
-          href="/cartoons"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-2 rounded-md px-3 py-2 font-medium text-white transition-colors duration-200 hover:text-black"
-        >
-          <Sticker className="h-5 w-5" />
-          <span>Cartoons</span>
-        </a>
-        <a
-          href="/about"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-2 rounded-md px-3 py-2 font-medium text-white transition-colors duration-200 hover:text-black"
-        >
-          <Info className="h-5 w-5" />
-          <span>About</span>
-        </a>
-      </nav>
-
-      <!-- Mobile menu button -->
-      <div class="md:hidden">
-        <button
-          id="mobile-menu-button"
-          class="hover:bg-bunnings-primary-orange rounded-md p-2 text-white transition-colors duration-200 hover:text-black"
-          aria-label="Open menu"
-        >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden pb-4 md:hidden">
-      <div class="space-y-2">
-        <a
-          href="/tools/v2"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-3 rounded-md px-3 py-2 text-white transition-colors duration-200 hover:text-black"
-        >
-          <Wrench className="h-5 w-5" />
-          <span>Tools</span>
-        </a>
-        <a
-          href="/authors/v2"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-3 rounded-md px-3 py-2 text-white transition-colors duration-200 hover:text-black"
-        >
-          <Users className="h-5 w-5" />
-          <span>Authors</span>
-        </a>
-        <a
-          href="/cartoons"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-3 rounded-md px-3 py-2 text-white transition-colors duration-200 hover:text-black"
-        >
-          <Sticker className="h-5 w-5" />
-          <span>Cartoons</span>
-        </a>
-        <a
-          href="/about"
-          class="hover:bg-bunnings-primary-orange flex items-center space-x-3 rounded-md px-3 py-2 text-white transition-colors duration-200 hover:text-black"
-        >
-          <Info className="h-5 w-5" />
-          <span>About</span>
-        </a>
-      </div>
     </div>
   </div>
-</header>
-
-<script>
-  // Mobile menu toggle
-  document.addEventListener("DOMContentLoaded", () => {
-    const mobileMenuButton = document.getElementById("mobile-menu-button");
-    const mobileMenu = document.getElementById("mobile-menu");
-
-    if (mobileMenuButton && mobileMenu) {
-      mobileMenuButton.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-    }
-  });
-</script>
+</div>
