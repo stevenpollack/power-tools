@@ -47,25 +47,21 @@ The codebase currently violates DRY principles with these components:
 - [ ] Comprehensive JSDoc documentation
 
 ### **Phase 3: Component Consolidation**
-**Task**: Evaluate consolidation options
+**Task**: Implement shared logic with separate UI components
 
-**Option A: Single Component with Theme Prop**
-```typescript
-interface MasonryWallProps {
-  reviewsWithData: ReviewWithData[];
-  theme: 'v1' | 'v2';
-  initialCount?: number;
-}
-```
+**✅ DECISION: Option B - Shared Logic Hook + Separate UI Components**
 
-**Option B: Shared Logic, Separate UI**
-- Keep separate components but use shared `useMasonryWall()` hook
-- Maintain distinct styling/theming per version
+**Rationale:**
+- **SOLID Compliance**: Better adherence to Single Responsibility and Open/Closed principles
+- **Separation of Concerns**: Logic and presentation cleanly separated
+- **Maintainability**: Each component can evolve independently
+- **Testability**: Hook logic can be tested in isolation
+- **Future-proof**: Easy to add new themes or deprecate old ones
 
-**Decision Criteria:**
-- Which approach reduces code duplication most?
-- Which maintains clearer separation of concerns?
-- Which is easier to maintain long-term?
+**Implementation:**
+- Create `useMasonryWall()` hook with all shared logic
+- Keep `MasonryWall.tsx` and `MasonryWallV2.tsx` as separate UI components
+- Both components consume the same hook but render differently
 
 ### **Phase 4: ReviewCard Standardization**
 **Task**: Consolidate ReviewCard implementations
@@ -75,13 +71,22 @@ interface MasonryWallProps {
 
 ### **Phase 5: Testing & Validation**
 **Task**: Ensure no functionality regression
+
+**⚠️ NOTE: No existing tests present - manual testing required**
+
+**Manual Testing Checklist:**
 - [ ] Test filtering functionality on both pages
 - [ ] Test sorting functionality
 - [ ] Test pagination (Load More)
 - [ ] Test URL state management
 - [ ] Test responsive design
 - [ ] Test search functionality
-- [ ] Performance comparison (before/after)
+
+**Performance Metrics (Before/After):**
+- [ ] Bundle size comparison
+- [ ] Build time measurement
+- [ ] Runtime performance check
+- [ ] Code line count reduction
 
 ## **📐 Technical Requirements**
 
@@ -98,6 +103,16 @@ interface MasonryWallProps {
 - **Documentation**: JSDoc for all public interfaces
 
 ## **🔍 Implementation Guidelines**
+
+### **Execution Strategy:**
+**✅ INCREMENTAL APPROACH:** Execute and commit after each phase for safety and rollback capability
+
+**Phase Execution Order:**
+1. **Phase 1**: Dead code elimination → Commit
+2. **Phase 2**: Extract shared logic hook → Commit  
+3. **Phase 3**: Refactor components to use hook → Commit
+4. **Phase 4**: ReviewCard consolidation → Commit
+5. **Phase 5**: Testing and validation → Final commit
 
 ### **Custom Hook Structure:**
 ```typescript
@@ -165,6 +180,12 @@ export function useMasonryWall(options: UseMasonryWallOptions): UseMasonryWallRe
 - [ ] Phase 3: Component Consolidation
 - [ ] Phase 4: ReviewCard Standardization
 - [ ] Phase 5: Testing & Validation
+
+### **Future TODO Items:**
+- [ ] **Create automated test suite** for MasonryWall functionality (no tests currently exist)
+- [ ] **Set up visual regression testing** for design consistency
+- [ ] **Implement unit tests** for useMasonryWall hook
+- [ ] **Add integration tests** for both v1 and v2 pages
 
 ---
 
