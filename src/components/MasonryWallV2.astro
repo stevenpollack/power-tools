@@ -160,7 +160,7 @@ const initialReviews = reviewsWithData.slice(0, initialCount);
 {JSON.stringify(reviewsWithData)}
 </script>
 
-<script>
+<script is:inline>
   // Progressive enhancement JavaScript
   document.addEventListener('DOMContentLoaded', function() {
     const reviewsDataElement = document.getElementById('reviews-data');
@@ -180,11 +180,11 @@ const initialReviews = reviewsWithData.slice(0, initialCount);
     let visibleCount = 24;
     
     // Filter and search functionality
-    const searchInput = document.getElementById('search-input') as HTMLInputElement;
-    const authorFilter = document.getElementById('author-filter') as HTMLSelectElement;
-    const moodFilter = document.getElementById('mood-filter') as HTMLSelectElement;
-    const brandFilter = document.getElementById('brand-filter') as HTMLSelectElement;
-    const sortFilter = document.getElementById('sort-filter') as HTMLSelectElement;
+    const searchInput = document.getElementById('search-input');
+    const authorFilter = document.getElementById('author-filter');
+    const moodFilter = document.getElementById('mood-filter');
+    const brandFilter = document.getElementById('brand-filter');
+    const sortFilter = document.getElementById('sort-filter');
     const clearSearch = document.getElementById('clear-search');
     
     function updateURL() {
@@ -213,7 +213,7 @@ const initialReviews = reviewsWithData.slice(0, initialCount);
     
     function filterAndSort() {
       // Filter reviews
-      filteredReviews = reviewsData.filter((item: any) => {
+      filteredReviews = reviewsData.filter((item) => {
         const { review, author, tool } = item;
         
         // Search filter
@@ -263,7 +263,7 @@ const initialReviews = reviewsWithData.slice(0, initialCount);
       const visibleReviews = filteredReviews.slice(0, visibleCount);
       
       if (filteredReviews.length === 0) {
-        masonryGrid!.style.display = 'none';
+        masonryGrid.style.display = 'none';
         noResults.style.display = 'flex';
         loadMoreContainer.style.display = 'none';
       } else {
