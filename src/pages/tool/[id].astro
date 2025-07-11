@@ -213,8 +213,16 @@ const transformedReviews = reviewsWithData.map((r) => ({
               </div>
             </div>
             <!-- Ratings & Reviews Accordion -->
-            <div class="collapse-arrow join-item collapse rounded-none">
-              <input type="radio" name="tool-accordion" checked />
+            <div
+              class="collapse-arrow join-item collapse rounded-none"
+              id="reviews-accordion"
+            >
+              <input
+                type="radio"
+                name="tool-accordion"
+                id="reviews-radio"
+                checked
+              />
               <div
                 class="collapse-title relative pl-6 text-xl font-extrabold before:absolute before:top-2 before:bottom-2 before:left-0 before:w-1 before:bg-[rgb(218,41,28)] lg:text-2xl"
                 style="color:rgb(13,82,87)"
@@ -238,3 +246,21 @@ const transformedReviews = reviewsWithData.map((r) => ({
     </div>
   </main>
 </Layout>
+
+<script>
+  // Handle review query parameter to ensure accordion is open
+  document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const reviewParam = urlParams.get("review");
+
+    if (reviewParam) {
+      // Ensure reviews accordion is open
+      const reviewsRadio = document.getElementById(
+        "reviews-radio",
+      ) as HTMLInputElement;
+      if (reviewsRadio) {
+        reviewsRadio.checked = true;
+      }
+    }
+  });
+</script>

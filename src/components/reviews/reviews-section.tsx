@@ -43,6 +43,12 @@ const getFilterFromURL = (): number | null => {
     : null;
 };
 
+const getReviewFromURL = (): string | null => {
+  if (typeof window === "undefined") return null;
+  const params = new URLSearchParams(window.location.search);
+  return params.get("review");
+};
+
 const updateURL = (rating: number | null) => {
   if (typeof window === "undefined") return;
 
@@ -73,6 +79,42 @@ export function ReviewsSection({
     const urlRating = getFilterFromURL();
     setSelectedRating(urlRating);
   }, []);
+
+  // Handle review query parameter for direct review links
+  useEffect(() => {
+    const reviewSlug = getReviewFromURL();
+    if (!reviewSlug) return;
+
+    // Find the review with matching slug
+    const targetReview = reviews.find((review) => review.id === reviewSlug);
+    if (!targetReview) return;
+
+    // Clear any rating filter to ensure the target review is visible
+    setSelectedRating(null);
+
+    // Calculate how many reviews we need to show to include the target review
+    const reviewIndex = reviews.findIndex((review) => review.id === reviewSlug);
+    if (reviewIndex >= 0) {
+      const minVisibleCount = Math.max(3, reviewIndex + 1);
+      setVisibleCount(minVisibleCount);
+
+      // Scroll to the review after a brief delay to ensure rendering
+      setTimeout(() => {
+        const reviewElement = document.getElementById(`review-${reviewSlug}`);
+        if (reviewElement) {
+          reviewElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+          // Optional: Add a temporary highlight effect
+          reviewElement.style.backgroundColor = "#fef3cd";
+          setTimeout(() => {
+            reviewElement.style.backgroundColor = "";
+          }, 3000);
+        }
+      }, 100);
+    }
+  }, [reviews]);
 
   // Memoized rating change handler to prevent unnecessary re-renders
   const handleRatingChange = useCallback((rating: number | null) => {
@@ -142,7 +184,9 @@ export function ReviewsSection({
       {/* Reviews Grid */}
       <div className="space-y-6">
         {visibleReviews.map((review, index) => (
-          <ReviewCard key={index} review={review} />
+          <div key={index} id={review.id ? `review-${review.id}` : undefined}>
+            <ReviewCard review={review} />
+          </div>
         ))}
       </div>
 
