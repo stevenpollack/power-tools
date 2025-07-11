@@ -324,6 +324,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
                   slug={review.data.slug}
                   dateCreated={review.data.dateCreated}
                   excerpt={review.data.excerpt}
+                  toolId={tool.id}
                   toolBrand={tool.data.brand}
                   toolName={tool.data.name}
                   toolImage={tool.data.thumbnailUrl}

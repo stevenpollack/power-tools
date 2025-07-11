@@ -13,6 +13,7 @@ type Props = Pick<
   ReviewData,
   "slug" | "dateCreated" | "excerpt" | "mood" | "tone" | "llm"
 > & {
+  toolId: string;
   toolBrand: ToolData["brand"];
   toolName: ToolData["name"];
   toolImage: ToolData["thumbnailUrl"];
@@ -24,6 +25,7 @@ export const ReviewCard: FC<Props> = ({
   slug,
   dateCreated,
   excerpt,
+  toolId,
   toolBrand,
   toolName,
   toolImage,
@@ -34,7 +36,8 @@ export const ReviewCard: FC<Props> = ({
   variant = "default",
 }) => {
   const relativeTime = formatRelativeTime(dateCreated);
-  const reviewUrl = `/review/${slug}`;
+  // Link to tool page with review anchor, like sharing buttons do
+  const reviewUrl = `/tool/${toolId}?review=${slug}`;
 
   return (
     <a

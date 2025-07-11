@@ -1,30 +1,35 @@
 ---
 import { render, getCollection } from "astro:content";
-import Layout from "../../layouts/ReviewLayout.astro";
+import Layout from "@/layouts/Layout-v2.astro";
 import { getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import { ShareButtons } from "@/components/ShareButtons";
 import { RelatedReviews } from "@/components/RelatedReviews";
-import type { AuthorData, ToolData, Review, ReviewWithData } from "@/lib/types";
+import type {
+  AuthorData,
+  ToolData,
+  ReviewV2,
+  ReviewV2WithData,
+} from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 
 export async function getStaticPaths() {
-  const reviews = await getCollection("reviews");
+  const reviews = await getCollection("reviewsV2");
   return reviews.map((review) => ({
     params: { slug: review.data.slug },
     props: { review },
   }));
 }
 
-const { review }: { review: Review } = Astro.props;
+const { review }: { review: ReviewV2 } = Astro.props;
 const { Content } = await render(review);
 
 const author: AuthorData = (await getEntry(review.data.author)).data;
 const tool: ToolData = (await getEntry(review.data.tool)).data;
 const { llm } = review.data;
 
-// Fetch related reviews
-const allReviews = await getCollection("reviews");
+// Fetch related reviews from v2 collection
+const allReviews = await getCollection("reviewsV2");
 const relatedReviewsRaw = allReviews
   .filter(
     (r) =>
@@ -34,7 +39,7 @@ const relatedReviewsRaw = allReviews
   )
   .slice(0, 10);
 
-const relatedReviews: ReviewWithData[] = await Promise.all(
+const relatedReviews: ReviewV2WithData[] = await Promise.all(
   relatedReviewsRaw.map(async (r) => ({
     review: r,
     author: await getEntry(r.data.author),
@@ -44,56 +49,70 @@ const relatedReviews: ReviewWithData[] = await Promise.all(
 ---
 
 <Layout title={`Review - ${author.name} on ${tool.name}`}>
-  <main class="review-detail">
-    <div class="container">
-      <article class="review-article">
-        <header class="review-header">
-          <div class="review-meta">
-            <div class="mb-4 flex flex-col items-center gap-4 sm:flex-row">
+  <main class="mx-auto max-w-4xl px-4 py-8">
+    <article class="overflow-hidden rounded-lg bg-white shadow-lg">
+      <!-- Header Section with V2 Theme -->
+      <header class="bg-bunnings-secondary-green px-6 py-8 text-white">
+        <div class="review-meta">
+          <div class="mb-4 flex flex-col items-center gap-4 sm:flex-row">
+            <a
+              href={`/tool/${tool.slug}`}
+              class="hover:text-bunnings-primary-orange flex w-full items-center gap-2 text-white transition-colors"
+            >
+              <Picture
+                src={tool.thumbnailUrl}
+                alt={tool.name}
+                layout="constrained"
+                class="h-10 min-h-10 w-10 min-w-10 rounded-lg"
+              />
+              <span class="font-medium">{tool.name}</span>
+            </a>
+            <div
+              class="flex w-full items-center justify-between gap-4 sm:justify-end"
+            >
+              <span class="italic opacity-80">reviewed by</span>
               <a
-                href={`/tool/${tool.slug}`}
-                class="flex w-full items-center gap-2"
+                href={`/author/${author.slug}`}
+                class="hover:text-bunnings-primary-orange flex items-center gap-2 text-white transition-colors"
               >
                 <Picture
-                  src={tool.thumbnailUrl}
-                  alt={tool.name}
+                  src={author.portrait.filename}
+                  alt={author.name}
                   layout="constrained"
-                  class="h-10 min-h-10 w-10 min-w-10 rounded-lg"
+                  class="h-10 min-h-10 w-10 min-w-10 rounded-full"
                 />
-                <span>{tool.name}</span>
+                <span class="font-medium">{author.name}</span>
               </a>
-              <div
-                class="flex w-full items-center justify-between gap-4 sm:justify-end"
-              >
-                <span class="italic opacity-80">reviewed by</span>
-                <a href={`/author/${author.slug}`} class="author-link">
-                  <Picture
-                    src={author.portrait.filename}
-                    alt={author.name}
-                    layout="constrained"
-                    class="h-10 min-h-10 w-10 min-w-10 rounded-full"
-                  />
-                  <span>{author.name}</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="review-details">
-              <!-- @ts-expect-error "primary" is not a valid variant -->
-              <Badge variant="primary" className="font-mono text-xs">
-                {llm}
-              </Badge>
             </div>
           </div>
-        </header>
 
+          <div class="review-details">
+            <Badge
+              variant="secondary"
+              className="border-white/30 bg-white/20 font-mono text-xs text-white"
+            >
+              {llm}
+            </Badge>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Section -->
+      <div class="px-6 py-8">
         <div class="review-content">
           <Content />
         </div>
+      </div>
 
-        <footer class="review-footer">
+      <!-- Footer Section -->
+      <footer class="border-t bg-gray-50 px-6 py-6">
+        <div class="space-y-6">
           <div class="share-section">
-            <h3>Share This Review</h3>
+            <h3
+              class="text-bunnings-neutral-dark-gray mb-3 text-lg font-semibold"
+            >
+              Share This Review
+            </h3>
             <ShareButtons
               client:load
               toolName={tool.name}
@@ -102,142 +121,50 @@ const relatedReviews: ReviewWithData[] = await Promise.all(
           </div>
 
           <div class="related-section">
-            <h3>Continue Reading...</h3>
-            <RelatedReviews client:load reviews={relatedReviews} />
+            <h3
+              class="text-bunnings-neutral-dark-gray mb-3 text-lg font-semibold"
+            >
+              Continue Reading...
+            </h3>
+            <RelatedReviews client:load reviews={relatedReviews as any} />
           </div>
-        </footer>
-      </article>
-    </div>
+        </div>
+      </footer>
+    </article>
   </main>
 </Layout>
 
 <style>
-  .review-detail {
-    padding: 2rem 0;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .review-article {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-
-  .review-header {
-    padding: 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-  }
-
-  .author-link,
-  .tool-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .review-details {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .reading-time,
-  .mood-tag,
-  .tone-tag {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  .review-content {
-    padding: 3rem 2rem;
-  }
-
-  .review-content h1 {
+  .review-content :global(h1) {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--color-primary);
-    font-family: var(--font-serif);
+    color: var(--bunnings-neutral-dark-gray);
+    font-weight: bold;
     line-height: 1.2;
   }
 
-  .review-text {
+  .review-content :global(p) {
     font-size: 1.125rem;
     line-height: 1.8;
-    color: var(--color-text);
-    font-family: var(--font-serif);
-  }
-
-  .review-text p {
+    color: var(--bunnings-neutral-charcoal);
     margin-bottom: 1.5rem;
   }
 
-  .review-footer {
-    padding: 2rem;
-    background: #f9fafb;
-    border-top: 1px solid #e5e7eb;
-  }
-
-  .share-section,
-  .related-section {
-    margin-bottom: 2rem;
-  }
-
-  .share-section h3,
-  .related-section h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    color: var(--color-primary);
-  }
-
-  .placeholder {
-    color: var(--color-text-light);
+  .review-content :global(blockquote) {
+    border-left: 4px solid var(--bunnings-secondary-green);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
     font-style: italic;
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .review-content :global(p) {
-    margin-bottom: 1.5rem;
+    color: var(--bunnings-neutral-medium-gray);
   }
 
   @media (max-width: 768px) {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .review-header {
-      padding: 1.5rem;
-    }
-
-    .review-content {
-      padding: 2rem 1.5rem;
-    }
-
-    .review-content h1 {
+    .review-content :global(h1) {
       font-size: 2rem;
     }
 
-    .review-text {
+    .review-content :global(p) {
       font-size: 1rem;
-    }
-
-    .author-tool-info {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
     }
   }
 </style>

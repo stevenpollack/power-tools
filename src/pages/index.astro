@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/ReviewLayout.astro";
+import Layout from "@/layouts/Layout-v2.astro";
 import { MasonryWall } from "../components/MasonryWall";
 import { getCollection, getEntry } from "astro:content";
 
@@ -67,14 +67,16 @@ const arrangedReviews = createBalancedShuffle(reviewsWithData);
 ---
 
 <Layout title="pwrtools.lol - When Literature Meets Hardware">
-  <main>
-    <!-- Hero Section -->
-    <header class="hero-section">
-      <div class="mx-auto max-w-7xl px-4 py-16 text-center">
+  <main class="mx-auto max-w-7xl px-4 py-8">
+    <!-- Header Section with V2 Theme -->
+    <header
+      class="bg-bunnings-secondary-green mb-8 rounded-lg py-12 text-white"
+    >
+      <div class="text-center">
         <h1 class="mb-4 text-4xl font-bold md:text-5xl">
           Humanity's most powerful tools...
         </h1>
-        <h2 class="mb-4 text-xl font-bold md:text-2xl">
+        <h2 class="text-xl font-bold md:text-2xl">
           Reviewed by history's most powerful tools.
         </h2>
       </div>
@@ -84,10 +86,3 @@ const arrangedReviews = createBalancedShuffle(reviewsWithData);
     <MasonryWall reviewsWithData={arrangedReviews as any} client:only />
   </main>
 </Layout>
-
-<style>
-  .hero-section {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-  }
-</style>
