@@ -76,7 +76,7 @@ export function ToolCard({
 
           {/* Action Button */}
           <a
-            href={`/tool/v2/${id}`}
+            href={`/tool/${id}`}
             className="btn btn-square bg-bunnings-primary-orange hover:bg-bunnings-primary-orange border-0 text-black shadow-sm transition-all duration-200 hover:shadow-md"
             aria-label={`View details for ${name}`}
           >
@@ -96,7 +96,7 @@ export function ToolCard({
 
         {/* Action Button */}
         <a
-          href={`/tool/v2/${id}`}
+          href={`/tool/${id}`}
           className="btn btn-square bg-bunnings-primary-orange hover:bg-bunnings-primary-orange border-0 text-black shadow-sm transition-all duration-200 hover:shadow-md"
           aria-label={`View details for ${name}`}
         >

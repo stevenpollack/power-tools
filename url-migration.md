@@ -22,9 +22,28 @@
 
 **Git Status**: Committed with message "refactor(migration): move v1 pages to legacy directories"
 
-### **🔄 Phase 2 In Progress: Promote V2 to Main URLs**
+### **✅ Phase 2 Complete: Promote V2 to Main URLs**
 
-Beginning Phase 2: Creating v2 homepage and moving v2 files to main locations.
+**Completed**:
+- ✅ Created new v2 homepage referencing `reviewsV2` collection
+- ✅ Moved author/v2/[id].astro → author/[id].astro
+- ✅ Moved tool/v2/[id].astro → tool/[id].astro
+- ✅ Moved tools/v2.astro → tools/index.astro
+- ✅ Moved authors/v2.astro → authors.astro
+- ✅ Removed empty v2 directories
+- ✅ Added type casting for v2 review data compatibility
+- ✅ Build passes successfully
+
+**Verification Results**:
+- Main URLs now serve v2 design with improved content
+- Homepage displays v2 reviews (174+ reviews)
+- All v2 pages accessible at clean URLs (no `/v2/` visible)
+
+**Git Status**: Committed with message "feat(migration): promote v2 pages to main URLs"
+
+### **🔄 Phase 3 In Progress: Update Internal Links & References**
+
+Beginning Phase 3: Searching for and updating hardcoded v2 URLs and internal references.
 
 ---
 

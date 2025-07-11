@@ -170,7 +170,7 @@ const reviewsWithData = await Promise.all(
                         {new Date(review.data.dateCreated).toLocaleDateString()}
                       </span>
                       <a
-                        href={`/tool/v2/${tool.id}?review=${review.data.slug}`}
+                        href={`/tool/${tool.id}?review=${review.data.slug}`}
                         class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
                       >
                         Read More →
