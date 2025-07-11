@@ -17,6 +17,9 @@ const authors = defineCollection({
         source: z.string(),
         license: z.string(),
       }),
+      // V2 fields for Bunnings redesign
+      headshot: image().optional(), // SVG headshot filename (e.g., "kafka.svg")
+      bio: z.string().optional(), // Social media-style bio for V2 pages
       styleAnalysis: z.object({
         summary: z.string(),
         detailed: z.string(),

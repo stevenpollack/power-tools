@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Pages V2 Wireframe - Bunnings Theme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bunnings-primary-green': 'rgb(0, 104, 56)',
+                        'bunnings-secondary-green': 'rgb(13, 82, 87)',
+                        'bunnings-primary-orange': 'rgb(255, 171, 0)',
+                        'bunnings-primary-red': 'rgb(218, 41, 28)',
+                        'bunnings-neutral-charcoal': 'rgb(51, 51, 51)',
+                        'bunnings-neutral-medium-gray': 'rgb(191, 191, 191)',
+                        'bunnings-neutral-light-gray': 'rgb(245, 245, 245)'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bunnings-neutral-light-gray">
+
+<!-- AUTHORS LISTING PAGE (authors/v2) -->
+<div class="max-w-7xl mx-auto px-4 py-8">
+    <!-- Header Section -->
+    <header class="bg-bunnings-secondary-green text-white py-8 rounded-lg mb-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-2">Our Team</h1>
+            <p class="text-xl opacity-90">Expert tool reviewers at your service</p>
+        </div>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="mb-8 bg-white p-4 rounded-lg shadow-sm border border-bunnings-neutral-medium-gray">
+        <input 
+            type="text" 
+            placeholder="Search authors..." 
+            class="w-full px-4 py-2 border border-bunnings-neutral-medium-gray rounded-md focus:ring-2 focus:ring-bunnings-secondary-green focus:border-bunnings-secondary-green"
+        >
+    </div>
+
+    <!-- Authors Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        
+        <!-- Franz Kafka -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Franz Kafka</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1883-1924</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Charles Dickens -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Charles Dickens</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1812-1870</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Ernest Hemingway -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Ernest Hemingway</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1899-1961</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Jane Austen -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Jane Austen</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1775-1817</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Oscar Wilde -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Oscar Wilde</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1854-1900</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Ayn Rand -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Ayn Rand</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1905-1982</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Virginia Woolf -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">Virginia Woolf</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1882-1941</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- George Orwell -->
+        <div class="bg-white border-2 border-bunnings-neutral-medium-gray rounded-lg p-6 transition-all duration-300 hover:border-bunnings-secondary-green hover:shadow-xl">
+            <!-- Headshot -->
+            <div class="flex justify-center mb-4">
+                <div class="w-20 h-20 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray flex items-center justify-center">
+                    <svg class="w-16 h-16 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Author Info -->
+            <div class="text-center mb-4">
+                <h3 class="text-lg font-semibold text-bunnings-neutral-charcoal mb-1">George Orwell</h3>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1903-1950</p>
+            </div>
+
+            <!-- View Profile Button -->
+            <div class="mt-4">
+                <button class="w-full bg-bunnings-neutral-light-gray hover:bg-bunnings-primary-orange hover:text-white transition-colors py-2 px-4 rounded-md text-sm font-medium text-bunnings-neutral-charcoal">
+                    View Profile
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- INDIVIDUAL AUTHOR PROFILE PAGE (author/v2/[id]) -->
+<div class="max-w-7xl mx-auto px-4 py-8 mt-16 border-t-4 border-bunnings-secondary-green">
+    
+    <!-- Author Profile Header -->
+    <div class="bg-white rounded-lg shadow-sm border border-bunnings-neutral-medium-gray p-8 mb-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Large Headshot & Basic Info -->
+            <div class="text-center lg:text-left">
+                <div class="w-32 h-32 rounded-lg border-4 border-bunnings-secondary-green bg-bunnings-neutral-light-gray mx-auto lg:mx-0 mb-4 flex items-center justify-center">
+                    <svg class="w-24 h-24 text-bunnings-neutral-medium-gray" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-bunnings-neutral-charcoal mb-1">Franz Kafka</h1>
+                <p class="text-sm text-bunnings-neutral-medium-gray">1883-1924</p>
+            </div>
+
+            <!-- Bio -->
+            <div class="lg:col-span-2">
+                <h2 class="text-xl font-semibold mb-4 text-bunnings-neutral-charcoal">About</h2>
+                <p class="text-bunnings-neutral-charcoal text-lg">
+                    📚 Existential writer turned tool reviewer ⚡️ Transforming hardware anxiety into literary gold since 1883 🔨 "The power drill chooses you"
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Gallery Section -->
+    <div class="bg-white rounded-lg shadow-sm border border-bunnings-neutral-medium-gray p-8">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-semibold text-bunnings-neutral-charcoal">Reviews</h2>
+            <select class="px-3 py-2 border border-bunnings-neutral-medium-gray rounded-md text-sm">
+                <option>Sort by Brand A-Z</option>
+                <option>Sort by Brand Z-A</option>
+            </select>
+        </div>
+
+        <!-- Review Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Sample Review Card -->
+            <div class="border border-bunnings-neutral-medium-gray rounded-lg p-4 hover:shadow-md transition-shadow">
+                <div class="flex items-start gap-3 mb-3">
+                    <img src="https://via.placeholder.com/60x60/FFAB00/ffffff?text=DRILL" alt="Tool" class="w-15 h-15 rounded object-cover">
+                    <div class="flex-1">
+                        <h3 class="font-medium text-sm line-clamp-2 text-bunnings-neutral-charcoal">DeWalt 18V XR Brushless Impact Driver</h3>
+                        <div class="flex items-center gap-1 mt-1">
+                            <div class="flex text-bunnings-primary-orange">★★★★☆</div>
+                            <span class="text-sm text-bunnings-neutral-medium-gray">4/5</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-bunnings-neutral-charcoal line-clamp-3">
+                    "In the labyrinthine world of power tools, this impact driver emerges as a kafkaesque paradox..."
+                </p>
+                <div class="mt-3 text-xs text-bunnings-neutral-medium-gray">
+                    <span>Dec 2024</span>
+                </div>
+            </div>
+
+            <!-- More review cards... -->
+            <div class="border border-bunnings-neutral-medium-gray rounded-lg p-4 opacity-50">
+                <div class="text-center text-bunnings-neutral-medium-gray py-8">More reviews...</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html> 
