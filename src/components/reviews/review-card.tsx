@@ -4,23 +4,10 @@ import { Check, X, Share2, ThumbsUp, ThumbsDown } from "lucide-react";
 import { StarRating } from "@/components/ui/star-rating";
 import { ReviewShareModal } from "@/components/ReviewShareModal";
 import { cn } from "@/lib/utils";
+import type { ReviewForUI } from "@/lib/types";
 
 interface ReviewCardProps {
-  review: {
-    id?: string; // Review slug for sharing
-    rating: number;
-    recommendsProduct: boolean;
-    helpfulVotes: number;
-    unhelpfulVotes: number;
-    verifiedPurchaser: boolean;
-    displayName: string;
-    useCase: string;
-    userCategory: string;
-    content: string;
-    dateCreated: string;
-  };
-  authorName?: string | undefined; // For sharing modal
-  toolName?: string | undefined; // For sharing modal
+  review: ReviewForUI;
   className?: string;
   onShare?: () => void;
   id?: string;
@@ -28,8 +15,6 @@ interface ReviewCardProps {
 
 export function ReviewCard({
   review,
-  authorName,
-  toolName,
   className,
   onShare,
   id,
@@ -158,7 +143,7 @@ export function ReviewCard({
       </div>
 
       {/* Share Modal */}
-      {authorName && toolName && review.id && (
+      {review.authorName && review.toolName && review.id && (
         <ReviewShareModal
           isOpen={isShareModalOpen}
           onClose={() => setIsShareModalOpen(false)}
@@ -166,8 +151,8 @@ export function ReviewCard({
             slug: review.id,
             content: review.content,
           }}
-          authorName={authorName}
-          toolName={toolName}
+          authorName={review.authorName}
+          toolName={review.toolName}
         />
       )}
     </div>

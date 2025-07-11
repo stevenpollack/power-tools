@@ -3,27 +3,10 @@ import { RatingSnapshot } from "./rating-snapshot";
 import { ReviewFilters } from "./review-filters";
 import { ReviewCard } from "./review-card";
 import { cn } from "@/lib/utils";
-
-interface Review {
-  id?: string; // Add ID for sharing
-  rating: number;
-  recommendsProduct: boolean;
-  helpfulVotes: number;
-  unhelpfulVotes: number;
-  verifiedPurchaser: boolean;
-  displayName: string;
-  useCase: string;
-  userCategory: string;
-  content: string;
-  dateCreated: string;
-  qualityRating: number;
-  valueRating: number;
-  authorName?: string; // For sharing modal
-  toolName?: string; // For sharing modal
-}
+import type { ReviewForUI } from "@/lib/types";
 
 interface ReviewsSectionProps {
-  reviews: Review[];
+  reviews: ReviewForUI[];
   totalReviews: number;
   averageRating: number;
   ratingDistribution: Record<1 | 2 | 3 | 4 | 5, number>;
@@ -131,7 +114,7 @@ export function ReviewsSection({
     if (!selectedRating) return reviews;
 
     // Use a more efficient filter for large datasets
-    const filtered: Review[] = [];
+    const filtered: ReviewForUI[] = []; 
     for (let i = 0; i < reviews.length; i++) {
       const review = reviews[i];
       if (review && review.rating === selectedRating) {

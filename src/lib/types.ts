@@ -23,3 +23,22 @@ export type ReviewV2WithData = {
   author: Author;
   tool: Tool;
 };
+
+// UI layer types for components
+export type ReviewForUI = {
+  id?: string; // Review slug for sharing
+  rating: number;
+  recommendsProduct: boolean;
+  helpfulVotes: number;
+  unhelpfulVotes: number;
+  verifiedPurchaser: boolean;
+  displayName: string;
+  useCase: string;
+  userCategory: string;
+  content: string;
+  dateCreated: string;
+  qualityRating: number;
+  valueRating: number;
+  authorName: string; // For sharing modal
+  toolName: string; // For sharing modal
+};
