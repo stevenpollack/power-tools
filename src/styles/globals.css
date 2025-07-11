@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource/merriweather/400.css";
+@import "@fontsource/merriweather/700.css";
 @import "@fontsource/lemon";
 @plugin "daisyui";
 
 @theme {
-  --font-sans: "Inter", "system-ui", "sans-serif";
   --font-serif: "Merriweather", "serif";
   --font-bunnings: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
   --font-bunnings-heading:
