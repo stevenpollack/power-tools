@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
-import { SlidersHorizontal, ArrowUpDown } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 import { ToolCard } from "./ToolCard";
 import {
   Sheet,

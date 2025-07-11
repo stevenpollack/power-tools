@@ -50,22 +50,6 @@ const ratingDistribution = reviewsWithData.reduce(
   { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
 );
 
-const averageQualityRating =
-  totalReviews > 0
-    ? reviewsWithData.reduce(
-        (sum, r) => sum + (r.review.data.qualityRating || 0),
-        0,
-      ) / totalReviews
-    : 0;
-
-const averageValueRating =
-  totalReviews > 0
-    ? reviewsWithData.reduce(
-        (sum, r) => sum + (r.review.data.valueRating || 0),
-        0,
-      ) / totalReviews
-    : 0;
-
 const { name: toolName, brand, specifications, pricing } = tool.data;
 
 // Transform reviews for the component (pass all reviews, component will handle pagination)
@@ -245,8 +229,6 @@ const transformedReviews = reviewsWithData.map((r) => ({
                   totalReviews={totalReviews}
                   averageRating={averageRating}
                   ratingDistribution={ratingDistribution}
-                  averageQualityRating={averageQualityRating}
-                  averageValueRating={averageValueRating}
                 />
               </div>
             </div>

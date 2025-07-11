@@ -123,65 +123,61 @@ const reviewsWithData = await Promise.all(
                 id="reviews-grid"
                 class="grid grid-cols-1 gap-6 xl:grid-cols-2"
               >
-                {reviewsWithData.map(
-                  ({ review, tool, author: reviewAuthor }, index) => (
-                    <div
-                      class="review-card border-bunnings-neutral-medium-gray flex h-full flex-col rounded-lg border p-4 transition-shadow hover:shadow-md"
-                      data-brand={tool.data.brand.toLowerCase()}
-                      data-index={index}
-                    >
-                      <div class="mb-3 flex items-start gap-3">
-                        <Picture
-                          src={tool.data.thumbnailUrl}
-                          alt={tool.data.name}
-                          class="h-15 w-15 flex-shrink-0 rounded object-cover"
-                          widths={[60]}
-                          formats={["avif", "webp"]}
-                          loading="lazy"
-                        />
-                        <div class="min-w-0 flex-1">
-                          <h3 class="text-bunnings-neutral-charcoal mb-1 line-clamp-2 text-sm font-medium">
-                            {tool.data.name}
-                          </h3>
-                          <p class="text-bunnings-neutral-medium-gray mb-1 text-xs">
-                            {tool.data.brand}
-                          </p>
-                          {review.data.rating && (
-                            <div class="flex items-center gap-1">
-                              <div class="text-bunnings-primary-orange flex text-sm">
-                                {"★".repeat(review.data.rating)}
-                                {"☆".repeat(5 - review.data.rating)}
-                              </div>
-                              <span class="text-bunnings-neutral-medium-gray text-xs">
-                                {review.data.rating}/5
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      <div class="mb-4 flex-grow">
-                        <p class="text-bunnings-neutral-charcoal line-clamp-3 text-sm">
-                          {review.data.excerpt}
+                {reviewsWithData.map(({ review, tool }, index) => (
+                  <div
+                    class="review-card border-bunnings-neutral-medium-gray flex h-full flex-col rounded-lg border p-4 transition-shadow hover:shadow-md"
+                    data-brand={tool.data.brand.toLowerCase()}
+                    data-index={index}
+                  >
+                    <div class="mb-3 flex items-start gap-3">
+                      <Picture
+                        src={tool.data.thumbnailUrl}
+                        alt={tool.data.name}
+                        class="h-15 w-15 flex-shrink-0 rounded object-cover"
+                        widths={[60]}
+                        formats={["avif", "webp"]}
+                        loading="lazy"
+                      />
+                      <div class="min-w-0 flex-1">
+                        <h3 class="text-bunnings-neutral-charcoal mb-1 line-clamp-2 text-sm font-medium">
+                          {tool.data.name}
+                        </h3>
+                        <p class="text-bunnings-neutral-medium-gray mb-1 text-xs">
+                          {tool.data.brand}
                         </p>
-                      </div>
-
-                      <div class="text-bunnings-neutral-medium-gray border-bunnings-neutral-light-gray flex items-center justify-between border-t pt-3 text-xs">
-                        <span>
-                          {new Date(
-                            review.data.dateCreated,
-                          ).toLocaleDateString()}
-                        </span>
-                        <a
-                          href={`/tool/v2/${tool.id}?review=${review.data.slug}`}
-                          class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
-                        >
-                          Read More →
-                        </a>
+                        {review.data.rating && (
+                          <div class="flex items-center gap-1">
+                            <div class="text-bunnings-primary-orange flex text-sm">
+                              {"★".repeat(review.data.rating)}
+                              {"☆".repeat(5 - review.data.rating)}
+                            </div>
+                            <span class="text-bunnings-neutral-medium-gray text-xs">
+                              {review.data.rating}/5
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </div>
-                  ),
-                )}
+
+                    <div class="mb-4 flex-grow">
+                      <p class="text-bunnings-neutral-charcoal line-clamp-3 text-sm">
+                        {review.data.excerpt}
+                      </p>
+                    </div>
+
+                    <div class="text-bunnings-neutral-medium-gray border-bunnings-neutral-light-gray flex items-center justify-between border-t pt-3 text-xs">
+                      <span>
+                        {new Date(review.data.dateCreated).toLocaleDateString()}
+                      </span>
+                      <a
+                        href={`/tool/v2/${tool.id}?review=${review.data.slug}`}
+                        class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+                      >
+                        Read More →
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Load More Button */}

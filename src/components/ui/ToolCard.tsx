@@ -1,6 +1,3 @@
-"use client";
-
-import React from "react";
 import { Eye } from "lucide-react";
 import { StarRating } from "./star-rating";
 import type { Tool } from "@/lib/types";
@@ -18,7 +15,7 @@ export function ToolCard({
   className,
 }: ToolCardProps) {
   const { id, data } = tool;
-  const { name, brand, popularity, pricing } = data;
+  const { name, popularity, pricing } = data;
 
   return (
     <div
