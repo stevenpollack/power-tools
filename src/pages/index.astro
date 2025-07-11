@@ -69,7 +69,7 @@ const arrangedReviews = createBalancedShuffle(reviewsWithData);
 ---
 
 <Layout title="Funnings Joke House - When Literature Meets Hardware">
-  <main class="mx-auto max-w-7xl px-4 py-8">
+  <div class="mx-auto max-w-7xl py-8">
     <!-- Header Section with V2 Theme -->
     <header
       class="bg-bunnings-secondary-green mb-8 rounded-lg py-12 text-white"
@@ -89,6 +89,8 @@ const arrangedReviews = createBalancedShuffle(reviewsWithData);
     </header>
 
     <!-- MasonryWallV2 with React Client-Side Interactivity -->
-    <MasonryWallV2 client:load reviewsWithData={arrangedReviews as any} />
-  </main>
+    <main>
+      <MasonryWallV2 client:load reviewsWithData={arrangedReviews as any} />
+    </main>
+  </div>
 </Layout>

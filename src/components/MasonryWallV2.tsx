@@ -45,7 +45,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
     <div id="masonry-wall-v2">
       {/* Filter Controls */}
       <div className="sticky top-0 z-10 border-b border-bunnings-neutral-light-gray bg-white/80 py-4 backdrop-blur-md">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             
             {/* Search */}
@@ -149,7 +149,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
       </div>
 
       {/* Masonry Grid */}
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="mx-auto max-w-7xl py-8">
         {filteredReviews.length === 0 ? (
           <div className="min-h-96 flex items-center justify-center">
             <div className="text-center">
