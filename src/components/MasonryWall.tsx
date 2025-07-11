@@ -1,19 +1,7 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React from "react";
 import { ReviewCard } from "@/components/ReviewCard";
+import { useMasonryWall } from "@/hooks/useMasonryWall";
 import type { ReviewWithData } from "@/lib/types";
-
-const REVIEWS_PER_PAGE = 24;
-
-type SortOrder =
-  | "balanced"
-  | "newest"
-  | "oldest"
-  | "author-asc"
-  | "author-desc"
-  | "brand-asc"
-  | "brand-desc"
-  | "time-asc"
-  | "time-desc";
 
 interface MasonryWallProps {
   reviewsWithData: ReviewWithData[];
@@ -22,168 +10,37 @@ interface MasonryWallProps {
 export const MasonryWall: React.FC<MasonryWallProps> = ({
   reviewsWithData,
 }) => {
-  // Initialize state from URL search params on component mount
-  const [searchTerm, setSearchTerm] = useState(
-    () => new URLSearchParams(window.location.search).get("search") || "",
-  );
-  const [selectedAuthor, setSelectedAuthor] = useState(
-    () => new URLSearchParams(window.location.search).get("author") || "",
-  );
-  const [selectedMood, setSelectedMood] = useState(
-    () => new URLSearchParams(window.location.search).get("mood") || "",
-  );
-  const [selectedBrand, setSelectedBrand] = useState(
-    () => new URLSearchParams(window.location.search).get("brand") || "",
-  );
-  const [sortOrder, setSortOrder] = useState<SortOrder>(
-    () =>
-      (new URLSearchParams(window.location.search).get("sort") as SortOrder) ||
-      "balanced",
-  );
-  const [visibleCount, setVisibleCount] = useState(REVIEWS_PER_PAGE);
-
-  // Effect to update URL when filters or sort order change
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (searchTerm) params.set("search", searchTerm);
-    if (selectedAuthor) params.set("author", selectedAuthor);
-    if (selectedMood) params.set("mood", selectedMood);
-    if (selectedBrand) params.set("brand", selectedBrand);
-    if (sortOrder) params.set("sort", sortOrder);
-
-    const queryString = params.toString();
-    const newUrl = queryString
-      ? `${window.location.pathname}?${queryString}`
-      : window.location.pathname;
-
-    window.history.pushState({}, "", newUrl);
-  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand, sortOrder]);
-
-  // Reset visible count when filters change
-  useEffect(() => {
-    setVisibleCount(REVIEWS_PER_PAGE);
-  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand]);
-
-  // Extract unique values for filter options
-  const availableAuthors = useMemo(
-    () => [...new Set(reviewsWithData.map((r) => r.author.data.name))].sort(),
-    [reviewsWithData],
-  );
-
-  const availableMoods = useMemo(
-    () => [...new Set(reviewsWithData.map((r) => r.review.data.mood))].sort(),
-    [reviewsWithData],
-  );
-
-  const availableBrands = useMemo(
-    () => [...new Set(reviewsWithData.map((r) => r.tool.data.brand))].sort(),
-    [reviewsWithData],
-  );
-
-  // Filter reviews based on active filters
-  const filteredReviews = useMemo(() => {
-    const filtered = reviewsWithData.filter((item) => {
-      const { review, author, tool } = item;
-
-      // Search term filter
-      if (searchTerm) {
-        const searchLower = searchTerm.toLowerCase();
-        const matchesSearch =
-          author.data.name.toLowerCase().includes(searchLower) ||
-          tool.data.name.toLowerCase().includes(searchLower) ||
-          tool.data.brand.toLowerCase().includes(searchLower) ||
-          review.data.excerpt.toLowerCase().includes(searchLower);
-
-        if (!matchesSearch) return false;
-      }
-
-      // Author filter
-      if (selectedAuthor && author.data.name !== selectedAuthor) {
-        return false;
-      }
-
-      // Mood filter
-      if (selectedMood && review.data.mood !== selectedMood) {
-        return false;
-      }
-
-      // Brand filter
-      if (selectedBrand && tool.data.brand !== selectedBrand) {
-        return false;
-      }
-
-      return true;
-    });
-
-    // Create a new array to avoid mutating the original, then sort it
-    const sortable = [...filtered];
-    switch (sortOrder) {
-      case "balanced":
-        // Maintain homepage's balanced distribution - no additional sorting
-        break;
-      case "newest":
-        sortable.sort(
-          (a, b) =>
-            new Date(b.review.data.dateCreated).getTime() -
-            new Date(a.review.data.dateCreated).getTime(),
-        );
-        break;
-      case "oldest":
-        sortable.sort(
-          (a, b) =>
-            new Date(a.review.data.dateCreated).getTime() -
-            new Date(b.review.data.dateCreated).getTime(),
-        );
-        break;
-      case "author-asc":
-        sortable.sort((a, b) =>
-          a.author.data.name.localeCompare(b.author.data.name),
-        );
-        break;
-      case "author-desc":
-        sortable.sort((a, b) =>
-          b.author.data.name.localeCompare(a.author.data.name),
-        );
-        break;
-      case "brand-asc":
-        sortable.sort((a, b) =>
-          a.tool.data.brand.localeCompare(b.tool.data.brand),
-        );
-        break;
-      case "brand-desc":
-        sortable.sort((a, b) =>
-          b.tool.data.brand.localeCompare(a.tool.data.brand),
-        );
-        break;
-      case "time-asc":
-        sortable.sort(
-          (a, b) => a.review.data.readingTime - b.review.data.readingTime,
-        );
-        break;
-      case "time-desc":
-        sortable.sort(
-          (a, b) => b.review.data.readingTime - a.review.data.readingTime,
-        );
-        break;
-    }
-    return sortable;
-  }, [
-    reviewsWithData,
+  const {
+    // Filter state
     searchTerm,
+    setSearchTerm,
     selectedAuthor,
+    setSelectedAuthor,
     selectedMood,
+    setSelectedMood,
     selectedBrand,
+    setSelectedBrand,
     sortOrder,
-  ]);
+    setSortOrder,
 
-  const visibleReviews = useMemo(
-    () => filteredReviews.slice(0, visibleCount),
-    [filteredReviews, visibleCount],
-  );
+    // Computed results
+    filteredReviews,
+    visibleReviews,
+    availableAuthors,
+    availableMoods,
+    availableBrands,
 
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + REVIEWS_PER_PAGE);
-  };
+    // Pagination
+    visibleCount,
+    handleLoadMore,
+
+    // Utility actions
+    clearSearch,
+  } = useMasonryWall({
+    reviewsWithData,
+    initialCount: 24, // REVIEWS_PER_PAGE constant
+    enableTimeSort: true, // V1 supports time-based sorting
+  });
 
   return (
     <>
@@ -202,7 +59,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
               />
               {searchTerm && (
                 <button
-                  onClick={() => setSearchTerm("")}
+                  onClick={clearSearch}
                   className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600"
                   aria-label="Clear search"
                 >
@@ -268,7 +125,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
 
               <select
                 value={sortOrder}
-                onChange={(e) => setSortOrder(e.target.value as SortOrder)}
+                onChange={(e) => setSortOrder(e.target.value as any)}
                 className="rounded-md border border-gray-300 px-3 py-1 text-sm focus:border-blue-500 focus:outline-none"
               >
                 <option value="balanced">Sort by: Balanced Mix</option>
@@ -324,6 +181,7 @@ export const MasonryWall: React.FC<MasonryWallProps> = ({
                   slug={review.data.slug}
                   dateCreated={review.data.dateCreated}
                   excerpt={review.data.excerpt}
+                  toolId={tool.id}
                   toolBrand={tool.data.brand}
                   toolName={tool.data.name}
                   toolImage={tool.data.thumbnailUrl}

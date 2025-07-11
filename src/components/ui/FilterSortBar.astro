@@ -1,0 +1,22 @@
+---
+import { SlidersHorizontal, ArrowUpDown } from "lucide-react";
+---
+
+<div class="border-border grid grid-cols-2 border-t border-b bg-gray-50">
+  <div class="p-3 text-center">
+    <button
+      class="flex w-full items-center justify-center gap-2 text-sm font-medium text-gray-700"
+    >
+      <ArrowUpDown className="h-4 w-4" />
+      Sort By
+    </button>
+  </div>
+  <div class="border-l-border border-l p-3 text-center">
+    <button
+      class="flex w-full items-center justify-center gap-2 text-sm font-medium text-gray-700"
+    >
+      <SlidersHorizontal className="h-4 w-4" />
+      All Filters
+    </button>
+  </div>
+</div>

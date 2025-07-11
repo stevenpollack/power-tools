@@ -1,0 +1,44 @@
+---
+import Layout from "@/layouts/ReviewLayout.astro";
+import AuthorCard from "@/components/AuthorCard.astro";
+import StatsSection from "@/components/StatsSection.astro";
+import { getCollection } from "astro:content";
+import type { Author } from "@/lib/types";
+
+const authors: Author[] = await getCollection("authors");
+
+// Calculate statistics
+const authorCount = authors.length;
+const reviewCount = 45; // Approximate count based on existing reviews
+const movementCount = 6; // Based on different literary movements represented
+---
+
+<Layout title="Authors">
+  <!-- Hero Section -->
+  <header class="hero-gradient py-8 text-white">
+    <div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+      <h1 class="mb-4 text-4xl font-bold md:text-5xl">Selected Authors</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <!-- Authors Grid -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {authors.map((author) => <AuthorCard author={author} />)}
+    </div>
+
+    <!-- Statistics Section -->
+    <StatsSection
+      authorCount={authorCount}
+      reviewCount={reviewCount}
+      movementCount={movementCount}
+    />
+  </main>
+</Layout>
+
+<style>
+  .hero-gradient {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  }
+</style>

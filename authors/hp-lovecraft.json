@@ -24,6 +24,8 @@
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },
+  "headshot": "src/images/headshots/hp-lovecraft.svg",
+  "bio": "🐙 Cosmic horror meets cordless convenience 🌌 Revealing the eldritch truth of power tools since 1890 ⚡ 'That is not dead which can eternal drill'",
   "styleAnalysis": {
     "summary": "H.P. Lovecraft employs archaic, verbose language to create atmospheric dread, building tension through accumulated detail and cosmic horror themes.",
     "detailed": "H.P. Lovecraft would approach power tool reviews as an opportunity to explore the cosmic horror lurking within seemingly mundane objects. His review would begin with scholarly detachment, noting the tool's specifications in archaic, verbose language, but gradually reveal disturbing implications about its true nature. The drill's motor would emit sounds that remind him of chants from forbidden texts, its vibrations would seem to resonate with frequencies that should not exist in our dimension. Lovecraft would describe the tool's design as bearing uncomfortable resemblances to artifacts mentioned in ancient manuscripts, and he would express growing unease about the tool's apparent eagerness to bore holes into surfaces that should remain undisturbed. His vocabulary would be deliberately archaic and academic, employing obscure technical terms and classical references. His sentence structure favors long, complex constructions that build atmospheric tension through accumulation of unsettling details. Technology would be viewed with deep suspicion as mankind's hubris in attempting to harness forces beyond human comprehension.",
@@ -42,5 +44,8 @@
       "Academic pretensions",
       "Building atmospheric dread"
     ]
-  }
+  },
+  "displayName": "howard",
+  "ratingBias": -0.5,
+  "userCategory": "Beginner"
 }

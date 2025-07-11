@@ -29,5 +29,56 @@
     "reviewCount": 189,
     "averageRating": 4.1,
     "bunningsRank": 1
+  },
+  "reviewAnalysis": {
+    "scrapedFrom": "https://www.bunnings.com.au/ozito-pxc-18v-13mm-cordless-drill-driver-skin-only_p0124074",
+    "actualProduct": "Ozito PXC 18V 13mm Cordless Drill Driver - Skin Only",
+    "urlMismatch": false,
+    "reviewsScrapped": 57,
+    "averageReviewLength": 48,
+    "commonUseCases": [
+      "home DIY",
+      "furniture assembly",
+      "light drilling",
+      "screw driving",
+      "beginner projects"
+    ],
+    "positivePatterns": [
+      "good value for money",
+      "lightweight",
+      "variable speed",
+      "LED light",
+      "budget-friendly"
+    ],
+    "negativePatterns": [
+      "not for heavy work",
+      "battery sold separately",
+      "plastic chuck",
+      "limited torque"
+    ],
+    "humanFlourishes": [
+      "first cordless drill",
+      "Sunday projects",
+      "apartment renovations"
+    ],
+    "experienceContext": [
+      "budget purchase",
+      "casual DIY",
+      "replacing basic drill",
+      "starting tool collection"
+    ],
+    "bunningsSpecificDetails": [
+      "great entry-level option",
+      "need to buy battery separately",
+      "PXC system explained"
+    ],
+    "ratingDistribution": {
+      "1star": 2,
+      "2star": 4,
+      "3star": 8,
+      "4star": 23,
+      "5star": 20
+    },
+    "averageRating": 4.6
   }
 }

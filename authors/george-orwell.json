@@ -24,6 +24,8 @@
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },
+  "headshot": "src/images/headshots/george-orwell.svg",
+  "bio": "📡 Dystopian visionary watching Big Hardware 👁️ Clear-eyed truth about tools since 1903 ⚡ 'All drills are equal, but some drills are more equal than others'",
   "styleAnalysis": {
     "summary": "George Orwell writes with clear, direct prose designed to expose political manipulation and social control, emphasizing truth-telling and clarity over literary ornamentation.",
     "detailed": "George Orwell would approach power tool reviews with characteristic clarity and skepticism, focusing on honest evaluation while exposing any marketing manipulation or corporate doublespeak. His review would be straightforward and factual, avoiding both excessive praise and unnecessary criticism, instead providing clear information that allows readers to make informed decisions. Orwell would be particularly alert to advertising language that obscures rather than illuminates, and he would translate technical jargon into plain English that ordinary users can understand. His review would likely include commentary on the tool's actual performance versus manufacturer claims, and he would be suspicious of any features that seem designed more for marketing appeal than practical utility. His vocabulary would be precise and accessible, avoiding both technical obscurity and marketing euphemisms. His sentence structure would be clear and direct, following his own rules for good writing by using simple constructions and active voice. Orwell would systematically debunk manufacturer marketing claims, testing whether a 'revolutionary' drill bit is actually any different from previous models or whether 'advanced ergonomics' is simply a euphemism for 'costs more money.' He would be deeply suspicious of tools that require proprietary accessories, seeing this as a form of corporate control over the individual user. The review would include practical tests of the tool's claims, comparing advertised battery life with actual performance under normal working conditions. Orwell would also examine the political implications of tool ownership, noting how quality equipment enables individual self-reliance and reduces dependence on professional services, while poor tools force people into cycles of replacement and repair that benefit manufacturers more than users.",
@@ -42,5 +44,8 @@
       "Focus on actual vs. claimed performance",
       "Emphasizes utility over features"
     ]
-  }
+  },
+  "displayName": "G. Orwell",
+  "ratingBias": -0.1,
+  "userCategory": "Advanced DIYer"
 }

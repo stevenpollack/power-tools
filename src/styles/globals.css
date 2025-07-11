@@ -1,5 +1,46 @@
 @import "tailwindcss";
+@import "@fontsource/merriweather/400.css";
+@import "@fontsource/merriweather/700.css";
+@import "@fontsource/lemon";
+@plugin "daisyui";
 
+@theme {
+  --font-serif: "Merriweather", "serif";
+  --font-bunnings: "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  --font-bunnings-heading:
+    "Futura", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+  --font-bunnings-price:
+    "Lemon", "Futura", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+
+  --color-bunnings-primary-green: rgb(0, 104, 56);
+  --color-bunnings-secondary-green: rgb(13, 82, 87);
+  --color-bunnings-primary-red: rgb(218, 41, 28);
+  --color-bunnings-primary-orange: rgb(255, 171, 0);
+
+  --color-bunnings-neutral-charcoal: rgb(51, 51, 51);
+  --color-bunnings-neutral-medium-gray: rgb(191, 191, 191);
+  --color-bunnings-neutral-light-gray: rgb(245, 245, 245);
+
+  --color-bunnings-rating-star-yellow: rgb(255, 171, 0);
+  --color-bunnings-rating-progress-bar: rgb(255, 171, 0);
+
+  --text-bunnings-xl: 20px;
+  --text-bunnings-2xl: 26px;
+  --text-bunnings-base: 16px;
+  --text-bunnings-sm: 14px;
+  --text-bunnings-xs: 12px;
+  --text-bunnings-2xs: 10px;
+
+  --breakpoint-xs: 375px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
 @theme {
   --color-background: oklch(100% 0 0);
   --color-foreground: oklch(9% 0.02 285.88);
@@ -120,6 +161,7 @@
   .line-clamp-4 {
     display: -webkit-box;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
   }

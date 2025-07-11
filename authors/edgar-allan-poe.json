@@ -24,6 +24,8 @@
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },
+  "headshot": "src/images/headshots/edgar-allan-poe.svg",
+  "bio": "🖤 Gothic master turned tool terror specialist 🪚 Crafting dark tales of workshop woe since 1809 ⚡ 'Quoth the drill bit: Nevermore!'",
   "styleAnalysis": {
     "summary": "Edgar Allan Poe creates psychological intensity through atmospheric description, rhythmic language, and exploration of dark psychological states and obsessive behaviors.",
     "detailed": "Edgar Allan Poe would transform a power tool review into a psychological study of obsession and mechanical precision, focusing on the hypnotic rhythm of the motor and the psychological effects of repetitive drilling. His review would begin with atmospheric scene-setting, describing the workshop's shadows and the ominous gleam of metal surfaces. The tool would become a character in a psychological drama, its motor's steady beat resembling a mechanical heart that gradually synchronizes with the user's pulse. Poe would explore the meditative, almost trance-like state induced by repetitive tool use, and the subtle psychological satisfaction of achieving perfectly round holes with mathematical precision. His vocabulary would be rich in atmospheric adjectives and psychological terminology, creating mood through word choice as much as content. His sentence structure would be rhythmic and musical, often employing internal rhyme and alliteration to create hypnotic effects. The review would build psychological tension through accumulated detail, perhaps exploring the fine line between careful craftsmanship and obsessive perfectionism.",
@@ -42,5 +44,8 @@
       "Tools become psychological entities",
       "Musical language patterns"
     ]
-  }
+  },
+  "displayName": "E.A. Poe",
+  "ratingBias": -0.4,
+  "userCategory": "Beginner"
 }

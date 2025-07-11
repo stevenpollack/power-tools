@@ -1,0 +1,237 @@
+---
+import Layout from "../../../layouts/ReviewLayout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { Picture } from "astro:assets";
+import { ReviewCard } from "@/components/ReviewCard";
+import type { ReviewWithData, Tool } from "@/lib/types";
+import { ExternalLink } from "lucide-react";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+
+  return tools.map((tool) => ({
+    params: { id: tool.id },
+    props: { tool },
+  }));
+}
+
+const { tool }: { tool: Tool } = Astro.props;
+
+const reviews = (await getCollection("reviews")).filter(
+  (review) => review.data.tool.id === tool.id,
+);
+
+const reviewsWithData: Omit<ReviewWithData, "tool">[] = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    author: await getEntry(review.data.author),
+  })),
+);
+
+const { name, brand, specifications } = tool.data;
+---
+
+<Layout title="Tool Details - Power Tools Reviews">
+  <main class="tool-profile">
+    <div class="container">
+      <div class="tool-header">
+        <div class="tool-image">
+          <Picture
+            src={tool.data.thumbnailUrl}
+            alt={name}
+            class="h-full w-full rounded-lg border object-cover"
+            widths={[300, 600]}
+            sizes="300px"
+          />
+        </div>
+
+        <div class="tool-info">
+          <h1>{name}</h1>
+          <p class="tool-brand">{brand}</p>
+          <div class="tool-specs">
+            <h3>Specifications</h3>
+            <dl class="specs-list text-left">
+              <dt>Power</dt>
+              <dd>{specifications.power}</dd>
+              <dt>Weight</dt>
+              <dd>{specifications.weight}</dd>
+              <dt>Dimensions</dt>
+              <dd>{specifications.dimensions}</dd>
+              {
+                specifications.batteryLife && (
+                  <>
+                    <dt>Battery Life</dt>
+                    <dd>{specifications.batteryLife}</dd>
+                  </>
+                )
+              }
+              <dt>Key Features</dt>
+              <dd>
+                <ul class="features-list">
+                  {
+                    specifications.keyFeatures.map((feature: string) => (
+                      <li>{feature}</li>
+                    ))
+                  }
+                </ul>
+              </dd>
+              {
+                tool.data.bunningsUrl && (
+                  <>
+                    <dt>Data source</dt>
+                    <dd>
+                      <a
+                        href={tool.data.bunningsUrl}
+                        class="text-blue-500 hover:underline"
+                        target="_blank"
+                      >
+                        <span class="flex items-center gap-2">
+                          Bunnings.com.au
+                          <ExternalLink className="h-4 w-4" />
+                        </span>
+                      </a>
+                    </dd>
+                  </>
+                )
+              }
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <section class="tool-reviews">
+        <h2>Literary Reviews of This Tool</h2>
+        <div class="reviews-grid">
+          {
+            reviewsWithData.length > 0 ? (
+              reviewsWithData.map(({ review, author }) => (
+                <ReviewCard
+                  client:load
+                  slug={review.data.slug}
+                  dateCreated={review.data.dateCreated}
+                  excerpt={review.data.excerpt}
+                  toolId={tool.id}
+                  toolBrand={tool.data.brand}
+                  toolName={tool.data.name}
+                  toolImage={tool.data.thumbnailUrl}
+                  authorName={author.data.name}
+                  mood={review.data.mood}
+                  tone={review.data.tone}
+                  llm={review.data.llm}
+                />
+              ))
+            ) : (
+              <p class="placeholder">No reviews available for this tool yet.</p>
+            )
+          }
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .tool-profile {
+    padding: 2rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .tool-header {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .tool-image {
+    width: 300px;
+    height: 300px;
+  }
+
+  .tool-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tool-brand {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
+  .tool-specs h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+
+  .specs-list {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.75rem 1.5rem;
+    color: #374151;
+  }
+
+  .specs-list dt {
+    font-weight: 600;
+  }
+
+  .features-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    margin-top: 0.25rem;
+  }
+
+  .features-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .tool-reviews {
+    border-top: 2px solid #f3f4f6;
+    padding-top: 2rem;
+  }
+
+  .tool-reviews h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .placeholder {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #9ca3af;
+    font-style: italic;
+    padding: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .tool-header {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .tool-image {
+      width: 250px;
+      height: 250px;
+      margin: 0 auto;
+    }
+
+    .tool-info h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

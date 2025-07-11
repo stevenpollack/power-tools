@@ -1,10 +1,13 @@
 ---
-import Layout from "../layouts/ReviewLayout.astro";
-import { MasonryWall } from "../components/MasonryWall";
+import Layout from "@/layouts/Layout-v2.astro";
+import { MasonryWallV2 } from "../components/MasonryWallV2";
 import { getCollection, getEntry } from "astro:content";
+import { getImage } from "astro:assets";
+import FunningsLogo from "@/images/logos/funnings.svg";
+import { Picture } from "astro:assets";
 
-// Get all reviews with related author and tool data
-const reviews = await getCollection("reviews");
+// Get all reviews with related author and tool data (v2 reviews)
+const reviews = await getCollection("reviewsV2");
 
 const reviewsWithData = await Promise.all(
   reviews.map(async (review) => {
@@ -12,12 +15,23 @@ const reviewsWithData = await Promise.all(
       getEntry(review.data.author),
       getEntry(review.data.tool),
     ]);
+
+    // Preprocess author headshot for React component
+    const optimizedHeadshot = await getImage({
+      src: author.data.headshot,
+      width: 48,
+      format: "webp",
+    });
+
     return {
       review,
-      author,
+      author: {
+        ...author,
+        optimizedHeadshotUrl: optimizedHeadshot.src,
+      },
       tool,
     };
-  })
+  }),
 );
 
 // Create balanced distribution ensuring author and tool diversity
@@ -30,7 +44,7 @@ const createBalancedShuffle = (reviews: typeof reviewsWithData) => {
       acc[authorName].push(review);
       return acc;
     },
-    {} as Record<string, typeof reviewsWithData>
+    {} as Record<string, typeof reviewsWithData>,
   );
 
   // Shuffle each author's reviews for variety
@@ -44,7 +58,7 @@ const createBalancedShuffle = (reviews: typeof reviewsWithData) => {
   // Round-robin distribution to ensure even author representation
   const balanced: typeof reviewsWithData = [];
   const maxPerAuthor = Math.max(
-    ...Object.values(byAuthor).map((arr: typeof reviewsWithData) => arr.length)
+    ...Object.values(byAuthor).map((arr: typeof reviewsWithData) => arr.length),
   );
 
   for (let round = 0; round < maxPerAuthor; round++) {
@@ -66,28 +80,29 @@ const createBalancedShuffle = (reviews: typeof reviewsWithData) => {
 const arrangedReviews = createBalancedShuffle(reviewsWithData);
 ---
 
-<Layout title="pwrtools.lol - When Literature Meets Hardware">
-  <main>
-    <!-- Hero Section -->
-    <header class="hero-section">
-      <div class="mx-auto max-w-7xl px-4 py-16 text-center">
-        <h1 class="mb-4 text-4xl font-bold md:text-5xl">
-          Humanity's most powerful tools...
-        </h1>
-        <h2 class="mb-4 text-xl font-bold md:text-2xl">
-          Reviewed by history's most powerful tools.
+<Layout title="Funnings Joke House - When Literature Meets Hardware">
+  <div class="mx-auto max-w-7xl px-4 py-8">
+    <!-- Header Section with V2 Theme -->
+    <header
+      class="bg-bunnings-secondary-green mb-8 rounded-lg py-12 text-white"
+    >
+      <div class="text-center">
+        <Picture
+          src={FunningsLogo}
+          alt="Funnings Logo"
+          class="mx-auto mb-4 h-18 w-auto sm:h-30"
+          formats={["avif", "webp"]}
+          loading="lazy"
+        />
+        <h2 class="text-base font-bold sm:text-2xl">
+          A frightening <span class="line-through">mis</span>use of fresh water.
         </h2>
       </div>
     </header>
 
-    <!-- MasonryWall with Filtering -->
-    <MasonryWall reviewsWithData={arrangedReviews} client:only />
-  </main>
+    <!-- MasonryWallV2 with React Client-Side Interactivity -->
+    <main>
+      <MasonryWallV2 client:load reviewsWithData={arrangedReviews as any} />
+    </main>
+  </div>
 </Layout>
-
-<style>
-  .hero-section {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    color: white;
-  }
-</style>

@@ -1,184 +1,320 @@
 ---
-import Layout from "@/layouts/ReviewLayout.astro";
-import { Picture } from "astro:assets";
-import { ReviewCard } from "@/components/ReviewCard";
+import Layout from "@/layouts/Layout-v2.astro";
 import { getEntry, getCollection } from "astro:content";
-import type { Author, ReviewWithData } from "@/lib/types";
+import { Picture } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const authors = await getCollection("authors");
-  return authors.map((author: Author) => ({
-    params: { id: author.id },
+  return authors.map((author) => ({
+    params: { id: author.data.slug },
     props: { author },
   }));
 }
 
+interface Props {
+  author: CollectionEntry<"authors">;
+}
+
 const { author } = Astro.props;
 
+// Get reviews for this author from V2 collection
 const reviews = await getCollection(
-  "reviews",
-  (review) => review.data.author.id === author.id
+  "reviewsV2",
+  (review) => review.data.author.id === author.id,
 );
 
 // Get full author and tool data for each review
-const reviewsWithData: ReviewWithData[] = await Promise.all(
+const reviewsWithData = await Promise.all(
   reviews.map(async (review) => ({
     review,
     tool: await getEntry(review.data.tool),
     author: await getEntry(review.data.author),
-  }))
+  })),
 );
 ---
 
-<Layout title={`Author Profile - ${author.data.name}`}>
-  <main class="author-profile">
-    <div class="container">
-      <div class="author-header">
-        <div class="author-image">
-          <Picture
-            src={author.data.portrait.filename}
-            alt={author.data.name}
-            width={200}
-            height={200}
-            layout="constrained"
-            class="rounded-full"
-          />
-        </div>
+<Layout title={`${author.data.name} - Tool Review Expert`}>
+  <main class="mx-auto max-w-7xl px-4 py-4">
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumbs mb-6 text-sm">
+      <ul>
+        <li>
+          <a
+            href="/authors"
+            class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+          >
+            Authors
+          </a>
+        </li>
+        <li class="text-bunnings-neutral-charcoal font-medium">
+          {author.data.name}
+        </li>
+      </ul>
+    </div>
 
-        <div class="author-info">
-          <h1>{author.data.name}</h1>
-          <p class="author-details">
-            {author.data.nationality} -- {author.data.lifespan}
+    <!-- Mobile: Stacked Layout, Desktop: 2-Column Layout -->
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-[400px_1fr]">
+      <!-- Left Column: Author Profile -->
+      <div
+        class="bg-bunnings-neutral-light-gray text-bunnings-secondary-green h-fit rounded-lg p-8 shadow-sm"
+      >
+        <div class="text-center">
+          <Picture
+            src={author.data.headshot}
+            alt={author.data.name}
+            class="mx-auto mb-6 h-[300px] w-[300px] rounded-lg bg-amber-100 object-cover"
+            widths={[300, 600]}
+            sizes="300px"
+            formats={["avif", "webp"]}
+            loading="lazy"
+          />
+          <h1 class="text-bunnings-neutral-charcoal mb-2 text-2xl font-bold">
+            {author.data.name}
+          </h1>
+          <p class="text-bunnings-neutral-charcoal mb-6 text-sm">
+            {author.data.lifespan}
           </p>
-          <h2 class="pb-1 font-semibold">Primary Works</h2>
-          <span class="italic">
-            {author.data.primaryWorks.join(", ")}
-          </span>
-          <h2 class="pb-1 font-semibold">Style Keywords</h2>
-          <span class="italic">
-            {author.data.styleKeywords.join(", ")}
-          </span>
-          <h2 class="pb-1 font-semibold">Literary Movement</h2>
-          <span class="italic">
-            {author.data.literaryMovement}
-          </span>
+
+          <div class="text-left">
+            <h2 class="mb-4 text-xl font-semibold">About</h2>
+            {
+              author.data.bio ? (
+                <p class="text-bunnings-neutral-charcoal">{author.data.bio}</p>
+              ) : (
+                <p class="text-bunnings-neutral-medium-gray italic">
+                  Bio coming soon...
+                </p>
+              )
+            }
+          </div>
         </div>
       </div>
 
-      <section class="author-reviews">
-        <h2>Reviews by {author.data.name}</h2>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {
-            reviewsWithData.map(({ review, tool, author: reviewAuthor }) => (
-              <ReviewCard
-                client:load
-                variant="fixedHeight"
-                slug={review.data.slug}
-                dateCreated={review.data.dateCreated}
-                excerpt={review.data.excerpt}
-                toolBrand={tool.data.brand}
-                toolName={tool.data.name}
-                toolImage={tool.data.thumbnailUrl}
-                authorName={reviewAuthor.data.name}
-                mood={review.data.mood}
-                tone={review.data.tone}
-                llm={review.data.llm}
-              />
-            ))
-          }
-        </div>
-      </section>
+      <!-- Right Column: Reviews -->
+      <div class="space-y-8">
+        {
+          reviewsWithData.length > 0 ? (
+            <div>
+              <div class="mb-2 flex items-center justify-between">
+                <h2 class="text-bunnings-neutral-charcoal text-xl font-semibold">
+                  Reviews
+                </h2>
+                <select
+                  id="brand-sort"
+                  class="border-bunnings-neutral-medium-gray focus:ring-bunnings-secondary-green focus:border-bunnings-secondary-green rounded-md border px-3 py-2 text-sm focus:ring-2"
+                >
+                  <option value="brand-asc">Sort by Brand A-Z</option>
+                  <option value="brand-desc">Sort by Brand Z-A</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <p
+                  id="reviews-count"
+                  class="text-bunnings-neutral-medium-gray text-sm"
+                >
+                  Showing 1 – {Math.min(4, reviewsWithData.length)} of{" "}
+                  {reviewsWithData.length} review
+                  {reviewsWithData.length !== 1 ? "s" : ""}
+                </p>
+              </div>
+
+              <div
+                id="reviews-grid"
+                class="grid grid-cols-1 gap-6 xl:grid-cols-2"
+              >
+                {reviewsWithData.map(({ review, tool }, index) => (
+                  <div
+                    class="review-card border-bunnings-neutral-medium-gray flex h-full flex-col rounded-lg border p-4 transition-shadow hover:shadow-md"
+                    data-brand={tool.data.brand.toLowerCase()}
+                    data-index={index}
+                  >
+                    <div class="mb-3 flex items-start gap-3">
+                      <Picture
+                        src={tool.data.thumbnailUrl}
+                        alt={tool.data.name}
+                        class="h-15 w-15 flex-shrink-0 rounded object-cover"
+                        widths={[60]}
+                        formats={["avif", "webp"]}
+                        loading="lazy"
+                      />
+                      <div class="min-w-0 flex-1">
+                        <h3 class="text-bunnings-neutral-charcoal mb-1 line-clamp-2 text-sm font-medium">
+                          {tool.data.name}
+                        </h3>
+                        <p class="text-bunnings-neutral-medium-gray mb-1 text-xs">
+                          {tool.data.brand}
+                        </p>
+                        {review.data.rating && (
+                          <div class="flex items-center gap-1">
+                            <div class="text-bunnings-primary-orange flex text-sm">
+                              {"★".repeat(review.data.rating)}
+                              {"☆".repeat(5 - review.data.rating)}
+                            </div>
+                            <span class="text-bunnings-neutral-medium-gray text-xs">
+                              {review.data.rating}/5
+                            </span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <div class="mb-4 flex-grow">
+                      <p class="text-bunnings-neutral-charcoal line-clamp-3 text-sm">
+                        {review.data.excerpt}
+                      </p>
+                    </div>
+
+                    <div class="text-bunnings-neutral-medium-gray border-bunnings-neutral-light-gray flex items-center justify-between border-t pt-3 text-xs">
+                      <span>
+                        {new Date(review.data.dateCreated).toLocaleDateString()}
+                      </span>
+                      <a
+                        href={`/tool/${tool.id}?review=${review.data.slug}`}
+                        class="text-bunnings-secondary-green hover:text-bunnings-primary-orange transition-colors"
+                      >
+                        Read More →
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Load More Button */}
+              {reviewsWithData.length > 4 && (
+                <div class="mt-6 flex justify-center">
+                  <button
+                    id="load-more-btn"
+                    class="bg-bunnings-secondary-green hover:bg-bunnings-secondary-green/90 focus:ring-bunnings-primary-orange rounded-md px-6 py-3 font-medium text-white transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none"
+                  >
+                    Load More Reviews
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-8 text-center shadow-sm">
+              <p class="text-bunnings-neutral-medium-gray mb-2 text-lg">
+                No reviews yet
+              </p>
+              <p class="text-bunnings-neutral-medium-gray text-sm">
+                {author.data.name} hasn't reviewed any tools yet.
+              </p>
+            </div>
+          )
+        }
+      </div>
     </div>
   </main>
 </Layout>
 
+<script>
+  // Brand sorting and load more functionality
+  document.addEventListener("DOMContentLoaded", () => {
+    const sortSelect = document.getElementById(
+      "brand-sort",
+    ) as HTMLSelectElement;
+    const reviewsGrid = document.getElementById("reviews-grid") as HTMLElement;
+    const loadMoreBtn = document.getElementById(
+      "load-more-btn",
+    ) as HTMLButtonElement;
+    const reviewCards = Array.from(
+      document.querySelectorAll(".review-card"),
+    ) as HTMLElement[];
+
+    const REVIEWS_PER_PAGE = 4;
+    let visibleCount = REVIEWS_PER_PAGE;
+
+    const updateVisibility = () => {
+      reviewCards.forEach((card, index) => {
+        if (index < visibleCount) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // Update reviews count display
+      const reviewsCountEl = document.getElementById("reviews-count");
+      if (reviewsCountEl) {
+        const currentVisible = Math.min(visibleCount, reviewCards.length);
+        const totalReviews = reviewCards.length;
+        const startNum = currentVisible > 0 ? 1 : 0;
+        const endNum = currentVisible;
+        const reviewText = totalReviews !== 1 ? "reviews" : "review";
+
+        reviewsCountEl.textContent = `Showing ${startNum} – ${endNum} of ${totalReviews} ${reviewText}`;
+      }
+
+      // Hide load more button if all reviews are visible
+      if (loadMoreBtn) {
+        if (visibleCount >= reviewCards.length) {
+          loadMoreBtn.style.display = "none";
+        } else {
+          loadMoreBtn.style.display = "block";
+        }
+      }
+    };
+
+    const sortReviews = (order: "brand-asc" | "brand-desc") => {
+      const sorted = [...reviewCards].sort((a, b) => {
+        const brandA = a.dataset.brand || "";
+        const brandB = b.dataset.brand || "";
+
+        if (order === "brand-asc") {
+          return brandA.localeCompare(brandB);
+        } else {
+          return brandB.localeCompare(brandA);
+        }
+      });
+
+      // Clear grid and re-append sorted cards
+      reviewsGrid.innerHTML = "";
+      sorted.forEach((card) => reviewsGrid.appendChild(card));
+
+      // Update reviewCards array reference
+      reviewCards.length = 0;
+      reviewCards.push(...sorted);
+
+      // Re-apply visibility after sorting
+      updateVisibility();
+    };
+
+    const handleLoadMore = () => {
+      visibleCount += REVIEWS_PER_PAGE;
+      updateVisibility();
+    };
+
+    // Event listeners
+    if (sortSelect) {
+      sortSelect.addEventListener("change", (e) => {
+        const target = e.target as HTMLSelectElement;
+        sortReviews(target.value as "brand-asc" | "brand-desc");
+      });
+    }
+
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", handleLoadMore);
+    }
+
+    // Initial setup
+    updateVisibility();
+  });
+</script>
+
 <style>
-  .author-profile {
-    padding: 2rem 0;
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  .author-header {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    align-items: start;
-  }
-
-  .author-image {
-    width: 200px;
-    height: 200px;
-  }
-
-  .placeholder-image {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 600;
-    text-align: center;
-  }
-
-  .author-info h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--color-primary);
-  }
-
-  .author-details {
-    font-size: 1.125rem;
-    color: var(--color-text-light);
-    margin-bottom: 1rem;
-  }
-
-  .author-bio {
-    line-height: 1.8;
-    color: var(--color-text);
-  }
-
-  .author-reviews {
-    border-top: 2px solid #f3f4f6;
-    padding-top: 2rem;
-  }
-
-  .author-reviews h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
-  }
-
-  .placeholder {
-    grid-column: 1 / -1;
-    text-align: center;
-    color: var(--color-text-light);
-    font-style: italic;
-    padding: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .author-header {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-
-    .author-image {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-    }
-
-    .author-info h1 {
-      font-size: 2rem;
-    }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>

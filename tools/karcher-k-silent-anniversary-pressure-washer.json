@@ -29,5 +29,55 @@
     "reviewCount": 167,
     "averageRating": 4.4,
     "bunningsRank": 1
+  },
+  "reviewAnalysis": {
+    "scrapedFrom": "https://www.bunnings.com.au/karcher-k-silent-anniversary-edition-pressure-washer-including-ecobooster_p0795697",
+    "actualProduct": "Karcher K Silent Anniversary Edition Pressure Washer including ecoBooster",
+    "urlMismatch": false,
+    "reviewsScrapped": 13,
+    "averageReviewLength": 65,
+    "commonUseCases": [
+      "driveway cleaning",
+      "car washing",
+      "deck maintenance",
+      "patio cleaning",
+      "general outdoor cleaning"
+    ],
+    "positivePatterns": [
+      "quiet operation",
+      "excellent cleaning power",
+      "quality build",
+      "versatile nozzles",
+      "eco-friendly"
+    ],
+    "negativePatterns": [
+      "price point",
+      "storage size",
+      "hose management",
+      "learning curve with settings"
+    ],
+    "humanFlourishes": [
+      "weekend car wash",
+      "spring cleaning",
+      "preparing for sale"
+    ],
+    "experienceContext": [
+      "upgrade from cheaper model",
+      "professional quality for home",
+      "annual deck maintenance"
+    ],
+    "bunningsSpecificDetails": [
+      "premium Karcher quality",
+      "anniversary edition features",
+      "comprehensive kit"
+    ],
+    "ratingDistribution": {
+      "1star": 0,
+      "2star": 0,
+      "3star": 0,
+      "4star": 0,
+      "5star": 13
+    },
+    "averageRating": 5.0
   }
 }

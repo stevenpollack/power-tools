@@ -1,0 +1,185 @@
+---
+import Layout from "@/layouts/ReviewLayout.astro";
+import { Picture } from "astro:assets";
+import { ReviewCard } from "@/components/ReviewCard";
+import { getEntry, getCollection } from "astro:content";
+import type { Author, ReviewWithData } from "@/lib/types";
+
+export async function getStaticPaths() {
+  const authors = await getCollection("authors");
+  return authors.map((author: Author) => ({
+    params: { id: author.id },
+    props: { author },
+  }));
+}
+
+const { author } = Astro.props;
+
+const reviews = await getCollection(
+  "reviews",
+  (review) => review.data.author.id === author.id,
+);
+
+// Get full author and tool data for each review
+const reviewsWithData: ReviewWithData[] = await Promise.all(
+  reviews.map(async (review) => ({
+    review,
+    tool: await getEntry(review.data.tool),
+    author: await getEntry(review.data.author),
+  })),
+);
+---
+
+<Layout title={`Author Profile - ${author.data.name}`}>
+  <main class="author-profile">
+    <div class="container">
+      <div class="author-header">
+        <div class="author-image">
+          <Picture
+            src={author.data.portrait.filename}
+            alt={author.data.name}
+            width={200}
+            height={200}
+            layout="constrained"
+            class="rounded-full"
+          />
+        </div>
+
+        <div class="author-info">
+          <h1>{author.data.name}</h1>
+          <p class="author-details">
+            {author.data.nationality} -- {author.data.lifespan}
+          </p>
+          <h2 class="pb-1 font-semibold">Primary Works</h2>
+          <span class="italic">
+            {author.data.primaryWorks.join(", ")}
+          </span>
+          <h2 class="pb-1 font-semibold">Style Keywords</h2>
+          <span class="italic">
+            {author.data.styleKeywords.join(", ")}
+          </span>
+          <h2 class="pb-1 font-semibold">Literary Movement</h2>
+          <span class="italic">
+            {author.data.literaryMovement}
+          </span>
+        </div>
+      </div>
+
+      <section class="author-reviews">
+        <h2>Reviews by {author.data.name}</h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {
+            reviewsWithData.map(({ review, tool, author: reviewAuthor }) => (
+              <ReviewCard
+                client:load
+                variant="fixedHeight"
+                slug={review.data.slug}
+                dateCreated={review.data.dateCreated}
+                excerpt={review.data.excerpt}
+                toolId={tool.id}
+                toolBrand={tool.data.brand}
+                toolName={tool.data.name}
+                toolImage={tool.data.thumbnailUrl}
+                authorName={reviewAuthor.data.name}
+                mood={review.data.mood}
+                tone={review.data.tone}
+                llm={review.data.llm}
+              />
+            ))
+          }
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .author-profile {
+    padding: 2rem 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .author-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: start;
+  }
+
+  .author-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .placeholder-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .author-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .author-details {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .author-bio {
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .author-reviews {
+    border-top: 2px solid #f3f4f6;
+    padding-top: 2rem;
+  }
+
+  .author-reviews h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .placeholder {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--color-text-light);
+    font-style: italic;
+    padding: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .author-header {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .author-image {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto;
+    }
+
+    .author-info h1 {
+      font-size: 2rem;
+    }
+  }
+</style>

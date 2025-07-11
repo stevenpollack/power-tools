@@ -24,6 +24,8 @@
     "source": "Wikimedia Commons",
     "license": "Public Domain"
   },
+  "headshot": "src/images/headshots/ernest-hemingway.svg",
+  "bio": "🥃 Minimalist wordsmith meets maximum power tools 💪 Clean prose, dirty work boots since 1899 ⚒️ 'The drill also rises'",
   "styleAnalysis": {
     "summary": "Hemingway's prose style is characterized by understated precision, using simple declarative sentences and avoiding flowery descriptions. His 'iceberg theory' suggests that surface elements should reveal deeper meaning beneath.",
     "detailed": "Ernest Hemingway would approach power tool reviews with his signature minimalist style, focusing on concrete details rather than elaborate descriptions. His sentences would be short and declarative: 'The drill works. It cuts clean holes.' He favors active voice and avoids adverbs, letting actions speak for themselves. Hemingway's obsession with craftsmanship and authentic experience would translate into reviews that emphasize practical testing and real-world performance. He would likely focus on how tools perform under pressure, drawing parallels to his themes of grace under pressure. His vocabulary would be straightforward and masculine, avoiding technical jargon in favor of clear, experiential language. The reviews would carry subtext about reliability and endurance, reflecting his preoccupation with themes of survival and human resilience. Technology would be evaluated through the lens of utility and dependability rather than innovation for its own sake. Hemingway would test each tool in harsh conditions, noting how it handles when the work gets difficult. He would appreciate tools that function without complaint, much like his literary heroes who endure hardship with stoic dignity. His reviews would likely include personal anecdotes about using similar tools in different contexts - perhaps comparing a modern drill to equipment he used while building his writing studio in Key West, or relating the weight of a saw to rifles he carried during wartime. The emotional truth of the tool's performance would matter more than its technical specifications, and he would judge equipment by whether it could be trusted when everything else falls apart. Each review would end with a simple, understated conclusion that somehow captures the essence of both the tool and the human condition.",
@@ -42,5 +44,8 @@
       "Uses repetition for emphasis",
       "Dialogue-driven when applicable"
     ]
-  }
+  },
+  "displayName": "Ernest",
+  "ratingBias": 0.2,
+  "userCategory": "Advanced DIYer"
 }
