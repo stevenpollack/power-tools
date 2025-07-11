@@ -1,5 +1,6 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React from "react";
 import { ReviewCardV2React } from "./ReviewCardV2React";
+import { useMasonryWall } from "@/hooks/useMasonryWall";
 import type { ReviewWithData } from "@/lib/types";
 
 interface Props {
@@ -8,113 +9,37 @@ interface Props {
 }
 
 export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedAuthor, setSelectedAuthor] = useState("");
-  const [selectedMood, setSelectedMood] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [sortBy, setSortBy] = useState("balanced");
-  const [visibleCount, setVisibleCount] = useState(initialCount);
-
-  // Extract unique values for filter options
-  const availableAuthors = useMemo(
-    () => [...new Set(reviewsWithData.map((r) => r.author.data.name))].sort(),
-    [reviewsWithData]
-  );
-  const availableMoods = useMemo(
-    () => [...new Set(reviewsWithData.map((r) => r.review.data.mood))].sort(),
-    [reviewsWithData]
-  );
-  const availableBrands = useMemo(
-    () => [...new Set(reviewsWithData.map((r) => r.tool.data.brand))].sort(),
-    [reviewsWithData]
-  );
-
-  // Filter and sort logic
-  const filteredAndSortedReviews = useMemo(() => {
-    let filtered = reviewsWithData.filter((item) => {
-      const { review, author, tool } = item;
-
-      // Search filter
-      if (searchTerm) {
-        const searchableText = `${author.data.name} ${tool.data.name} ${tool.data.brand} ${review.data.excerpt}`.toLowerCase();
-        if (!searchableText.includes(searchTerm.toLowerCase())) return false;
-      }
-
-      // Other filters
-      if (selectedAuthor && author.data.name !== selectedAuthor) return false;
-      if (selectedMood && review.data.mood !== selectedMood) return false;
-      if (selectedBrand && tool.data.brand !== selectedBrand) return false;
-
-      return true;
-    });
-
-    // Sort reviews
-    switch (sortBy) {
-      case "newest":
-        filtered.sort((a, b) => new Date(b.review.data.dateCreated).getTime() - new Date(a.review.data.dateCreated).getTime());
-        break;
-      case "oldest":
-        filtered.sort((a, b) => new Date(a.review.data.dateCreated).getTime() - new Date(b.review.data.dateCreated).getTime());
-        break;
-      case "author-asc":
-        filtered.sort((a, b) => a.author.data.name.localeCompare(b.author.data.name));
-        break;
-      case "author-desc":
-        filtered.sort((a, b) => b.author.data.name.localeCompare(a.author.data.name));
-        break;
-      case "brand-asc":
-        filtered.sort((a, b) => a.tool.data.brand.localeCompare(b.tool.data.brand));
-        break;
-      case "brand-desc":
-        filtered.sort((a, b) => b.tool.data.brand.localeCompare(a.tool.data.brand));
-        break;
-      // 'balanced' maintains original order
-    }
-
-    return filtered;
-  }, [reviewsWithData, searchTerm, selectedAuthor, selectedMood, selectedBrand, sortBy]);
-
-  const visibleReviews = useMemo(
-    () => filteredAndSortedReviews.slice(0, visibleCount),
-    [filteredAndSortedReviews, visibleCount]
-  );
-
-  // URL state management
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (searchTerm) params.set("search", searchTerm);
-    if (selectedAuthor) params.set("author", selectedAuthor);
-    if (selectedMood) params.set("mood", selectedMood);
-    if (selectedBrand) params.set("brand", selectedBrand);
-    if (sortBy && sortBy !== "balanced") params.set("sort", sortBy);
-
-    const queryString = params.toString();
-    const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
-    window.history.pushState({}, "", newUrl);
-  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand, sortBy]);
-
-  // Initialize from URL on mount
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    setSearchTerm(params.get("search") || "");
-    setSelectedAuthor(params.get("author") || "");
-    setSelectedMood(params.get("mood") || "");
-    setSelectedBrand(params.get("brand") || "");
-    setSortBy(params.get("sort") || "balanced");
-  }, []);
-
-  // Reset visible count when filters change
-  useEffect(() => {
-    setVisibleCount(initialCount);
-  }, [searchTerm, selectedAuthor, selectedMood, selectedBrand, sortBy, initialCount]);
-
-  const handleLoadMore = () => {
-    setVisibleCount((prev) => prev + 24);
-  };
-
-  const clearSearch = () => {
-    setSearchTerm("");
-  };
+  const {
+    // Filter state
+    searchTerm,
+    setSearchTerm,
+    selectedAuthor,
+    setSelectedAuthor,
+    selectedMood,
+    setSelectedMood,
+    selectedBrand,
+    setSelectedBrand,
+    sortOrder,
+    setSortOrder,
+    
+    // Computed results
+    filteredReviews,
+    visibleReviews,
+    availableAuthors,
+    availableMoods,
+    availableBrands,
+    
+    // Pagination
+    visibleCount,
+    handleLoadMore,
+    
+    // Utility actions
+    clearSearch,
+  } = useMasonryWall({
+    reviewsWithData,
+    initialCount,
+    enableTimeSort: false, // V2 doesn't support time-based sorting
+  });
 
   return (
     <div id="masonry-wall-v2">
@@ -198,8 +123,8 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
               </select>
 
               <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value as any)}
                 className="rounded-md border border-bunnings-neutral-medium-gray px-3 py-1 text-sm focus:border-bunnings-secondary-green focus:outline-none"
               >
                 <option value="balanced">Sort by: Balanced Mix</option>
@@ -216,8 +141,8 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
           {/* Results Count */}
           <div className="mt-2">
             <p className="text-sm text-bunnings-neutral-medium-gray">
-              Showing {visibleReviews.length} of {filteredAndSortedReviews.length} reviews
-              {filteredAndSortedReviews.length !== reviewsWithData.length && " (filtered)"}
+              Showing {visibleReviews.length} of {filteredReviews.length} reviews
+              {filteredReviews.length !== reviewsWithData.length && " (filtered)"}
             </p>
           </div>
         </div>
@@ -225,7 +150,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
 
       {/* Masonry Grid */}
       <div className="mx-auto max-w-7xl px-4 py-8">
-        {filteredAndSortedReviews.length === 0 ? (
+        {filteredReviews.length === 0 ? (
           <div className="min-h-96 flex items-center justify-center">
             <div className="text-center">
               <p className="mb-2 text-lg text-bunnings-neutral-medium-gray">
@@ -259,7 +184,7 @@ export function MasonryWallV2({ reviewsWithData, initialCount = 24 }: Props) {
       </div>
 
       {/* Load More Button */}
-      {visibleCount < filteredAndSortedReviews.length && (
+      {visibleCount < filteredReviews.length && (
         <div className="pb-16 text-center">
           <button
             onClick={handleLoadMore}
