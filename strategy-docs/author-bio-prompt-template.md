@@ -49,10 +49,11 @@ This template should be used to generate bios that will be stored directly in th
 ### **Author Context for Bio Generation**
 
 When generating bios, consider:
+
 - **Famous Works**: Their most well-known literary pieces
 - **Writing Style**: Minimalist, verbose, experimental, etc.
 - **Historical Context**: Time period and cultural background
 - **Personality Traits**: Wit, melancholy, optimism, etc.
 - **Literary Movement**: Romanticism, Modernism, Victorian, etc.
 
-The bio should capture the essence of who they were as writers while imagining them as enthusiastic tool reviewers in the modern Bunnings context. 
+The bio should capture the essence of who they were as writers while imagining them as enthusiastic tool reviewers in the modern Bunnings context.
