@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/stevenpollack/power-tools/compare/v2.0.0...v3.0.0) (2025-07-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* change from {route}/v1 to v1/{route} ...
+
+### Code Refactoring
+
+* change from {route}/v1 to v1/{route} ... ([6bf3d3c](https://github.com/stevenpollack/power-tools/commit/6bf3d3ccdafb9d45aa7cf513db0ad044b1e5fb04))
+
 ## [2.0.0](https://github.com/stevenpollack/power-tools/compare/v1.5.1...v2.0.0) (2025-07-11)
 
 
