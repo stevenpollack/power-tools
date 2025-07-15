@@ -1,5 +1,5 @@
 ---
-import Layout from "../../../layouts/ReviewLayout.astro";
+import Layout from "@/layouts/ReviewLayout.astro";
 import { getCollection, getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import { ReviewCard } from "@/components/ReviewCard";
@@ -18,14 +18,14 @@ export async function getStaticPaths() {
 const { tool }: { tool: Tool } = Astro.props;
 
 const reviews = (await getCollection("reviews")).filter(
-  (review) => review.data.tool.id === tool.id,
+  (review) => review.data.tool.id === tool.id
 );
 
 const reviewsWithData: Omit<ReviewWithData, "tool">[] = await Promise.all(
   reviews.map(async (review) => ({
     review,
     author: await getEntry(review.data.author),
-  })),
+  }))
 );
 
 const { name, brand, specifications } = tool.data;

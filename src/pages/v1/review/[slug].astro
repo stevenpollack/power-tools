@@ -1,6 +1,6 @@
 ---
 import { render, getCollection } from "astro:content";
-import Layout from "../../../layouts/ReviewLayout.astro";
+import Layout from "@/layouts/ReviewLayout.astro";
 import { getEntry } from "astro:content";
 import { Picture } from "astro:assets";
 import { ShareButtons } from "@/components/ShareButtons";
@@ -30,7 +30,7 @@ const relatedReviewsRaw = allReviews
     (r) =>
       r.data.slug !== review.data.slug &&
       (r.data.author.id === review.data.author.id ||
-        r.data.tool.id === review.data.tool.id),
+        r.data.tool.id === review.data.tool.id)
   )
   .slice(0, 10);
 
@@ -39,7 +39,7 @@ const relatedReviews: ReviewWithData[] = await Promise.all(
     review: r,
     author: await getEntry(r.data.author),
     tool: await getEntry(r.data.tool),
-  })),
+  }))
 );
 ---
 
