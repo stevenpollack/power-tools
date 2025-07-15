@@ -1,0 +1,495 @@
+---
+import Layout from "@/layouts/Layout-v2.astro";
+---
+
+<style>
+  .heading-anchor {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .heading-anchor:hover {
+    text-decoration: none;
+  }
+
+  .heading-anchor::after {
+    content: "🔗";
+    margin-left: 0.5rem;
+    font-weight: normal;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .heading-anchor::after {
+      right: -1.2rem;
+      font-size: 0.8em;
+    }
+  }
+</style>
+<Layout title="About">
+  <div class="mx-auto max-w-4xl px-4 py-6 leading-relaxed md:px-6 md:py-8">
+    <!-- Hero Section -->
+    <header class="mb-12 text-center">
+      <h1
+        class="text-bunnings-secondary-green mb-4 text-3xl font-bold md:text-4xl lg:text-5xl"
+      >
+        About <span class="font-mono">pwrtools.lol</span>
+      </h1>
+
+      <blockquote
+        class="border-bunnings-primary-orange bg-bunnings-neutral-light-gray mx-auto mb-6 max-w-3xl rounded-lg border-l-4 p-4 md:p-6"
+      >
+        <p class="text-left text-sm italic md:text-base">
+          What would <span class="font-mono">DEAD_AUTHOR</span> have written, if
+          they were offered a $10 Amazon gift card for a product review?
+        </p>
+        <p class="mt-2 text-right text-sm md:text-base">
+          <cite>-No one, ever.</cite>
+        </p>
+      </blockquote>
+    </header>
+
+    <!-- The Concept Section -->
+    <section id="concept" class="mb-12">
+      <h2
+        class="border-bunnings-primary-orange text-bunnings-secondary-green mb-6 border-b-2 pb-2 text-xl font-bold md:text-2xl lg:text-3xl"
+      >
+        <a href="#concept" class="heading-anchor">The Concept</a>
+      </h2>
+
+      <p class="mb-6 text-base md:text-lg">
+        The premise for this site came from a simple tweet:
+      </p>
+
+      <blockquote
+        class="border-bunnings-primary-orange bg-bunnings-neutral-light-gray mb-6 rounded-lg border-l-4 p-4 md:p-6"
+      >
+        <p class="mb-4 text-base italic md:text-lg">
+          I don't think we're ready for the wave of power tool reviews generated
+          with the prompts like:
+        </p>
+        <code class="block text-xs leading-relaxed md:text-sm">
+          You are Ernest Hemingway, the famous American author and war veteran.<br
+          />
+          You have just discovered the Black & Decker CT2000 Hedge Trimmer (skin
+          only).<br />
+          Your task is to leave a review on homedepot.com highlighting your experience
+          with the tool. Your review should include details such as<br />
+          - how difficult it was to find a parking spot<br />
+          - how impressed you were with the relatively little amount of packaging
+          you had to deal with to remove the tool<br />
+          - the fact that this tool was made in America<br />
+          - the speed in which you were able to trim the numerous hedges that line
+          your property<br />
+          - the good ergonomics of the machine<br />
+          Please write this review in the style that high school students across
+          America have come to recognize as "quintessential Hemingway".<br />
+          Feel free to compare the concept of masculine identity before and after
+          the tool's acquisition.
+        </code>
+      </blockquote>
+
+      <div class="space-y-4">
+        <p class="text-base font-medium md:text-lg">
+          A friend replied:
+          <br />
+          <q class="text-bunnings-secondary-green text-lg font-bold md:text-xl">
+            Powerful tool purchased by powerful tool.
+          </q>
+        </p>
+        <p class="text-base md:text-lg">And that was enough encouragement.</p>
+        <p class="text-base md:text-lg">
+          What started as a humorous concept quickly evolved into a
+          sophisticated parody that aims to combine authentic literary voices
+          with genuine tool expertise, creating something genuinely entertaining
+          (and maybe even surprisingly useful).
+        </p>
+      </div>
+    </section>
+
+    <!-- The Experiment Section -->
+    <section id="experiment" class="mb-12">
+      <h2
+        class="border-bunnings-primary-orange text-bunnings-secondary-green mb-6 border-b-2 pb-2 text-xl font-bold md:text-2xl lg:text-3xl"
+      >
+        <a href="#experiment" class="heading-anchor">The Experiment</a>
+      </h2>
+
+      <div class="mb-8 space-y-6">
+        <p class="text-base md:text-lg">
+          While the original joke focused on Hemingway, the planning phase
+          (somehow) convinced me to expand the set to 12 authors. The criteria
+          was basically:
+        </p>
+
+        <ul class="ml-4 list-inside list-disc space-y-2 text-base md:text-lg">
+          <li>The author must be dead.</li>
+          <li>Their works must be available via Project Gutenberg.</li>
+          <li>The set must include Ernest Hemingway and Ayn Rand.</li>
+        </ul>
+
+        <p class="text-base md:text-lg">
+          From there, the idea was to have "The Robot" (Claude, Gemini, etc.),
+          select the authors that satisfied the criteria, and also presented the
+          widest variety of styles.
+        </p>
+
+        <p class="text-base md:text-lg">
+          To capture the styles, I had The Robot ingest multiple books from each
+          author (via Project Gutenberg), and summarize their style in a few
+          sentences (so that another LLM could use that to seed a review).
+        </p>
+
+        <p class="text-base md:text-lg">
+          I later had Claude try and assume the roles of each author (given the
+          metadata we had created) and write themselves a social media bio that
+          tried to capture the writer's style (while also making them seem like
+          the most basic of bitches). Some examples:
+        </p>
+      </div>
+
+      <!-- Author Showcase -->
+      <div
+        class="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3"
+      >
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-2 text-lg font-bold">
+            Ernest Hemingway
+          </h3>
+          <p class="mb-3 text-sm italic md:text-base">
+            "🥃 Minimalist wordsmith meets maximum power tools 💪 'The drill
+            also rises'"
+          </p>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            <strong>Style:</strong> Spare, understated prose. "The drill works. It
+            cuts clean holes. Good."
+          </p>
+        </article>
+
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-2 text-lg font-bold">
+            Charles Dickens
+          </h3>
+          <p class="mb-3 text-sm italic md:text-base">
+            "📖 Victorian novelist crafting epic tool tales 🔧 'It was the best
+            of drills, it was the worst of drills'"
+          </p>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            <strong>Style:</strong> Elaborate humanitarian tales with colorful workshop
+            characters and social commentary.
+          </p>
+        </article>
+
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-2 text-lg font-bold">
+            Franz Kafka
+          </h3>
+          <p class="mb-3 text-sm italic md:text-base">
+            "📚 Existential writer turned tool reviewer ⚡️ 'The power drill
+            chooses you'"
+          </p>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            <strong>Style:</strong> Surreal bureaucratic landscapes where drill manuals
+            become existential documents.
+          </p>
+        </article>
+      </div>
+
+      <div class="mb-8 flex justify-center">
+        <a
+          href="/authors"
+          class="bg-bunnings-primary-orange inline-block rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600 md:px-6 md:py-3 md:text-base"
+        >
+          Explore All Authors →
+        </a>
+      </div>
+
+      <div class="space-y-6">
+        <p class="text-base md:text-lg">
+          The first iteration of this site yielded over 400 reviews (every
+          author reviewed every tool); however, the tone of the reviews was
+          strangely promotional and unsurprisingly repetitive. They worked as a
+          proof-of-concept, but it was clear that some prompt-tuning could yield
+          something better.
+        </p>
+
+        <p class="text-base md:text-lg">
+          After my partner remarked at the UX of this site was a bit confusing,
+          and the viewer would benefit from more "commitment to the bit", I
+          decided to follow her advice and redesign the site and the process
+          behind the review generation.
+        </p>
+
+        <p class="text-base md:text-lg">
+          The new site -- what you're looking at right now -- is meant to be a
+          far more coherent experience, predicated upon the viewer's familiarity
+          with hardware store websites. (Experience with Bunnings Warehouse is
+          nice to have, but really any tool e-tailer will do.)
+        </p>
+
+        <div class="text-base md:text-lg">
+          <p class="mb-4">
+            The review generating process is now more author-dependent:
+          </p>
+          <ul class="ml-4 list-inside list-disc space-y-2">
+            <li>
+              Instead of all author's shooting for 200-300 words (for example),
+              authors have different expected word counts, appropriate to their
+              iconic styles.
+            </li>
+            <li>
+              Now, author's have a "bias" in their tool ratings, so that their
+              reviews would be more like a real review left on a website. Not
+              all authors assign 5 stars. Kafka, for instance, is inherently
+              pessimistic.
+            </li>
+            <li>
+              Human flourishes are now an explicit part of the review-generating
+              prompt. In addition to being guided to write reviews that are more
+              anecdotal than promotional, the prompt includes touches like
+              imaginary interactions with Bunnings staff.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Evolution Story -->
+    <section id="evolution" class="mb-12">
+      <h2
+        class="border-bunnings-primary-orange text-bunnings-secondary-green mb-6 border-b-2 pb-2 text-xl font-bold md:text-2xl lg:text-3xl"
+      >
+        <a href="#evolution" class="heading-anchor"
+          >The Evolution: From Concept to Bunnings</a
+        >
+      </h2>
+
+      <div class="space-y-6">
+        <p class="text-base md:text-lg">
+          I've already written about the process that went into the first
+          iteration of this site, and you can read about that
+          <a
+            href="/v1/about#the-process"
+            class="text-bunnings-secondary-green underline hover:text-green-700"
+            >here</a
+          >.
+        </p>
+
+        <p class="text-base md:text-lg">
+          In an effort to make this project even more transparent, I tried to
+          "self-document" as much of the ideation and code creation as possible
+          through saved prompts. I'll continue doing this, so if you ever want
+          to see what was fed to The Robot, check out
+          <a
+            href="https://github.com/stevenpollack/power-tools/tree/main/strategy-docs/archive"
+            class="text-bunnings-secondary-green break-all underline hover:text-green-700"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github://stevenpollack/power-tools/strategy-docs/archive
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Robot Generated Notice -->
+    <aside
+      id="robot-notice"
+      class="border-bunnings-primary-orange bg-bunnings-neutral-light-gray mb-8 space-y-2 rounded-lg border-l-4 p-4 md:p-6"
+    >
+      <p class="text-base md:text-lg">
+        The rest of this page was generated by The Robot.
+      </p>
+      <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+        I don't know why, but it decided to avoid first-person pronouns and opt
+        for we/us...
+      </p>
+      <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+        To be clear, there is no "we" behind this -- as of 2025-07-15 -- it's
+        just a single person (and a Robot assistant).
+      </p>
+    </aside>
+
+    <!-- Current Experience -->
+    <section id="current-experience" class="mb-12">
+      <h2
+        class="border-bunnings-primary-orange text-bunnings-secondary-green mb-6 border-b-2 pb-2 text-xl font-bold md:text-2xl lg:text-3xl"
+      >
+        <a href="#current-experience" class="heading-anchor"
+          >Robot-generated Copy</a
+        >
+      </h2>
+
+      <p class="mb-8 text-base md:text-lg">
+        Today's site combines <strong
+          >professional Bunnings-inspired design</strong
+        >
+        with <strong>genuinely entertaining literary content</strong>. The
+        experience feels like browsing a real hardware store catalog, if that
+        catalog happened to be written by history's greatest authors.
+      </p>
+
+      <div class="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-3 text-lg font-bold">
+            Smart Discovery
+          </h3>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            Filter by author voice, tool category, or search specific tools.
+            Advanced masonry layout with intelligent sorting ensures you always
+            find something entertaining.
+          </p>
+        </article>
+
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-3 text-lg font-bold">
+            Authentic Reviews
+          </h3>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            Each review includes realistic project contexts, Bunnings shopping
+            experiences, and honest tool performance assessments—just filtered
+            through literary genius.
+          </p>
+        </article>
+
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-3 text-lg font-bold">
+            Mobile Optimized
+          </h3>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            Lightning-fast page loads, responsive design, and touch-friendly
+            interactions. 40% performance improvement over v1 with server-side
+            rendering.
+          </p>
+        </article>
+
+        <article
+          class="border-bunnings-neutral-medium-gray rounded-lg border bg-white p-4 md:p-6"
+        >
+          <h3 class="text-bunnings-secondary-green mb-3 text-lg font-bold">
+            Professional Polish
+          </h3>
+          <p class="text-bunnings-neutral-dark-gray text-sm md:text-base">
+            Bunnings-accurate color schemes, typography, and UI patterns create
+            an authentic hardware store aesthetic without losing the
+            entertainment value.
+          </p>
+        </article>
+      </div>
+
+      <div class="text-center">
+        <h3
+          class="text-bunnings-secondary-green mb-4 text-lg font-bold md:text-xl"
+        >
+          Ready to explore?
+        </h3>
+        <div class="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
+          <a
+            href="/"
+            class="bg-bunnings-primary-orange inline-block rounded-lg px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-600 md:px-6 md:py-3 md:text-base"
+          >
+            Browse Reviews
+          </a>
+          <a
+            href="/authors"
+            class="border-bunnings-secondary-green text-bunnings-secondary-green hover:bg-bunnings-neutral-light-gray inline-block rounded-lg border-2 bg-white px-4 py-2 text-sm font-medium transition-colors md:px-6 md:py-3 md:text-base"
+          >
+            Meet the Authors
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Behind the Scenes -->
+    <section id="behind-the-scenes" class="mb-12">
+      <h2
+        class="border-bunnings-primary-orange text-bunnings-secondary-green mb-6 border-b-2 pb-2 text-xl font-bold md:text-2xl lg:text-3xl"
+      >
+        <a href="#behind-the-scenes" class="heading-anchor">Behind the Scenes</a
+        >
+      </h2>
+
+      <div class="space-y-6">
+        <p class="text-base md:text-lg">
+          This project represents a unique intersection of literary
+          appreciation, technical craftsmanship, and Australian hardware
+          culture. Built with
+          <strong>Astro v5</strong>, <strong>React</strong>, and <strong
+            >Tailwind CSS</strong
+          >, the site demonstrates that parody can be both entertaining and
+          technically excellent.
+        </p>
+
+        <p class="text-base md:text-lg">
+          The code is open source, the process is documented, and the absurdity
+          is intentional. We believe in the joy of well-executed ideas, no
+          matter how ridiculous the premise.
+        </p>
+      </div>
+
+      <!-- Contact & Links -->
+      <div class="bg-bunnings-neutral-light-gray mt-8 rounded-lg p-4 md:p-6">
+        <h3
+          class="text-bunnings-secondary-green mb-4 text-lg font-bold md:text-xl"
+        >
+          Get Involved
+        </h3>
+        <p class="mb-6 text-base md:text-lg">
+          Missing your favorite power tool or author? Found a bug? Want to
+          contribute? We'd love to hear from you:
+        </p>
+
+        <div class="space-y-4">
+          <a
+            href="https://github.com/stevenpollack/power-tools"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-bunnings-secondary-green flex items-center gap-3 transition-colors hover:text-green-700"
+          >
+            <span class="text-lg md:text-xl">🔧</span>
+            <span class="text-sm font-medium md:text-base"
+              >View the code on GitHub</span
+            >
+          </a>
+
+          <a
+            href="https://github.com/stevenpollack/power-tools/issues/new/choose"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-bunnings-secondary-green flex items-center gap-3 transition-colors hover:text-green-700"
+          >
+            <span class="text-lg md:text-xl">🐛</span>
+            <span class="text-sm font-medium md:text-base"
+              >Report an issue or request a feature</span
+            >
+          </a>
+
+          <a
+            href="mailto:steep.ship0287@fastmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-bunnings-secondary-green flex items-center gap-3 transition-colors hover:text-green-700"
+          >
+            <span class="text-lg md:text-xl">✉️</span>
+            <span class="text-sm font-medium md:text-base"
+              >Send us an email</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
