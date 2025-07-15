@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.0](https://github.com/stevenpollack/power-tools/compare/v3.0.0...v3.1.0) (2025-07-15)
+
+
+### Features
+
+* add new about page detailing project evolution and author reviews ([7280166](https://github.com/stevenpollack/power-tools/commit/72801668a91a843953b25b96860fcbfc3196260d))
+* update header navigation to include 'About' section with new icon and restructure links for improved clarity ([d0cf8b8](https://github.com/stevenpollack/power-tools/commit/d0cf8b8332784fe1832716cadc7efb5e382be79a))
+
 ## [3.0.0](https://github.com/stevenpollack/power-tools/compare/v2.0.0...v3.0.0) (2025-07-15)
 
 
